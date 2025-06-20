@@ -72,12 +72,12 @@ export default function Home() {
           <div className="text-center mb-16">
             <Logo />
             <div className="mt-8">
-              {/* Main title without gradient - just white */}
-              <h1 className="text-white text-5xl md:text-6xl gradient-text lg:text-7xl font-bold mb-8">
+              {/* Main title with proper padding to avoid clipping */}
+              <h1 className="text-white text-5xl md:text-6xl gradient-text lg:text-7xl font-bold mb-8 px-2">
                 Coming soon.
               </h1>
               
-              <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+              <p className="text-gray-400 text-base md:text-xl max-w-2xl mx-auto leading-6 md:leading-relaxed">
                 Forget themes & plugins : Liquidfy now revolutionize your high converting ecommerce experience with unlimited usage.
               </p>
             </div>

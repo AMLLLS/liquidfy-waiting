@@ -195,22 +195,22 @@ export default function AppPreview() {
           </motion.div>
         </div>
 
-        {/* Decorative arrow between columns - desktop only */}
+        {/* Decorative arrow between columns - desktop only - positioned with higher z-index */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="hidden lg:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10"
+          className="hidden lg:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30 pointer-events-none"
         >
-          <div className="glass-effect rounded-full p-4 border border-primary-500/30">
+          <div className="glass-effect rounded-full p-3 border border-primary-500/40 bg-gray-900/80 backdrop-blur-sm shadow-xl">
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
-              width="32" 
-              height="32" 
+              width="28" 
+              height="28" 
               viewBox="0 0 24 24" 
               fill="none" 
               stroke="currentColor" 
-              strokeWidth="2" 
+              strokeWidth="2.5" 
               strokeLinecap="round" 
               strokeLinejoin="round" 
               className="text-primary-400"
