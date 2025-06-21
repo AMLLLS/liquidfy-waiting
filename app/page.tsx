@@ -73,7 +73,7 @@ export default function Home() {
             <Logo />
             <div className="mt-8">
               {/* Main title with proper padding to avoid clipping */}
-              <h1 className="text-white text-5xl md:text-6xl gradient-text lg:text-7xl font-bold mb-8 px-2">
+              <h1 className="text-white text-5xl md:text-6xl gradient-text lg:text-7xl font-bold mb-8 px-2 pb-2">
                 Coming soon.
               </h1>
               
