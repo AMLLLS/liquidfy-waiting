@@ -106,52 +106,52 @@ export default function ModuleSlider() {
               <motion.div
                 key={`${module.id}-${index}`}
                 className="flex-shrink-0 w-48 md:w-56 relative group"
-                whileHover={{ 
-                  scale: 1.05,
-                  y: -8
-                }}
-                transition={{ 
-                  duration: 0.3,
-                  type: "spring",
-                  stiffness: 300
-                }}
+                {...(typeof window !== 'undefined' && window.innerWidth >= 1024 ? {
+                  whileHover: { 
+                    scale: 1.05,
+                    y: -8
+                  },
+                  transition: { 
+                    duration: 0.3,
+                    type: "spring",
+                    stiffness: 300
+                  }
+                } : {})}
               >
                 {/* Module card with modern design */}
-                <div className={`relative w-full h-40 md:h-44 glass-effect rounded-2xl overflow-hidden border ${module.borderColor} hover:border-opacity-60 transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-primary-500/10`}>
+                <div className={`relative w-full h-40 md:h-44 glass-effect rounded-2xl overflow-hidden border ${module.borderColor} lg:hover:border-opacity-60 transition-all duration-300 lg:group-hover:shadow-2xl lg:group-hover:shadow-primary-500/10`}>
                   {/* Module image with 16:9 aspect ratio */}
                   <div className="relative w-full h-24 md:h-28 overflow-hidden">
-                    <Image
-                      src={module.image}
-                      alt={module.name}
-                      fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-110"
-                      onError={(e) => {
-                        // Fallback to placeholder if image doesn't exist
-                        const target = e.target as HTMLImageElement;
-                        target.src = '/previewappm1.png';
-                      }}
-                    />
-                    {/* Overlay gradient */}
-                    <div className={`absolute inset-0 bg-gradient-to-t ${module.gradient} opacity-60`} />
+                                          <Image
+                        src={module.image}
+                        alt={module.name}
+                        fill
+                        className="object-cover transition-transform duration-300 lg:group-hover:scale-110"
+                        onError={(e) => {
+                          // Fallback to placeholder if image doesn't exist
+                          const target = e.target as HTMLImageElement;
+                          target.src = '/previewappm1.png';
+                        }}
+                      />
                   </div>
                   
                   {/* Content below image */}
                   <div className="relative z-10 p-4 h-16 md:h-16 flex flex-col justify-center">
                     <div className="text-center">
-                      <h3 className="text-white font-semibold text-sm md:text-base mb-1 group-hover:text-primary-200 transition-colors duration-300 leading-tight">
+                      <h3 className="text-white font-semibold text-sm md:text-base mb-1 lg:group-hover:text-primary-200 transition-colors duration-300 leading-tight">
                         {module.name}
                       </h3>
-                      <p className="text-gray-400 text-xs leading-tight group-hover:text-gray-300 transition-colors duration-300">
+                      <p className="text-gray-400 text-xs leading-tight lg:group-hover:text-gray-300 transition-colors duration-300">
                         {module.description}
                       </p>
                     </div>
                   </div>
                   
-                  {/* Hover glow effect */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  {/* Hover glow effect - desktop only */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-white/5 to-transparent opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300" />
                   
-                  {/* Animated border */}
-                  <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" 
+                  {/* Animated border - desktop only */}
+                  <div className="absolute inset-0 rounded-2xl opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300" 
                        style={{
                          background: `linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%)`,
                          backgroundSize: '200% 200%',
