@@ -126,7 +126,7 @@ export default function ModuleSlider() {
                         src={module.image}
                         alt={module.name}
                         fill
-                        className="object-cover transition-transform duration-300 lg:group-hover:scale-110"
+                        className="object-cover"
                         onError={(e) => {
                           // Fallback to placeholder if image doesn't exist
                           const target = e.target as HTMLImageElement;

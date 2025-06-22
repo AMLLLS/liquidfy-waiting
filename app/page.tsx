@@ -77,9 +77,45 @@ export default function Home() {
                 Coming soon.
               </h1>
               
-              <p className="text-gray-400 text-base md:text-xl max-w-2xl mx-auto leading-6 md:leading-relaxed">
+              <p className="text-gray-400 text-base md:text-xl max-w-2xl mx-auto leading-6 md:leading-relaxed mb-8 md:mb-12">
                 Forget themes & plugins : Liquidfy now revolutionize your high converting ecommerce experience with unlimited usage.
               </p>
+              
+              {/* Discover button with animated arrow */}
+              <motion.button
+                onClick={() => {
+                  const meetSection = document.getElementById('meet-liquidfy');
+                  meetSection?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+                className="group flex flex-col items-center gap-2 mx-auto hover:scale-105 transition-transform duration-300 cursor-pointer"
+              >
+                <span className="text-xs md:text-sm font-semibold text-gray-500 uppercase tracking-wider group-hover:text-primary-400 transition-colors duration-300">
+                  Discover
+                </span>
+                <motion.div
+                  animate={{ 
+                    y: [0, -8, 0]
+                  }}
+                  transition={{ 
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                  className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 flex items-center justify-center group-hover:bg-primary-500/20 group-hover:border-primary-500/30 transition-all duration-300"
+                >
+                  <svg 
+                    className="w-4 h-4 md:w-5 md:h-5 text-gray-400 group-hover:text-primary-400 transition-colors duration-300" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                  </svg>
+                </motion.div>
+              </motion.button>
             </div>
           </div>
         </div>
