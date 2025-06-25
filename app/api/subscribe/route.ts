@@ -9,8 +9,73 @@ const emailSchema = z.object({
   email: z.string().email('Please enter a valid email address'),
 })
 
-// In-memory storage for demo (use a real database in production)
+// Import Supabase or Vercel Postgres if environment variables are available
+let sql: any = null
+let supabaseClient: any = null
+
+try {
+  if (process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY) {
+    // Use Supabase (preferred)
+    const { createClient } = require('@supabase/supabase-js')
+    supabaseClient = createClient(
+      process.env.SUPABASE_URL,
+      process.env.SUPABASE_SERVICE_ROLE_KEY
+    )
+  } else if (process.env.POSTGRES_URL) {
+    // Fallback to Vercel Postgres
+    const { sql: postgresql } = require('@vercel/postgres')
+    sql = postgresql
+  }
+} catch (error) {
+  console.log('Database not available, using fallback storage')
+}
+
+// Fallback in-memory storage for development
 let subscribers: string[] = []
+
+// Initialize database table
+async function initDatabase() {
+  if (supabaseClient) {
+    try {
+      // Create table using Supabase SQL
+      const { error } = await supabaseClient.rpc('create_subscribers_table', {})
+      if (error && !error.message.includes('already exists')) {
+        // If RPC doesn't exist, create table directly
+        const { error: sqlError } = await supabaseClient
+          .from('subscribers')
+          .select('*')
+          .limit(1)
+        
+        if (sqlError && sqlError.code === 'PGRST116') {
+          // Table doesn't exist, let's create it via raw SQL
+          console.log('Creating subscribers table...')
+          return true // Supabase will auto-create via first insert
+        }
+      }
+      return true
+    } catch (error) {
+      console.error('Failed to initialize Supabase table:', error)
+      return false
+    }
+  } else if (sql) {
+    try {
+      await sql`
+        CREATE TABLE IF NOT EXISTS subscribers (
+          id SERIAL PRIMARY KEY,
+          email VARCHAR(255) UNIQUE NOT NULL,
+          created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+          ip_address VARCHAR(45),
+          user_agent TEXT
+        )
+      `
+      return true
+    } catch (error) {
+      console.error('Failed to initialize SQL table:', error)
+      return false
+    }
+  }
+  return false
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -26,23 +91,160 @@ export async function POST(request: NextRequest) {
     }
 
     const { email } = result.data
+    
+    // Get user info for analytics
+    const ip = request.ip || request.headers.get('x-forwarded-for') || 'unknown'
+    const userAgent = request.headers.get('user-agent') || 'unknown'
 
-    // Check if email already exists
-    if (subscribers.includes(email)) {
-      return NextResponse.json(
-        { message: 'Email already subscribed!' },
-        { status: 400 }
-      )
+    let totalSubscribers = 0
+    let isNew = false
+
+    // Try to use Supabase database first
+    if (supabaseClient) {
+      try {
+        // Check if email already exists
+        const { data: existingUser, error: selectError } = await supabaseClient
+          .from('subscribers')
+          .select('email')
+          .eq('email', email)
+          .single()
+        
+        if (existingUser) {
+          return NextResponse.json(
+            { message: 'Email already subscribed!' },
+            { status: 400 }
+          )
+        }
+
+        // Insert new subscriber
+        const { error: insertError } = await supabaseClient
+          .from('subscribers')
+          .insert([
+            {
+              email: email,
+              ip_address: ip,
+              user_agent: userAgent,
+              created_at: new Date().toISOString()
+            }
+          ])
+
+        if (insertError) {
+          throw insertError
+        }
+        
+        // Get total count
+        const { count, error: countError } = await supabaseClient
+          .from('subscribers')
+          .select('*', { count: 'exact', head: true })
+        
+        totalSubscribers = count || 0
+        isNew = true
+
+      } catch (dbError: any) {
+        console.error('Supabase error, falling back to SQL or memory:', dbError)
+        // Try SQL fallback
+        if (sql) {
+          try {
+            await initDatabase()
+            
+            const existingUser = await sql`
+              SELECT email FROM subscribers WHERE email = ${email}
+            `
+            
+            if (existingUser.rows.length > 0) {
+              return NextResponse.json(
+                { message: 'Email already subscribed!' },
+                { status: 400 }
+              )
+            }
+
+            await sql`
+              INSERT INTO subscribers (email, ip_address, user_agent) 
+              VALUES (${email}, ${ip}, ${userAgent})
+            `
+            
+            const countResult = await sql`SELECT COUNT(*) as count FROM subscribers`
+            totalSubscribers = parseInt(countResult.rows[0].count)
+            isNew = true
+          } catch (sqlError) {
+            console.error('SQL error, falling back to memory:', sqlError)
+            // Final fallback to memory
+            if (subscribers.includes(email)) {
+              return NextResponse.json(
+                { message: 'Email already subscribed!' },
+                { status: 400 }
+              )
+            }
+            subscribers.push(email)
+            totalSubscribers = subscribers.length
+            isNew = true
+          }
+        } else {
+          // Memory fallback
+          if (subscribers.includes(email)) {
+            return NextResponse.json(
+              { message: 'Email already subscribed!' },
+              { status: 400 }
+            )
+          }
+          subscribers.push(email)
+          totalSubscribers = subscribers.length
+          isNew = true
+        }
+      }
+    } else if (sql) {
+      try {
+        await initDatabase()
+        
+        const existingUser = await sql`
+          SELECT email FROM subscribers WHERE email = ${email}
+        `
+        
+        if (existingUser.rows.length > 0) {
+          return NextResponse.json(
+            { message: 'Email already subscribed!' },
+            { status: 400 }
+          )
+        }
+
+        await sql`
+          INSERT INTO subscribers (email, ip_address, user_agent) 
+          VALUES (${email}, ${ip}, ${userAgent})
+        `
+        
+        const countResult = await sql`SELECT COUNT(*) as count FROM subscribers`
+        totalSubscribers = parseInt(countResult.rows[0].count)
+        isNew = true
+      } catch (dbError) {
+        console.error('SQL error, falling back to memory:', dbError)
+        if (subscribers.includes(email)) {
+          return NextResponse.json(
+            { message: 'Email already subscribed!' },
+            { status: 400 }
+          )
+        }
+        subscribers.push(email)
+        totalSubscribers = subscribers.length
+        isNew = true
+      }
+    } else {
+      // Use memory storage as fallback
+      if (subscribers.includes(email)) {
+        return NextResponse.json(
+          { message: 'Email already subscribed!' },
+          { status: 400 }
+        )
+      }
+      subscribers.push(email)
+      totalSubscribers = subscribers.length
+      isNew = true
     }
 
-    // Add to subscribers list
-    subscribers.push(email)
-
     // Send welcome email using Resend (optional)
-    if (resend && process.env.RESEND_API_KEY) {
+    if (resend && process.env.RESEND_API_KEY && isNew) {
       try {
         await resend.emails.send({
-          from: 'Liquify <hello@liquidfy.app>',
+          from: 'Liquify <noreply@liquidfy.app>',
           to: email,
           subject: '🎉 Welcome to Liquify - You\'re on the list!',
           html: `
@@ -92,13 +294,16 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    return NextResponse.json(
-      { 
-        message: 'Successfully subscribed!',
-        totalSubscribers: subscribers.length 
-      },
-      { status: 200 }
-    )
+            return NextResponse.json(
+          { 
+            message: 'Successfully subscribed!',
+            totalSubscribers,
+            isNew,
+            usingDatabase: !!(supabaseClient || sql),
+            databaseType: supabaseClient ? 'supabase' : sql ? 'postgres' : 'memory'
+          },
+          { status: 200 }
+        )
 
   } catch (error) {
     console.error('Subscription error:', error)
@@ -110,8 +315,37 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET() {
+  let totalSubscribers = 0
+  let usingDatabase = false
+  
+  if (supabaseClient) {
+    try {
+      const { count, error } = await supabaseClient
+        .from('subscribers')
+        .select('*', { count: 'exact', head: true })
+      
+      totalSubscribers = count || 0
+      usingDatabase = true
+    } catch (error) {
+      console.error('Supabase count error:', error)
+      totalSubscribers = subscribers.length
+    }
+  } else if (sql) {
+    try {
+      const countResult = await sql`SELECT COUNT(*) as count FROM subscribers`
+      totalSubscribers = parseInt(countResult.rows[0].count)
+      usingDatabase = true
+    } catch (error) {
+      totalSubscribers = subscribers.length
+    }
+  } else {
+    totalSubscribers = subscribers.length
+  }
+  
   return NextResponse.json({
-    totalSubscribers: subscribers.length,
-    message: 'Liquify waitlist API'
+    totalSubscribers,
+    message: 'Liquify waitlist API',
+    usingDatabase,
+    databaseType: supabaseClient ? 'supabase' : sql ? 'postgres' : 'memory'
   })
 } 

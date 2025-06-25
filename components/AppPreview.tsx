@@ -5,7 +5,11 @@ import Image from 'next/image'
 import { useState } from 'react'
 
 // Secure Email Form Component
-function SecureEmailForm() {
+interface EmailFormProps {
+  onSuccess: () => void
+}
+
+function SecureEmailForm({ onSuccess }: EmailFormProps) {
   const [email, setEmail] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
@@ -50,9 +54,9 @@ function SecureEmailForm() {
         throw new Error('Subscription failed. Please try again.')
       }
 
-      // Success - could redirect or show success message
+      // Success - call the success callback
       setEmail('')
-      alert('Thank you! You\'ve been added to our waitlist.')
+      onSuccess()
     } catch (err) {
       setError('Something went wrong. Please try again.')
     } finally {
@@ -122,7 +126,11 @@ function SecureEmailForm() {
   )
 }
 
-export default function AppPreview() {
+interface AppPreviewProps {
+  onEmailSuccess: () => void
+}
+
+export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
   return (
     <div>
       {/* Innovative Liquify description section */}
@@ -227,7 +235,7 @@ export default function AppPreview() {
                     Be the first to know when we launch and get a chance to win a free subscription!
                   </p>
                 </div>
-                <SecureEmailForm />
+                <SecureEmailForm onSuccess={onEmailSuccess} />
                 <div className="mt-6 text-center lg:text-left">
                   <p className="text-xs md:text-sm text-gray-500">🎁 Early subscribers get exclusive access and special bonuses</p>
                 </div>

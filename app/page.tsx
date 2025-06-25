@@ -68,34 +68,53 @@ export default function Home() {
       
       <div className="relative z-10">
         {/* Header with Logo and Title */}
-        <div className="container mx-auto px-4 md:px-6 pt-8 md:pt-12">
-          <div className="text-center mb-16">
+        <div className="container mx-auto px-2 md:px-6 pt-8 md:pt-12">
+          <div className="text-center mb-8">
             <Logo />
-            <div className="mt-8">
-              {/* Main title with proper padding to avoid clipping */}
-              <h1 className="text-white text-5xl md:text-6xl lg:text-7xl font-bold mb-2 px-2 py-2 leading-tight">
+            <div className="mt-4 md:mt-8">
+              {/* Main title with clamp responsive sizing */}
+              <h1 className="text-white font-bold px-1 pt-2 leading-tight md:mb-0 lg:mb-[-0.5rem]" 
+                  style={{ fontSize: 'clamp(3rem, 12vw, 6rem)' }}>
                 Coming soon.
               </h1>
               
-              {/* Register now subtitle with gradient */}
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold gradient-text mb-8 px-2 py-1 leading-tight">
+              {/* Register now subtitle with clamp responsive sizing */}
+              <h2 className="font-bold gradient-text mb-8 px-1 leading-tight md:py-1 mt-[-0.5rem] md:mt-0"
+                  style={{ fontSize: 'clamp(2.25rem, 9vw, 4.5rem)' }}>
                 Register now
               </h2>
               
-              <p className="text-gray-400 text-base md:text-xl max-w-2xl mx-auto leading-6 md:leading-relaxed mb-8 md:mb-12">
+              <p className="text-gray-400 max-w-2xl mx-auto leading-6 md:leading-relaxed mb-8 md:mb-12"
+                 style={{ fontSize: 'clamp(0.95rem, 2.5vw, 1.25rem)' }}>
                 Forget themes & plugins : Liquidfy now revolutionize your high converting ecommerce experience with unlimited usage.
               </p>
               
               {/* Discover button with animated arrow */}
               <motion.button
                 onClick={() => {
-                  const meetSection = document.getElementById('meet-liquidfy');
-                  if (meetSection) {
-                    const offsetTop = meetSection.offsetTop - 80; // 80px offset from top
-                    window.scrollTo({ 
-                      top: offsetTop, 
-                      behavior: 'smooth' 
-                    });
+                  // Check if desktop (768px+) or mobile
+                  const isDesktop = window.innerWidth >= 768;
+                  
+                  if (isDesktop) {
+                    // On desktop, scroll to slider
+                    const sliderElement = document.querySelector('.slider-fade-container');
+                    if (sliderElement) {
+                      const offsetTop = sliderElement.getBoundingClientRect().top + window.pageYOffset + 50;
+                      window.scrollTo({ 
+                        top: offsetTop, 
+                        behavior: 'smooth' 
+                      });
+                    }
+                  } else {
+                    // On mobile, scroll to Meet Liquidfy section
+                    const meetSection = document.getElementById('meet-liquidfy');
+                    if (meetSection) {
+                      const offsetTop = meetSection.offsetTop - 80;
+                      window.scrollTo({ 
+                        top: offsetTop, 
+                        behavior: 'smooth' 
+                      });
+                    }
                   }
                 }}
                 initial={{ opacity: 0, y: 20 }}
@@ -136,7 +155,7 @@ export default function Home() {
 
         {/* App Preview and Two-Column Layout */}
         <div className="container mx-auto px-4 md:px-6 mt-8">
-          <AppPreview />
+          <AppPreview onEmailSuccess={() => setIsSubmitted(true)} />
         </div>
       </div>
     </main>
