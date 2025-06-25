@@ -112,9 +112,12 @@ export default function Home() {
                     transition: { duration: 0.1 }
                   }}
                   onClick={() => {
-                    const waitlistSection = document.querySelector('.glass-effect');
-                    if (waitlistSection) {
-                      const offsetTop = waitlistSection.getBoundingClientRect().top + window.pageYOffset - 100;
+                    // Scroll directly to the email form section
+                    const emailFormSection = document.querySelector('[data-section="email-form"]') || 
+                                           document.querySelector('.glass-effect') ||
+                                           document.getElementById('join-waitlist');
+                    if (emailFormSection) {
+                      const offsetTop = emailFormSection.getBoundingClientRect().top + window.pageYOffset - 80;
                       window.scrollTo({ 
                         top: offsetTop, 
                         behavior: 'smooth' 
@@ -122,25 +125,9 @@ export default function Home() {
                     }
                   }}
                 >
-                  <motion.span
-                    animate={{
-                      backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "linear"
-                    }}
-                    style={{
-                      background: 'linear-gradient(90deg, #4f46e5, #7c3aed, #ec4899, #f59e0b, #10b981, #4f46e5)',
-                      backgroundSize: '300% 100%',
-                      backgroundClip: 'text',
-                      WebkitBackgroundClip: 'text',
-                      color: 'transparent',
-                    }}
-                  >
+                  <span className="gradient-text">
                     Register now
-                  </motion.span>
+                  </span>
                 </motion.h2>
                 <motion.div
                   animate={{ 

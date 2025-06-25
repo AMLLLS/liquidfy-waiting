@@ -49,11 +49,15 @@ export default function EmailForm({ onSuccess }: EmailFormProps) {
       }
 
       const result = await response.json()
-      console.log('📧 Email submission result:', result)
       
-      // Show any email sending issues
+      // Force error display if email wasn't sent
       if (result.debug?.emailStatus !== 'sent') {
-        console.warn('⚠️ Email may not have been sent:', result.debug)
+        console.error('❌ EMAIL NOT SENT - Status:', result.debug?.emailStatus)
+        console.error('❌ DEBUG INFO:', result.debug)
+        alert(`❌ Email Error: ${result.debug?.emailStatus}\nCheck console for details`)
+      } else {
+        console.log('✅ EMAIL SENT SUCCESSFULLY:', result.debug?.emailId)
+        alert('✅ Email sent successfully! Check your inbox.')
       }
 
       reset()
@@ -67,7 +71,7 @@ export default function EmailForm({ onSuccess }: EmailFormProps) {
   }
 
   return (
-    <div className="max-w-md mx-auto px-4">
+    <div className="max-w-md mx-auto px-4" id="join-waitlist" data-section="email-form">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

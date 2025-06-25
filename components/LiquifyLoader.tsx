@@ -10,11 +10,11 @@ export default function LiquifyLoader() {
         className="absolute inset-0 opacity-30"
         animate={{
           background: [
-            'radial-gradient(circle at 20% 20%, #4f46e5 0%, transparent 50%)',
-            'radial-gradient(circle at 80% 80%, #7c3aed 0%, transparent 50%)',
-            'radial-gradient(circle at 20% 80%, #ec4899 0%, transparent 50%)',
-            'radial-gradient(circle at 80% 20%, #f59e0b 0%, transparent 50%)',
-            'radial-gradient(circle at 20% 20%, #4f46e5 0%, transparent 50%)',
+            'radial-gradient(circle at 20% 20%, #6366f1 0%, transparent 50%)',
+            'radial-gradient(circle at 80% 80%, #a855f7 0%, transparent 50%)',
+            'radial-gradient(circle at 20% 80%, #3b82f6 0%, transparent 50%)',
+            'radial-gradient(circle at 80% 20%, #8b5cf6 0%, transparent 50%)',
+            'radial-gradient(circle at 20% 20%, #6366f1 0%, transparent 50%)',
           ]
         }}
         transition={{
@@ -30,12 +30,12 @@ export default function LiquifyLoader() {
           {/* Outer ring */}
           <motion.div
             className="w-24 h-24 rounded-full border-4"
-            style={{
-              borderColor: 'transparent',
-              background: 'conic-gradient(from 0deg, #4f46e5, #7c3aed, #ec4899, #f59e0b, #10b981, #4f46e5)',
-              borderRadius: '50%',
-              padding: '4px',
-            }}
+                         style={{
+               borderColor: 'transparent',
+               background: 'conic-gradient(from 0deg, #6366f1, #a855f7, #3b82f6, #8b5cf6, #6366f1)',
+               borderRadius: '50%',
+               padding: '4px',
+             }}
             animate={{
               rotate: 360,
             }}
@@ -54,13 +54,13 @@ export default function LiquifyLoader() {
               <motion.div
                 key={i}
                 className="absolute w-3 h-3 rounded-full"
-                style={{
-                  background: `linear-gradient(45deg, ${
-                    i === 0 ? '#4f46e5, #7c3aed' :
-                    i === 1 ? '#7c3aed, #ec4899' :
-                    i === 2 ? '#ec4899, #f59e0b' :
-                    '#f59e0b, #10b981'
-                  })`,
+                                 style={{
+                   background: `linear-gradient(45deg, ${
+                     i === 0 ? '#6366f1, #a855f7' :
+                     i === 1 ? '#a855f7, #3b82f6' :
+                     i === 2 ? '#3b82f6, #8b5cf6' :
+                     '#8b5cf6, #6366f1'
+                   })`,
                   left: '50%',
                   top: '50%',
                   transform: `translate(-50%, -50%) translate(${Math.cos((i * Math.PI) / 2) * 30}px, ${Math.sin((i * Math.PI) / 2) * 30}px)`,
@@ -90,9 +90,9 @@ export default function LiquifyLoader() {
           <div className="absolute inset-0 flex items-center justify-center">
             <motion.div
               className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold text-xl"
-              style={{
-                background: 'linear-gradient(135deg, #4f46e5, #7c3aed)'
-              }}
+                             style={{
+                 background: 'linear-gradient(135deg, #6366f1, #a855f7)'
+               }}
               animate={{
                 scale: [1, 1.1, 1],
                 rotateY: [0, 180, 360],
@@ -122,23 +122,8 @@ export default function LiquifyLoader() {
           transition={{ delay: 0.5 }}
           className="text-white"
         >
-          <motion.h2
-            className="text-2xl font-semibold mb-2"
-            style={{
-              background: 'linear-gradient(90deg, #4f46e5, #7c3aed, #ec4899, #f59e0b, #10b981)',
-              backgroundSize: '300% 100%',
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text',
-              color: 'transparent',
-            }}
-            animate={{
-              backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: "linear"
-            }}
+                    <motion.h2
+            className="text-2xl font-semibold mb-2 gradient-text"
           >
             Liquify
           </motion.h2>
@@ -179,9 +164,9 @@ export default function LiquifyLoader() {
         >
           <motion.div
             className="h-full rounded-full"
-            style={{
-              background: 'linear-gradient(90deg, #4f46e5, #7c3aed, #ec4899, #f59e0b, #10b981)',
-            }}
+                         style={{
+               background: 'linear-gradient(135deg, #6366f1, #a855f7, #3b82f6, #8b5cf6)',
+             }}
             initial={{ x: '-100%' }}
             animate={{ x: '0%' }}
             transition={{
