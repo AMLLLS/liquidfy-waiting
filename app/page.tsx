@@ -85,7 +85,13 @@ export default function Home() {
               <motion.button
                 onClick={() => {
                   const meetSection = document.getElementById('meet-liquidfy');
-                  meetSection?.scrollIntoView({ behavior: 'smooth' });
+                  if (meetSection) {
+                    const offsetTop = meetSection.offsetTop - 80; // 80px offset from top
+                    window.scrollTo({ 
+                      top: offsetTop, 
+                      behavior: 'smooth' 
+                    });
+                  }
                 }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
