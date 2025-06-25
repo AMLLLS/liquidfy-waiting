@@ -241,7 +241,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Debug info for troubleshooting
-    const debugInfo = {
+    const debugInfo: any = {
       hasResend: !!resend,
       hasApiKey: !!process.env.RESEND_API_KEY,
       apiKeyPrefix: process.env.RESEND_API_KEY ? process.env.RESEND_API_KEY.substring(0, 6) + '...' : 'MISSING',
@@ -256,62 +256,107 @@ export async function POST(request: NextRequest) {
     if (resend && process.env.RESEND_API_KEY && isNew) {
       emailStatus = 'attempting';
       
-      // Send email and capture result
-      resend.emails.send({
-        from: 'Liquify Team <hello@liquidfy.app>',
-        to: email,
-        subject: '🚀 Welcome to Liquify - You\'re in the exclusive waitlist!',
-        html: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-            <div style="background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden;">
+      try {
+        // Send email synchronously for debugging (await the result)
+        const result = await resend.emails.send({
+          from: 'Liquify Team <hello@liquidfy.app>',
+          to: email,
+          subject: '🚀 Welcome to Liquify - You\'re in the exclusive waitlist!',
+                  html: `
+          <div style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background: #f1f5f9;">
+            <div style="background: #fefefe; border-radius: 16px; box-shadow: 0 8px 25px rgba(0,0,0,0.08); overflow: hidden; border: 1px solid #e2e8f0;">
               
-              <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; text-align: center;">
-                <h1 style="color: white; margin: 0 0 10px;">Welcome to Liquify!</h1>
-                <p style="color: rgba(255,255,255,0.9); margin: 0;">You're now part of something amazing 🎉</p>
+              <!-- Header with gradient -->
+              <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px 30px; text-align: center;">
+                <div style="width: 64px; height: 64px; background: rgba(255,255,255,0.15); border-radius: 16px; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
+                  <span style="color: white; font-size: 28px; font-weight: 800; font-family: 'Inter', sans-serif;">L</span>
+                </div>
+                <h1 style="color: white; margin: 0 0 12px; font-size: 32px; font-weight: 700; font-family: 'Inter', sans-serif;">Welcome to Liquify!</h1>
+                <p style="color: rgba(255,255,255,0.9); margin: 0; font-size: 18px; font-weight: 500;">You're now part of something amazing 🎉</p>
               </div>
               
-              <div style="padding: 30px;">
-                <div style="background: #f0f9ff; border-radius: 8px; padding: 20px; margin-bottom: 20px; border-left: 4px solid #0ea5e9;">
-                  <h2 style="color: #0c4a6e; margin: 0 0 8px;">🎊 Congratulations!</h2>
-                  <p style="color: #075985; margin: 0;">You're subscriber #${totalSubscribers} on the exclusive Liquify waitlist!</p>
+              <!-- Main content -->
+              <div style="padding: 40px 30px;">
+                <div style="background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); border-radius: 12px; padding: 24px; margin-bottom: 32px; border-left: 4px solid #10b981;">
+                  <h2 style="color: #065f46; margin: 0 0 8px; font-size: 20px; font-weight: 700; font-family: 'Inter', sans-serif;">🎊 Congratulations!</h2>
+                  <p style="color: #047857; margin: 0; line-height: 1.6; font-weight: 500;">You're subscriber #${totalSubscribers} on the exclusive Liquify waitlist!</p>
                 </div>
                 
-                <h3 style="color: #1f2937; margin: 0 0 15px;">🚀 What's Coming:</h3>
-                <ul style="color: #6b7280; margin: 0 0 20px; padding-left: 20px;">
-                  <li><strong>150+ Premium Modules</strong> - Unique Shopify components</li>
-                  <li><strong>1-Click Installation</strong> - Simple and fast setup</li>
-                  <li><strong>Proven Results</strong> - +27% conversion rate increase</li>
-                </ul>
+                <h3 style="color: #0f172a; margin: 0 0 20px; font-size: 24px; font-weight: 700; font-family: 'Inter', sans-serif;">🚀 What's Coming Your Way</h3>
                 
-                <div style="background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); border-radius: 8px; padding: 20px; text-align: center; margin-bottom: 20px;">
-                  <h3 style="color: white; margin: 0 0 10px;">🎁 Early Bird Benefits</h3>
-                  <p style="color: #e0e7ff; margin: 0;">✨ 50% OFF • 🚀 Early access • 💎 Bonus modules</p>
+                <!-- Feature cards -->
+                <div style="margin-bottom: 32px;">
+                  <div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 12px; padding: 20px; margin-bottom: 16px; border-left: 4px solid #f59e0b;">
+                    <h4 style="color: #92400e; font-weight: 600; margin: 0 0 8px; font-size: 16px; font-family: 'Inter', sans-serif;">⚡ 150+ Premium Modules</h4>
+                    <p style="color: #a16207; margin: 0; font-size: 14px; line-height: 1.5;">Unique Shopify components designed to boost conversions</p>
+                  </div>
+                  
+                  <div style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); border-radius: 12px; padding: 20px; margin-bottom: 16px; border-left: 4px solid #3b82f6;">
+                    <h4 style="color: #1e40af; font-weight: 600; margin: 0 0 8px; font-size: 16px; font-family: 'Inter', sans-serif;">🎨 1-Click Installation</h4>
+                    <p style="color: #1d4ed8; margin: 0; font-size: 14px; line-height: 1.5;">Simple and fast setup - no coding required</p>
+                  </div>
+                  
+                  <div style="background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%); border-radius: 12px; padding: 20px; margin-bottom: 0; border-left: 4px solid #ec4899;">
+                    <h4 style="color: #be185d; font-weight: 600; margin: 0 0 8px; font-size: 16px; font-family: 'Inter', sans-serif;">📈 Proven Results</h4>
+                    <p style="color: #be185d; margin: 0; font-size: 14px; line-height: 1.5;">Average +27% conversion rate increase guaranteed</p>
+                  </div>
                 </div>
                 
-                <div style="text-align: center;">
-                  <a href="https://liquidfy.app" style="display: inline-block; background: #4f46e5; color: white; text-decoration: none; padding: 12px 24px; border-radius: 6px; font-weight: 600;">
-                    Visit Liquify.app
+                <!-- Early bird section -->
+                <div style="background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); border-radius: 16px; padding: 32px; text-align: center; margin-bottom: 32px; position: relative; overflow: hidden;">
+                  <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); pointer-events: none;"></div>
+                  <h3 style="color: white; margin: 0 0 16px; font-size: 22px; font-weight: 700; font-family: 'Inter', sans-serif; position: relative;">🎁 Exclusive Early Bird Benefits</h3>
+                  <div style="position: relative;">
+                    <div style="color: #e0e7ff; margin: 0 0 8px; font-weight: 600;">✨ 50% OFF launch pricing</div>
+                    <div style="color: #e0e7ff; margin: 0 0 8px; font-weight: 600;">🚀 7-day exclusive early access</div>
+                    <div style="color: #e0e7ff; margin: 0; font-weight: 600;">💎 Exclusive bonus modules</div>
+                  </div>
+                </div>
+                
+                <!-- CTA Button -->
+                <div style="text-align: center; margin-bottom: 32px;">
+                  <a href="https://liquidfy.app" style="display: inline-block; background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); color: white; text-decoration: none; padding: 16px 32px; border-radius: 12px; font-weight: 700; font-size: 16px; font-family: 'Inter', sans-serif; box-shadow: 0 8px 25px rgba(79, 70, 229, 0.3);">
+                    🌐 Visit Liquify.app
                   </a>
                 </div>
+                
+                <!-- Social proof -->
+                <div style="background: #f8fafc; border-radius: 12px; padding: 24px; text-align: center; border: 1px solid #e2e8f0;">
+                  <p style="color: #64748b; margin: 0 0 12px; font-size: 14px; font-weight: 500;">Join ${totalSubscribers} other entrepreneurs waiting for launch</p>
+                  <div style="display: flex; justify-content: center; gap: 8px; margin-top: 16px;">
+                    <div style="width: 8px; height: 8px; background: #10b981; border-radius: 50%;"></div>
+                    <div style="width: 8px; height: 8px; background: #3b82f6; border-radius: 50%;"></div>
+                    <div style="width: 8px; height: 8px; background: #8b5cf6; border-radius: 50%;"></div>
+                  </div>
+                </div>
               </div>
               
-              <div style="background: #f8fafc; padding: 20px; text-align: center;">
-                <p style="color: #6b7280; margin: 0; font-size: 14px;">
-                  Stay tuned - launching soon! 🚀<br>
-                  <a href="https://liquidfy.app" style="color: #4f46e5;">liquidfy.app</a>
+              <!-- Footer -->
+              <div style="background: #f1f5f9; padding: 24px 30px; text-align: center; border-top: 1px solid #e2e8f0;">
+                <p style="color: #64748b; margin: 0 0 8px; font-size: 14px; font-weight: 500;">
+                  Stay tuned - we're launching very soon! 🚀
+                </p>
+                <p style="color: #94a3b8; margin: 0; font-size: 12px;">
+                  © 2024 Liquify. All rights reserved.<br>
+                  <a href="https://liquidfy.app" style="color: #4f46e5; text-decoration: none; font-weight: 600;">liquidfy.app</a>
                 </p>
               </div>
             </div>
           </div>
         `,
-      }).then(result => {
+        });
+        
         emailStatus = 'sent';
         console.log('✅ Email sent successfully:', result);
-      }).catch(error => {
+        
+        // Add result details to debug
+        debugInfo.emailId = result?.data?.id || 'unknown';
+        
+      } catch (error: any) {
         emailStatus = 'failed';
         emailError = error.message || error.toString();
         console.error('❌ Email failed:', error);
-      });
+      }
     } else {
       if (!resend) emailStatus = 'no_resend_instance';
       else if (!process.env.RESEND_API_KEY) emailStatus = 'no_api_key';
