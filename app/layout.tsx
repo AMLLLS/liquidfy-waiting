@@ -10,11 +10,7 @@ export const metadata: Metadata = {
   description: 'The #1 Ecom Library with 150+ Add-Ons to boost your CVR. Coming Soon.',
   keywords: ['ecommerce', 'shopify', 'modules', 'conversion', 'liquify'],
   authors: [{ name: 'Liquidfy Team' }],
-  icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
-    apple: '/favicon.ico',
-  },
+
   openGraph: {
     title: 'Liquidfy - Coming Soon',
     description: 'The #1 Ecom Library with 150+ Add-Ons to boost your CVR. Revolutionary e-commerce platform launching soon!',
@@ -82,6 +78,12 @@ export default function RootLayout({
         
         {/* PWA Manifest */}
         <link rel="manifest" href="/manifest.json" />
+        
+        {/* Favicon explicit links */}
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/icon.png" />
+        <link rel="apple-touch-icon" href="/icon.png" />
+        <link rel="shortcut icon" href="/favicon.ico" />
       </head>
       <body className={`${inter.className} antialiased`}>
         {children}
