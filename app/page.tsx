@@ -80,11 +80,41 @@ export default function Home() {
                 Coming soon.
               </h1>
               
-              {/* Register now subtitle with clamp responsive sizing */}
-              <h2 className="font-bold gradient-text mb-8 px-1 leading-tight md:py-1 mt-[-0.5rem] md:mt-0"
-                  style={{ fontSize: 'clamp(2.25rem, 9vw, 4.5rem)' }}>
-                Register now
-              </h2>
+              {/* Register now subtitle with clamp responsive sizing and animated arrows */}
+              <div className="flex items-center justify-center gap-4 md:gap-8 mb-8 px-1 mt-[-0.5rem] md:mt-0">
+                <motion.div
+                  animate={{ 
+                    x: [-10, 0, -10],
+                    opacity: [0.5, 1, 0.5]
+                  }}
+                  transition={{ 
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                  className="gradient-text text-2xl md:text-4xl font-bold"
+                >
+                  →
+                </motion.div>
+                <h2 className="font-bold gradient-text leading-tight md:py-1"
+                    style={{ fontSize: 'clamp(2.25rem, 9vw, 4.5rem)' }}>
+                  Register now
+                </h2>
+                <motion.div
+                  animate={{ 
+                    x: [10, 0, 10],
+                    opacity: [0.5, 1, 0.5]
+                  }}
+                  transition={{ 
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                  className="gradient-text text-2xl md:text-4xl font-bold"
+                >
+                  ←
+                </motion.div>
+              </div>
               
               <p className="text-gray-400 max-w-2xl mx-auto leading-6 md:leading-relaxed mb-8 md:mb-12"
                  style={{ fontSize: 'clamp(0.95rem, 2.5vw, 1.25rem)' }}>

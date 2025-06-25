@@ -77,7 +77,7 @@ export default function EmailForm({ onSuccess }: EmailFormProps) {
             Join the Waitlist
           </h3>
           <p className="text-gray-400 text-sm md:text-base">
-            Be the first to know when we launch and get a chance to win a free subscription!
+            Be the first to know when we launch and get a chance to win a free subscription! If you don't win, you'll automatically get a free trial account.
           </p>
         </div>
 
