@@ -8,6 +8,7 @@ import Logo from '@/components/Logo'
 import ModuleSlider from '@/components/ModuleSlider'
 import AppPreview from '@/components/AppPreview'
 import ConfettiEffect from '@/components/ConfettiEffect'
+import StructuredData from '@/components/StructuredData'
 
 export default function Home() {
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -64,6 +65,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-gray-950 relative overflow-hidden">
+      <StructuredData />
       <SimpleBackground />
       
       <div className="relative z-10">
