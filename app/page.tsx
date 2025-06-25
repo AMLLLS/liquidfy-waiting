@@ -9,6 +9,7 @@ import ModuleSlider from '@/components/ModuleSlider'
 import AppPreview from '@/components/AppPreview'
 import ConfettiEffect from '@/components/ConfettiEffect'
 import StructuredData from '@/components/StructuredData'
+import ClientLoader from '@/components/ClientLoader'
 
 export default function Home() {
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -64,11 +65,12 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-gray-950 relative overflow-hidden">
-      <StructuredData />
-      <SimpleBackground />
-      
-      <div className="relative z-10">
+    <ClientLoader>
+      <main className="min-h-screen bg-gray-950 relative overflow-hidden">
+        <StructuredData />
+        <SimpleBackground />
+        
+        <div className="relative z-10">
         {/* Header with Logo and Title */}
         <div className="container mx-auto px-2 md:px-6 pt-8 md:pt-12">
           <div className="text-center mb-8">
@@ -96,10 +98,50 @@ export default function Home() {
                 >
                   →
                 </motion.div>
-                <h2 className="font-bold gradient-text leading-tight md:py-1"
-                    style={{ fontSize: 'clamp(2.25rem, 9vw, 4.5rem)' }}>
-                  Register now
-                </h2>
+                <motion.h2 
+                  className="font-bold gradient-text leading-tight md:py-1 cursor-pointer group"
+                  style={{ fontSize: 'clamp(2.25rem, 9vw, 4.5rem)' }}
+                  whileHover={{
+                    scale: 1.05,
+                    rotateY: 5,
+                    transition: { duration: 0.3, ease: "easeOut" }
+                  }}
+                  whileTap={{
+                    scale: 0.95,
+                    rotateY: -2,
+                    transition: { duration: 0.1 }
+                  }}
+                  onClick={() => {
+                    const waitlistSection = document.querySelector('.glass-effect');
+                    if (waitlistSection) {
+                      const offsetTop = waitlistSection.getBoundingClientRect().top + window.pageYOffset - 100;
+                      window.scrollTo({ 
+                        top: offsetTop, 
+                        behavior: 'smooth' 
+                      });
+                    }
+                  }}
+                >
+                  <motion.span
+                    animate={{
+                      backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "linear"
+                    }}
+                    style={{
+                      background: 'linear-gradient(90deg, #4f46e5, #7c3aed, #ec4899, #f59e0b, #10b981, #4f46e5)',
+                      backgroundSize: '300% 100%',
+                      backgroundClip: 'text',
+                      WebkitBackgroundClip: 'text',
+                      color: 'transparent',
+                    }}
+                  >
+                    Register now
+                  </motion.span>
+                </motion.h2>
                 <motion.div
                   animate={{ 
                     x: [10, 0, 10],
@@ -191,5 +233,6 @@ export default function Home() {
         </div>
       </div>
     </main>
+    </ClientLoader>
   )
 } 

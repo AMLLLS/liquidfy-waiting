@@ -48,9 +48,18 @@ export default function EmailForm({ onSuccess }: EmailFormProps) {
         throw new Error(errorData.message || 'Something went wrong')
       }
 
+      const result = await response.json()
+      console.log('📧 Email submission result:', result)
+      
+      // Show any email sending issues
+      if (result.debug?.emailStatus !== 'sent') {
+        console.warn('⚠️ Email may not have been sent:', result.debug)
+      }
+
       reset()
       onSuccess()
     } catch (err) {
+      console.error('❌ Email submission error:', err)
       setError(err instanceof Error ? err.message : 'Something went wrong')
     } finally {
       setIsLoading(false)
