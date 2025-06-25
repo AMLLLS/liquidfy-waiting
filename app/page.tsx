@@ -73,12 +73,12 @@ export default function Home() {
             <Logo />
             <div className="mt-8">
               {/* Main title with proper padding to avoid clipping */}
-              <h1 className="text-white text-5xl md:text-6xl lg:text-7xl font-bold mb-4 px-2 pb-2">
+              <h1 className="text-white text-5xl md:text-6xl lg:text-7xl font-bold mb-2 px-2 py-2 leading-tight">
                 Coming soon.
               </h1>
               
               {/* Register now subtitle with gradient */}
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold gradient-text mb-8">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold gradient-text mb-8 px-2 py-1 leading-tight">
                 Register now
               </h2>
               
@@ -135,7 +135,7 @@ export default function Home() {
         <ModuleSlider />
 
         {/* App Preview and Two-Column Layout */}
-        <div className="container mx-auto px-4 md:px-6 mt-16">
+        <div className="container mx-auto px-4 md:px-6 mt-8">
           <AppPreview />
         </div>
       </div>
