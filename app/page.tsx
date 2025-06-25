@@ -73,9 +73,14 @@ export default function Home() {
             <Logo />
             <div className="mt-8">
               {/* Main title with proper padding to avoid clipping */}
-              <h1 className="text-white text-5xl md:text-6xl gradient-text lg:text-7xl font-bold mb-8 px-2 pb-2">
+              <h1 className="text-white text-5xl md:text-6xl lg:text-7xl font-bold mb-4 px-2 pb-2">
                 Coming soon.
               </h1>
+              
+              {/* Register now subtitle with gradient */}
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold gradient-text mb-8">
+                Register now
+              </h2>
               
               <p className="text-gray-400 text-base md:text-xl max-w-2xl mx-auto leading-6 md:leading-relaxed mb-8 md:mb-12">
                 Forget themes & plugins : Liquidfy now revolutionize your high converting ecommerce experience with unlimited usage.
