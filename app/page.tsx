@@ -78,7 +78,7 @@ export default function Home() {
               {/* Main title with clamp responsive sizing */}
               <h1 className="text-white font-bold px-1 pt-2 leading-tight md:mb-0 lg:mb-[-0.5rem]" 
                   style={{ fontSize: 'clamp(3rem, 12vw, 6rem)' }}>
-                Stop Looking Like Every Other Shopify Store
+                Coming soon.
               </h1>
               
               {/* Register now subtitle with clamp responsive sizing and animated arrows */}
@@ -125,7 +125,7 @@ export default function Home() {
                   }}
                 >
                   <span className="gradient-text">
-                    Join the Revolution
+                    Register now
                   </span>
                 </motion.h2>
                 <motion.div

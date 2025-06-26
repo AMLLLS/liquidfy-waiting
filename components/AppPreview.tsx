@@ -146,8 +146,8 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
         <h3 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 lg:mb-8">
           Why Your Store Needs Liquidfy
         </h3>
-        <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
-          Stop losing customers to boring, generic stores. Get the tools that <span className="text-primary-400 font-semibold">successful brands use</span> to dominate their markets.
+        <p className="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
+          Stop losing customers to boring, generic stores. Get the tools you need to <span className="text-primary-400 font-semibold">stand out</span> and <span className="text-purple-400 font-semibold">dominate your market</span>.
         </p>
         
         <div className="max-w-5xl mx-auto">
@@ -239,7 +239,7 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
             </div>
           </div>
           
-          <div className="bg-gradient-to-r from-primary-500/10 to-purple-500/10 rounded-2xl p-6 md:p-8 border border-primary-500/20">
+          <div className="bg-gradient-to-r from-primary-500/10 to-purple-500/10 rounded-2xl p-6 md:p-8 border border-primary-500/20 mb-12">
             <h4 className="text-2xl md:text-3xl font-bold gradient-text mb-4">The Liquidfy Solution:</h4>
             <p className="text-gray-300 max-w-3xl mx-auto leading-relaxed text-lg">
               One subscription gives you <span className="text-primary-400 font-semibold">unlimited access</span> to premium modules and sections. 
@@ -247,6 +247,35 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
               <span className="text-blue-400 font-semibold"> converts like crazy</span>.
             </p>
           </div>
+          
+          {/* Features grid - moved here after The Liquidfy Solution */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          >
+            <div className="glass-effect rounded-xl p-6 hover:scale-105 transition-all duration-300">
+              <div className="text-3xl mb-3">⚡</div>
+              <h4 className="text-xl font-semibold text-white mb-2">30-Second Setup</h4>
+              <p className="text-gray-400">Copy, paste, done. No coding required.</p>
+            </div>
+            <div className="glass-effect rounded-xl p-6 hover:scale-105 transition-all duration-300">
+              <div className="text-3xl mb-3">🎨</div>
+              <h4 className="text-xl font-semibold text-white mb-2">Unlimited Customization</h4>
+              <p className="text-gray-400">Make it yours. Every color, every text.</p>
+            </div>
+            <div className="glass-effect rounded-xl p-6 hover:scale-105 transition-all duration-300">
+              <div className="text-3xl mb-3">📈</div>
+              <h4 className="text-xl font-semibold text-white mb-2">Proven to Convert</h4>
+              <p className="text-gray-400">Used by stores doing 7-figures</p>
+            </div>
+            <div className="glass-effect rounded-xl p-6 hover:scale-105 transition-all duration-300">
+              <div className="text-3xl mb-3">💰</div>
+              <h4 className="text-xl font-semibold text-white mb-2">One Price, Everything</h4>
+              <p className="text-gray-400">No per-module fees. Ever.</p>
+            </div>
+          </motion.div>
         </div>
       </motion.div>
 
@@ -259,18 +288,18 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="flex flex-col justify-center"
+            className="flex flex-col"
             id="join-waitlist"
             data-section="email-form"
           >
             <div className="max-w-md mx-auto lg:mx-0 w-full">
-              <div className="glass-effect rounded-2xl p-6 md:p-8 h-full flex flex-col justify-center">
+              <div className="glass-effect rounded-2xl p-6 md:p-8 flex flex-col">
                 <div className="text-center lg:text-left mb-6">
                   {/* Large rocket icon */}
                   <div className="inline-block text-6xl md:text-7xl lg:text-8xl mb-4">🚀</div>
                   <h3 className="text-3xl md:text-4xl font-semibold gradient-text mb-2">Get Early Access</h3>
                   <p className="text-gray-400 text-sm md:text-base mb-4">
-                    Join 1,000+ store owners getting exclusive access to the platform that's changing ecommerce forever.
+                    Be the first to access the platform that's changing ecommerce forever.
                   </p>
                   <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-3 mb-4">
                     <p className="text-green-300 text-xs md:text-sm font-medium">
@@ -368,36 +397,7 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
         </motion.div>
       </div>
 
-      {/* Feature Grid - Below both columns with more spacing */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.7 }}
-        className="mt-12 lg:mt-20"
-      >
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-16">
-          {[
-            { icon: '⚡', title: '30-Second Setup', desc: 'Copy, paste, done. No coding required.' },
-            { icon: '🎨', title: 'Unlimited Customization', desc: 'Make it yours. Every color, every text.' },
-            { icon: '📈', title: 'Proven to Convert', desc: 'Used by stores doing 7-figures' },
-            { icon: '💰', title: 'One Price, Everything', desc: 'No per-module fees. Ever.' }
-          ].map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-              className="text-center"
-            >
-              <div className="glass-effect rounded-xl p-4 md:p-6 h-full hover:border-primary-500/30 transition-all duration-300">
-                <div className="text-2xl md:text-3xl mb-3">{feature.icon}</div>
-                <h4 className="font-semibold text-white mb-2 text-sm md:text-base">{feature.title}</h4>
-                <p className="text-xs md:text-sm text-gray-400 leading-relaxed">{feature.desc}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
+
 
       {/* Footer */}
       <motion.footer
