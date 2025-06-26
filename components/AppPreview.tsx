@@ -146,7 +146,7 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
         <h3 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 lg:mb-8">
           Why Your Store Needs Liquidfy
         </h3>
-        <p className="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
+        <p className="text-base md:text-lg lg:text-xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
           Stop losing customers to boring, generic stores. Get the tools you need to <span className="text-primary-400 font-semibold">stand out</span> and <span className="text-purple-400 font-semibold">dominate your market</span>.
         </p>
         
@@ -241,7 +241,7 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
           
           <div className="bg-gradient-to-r from-primary-500/10 to-purple-500/10 rounded-2xl p-6 md:p-8 border border-primary-500/20 mb-12">
             <h4 className="text-2xl md:text-3xl font-bold gradient-text mb-4">The Liquidfy Solution:</h4>
-            <p className="text-gray-300 max-w-3xl mx-auto leading-relaxed text-lg">
+            <p className="text-gray-300 max-w-3xl mx-auto leading-relaxed text-sm md:text-base lg:text-lg">
               One subscription gives you <span className="text-primary-400 font-semibold">unlimited access</span> to premium modules and sections. 
               Mix, match, and customize everything to create a store that's <span className="text-purple-400 font-semibold">uniquely yours</span> and 
               <span className="text-blue-400 font-semibold"> converts like crazy</span>.
@@ -303,7 +303,7 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
                   </p>
                   <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-3 mb-4">
                     <p className="text-green-300 text-xs md:text-sm font-medium">
-                      💰 Exclusive launch discount + 7-day early access guaranteed
+                      💰 Exclusive launch discount <br />+ 7-day early access guaranteed
                     </p>
                   </div>
                 </div>
