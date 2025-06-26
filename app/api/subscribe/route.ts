@@ -269,8 +269,8 @@ export async function POST(request: NextRequest) {
               
               <!-- Header with black gradient -->
               <div style="background: linear-gradient(135deg, #111827 0%, #1f2937 100%) !important; padding: 32px 20px; text-align: center;">
-                <div style="margin: 0 auto 18px;">
-                  <img src="https://liquidfy.app/icon.png" alt="Liquidfy Logo" style="width: 52px; height: 52px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.2);" />
+                <div style="width: 72px; height: 72px; background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%) !important; border-radius: 16px; margin: 0 auto 18px; display: flex; align-items: center; justify-content: center; border: 2px solid rgba(255,255,255,0.2);">
+                  <span style="color: white !important; font-size: 32px; font-weight: 800; font-family: 'Inter', sans-serif;">L</span>
                 </div>
                 <h1 style="color: white !important; margin: 0 0 10px; font-size: 32px; font-weight: 800; font-family: 'Inter', sans-serif; letter-spacing: -0.5px;">Welcome to Liquidfy!</h1>
                 <p style="color: rgba(255,255,255,0.85) !important; margin: 0; font-size: 18px; font-weight: 500; line-height: 1.4;">You just secured your spot for the ultimate Shopify revolution 🚀</p>
@@ -293,7 +293,7 @@ export async function POST(request: NextRequest) {
                 </div>
                 
                                  <!-- The Solution -->
-                 <div style="background: #f9fafb !important; border-radius: 12px; padding: 24px; margin-bottom: 28px; border-left: 4px solid; border-image: linear-gradient(135deg, #6366f1 0%, #a855f7 100%) 1;">
+                 <div style="background: #f9fafb !important; border-radius: 12px; padding: 24px; margin-bottom: 28px; border-left: 4px solid #6366f1;">
                    <h3 style="color: #111827 !important; margin: 0 0 16px; font-size: 20px; font-weight: 700; font-family: 'Inter', sans-serif;">⚡ The Liquidfy Solution</h3>
                    <p style="color: #374151 !important; margin: 0 0 16px; font-size: 16px; line-height: 1.6;">Instead of expensive themes and limited plugins, get access to <strong>100+ premium modules</strong> AND <strong>120+ ready-to-use Shopify sections</strong> that you can mix, match, and customize infinitely.</p>
                    <div style="background: #ffffff; border-radius: 8px; padding: 16px; border: 1px solid #e5e7eb;">
@@ -336,10 +336,10 @@ export async function POST(request: NextRequest) {
                  <div style="background: linear-gradient(135deg, #111827 0%, #1f2937 100%) !important; border-radius: 12px; padding: 24px; text-align: center; margin-bottom: 24px;">
                    <h3 style="color: white !important; margin: 0 0 16px; font-size: 20px; font-weight: 700; font-family: 'Inter', sans-serif;">🎁 Your Exclusive Early Access Benefits</h3>
                    <div style="color: #d1d5db !important; font-size: 15px; line-height: 1.6;">
-                     <div style="margin: 0 0 8px; font-weight: 600;">💰 <strong>Exclusive discount code</strong> sent directly to your inbox at launch</div>
-                     <div style="margin: 0 0 8px; font-weight: 600;">⚡ <strong>7-day exclusive access</strong> before public launch</div>
-                     <div style="margin: 0 0 8px; font-weight: 600;">🎯 <strong>Priority support</strong> and feature requests</div>
-                     <div style="margin: 0; font-weight: 600;">🏆 <strong>Bonus modules & sections</strong> only for waitlist members</div>
+                     <div style="margin: 0 0 8px; font-weight: 600; color: #d1d5db !important;">💰 <strong style="color: #d1d5db !important;">Exclusive discount code</strong> sent directly to your inbox at launch</div>
+                     <div style="margin: 0 0 8px; font-weight: 600; color: #d1d5db !important;">⚡ <strong style="color: #d1d5db !important;">7-day exclusive access</strong> before public launch</div>
+                     <div style="margin: 0 0 8px; font-weight: 600; color: #d1d5db !important;">🎯 <strong style="color: #d1d5db !important;">Priority support</strong> and feature requests</div>
+                     <div style="margin: 0; font-weight: 600; color: #d1d5db !important;">🏆 <strong style="color: #d1d5db !important;">Bonus modules & sections</strong> only for waitlist members</div>
                    </div>
                  </div>
                 

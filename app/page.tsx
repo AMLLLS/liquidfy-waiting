@@ -78,7 +78,7 @@ export default function Home() {
               {/* Main title with clamp responsive sizing */}
               <h1 className="text-white font-bold px-1 pt-2 leading-tight md:mb-0 lg:mb-[-0.5rem]" 
                   style={{ fontSize: 'clamp(3rem, 12vw, 6rem)' }}>
-                Coming soon.
+                Stop Looking Like Every Other Shopify Store
               </h1>
               
               {/* Register now subtitle with clamp responsive sizing and animated arrows */}
@@ -125,7 +125,7 @@ export default function Home() {
                   }}
                 >
                   <span className="gradient-text">
-                    Register now
+                    Join the Revolution
                   </span>
                 </motion.h2>
                 <motion.div
@@ -144,9 +144,9 @@ export default function Home() {
                 </motion.div>
               </div>
               
-              <p className="text-gray-400 max-w-2xl mx-auto leading-6 md:leading-relaxed mb-8 md:mb-12"
+              <p className="text-gray-400 max-w-3xl mx-auto leading-6 md:leading-relaxed mb-8 md:mb-12"
                  style={{ fontSize: 'clamp(0.95rem, 2.5vw, 1.25rem)' }}>
-                Forget themes & plugins : Liquidfy now revolutionize your high converting ecommerce experience with unlimited usage.
+                Get 100+ premium modules + 120+ Shopify sections that make your store <span className="text-primary-400 font-semibold">stand out</span> and <span className="text-purple-400 font-semibold">convert like crazy</span> — without expensive themes or plugins.
               </p>
               
               {/* Discover button with animated arrow */}

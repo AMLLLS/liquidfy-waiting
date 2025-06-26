@@ -143,10 +143,14 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
         className="text-center mb-16"
         id="meet-liquidfy"
       >
-        <h3 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 lg:mb-12">
-          Meet Liquidfy
+        <h3 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 lg:mb-8">
+          Why Your Store Needs Liquidfy
         </h3>
-        <div className="max-w-4xl mx-auto">
+        <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
+          Stop losing customers to boring, generic stores. Get the tools that <span className="text-primary-400 font-semibold">successful brands use</span> to dominate their markets.
+        </p>
+        
+        <div className="max-w-5xl mx-auto">
           {/* Key stats in a beautiful grid - 2 columns on mobile for first two items */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-8">
             <motion.div
@@ -155,8 +159,8 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="glass-effect rounded-xl p-4 md:p-6 border border-primary-500/20"
             >
-              <div className="text-2xl md:text-3xl lg:text-4xl font-bold gradient-text mb-2">150+</div>
-              <div className="text-xs md:text-sm lg:text-base text-gray-400">Premium Shopify Sections</div>
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold gradient-text mb-2">120+</div>
+              <div className="text-xs md:text-sm lg:text-base text-gray-400">Ready-to-Use Shopify Sections</div>
             </motion.div>
             
             <motion.div
@@ -166,7 +170,7 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
               className="glass-effect rounded-xl p-4 md:p-6 border border-purple-500/20"
             >
               <div className="text-2xl md:text-3xl lg:text-4xl font-bold gradient-text mb-2">100+</div>
-              <div className="text-xs md:text-sm lg:text-base text-gray-400">Universal Modules</div>
+              <div className="text-xs md:text-sm lg:text-base text-gray-400">Premium Conversion Modules</div>
             </motion.div>
             
             <motion.div
@@ -209,10 +213,40 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
             </motion.div>
           </div>
           
-          <p className="text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            From <span className="text-primary-400 font-medium">Shopify-exclusive sections</span> to <span className="text-purple-400 font-medium">universal modules</span> for WordPress & WooCommerce - 
-            we've got everything you need to <span className="text-blue-400 font-medium">boost your conversion rates</span> and create stunning ecommerce experiences.
-          </p>
+          <div className="bg-gray-900/50 rounded-2xl p-6 md:p-8 border border-gray-800 mb-8">
+            <h4 className="text-2xl md:text-3xl font-bold text-white mb-4">The Problem Every Shopify Store Owner Faces:</h4>
+            <div className="grid md:grid-cols-2 gap-6 text-left">
+              <div className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <span className="text-red-400 text-xl">❌</span>
+                  <p className="text-gray-300">Free themes make you look like everyone else</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-red-400 text-xl">❌</span>
+                  <p className="text-gray-300">Premium themes cost $300+ and still look generic</p>
+                </div>
+              </div>
+              <div className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <span className="text-red-400 text-xl">❌</span>
+                  <p className="text-gray-300">Multiple plugins = Multiple subscriptions</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-red-400 text-xl">❌</span>
+                  <p className="text-gray-300">Limited customization kills your brand identity</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="bg-gradient-to-r from-primary-500/10 to-purple-500/10 rounded-2xl p-6 md:p-8 border border-primary-500/20">
+            <h4 className="text-2xl md:text-3xl font-bold gradient-text mb-4">The Liquidfy Solution:</h4>
+            <p className="text-gray-300 max-w-3xl mx-auto leading-relaxed text-lg">
+              One subscription gives you <span className="text-primary-400 font-semibold">unlimited access</span> to premium modules and sections. 
+              Mix, match, and customize everything to create a store that's <span className="text-purple-400 font-semibold">uniquely yours</span> and 
+              <span className="text-blue-400 font-semibold"> converts like crazy</span>.
+            </p>
+          </div>
         </div>
       </motion.div>
 
@@ -232,16 +266,21 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
             <div className="max-w-md mx-auto lg:mx-0 w-full">
               <div className="glass-effect rounded-2xl p-6 md:p-8 h-full flex flex-col justify-center">
                 <div className="text-center lg:text-left mb-6">
-                  {/* Large envelope icon */}
-                  <div className="inline-block text-6xl md:text-7xl lg:text-8xl mb-4">📧</div>
-                  <h3 className="text-3xl md:text-4xl font-semibold gradient-text mb-2">Join the Waitlist</h3>
-                  <p className="text-gray-400 text-sm md:text-base">
-                    Be the first to know when we launch and get a chance to win a free subscription!
+                  {/* Large rocket icon */}
+                  <div className="inline-block text-6xl md:text-7xl lg:text-8xl mb-4">🚀</div>
+                  <h3 className="text-3xl md:text-4xl font-semibold gradient-text mb-2">Get Early Access</h3>
+                  <p className="text-gray-400 text-sm md:text-base mb-4">
+                    Join 1,000+ store owners getting exclusive access to the platform that's changing ecommerce forever.
                   </p>
+                  <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-3 mb-4">
+                    <p className="text-green-300 text-xs md:text-sm font-medium">
+                      💰 Exclusive launch discount + 7-day early access guaranteed
+                    </p>
+                  </div>
                 </div>
                 <SecureEmailForm onSuccess={onEmailSuccess} />
                 <div className="mt-6 text-center lg:text-left">
-                  <p className="text-xs md:text-sm text-gray-500">🎁 Early subscribers get exclusive access and special bonuses</p>
+                  <p className="text-xs md:text-sm text-gray-500">⚡ No spam, no BS. Just the good stuff when we launch.</p>
                 </div>
               </div>
               
@@ -338,10 +377,10 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
       >
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-16">
           {[
-            { icon: '🚀', title: '1-Click Install', desc: 'Copy-paste integration' },
-            { icon: '🎨', title: 'Fully Customizable', desc: 'Match your brand perfectly' },
-            { icon: '📈', title: '+27% CVR Boost', desc: 'Proven conversion results' },
-            { icon: '🔄', title: 'Lifetime Updates', desc: 'Always stay current' }
+            { icon: '⚡', title: '30-Second Setup', desc: 'Copy, paste, done. No coding required.' },
+            { icon: '🎨', title: 'Unlimited Customization', desc: 'Make it yours. Every color, every text.' },
+            { icon: '📈', title: 'Proven to Convert', desc: 'Used by stores doing 7-figures' },
+            { icon: '💰', title: 'One Price, Everything', desc: 'No per-module fees. Ever.' }
           ].map((feature, index) => (
             <motion.div
               key={index}
