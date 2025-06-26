@@ -253,27 +253,27 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-6"
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-4"
           >
-            <div className="glass-effect rounded-xl p-4 md:p-6 hover:scale-105 transition-all duration-300">
-              <div className="text-2xl md:text-3xl mb-2 md:mb-3">⚡</div>
-              <h4 className="text-sm md:text-xl font-semibold text-white mb-1 md:mb-2">30-Second Setup</h4>
-              <p className="text-xs md:text-base text-gray-400">Copy, paste, done. No coding required.</p>
+            <div className="glass-effect rounded-xl p-4 md:p-4 hover:scale-105 transition-all duration-300">
+              <div className="text-2xl md:text-2xl mb-2 md:mb-2">⚡</div>
+              <h4 className="text-sm md:text-sm font-semibold text-white mb-1 md:mb-2">30-Second Setup</h4>
+              <p className="text-xs md:text-xs text-gray-400">Copy, paste, done. No coding required.</p>
             </div>
-            <div className="glass-effect rounded-xl p-4 md:p-6 hover:scale-105 transition-all duration-300">
-              <div className="text-2xl md:text-3xl mb-2 md:mb-3">🎨</div>
-              <h4 className="text-sm md:text-xl font-semibold text-white mb-1 md:mb-2">Unlimited Customization</h4>
-              <p className="text-xs md:text-base text-gray-400">Make it yours. Every color, every text.</p>
+            <div className="glass-effect rounded-xl p-4 md:p-4 hover:scale-105 transition-all duration-300">
+              <div className="text-2xl md:text-2xl mb-2 md:mb-2">🎨</div>
+              <h4 className="text-sm md:text-sm font-semibold text-white mb-1 md:mb-2">Unlimited Customization</h4>
+              <p className="text-xs md:text-xs text-gray-400">Make it yours. Every color, every text.</p>
             </div>
-            <div className="glass-effect rounded-xl p-4 md:p-6 hover:scale-105 transition-all duration-300">
-              <div className="text-2xl md:text-3xl mb-2 md:mb-3">📈</div>
-              <h4 className="text-sm md:text-xl font-semibold text-white mb-1 md:mb-2">Proven to Convert</h4>
-              <p className="text-xs md:text-base text-gray-400">Used by stores doing 7-figures</p>
+            <div className="glass-effect rounded-xl p-4 md:p-4 hover:scale-105 transition-all duration-300">
+              <div className="text-2xl md:text-2xl mb-2 md:mb-2">📈</div>
+              <h4 className="text-sm md:text-sm font-semibold text-white mb-1 md:mb-2">Proven to Convert</h4>
+              <p className="text-xs md:text-xs text-gray-400">Used by stores doing 7-figures</p>
             </div>
-            <div className="glass-effect rounded-xl p-4 md:p-6 hover:scale-105 transition-all duration-300">
-              <div className="text-2xl md:text-3xl mb-2 md:mb-3">💰</div>
-              <h4 className="text-sm md:text-xl font-semibold text-white mb-1 md:mb-2">One Price, Everything</h4>
-              <p className="text-xs md:text-base text-gray-400">No per-module fees. Ever.</p>
+            <div className="glass-effect rounded-xl p-4 md:p-4 hover:scale-105 transition-all duration-300">
+              <div className="text-2xl md:text-2xl mb-2 md:mb-2">💰</div>
+              <h4 className="text-sm md:text-sm font-semibold text-white mb-1 md:mb-2">One Price, Everything</h4>
+              <p className="text-xs md:text-xs text-gray-400">No per-module fees. Ever.</p>
             </div>
           </motion.div>
         </div>
@@ -294,12 +294,13 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
           >
             <div className="max-w-md mx-auto lg:mx-0 w-full">
               <div className="glass-effect rounded-2xl p-6 md:p-8 flex flex-col">
-                <div className="text-center lg:text-left mb-6">
-                  {/* Mobile: Large rocket icon, Desktop: Small rocket inline */}
-                  <div className="lg:hidden inline-block text-6xl md:text-7xl mb-4">🚀</div>
-                  <h3 className="text-3xl md:text-4xl font-semibold gradient-text mb-2">
-                    <span className="hidden lg:inline text-3xl mr-2">🚀</span>Get Early Access
-                  </h3>
+                                  <div className="text-center lg:text-left mb-6">
+                    {/* Mobile: Large rocket icon, Desktop: Small rocket inline */}
+                    <div className="lg:hidden inline-block text-6xl md:text-7xl mb-4">🚀</div>
+                    <h3 className="text-3xl md:text-4xl font-semibold mb-2">
+                      <span className="hidden lg:inline text-4xl mr-3" style={{filter: 'none'}}>🚀</span>
+                      <span className="gradient-text">Get Early Access</span>
+                    </h3>
                   <p className="text-gray-400 text-xs md:text-sm mb-4">
                     Be the first to access the platform that's changing ecommerce forever.
                   </p>

@@ -269,8 +269,8 @@ export async function POST(request: NextRequest) {
               
               <!-- Header with black gradient -->
               <div style="background: linear-gradient(135deg, #111827 0%, #1f2937 100%) !important; padding: 32px 20px; text-align: center;">
-                <div style="width: 72px; height: 72px; background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%) !important; border-radius: 16px; margin: 0 auto 18px; display: flex; align-items: center; justify-content: center; border: 2px solid rgba(255,255,255,0.2);">
-                  <span style="color: white !important; font-size: 32px; font-weight: 800; font-family: 'Inter', sans-serif;">L</span>
+                <div style="margin: 0 auto 18px; text-align: center;">
+                  <img src="https://liquidfy.app/LOGO.png" alt="Liquidfy Logo" style="width: 72px; height: 72px; border-radius: 16px; border: 2px solid rgba(255,255,255,0.2);">
                 </div>
                 <h1 style="color: white !important; margin: 0 0 10px; font-size: 32px; font-weight: 800; font-family: 'Inter', sans-serif; letter-spacing: -0.5px;">Welcome to Liquidfy!</h1>
                 <p style="color: rgba(255,255,255,0.85) !important; margin: 0; font-size: 18px; font-weight: 500; line-height: 1.4;">You just secured your spot for the ultimate Shopify revolution 🚀</p>
