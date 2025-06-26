@@ -72,8 +72,8 @@ export default function ModuleSlider() {
     },
   ]
 
-  // Duplicate modules for seamless infinite scroll
-  const duplicatedModules = [...modules, ...modules]
+  // Triple the modules for truly seamless infinite scroll
+  const duplicatedModules = [...modules, ...modules, ...modules]
 
   return (
     <div className="relative w-screen -mx-4 md:-mx-6 lg:w-auto lg:mx-8 xl:mx-16 overflow-hidden pb-16">
@@ -93,12 +93,13 @@ export default function ModuleSlider() {
           <motion.div
             className="flex gap-6 md:gap-8"
             animate={{
-              x: [0, -1600], // Fixed pixel values instead of percentage
+              x: [0, -2400], // Move by exactly 2/3 of total width to reset seamlessly
             }}
             transition={{
-              duration: 30,
+              duration: 45, // Slower for smoother effect
               repeat: Infinity,
               ease: "linear",
+              repeatType: "loop" // Ensures seamless reset
             }}
             style={{ width: `${duplicatedModules.length * 200}px` }}
           >

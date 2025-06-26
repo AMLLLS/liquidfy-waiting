@@ -11,7 +11,7 @@ export default function Logo() {
       transition={{ duration: 0.6 }}
       className="mb-8 md:mb-12"
     >
-      <div className="flex items-center justify-center gap-3 md:gap-4 mb-8">
+      <div className="flex items-center justify-center gap-4 md:gap-6 mb-8">
         <motion.div
           animate={{ 
             rotate: [0, 2, -2, 0],
@@ -24,7 +24,7 @@ export default function Logo() {
           }}
           className="relative"
         >
-          <div className="relative w-8 h-8 md:w-10 md:h-10">
+          <div className="relative w-12 h-12 md:w-16 md:h-16">
             <Image
               src="/LOGO.png"
               alt="Liquidfy Logo"
@@ -39,7 +39,7 @@ export default function Logo() {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-xl md:text-2xl font-semibold text-white tracking-tight"
+          className="text-2xl md:text-3xl lg:text-4xl font-semibold text-white tracking-tight"
         >
           Liquidfy.app
         </motion.h2>
