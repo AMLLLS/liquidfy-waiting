@@ -71,7 +71,7 @@ export default function EmailForm({ onSuccess }: EmailFormProps) {
   }
 
   return (
-    <div className="max-w-md mx-auto px-4" id="join-waitlist" data-section="email-form">
+    <div className="max-w-md mx-auto px-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

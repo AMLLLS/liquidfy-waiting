@@ -224,6 +224,8 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
             className="flex flex-col justify-center"
+            id="join-waitlist"
+            data-section="email-form"
           >
             <div className="max-w-md mx-auto lg:mx-0 w-full">
               <div className="glass-effect rounded-2xl p-6 md:p-8 h-full flex flex-col justify-center">

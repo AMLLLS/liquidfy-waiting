@@ -263,82 +263,71 @@ export async function POST(request: NextRequest) {
           to: email,
           subject: '🚀 Welcome to Liquify - You\'re in the exclusive waitlist!',
                   html: `
-          <div style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background: #f1f5f9;">
-            <div style="background: #fefefe; border-radius: 16px; box-shadow: 0 8px 25px rgba(0,0,0,0.08); overflow: hidden; border: 1px solid #e2e8f0;">
+          <div style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; max-width: 600px; margin: 0 auto; padding: 10px; background: #f1f5f9;">
+            <div style="background: #fefefe !important; border-radius: 16px; box-shadow: 0 8px 25px rgba(0,0,0,0.08); overflow: hidden; border: 1px solid #e2e8f0; color-scheme: light !important;">
               
               <!-- Header with gradient -->
-              <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px 30px; text-align: center;">
-                <div style="width: 64px; height: 64px; background: rgba(255,255,255,0.15); border-radius: 16px; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
-                  <span style="color: white; font-size: 28px; font-weight: 800; font-family: 'Inter', sans-serif;">L</span>
+              <div style="background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%) !important; padding: 30px 15px; text-align: center;">
+                <div style="width: 48px; height: 48px; background: rgba(255,255,255,0.15) !important; border-radius: 12px; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center;">
+                  <span style="color: white !important; font-size: 24px; font-weight: 800; font-family: 'Inter', sans-serif;">L</span>
                 </div>
-                <h1 style="color: white; margin: 0 0 12px; font-size: 32px; font-weight: 700; font-family: 'Inter', sans-serif;">Welcome to Liquify!</h1>
-                <p style="color: rgba(255,255,255,0.9); margin: 0; font-size: 18px; font-weight: 500;">You're now part of something amazing 🎉</p>
+                <h1 style="color: white !important; margin: 0 0 8px; font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif;">Welcome to Liquify!</h1>
+                <p style="color: rgba(255,255,255,0.9) !important; margin: 0; font-size: 16px; font-weight: 500;">You're now part of something amazing 🎉</p>
               </div>
               
               <!-- Main content -->
-              <div style="padding: 40px 30px;">
-                <div style="background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); border-radius: 12px; padding: 24px; margin-bottom: 32px; border-left: 4px solid #10b981;">
-                  <h2 style="color: #065f46; margin: 0 0 8px; font-size: 20px; font-weight: 700; font-family: 'Inter', sans-serif;">🎊 Congratulations!</h2>
-                  <p style="color: #047857; margin: 0; line-height: 1.6; font-weight: 500;">You're subscriber #${totalSubscribers} on the exclusive Liquify waitlist!</p>
+              <div style="padding: 24px 15px;">
+                <div style="background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%) !important; border-radius: 8px; padding: 16px; margin-bottom: 24px; border-left: 4px solid #10b981;">
+                  <h2 style="color: #065f46 !important; margin: 0 0 6px; font-size: 18px; font-weight: 700; font-family: 'Inter', sans-serif;">🎊 Congratulations!</h2>
+                  <p style="color: #047857 !important; margin: 0; line-height: 1.5; font-weight: 500; font-size: 14px;">You're subscriber #${totalSubscribers} on the exclusive Liquify waitlist!</p>
                 </div>
                 
-                <h3 style="color: #0f172a; margin: 0 0 20px; font-size: 24px; font-weight: 700; font-family: 'Inter', sans-serif;">🚀 What's Coming Your Way</h3>
+                <h3 style="color: #0f172a !important; margin: 0 0 16px; font-size: 20px; font-weight: 700; font-family: 'Inter', sans-serif;">🚀 What's Coming Your Way</h3>
                 
                 <!-- Feature cards -->
-                <div style="margin-bottom: 32px;">
-                  <div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 12px; padding: 20px; margin-bottom: 16px; border-left: 4px solid #f59e0b;">
-                    <h4 style="color: #92400e; font-weight: 600; margin: 0 0 8px; font-size: 16px; font-family: 'Inter', sans-serif;">⚡ 150+ Premium Modules</h4>
-                    <p style="color: #a16207; margin: 0; font-size: 14px; line-height: 1.5;">Unique Shopify components designed to boost conversions</p>
+                <div style="margin-bottom: 24px;">
+                  <div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%) !important; border-radius: 8px; padding: 12px; margin-bottom: 12px; border-left: 3px solid #f59e0b;">
+                    <h4 style="color: #92400e !important; font-weight: 600; margin: 0 0 4px; font-size: 14px; font-family: 'Inter', sans-serif;">⚡ 150+ Premium Modules</h4>
+                    <p style="color: #a16207 !important; margin: 0; font-size: 12px; line-height: 1.4;">Unique Shopify components designed to boost conversions</p>
                   </div>
                   
-                  <div style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); border-radius: 12px; padding: 20px; margin-bottom: 16px; border-left: 4px solid #3b82f6;">
-                    <h4 style="color: #1e40af; font-weight: 600; margin: 0 0 8px; font-size: 16px; font-family: 'Inter', sans-serif;">🎨 1-Click Installation</h4>
-                    <p style="color: #1d4ed8; margin: 0; font-size: 14px; line-height: 1.5;">Simple and fast setup - no coding required</p>
+                  <div style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%) !important; border-radius: 8px; padding: 12px; margin-bottom: 12px; border-left: 3px solid #3b82f6;">
+                    <h4 style="color: #1e40af !important; font-weight: 600; margin: 0 0 4px; font-size: 14px; font-family: 'Inter', sans-serif;">🎨 1-Click Installation</h4>
+                    <p style="color: #1d4ed8 !important; margin: 0; font-size: 12px; line-height: 1.4;">Simple and fast setup - no coding required</p>
                   </div>
                   
-                  <div style="background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%); border-radius: 12px; padding: 20px; margin-bottom: 0; border-left: 4px solid #ec4899;">
-                    <h4 style="color: #be185d; font-weight: 600; margin: 0 0 8px; font-size: 16px; font-family: 'Inter', sans-serif;">📈 Proven Results</h4>
-                    <p style="color: #be185d; margin: 0; font-size: 14px; line-height: 1.5;">Average +27% conversion rate increase guaranteed</p>
+                  <div style="background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%) !important; border-radius: 8px; padding: 12px; margin-bottom: 0; border-left: 3px solid #ec4899;">
+                    <h4 style="color: #be185d !important; font-weight: 600; margin: 0 0 4px; font-size: 14px; font-family: 'Inter', sans-serif;">📈 Proven Results</h4>
+                    <p style="color: #be185d !important; margin: 0; font-size: 12px; line-height: 1.4;">Average +27% conversion rate increase guaranteed</p>
                   </div>
                 </div>
                 
                 <!-- Early bird section -->
-                <div style="background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); border-radius: 16px; padding: 32px; text-align: center; margin-bottom: 32px; position: relative; overflow: hidden;">
-                  <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); pointer-events: none;"></div>
-                  <h3 style="color: white; margin: 0 0 16px; font-size: 22px; font-weight: 700; font-family: 'Inter', sans-serif; position: relative;">🎁 Exclusive Early Bird Benefits</h3>
-                  <div style="position: relative;">
-                    <div style="color: #e0e7ff; margin: 0 0 8px; font-weight: 600;">✨ 50% OFF launch pricing</div>
-                    <div style="color: #e0e7ff; margin: 0 0 8px; font-weight: 600;">🚀 7-day exclusive early access</div>
-                    <div style="color: #e0e7ff; margin: 0; font-weight: 600;">💎 Exclusive bonus modules</div>
+                <div style="background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%) !important; border-radius: 12px; padding: 20px; text-align: center; margin-bottom: 20px;">
+                  <h3 style="color: white !important; margin: 0 0 12px; font-size: 18px; font-weight: 700; font-family: 'Inter', sans-serif;">🎁 Exclusive Early Bird Benefits</h3>
+                  <div style="color: #e0e7ff !important; font-size: 13px; line-height: 1.4;">
+                    <div style="margin: 0 0 6px; font-weight: 500;">✨ 50% OFF launch pricing</div>
+                    <div style="margin: 0 0 6px; font-weight: 500;">🚀 7-day exclusive early access</div>
+                    <div style="margin: 0; font-weight: 500;">💎 Exclusive bonus modules</div>
                   </div>
                 </div>
                 
                 <!-- CTA Button -->
-                <div style="text-align: center; margin-bottom: 32px;">
-                  <a href="https://liquidfy.app" style="display: inline-block; background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); color: white; text-decoration: none; padding: 16px 32px; border-radius: 12px; font-weight: 700; font-size: 16px; font-family: 'Inter', sans-serif; box-shadow: 0 8px 25px rgba(79, 70, 229, 0.3);">
+                <div style="text-align: center; margin-bottom: 20px;">
+                  <a href="https://liquidfy.app" style="display: inline-block; background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%) !important; color: white !important; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 14px; font-family: 'Inter', sans-serif;">
                     🌐 Visit Liquify.app
                   </a>
                 </div>
-                
-                <!-- Social proof -->
-                <div style="background: #f8fafc; border-radius: 12px; padding: 24px; text-align: center; border: 1px solid #e2e8f0;">
-                  <p style="color: #64748b; margin: 0 0 12px; font-size: 14px; font-weight: 500;">Join ${totalSubscribers} other entrepreneurs waiting for launch</p>
-                  <div style="display: flex; justify-content: center; gap: 8px; margin-top: 16px;">
-                    <div style="width: 8px; height: 8px; background: #10b981; border-radius: 50%;"></div>
-                    <div style="width: 8px; height: 8px; background: #3b82f6; border-radius: 50%;"></div>
-                    <div style="width: 8px; height: 8px; background: #8b5cf6; border-radius: 50%;"></div>
-                  </div>
-                </div>
-              </div>
+            
               
               <!-- Footer -->
-              <div style="background: #f1f5f9; padding: 24px 30px; text-align: center; border-top: 1px solid #e2e8f0;">
-                <p style="color: #64748b; margin: 0 0 8px; font-size: 14px; font-weight: 500;">
+              <div style="background: #f1f5f9 !important; padding: 16px 15px; text-align: center; border-top: 1px solid #e2e8f0;">
+                <p style="color: #64748b !important; margin: 0 0 6px; font-size: 12px; font-weight: 500;">
                   Stay tuned - we're launching very soon! 🚀
                 </p>
-                <p style="color: #94a3b8; margin: 0; font-size: 12px;">
+                <p style="color: #94a3b8 !important; margin: 0; font-size: 11px;">
                   © 2024 Liquify. All rights reserved.<br>
-                  <a href="https://liquidfy.app" style="color: #4f46e5; text-decoration: none; font-weight: 600;">liquidfy.app</a>
+                  <a href="https://liquidfy.app" style="color: #6366f1 !important; text-decoration: none; font-weight: 600;">liquidfy.app</a>
                 </p>
               </div>
             </div>
