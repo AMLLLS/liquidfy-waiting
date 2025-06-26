@@ -3,13 +3,15 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useState } from 'react'
+import ProductionDebug from './ProductionDebug'
 
 // Secure Email Form Component
 interface EmailFormProps {
   onSuccess: () => void
+  onDebugInfo?: (info: any) => void
 }
 
-function SecureEmailForm({ onSuccess }: EmailFormProps) {
+function SecureEmailForm({ onSuccess, onDebugInfo }: EmailFormProps) {
   const [email, setEmail] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
@@ -44,19 +46,35 @@ function SecureEmailForm({ onSuccess }: EmailFormProps) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ 
-          email: email.trim(),
-          timestamp: Date.now(),
-          userAgent: navigator.userAgent
+          email: email.trim()
         }),
       })
 
-      if (!response.ok) {
-        throw new Error('Subscription failed. Please try again.')
+      const result = await response.json()
+
+      // Always pass debug info to parent
+      if (onDebugInfo && result.debug) {
+        onDebugInfo(result.debug)
       }
 
-      // Success - call the success callback
-      setEmail('')
-      onSuccess()
+      if (!response.ok) {
+        setError(`Error: ${result.message || 'Subscription failed'}`)
+        return
+      }
+
+      // Check email status for debugging
+      if (result.debug?.emailStatus !== 'sent') {
+        setError(`Email Issue: ${result.debug?.emailStatus} - ${result.debug?.emailError || 'Unknown error'}`)
+        // Still call success since the subscription worked
+        setTimeout(() => {
+          setEmail('')
+          onSuccess()
+        }, 3000) // Show error for 3 seconds then success
+      } else {
+        // Success - call the success callback
+        setEmail('')
+        onSuccess()
+      }
     } catch (err) {
       setError('Something went wrong. Please try again.')
     } finally {
@@ -131,6 +149,7 @@ interface AppPreviewProps {
 }
 
 export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
+  const [debugInfo, setDebugInfo] = useState<any>(null)
   return (
     <div>
       {/* Innovative Liquify description section */}
@@ -237,7 +256,7 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
                     Be the first to know when we launch and get a chance to win a free subscription!
                   </p>
                 </div>
-                <SecureEmailForm onSuccess={onEmailSuccess} />
+                <SecureEmailForm onSuccess={onEmailSuccess} onDebugInfo={setDebugInfo} />
                 <div className="mt-6 text-center lg:text-left">
                   <p className="text-xs md:text-sm text-gray-500">🎁 Early subscribers get exclusive access and special bonuses</p>
                 </div>
@@ -392,6 +411,9 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
           </div>
         </div>
       </motion.footer>
+
+      {/* Production Debug Component */}
+      <ProductionDebug debugInfo={debugInfo} />
     </div>
   )
 } 
