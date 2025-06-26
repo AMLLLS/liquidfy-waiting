@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import SimpleBackground from '@/components/SimpleBackground'
 import EmailForm from '@/components/EmailForm'
 import Logo from '@/components/Logo'
@@ -75,6 +76,37 @@ export default function Home() {
           <div className="text-center mb-8">
             <Logo />
             <div className="mt-4 md:mt-8">
+              {/* Platform logos above title */}
+              <div className="flex justify-center items-center gap-4 mb-6">
+                <div className="relative w-8 h-8 md:w-10 md:h-10">
+                  <Image
+                    src="/icon-shopify.png"
+                    alt="Shopify"
+                    width={40}
+                    height={40}
+                    className="rounded-md opacity-80 hover:opacity-100 transition-opacity"
+                  />
+                </div>
+                <div className="relative w-8 h-8 md:w-10 md:h-10">
+                  <Image
+                    src="/icon-woocommerce.png"
+                    alt="WooCommerce"
+                    width={40}
+                    height={40}
+                    className="rounded-md opacity-80 hover:opacity-100 transition-opacity"
+                  />
+                </div>
+                <div className="relative w-8 h-8 md:w-10 md:h-10">
+                  <Image
+                    src="/icon-wordpress.png"
+                    alt="WordPress"
+                    width={40}
+                    height={40}
+                    className="rounded-md opacity-80 hover:opacity-100 transition-opacity"
+                  />
+                </div>
+              </div>
+              
               {/* Main title with clamp responsive sizing */}
               <h1 className="text-white font-bold px-1 pt-2 leading-tight md:mb-0 lg:mb-[-0.5rem]" 
                   style={{ fontSize: 'clamp(3rem, 12vw, 6rem)' }}>

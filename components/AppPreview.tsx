@@ -283,12 +283,12 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
       <div className="relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-6">
           
-          {/* Left Column - Join Waitlist */}
+          {/* Left Column - Join Waitlist - Order 2 on mobile (appears after preview) */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="flex flex-col"
+            className="flex flex-col order-2 lg:order-1"
             id="join-waitlist"
             data-section="email-form"
           >
@@ -325,12 +325,12 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
             </div>
           </motion.div>
 
-          {/* Right Column - App Preview */}
+          {/* Right Column - App Preview - Order 1 on mobile (appears before form) */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col justify-center"
+            className="flex flex-col justify-center order-1 lg:order-2"
           >
             {/* App Preview Window - mt-10 only on mobile */}
             <div className="glass-effect rounded-2xl p-6 md:p-8 relative overflow-hidden h-full flex flex-col justify-center mt-10 lg:mt-0">
