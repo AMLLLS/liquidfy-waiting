@@ -146,7 +146,7 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
         <h3 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 lg:mb-8">
           Why Your Store Needs Liquidfy
         </h3>
-        <p className="text-base md:text-lg lg:text-xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
+        <p className="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
           Stop losing customers to boring, generic stores. Get the tools you need to <span className="text-primary-400 font-semibold">stand out</span> and <span className="text-purple-400 font-semibold">dominate your market</span>.
         </p>
         
@@ -241,7 +241,7 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
           
           <div className="bg-gradient-to-r from-primary-500/10 to-purple-500/10 rounded-2xl p-6 md:p-8 border border-primary-500/20 mb-12">
             <h4 className="text-2xl md:text-3xl font-bold gradient-text mb-4">The Liquidfy Solution:</h4>
-            <p className="text-gray-300 max-w-3xl mx-auto leading-relaxed text-sm md:text-base lg:text-lg">
+            <p className="text-gray-300 max-w-3xl mx-auto leading-relaxed text-lg">
               One subscription gives you <span className="text-primary-400 font-semibold">unlimited access</span> to premium modules and sections. 
               Mix, match, and customize everything to create a store that's <span className="text-purple-400 font-semibold">uniquely yours</span> and 
               <span className="text-blue-400 font-semibold"> converts like crazy</span>.
@@ -253,27 +253,27 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            className="grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-6"
           >
-            <div className="glass-effect rounded-xl p-6 hover:scale-105 transition-all duration-300">
-              <div className="text-3xl mb-3">⚡</div>
-              <h4 className="text-xl font-semibold text-white mb-2">30-Second Setup</h4>
-              <p className="text-gray-400">Copy, paste, done. No coding required.</p>
+            <div className="glass-effect rounded-xl p-4 md:p-6 hover:scale-105 transition-all duration-300">
+              <div className="text-2xl md:text-3xl mb-2 md:mb-3">⚡</div>
+              <h4 className="text-sm md:text-xl font-semibold text-white mb-1 md:mb-2">30-Second Setup</h4>
+              <p className="text-xs md:text-base text-gray-400">Copy, paste, done. No coding required.</p>
             </div>
-            <div className="glass-effect rounded-xl p-6 hover:scale-105 transition-all duration-300">
-              <div className="text-3xl mb-3">🎨</div>
-              <h4 className="text-xl font-semibold text-white mb-2">Unlimited Customization</h4>
-              <p className="text-gray-400">Make it yours. Every color, every text.</p>
+            <div className="glass-effect rounded-xl p-4 md:p-6 hover:scale-105 transition-all duration-300">
+              <div className="text-2xl md:text-3xl mb-2 md:mb-3">🎨</div>
+              <h4 className="text-sm md:text-xl font-semibold text-white mb-1 md:mb-2">Unlimited Customization</h4>
+              <p className="text-xs md:text-base text-gray-400">Make it yours. Every color, every text.</p>
             </div>
-            <div className="glass-effect rounded-xl p-6 hover:scale-105 transition-all duration-300">
-              <div className="text-3xl mb-3">📈</div>
-              <h4 className="text-xl font-semibold text-white mb-2">Proven to Convert</h4>
-              <p className="text-gray-400">Used by stores doing 7-figures</p>
+            <div className="glass-effect rounded-xl p-4 md:p-6 hover:scale-105 transition-all duration-300">
+              <div className="text-2xl md:text-3xl mb-2 md:mb-3">📈</div>
+              <h4 className="text-sm md:text-xl font-semibold text-white mb-1 md:mb-2">Proven to Convert</h4>
+              <p className="text-xs md:text-base text-gray-400">Used by stores doing 7-figures</p>
             </div>
-            <div className="glass-effect rounded-xl p-6 hover:scale-105 transition-all duration-300">
-              <div className="text-3xl mb-3">💰</div>
-              <h4 className="text-xl font-semibold text-white mb-2">One Price, Everything</h4>
-              <p className="text-gray-400">No per-module fees. Ever.</p>
+            <div className="glass-effect rounded-xl p-4 md:p-6 hover:scale-105 transition-all duration-300">
+              <div className="text-2xl md:text-3xl mb-2 md:mb-3">💰</div>
+              <h4 className="text-sm md:text-xl font-semibold text-white mb-1 md:mb-2">One Price, Everything</h4>
+              <p className="text-xs md:text-base text-gray-400">No per-module fees. Ever.</p>
             </div>
           </motion.div>
         </div>
@@ -295,15 +295,17 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
             <div className="max-w-md mx-auto lg:mx-0 w-full">
               <div className="glass-effect rounded-2xl p-6 md:p-8 flex flex-col">
                 <div className="text-center lg:text-left mb-6">
-                  {/* Large rocket icon */}
-                  <div className="inline-block text-6xl md:text-7xl lg:text-8xl mb-4">🚀</div>
-                  <h3 className="text-3xl md:text-4xl font-semibold gradient-text mb-2">Get Early Access</h3>
-                  <p className="text-gray-400 text-sm md:text-base mb-4">
+                  {/* Mobile: Large rocket icon, Desktop: Small rocket inline */}
+                  <div className="lg:hidden inline-block text-6xl md:text-7xl mb-4">🚀</div>
+                  <h3 className="text-3xl md:text-4xl font-semibold gradient-text mb-2">
+                    <span className="hidden lg:inline text-3xl mr-2">🚀</span>Get Early Access
+                  </h3>
+                  <p className="text-gray-400 text-xs md:text-sm mb-4">
                     Be the first to access the platform that's changing ecommerce forever.
                   </p>
-                  <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-3 mb-4">
+                  <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-3 mb-4 text-left">
                     <p className="text-green-300 text-xs md:text-sm font-medium">
-                      💰 Exclusive launch discount <br />+ 7-day early access guaranteed
+                      💰 Exclusive launch discount<br/>+ 7-day early access guaranteed
                     </p>
                   </div>
                 </div>
