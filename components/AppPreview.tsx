@@ -294,14 +294,14 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
           >
             <div className="max-w-md mx-auto lg:mx-0 w-full">
               <div className="glass-effect rounded-2xl p-6 md:p-8 flex flex-col">
-                                  <div className="text-center lg:text-left mb-6">
+                                  <div className="text-center lg:text-left">
                     {/* Mobile: Large rocket icon, Desktop: Small rocket inline */}
                     <div className="lg:hidden inline-block text-6xl md:text-7xl mb-4">🚀</div>
                     <h3 className="text-3xl md:text-4xl font-semibold mb-2">
                       <span className="hidden lg:inline text-4xl mr-3" style={{filter: 'none'}}>🚀</span>
-                      <span className="gradient-text">Get Early Access</span>
+                      <span className="gradient-text" style={{fontSize: '2.3rem'}}>Get Early Access</span>
                     </h3>
-                  <p className="text-gray-400 text-xs md:text-sm mb-4">
+                  <p className="text-gray-400 text-s md:text-sm mb-4">
                     Be the first to access the platform that's changing ecommerce forever.
                   </p>
                   <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-3 mb-4 text-left">
