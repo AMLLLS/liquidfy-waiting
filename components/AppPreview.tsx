@@ -120,7 +120,7 @@ function SecureEmailForm({ onSuccess, onDebugInfo }: EmailFormProps) {
       <button 
         type="submit" 
         disabled={isLoading || !email.trim()}
-        className="w-full bg-liquify-gradient-alt text-white py-3 md:py-4 px-6 rounded-xl font-semibold text-base md:text-lg flex items-center justify-center gap-2 hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full bg-liquidfy-gradient-alt text-white py-3 md:py-4 px-6 rounded-xl font-semibold text-base md:text-lg flex items-center justify-center gap-2 hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {isLoading ? (
           <>
@@ -152,7 +152,7 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
   const [debugInfo, setDebugInfo] = useState<any>(null)
   return (
     <div>
-      {/* Innovative Liquify description section */}
+      {/* Innovative Liquidfy description section */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -388,7 +388,7 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
           <div className="mb-8">
             <div className="flex items-center justify-center gap-4 mb-4">
               <div className="relative w-8 h-8">
-                <div className="w-8 h-8 bg-liquify-gradient rounded-lg flex items-center justify-center">
+                <div className="w-8 h-8 bg-liquidfy-gradient rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-sm">L</span>
                 </div>
               </div>

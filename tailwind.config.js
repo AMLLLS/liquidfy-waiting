@@ -39,8 +39,8 @@ module.exports = {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'liquify-gradient': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-        'liquify-gradient-alt': 'linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #a855f7 100%)',
+        'liquidfy-gradient': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        'liquidfy-gradient-alt': 'linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #a855f7 100%)',
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',

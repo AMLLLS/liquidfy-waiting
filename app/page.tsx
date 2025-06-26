@@ -38,7 +38,7 @@ export default function Home() {
               Welcome to the Future!
             </h1>
             <p className="text-gray-300 mb-6 text-sm md:text-base">
-              You're now on the exclusive waitlist for Liquify. Get ready for something amazing!
+              You're now on the exclusive waitlist for Liquidfy. Get ready for something amazing!
             </p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -54,7 +54,7 @@ export default function Home() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsSubmitted(false)}
-              className="bg-liquify-gradient-alt text-white px-6 md:px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 text-sm md:text-base"
+              className="bg-liquidfy-gradient-alt text-white px-6 md:px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 text-sm md:text-base"
             >
               Join Another Email
             </motion.button>

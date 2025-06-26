@@ -267,9 +267,9 @@ export async function POST(request: NextRequest) {
           console.log(`🔄 Email attempt ${attempts}/${maxAttempts} for: ${email}`);
           
           const result = await resend.emails.send({
-            from: 'Liquify Team <hello@liquidfy.app>',
+            from: 'Liquidfy Team <hello@liquidfy.app>',
             to: email,
-            subject: '🚀 Welcome to Liquify - You\'re in the exclusive waitlist!',
+            subject: '🚀 Welcome to Liquidfy - You\'re in the exclusive waitlist!',
                   html: `
           <div style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; max-width: 600px; margin: 0 auto; padding: 10px; background: #f1f5f9;">
             <div style="background: #fefefe !important; border-radius: 16px; box-shadow: 0 8px 25px rgba(0,0,0,0.08); overflow: hidden; border: 1px solid #e2e8f0; color-scheme: light !important;">
@@ -279,7 +279,7 @@ export async function POST(request: NextRequest) {
                 <div style="width: 48px; height: 48px; background: rgba(255,255,255,0.15) !important; border-radius: 12px; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center;">
                   <span style="color: white !important; font-size: 24px; font-weight: 800; font-family: 'Inter', sans-serif;">L</span>
                 </div>
-                <h1 style="color: white !important; margin: 0 0 8px; font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif;">Welcome to Liquify!</h1>
+                <h1 style="color: white !important; margin: 0 0 8px; font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif;">Welcome to Liquidfy!</h1>
                 <p style="color: rgba(255,255,255,0.9) !important; margin: 0; font-size: 16px; font-weight: 500;">You're now part of something amazing 🎉</p>
               </div>
               
@@ -287,7 +287,7 @@ export async function POST(request: NextRequest) {
               <div style="padding: 24px 15px;">
                 <div style="background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%) !important; border-radius: 8px; padding: 16px; margin-bottom: 24px; border-left: 4px solid #10b981;">
                   <h2 style="color: #065f46 !important; margin: 0 0 6px; font-size: 18px; font-weight: 700; font-family: 'Inter', sans-serif;">🎊 Congratulations!</h2>
-                  <p style="color: #047857 !important; margin: 0; line-height: 1.5; font-weight: 500; font-size: 14px;">You're subscriber #${totalSubscribers} on the exclusive Liquify waitlist!</p>
+                  <p style="color: #047857 !important; margin: 0; line-height: 1.5; font-weight: 500; font-size: 14px;">You're subscriber #${totalSubscribers} on the exclusive Liquidfy waitlist!</p>
                 </div>
                 
                 <h3 style="color: #0f172a !important; margin: 0 0 16px; font-size: 20px; font-weight: 700; font-family: 'Inter', sans-serif;">🚀 What's Coming Your Way</h3>
@@ -323,7 +323,7 @@ export async function POST(request: NextRequest) {
                 <!-- CTA Button -->
                 <div style="text-align: center; margin-bottom: 20px;">
                   <a href="https://liquidfy.app" style="display: inline-block; background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%) !important; color: white !important; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 14px; font-family: 'Inter', sans-serif;">
-                    🌐 Visit Liquify.app
+                    🌐 Visit Liquidfy.app
                   </a>
                 </div>
             
@@ -334,7 +334,7 @@ export async function POST(request: NextRequest) {
                   Stay tuned - we're launching very soon! 🚀
                 </p>
                 <p style="color: #94a3b8 !important; margin: 0; font-size: 11px;">
-                  © 2024 Liquify. All rights reserved.<br>
+                  © 2024 Liquidfy. All rights reserved.<br>
                   <a href="https://liquidfy.app" style="color: #6366f1 !important; text-decoration: none; font-weight: 600;">liquidfy.app</a>
                 </p>
               </div>
@@ -430,7 +430,7 @@ export async function GET() {
   
   return NextResponse.json({
     totalSubscribers,
-    message: 'Liquify waitlist API',
+    message: 'Liquidfy waitlist API',
     usingDatabase,
     databaseType: supabaseClient ? 'supabase' : sql ? 'postgres' : 'memory'
   })

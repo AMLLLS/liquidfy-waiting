@@ -1,4 +1,4 @@
-# 🚀 Deployment Guide - Liquify Coming Soon
+# 🚀 Deployment Guide - Liquidfy Coming Soon
 
 ## Quick Deploy to Vercel (Recommended)
 
@@ -167,4 +167,4 @@ Check browser console and terminal for errors.
 
 ---
 
-**🎉 Ready to launch your Liquify coming soon page!** 
+**🎉 Ready to launch your Liquidfy coming soon page!** 

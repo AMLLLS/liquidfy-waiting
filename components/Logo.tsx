@@ -27,7 +27,7 @@ export default function Logo() {
           <div className="relative w-8 h-8 md:w-10 md:h-10">
             <Image
               src="/LOGO.png"
-              alt="Liquify Logo"
+              alt="Liquidfy Logo"
               fill
               className="object-contain"
               priority

@@ -1,6 +1,6 @@
-# Liquify Coming Soon Page
+# Liquidfy Coming Soon Page
 
-A modern, interactive coming soon page for Liquify with email collection and database storage.
+A modern, interactive coming soon page for Liquidfy with email collection and database storage.
 
 ## Features
 
@@ -28,7 +28,7 @@ A modern, interactive coming soon page for Liquify with email collection and dat
 1. **Clone and install:**
 ```bash
 git clone <your-repo>
-cd liquify-coming-soon
+cd liquidfy-coming-soon
 npm install
 ```
 
@@ -215,7 +215,7 @@ View subscriber data:
 
 ## 🤝 Contributing
 
-This is a pre-launch page for Liquify. For issues or improvements:
+This is a pre-launch page for Liquidfy. For issues or improvements:
 
 1. Fork the repository
 2. Create a feature branch
@@ -223,4 +223,4 @@ This is a pre-launch page for Liquify. For issues or improvements:
 
 ## 📄 License
 
-Private project for Liquify. All rights reserved. 
+Private project for Liquidfy. All rights reserved. 

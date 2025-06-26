@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://liquidfy.app'),
   title: 'Liquidfy - Coming Soon',
   description: 'The #1 Ecom Library with 150+ Add-Ons to boost your CVR. Coming Soon.',
-  keywords: ['ecommerce', 'shopify', 'modules', 'conversion', 'liquify'],
+  keywords: ['ecommerce', 'shopify', 'modules', 'conversion', 'liquidfy'],
   authors: [{ name: 'Liquidfy Team' }],
 
   openGraph: {

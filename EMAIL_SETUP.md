@@ -1,10 +1,10 @@
-# 📧 Configuration Email Liquify
+# 📧 Configuration Email Liquidfy
 
 ## ✅ Status Actuel
 
 ### Configuration Resend
 - ✅ **API intégrée** : Le système utilise Resend pour l'envoi d'emails
-- ✅ **Template professionnel** : Email de bienvenue avec l'identité Liquify
+- ✅ **Template professionnel** : Email de bienvenue avec l'identité Liquidfy
 - ✅ **Fallback gracieux** : L'application fonctionne même sans email
 - ✅ **Template responsive** : Compatible mobile et desktop
 
@@ -19,7 +19,7 @@ RESEND_API_KEY="re_..."  # Votre clé API Resend
 **Fichier :** `app/api/subscribe/route.ts` et `components/EmailTemplates.tsx`
 
 **Contenu :**
-- Header avec logo Liquify stylisé
+- Header avec logo Liquidfy stylisé
 - Message de félicitations personnalisé
 - Présentation des fonctionnalités (150+ modules, 1-click install, etc.)
 - Early Bird Benefits (50% off, early access, etc.)
@@ -56,7 +56,7 @@ const emailHtml = LaunchAnnouncementEmailTemplate("user@example.com")
 **1. Textes et Messages :**
 Modifiez dans `app/api/subscribe/route.ts` :
 - `subject`: Sujet de l'email
-- `from`: Expéditeur (ex: "Liquify Team <hello@liquidfy.app>")
+- `from`: Expéditeur (ex: "Liquidfy Team <hello@liquidfy.app>")
 - Contenu HTML du template
 
 **2. Couleurs et Style :**
@@ -124,7 +124,7 @@ const trackedUrl = `https://liquidfy.app/api/track/click?email=${email}&url=http
 
 ### 1. Séquence de Bienvenue
 - **J+0** : Email de bienvenue (✅ Implémenté)
-- **J+3** : Email "En coulisses" - développement de Liquify
+- **J+3** : Email "En coulisses" - développement de Liquidfy
 - **J+7** : Email social proof - témoignages d'early adopters
 - **J+14** : Email features preview - aperçu des modules
 
@@ -155,9 +155,9 @@ export async function POST(request: Request) {
   switch(emailType) {
     case 'launch-reminder':
       await resend.emails.send({
-        from: 'Liquify Team <hello@liquidfy.app>',
+        from: 'Liquidfy Team <hello@liquidfy.app>',
         to: recipients,
-        subject: `🚨 ${customData.daysLeft} days until Liquify launch!`,
+        subject: `🚨 ${customData.daysLeft} days until Liquidfy launch!`,
         html: LaunchReminderEmailTemplate(customData)
       })
       break;
@@ -170,13 +170,13 @@ export async function POST(request: Request) {
 ### Logo Personnalisé
 ```html
 <!-- Remplacez le logo text par une image -->
-<img src="https://liquidfy.app/logo-email.png" alt="Liquify" style="width: 80px; height: 80px; border-radius: 20px;" />
+<img src="https://liquidfy.app/logo-email.png" alt="Liquidfy" style="width: 80px; height: 80px; border-radius: 20px;" />
 ```
 
 ### Section Témoignage
 ```html
 <div style="background: #f8fafc; border-radius: 16px; padding: 32px; margin: 32px 0; text-align: center; border-left: 4px solid #4f46e5;">
-  <p style="color: #4b5563; font-style: italic; font-size: 16px; margin: 0 0 16px;">"Liquify a transformé notre e-commerce. +40% de conversions en 2 semaines!"</p>
+  <p style="color: #4b5563; font-style: italic; font-size: 16px; margin: 0 0 16px;">"Liquidfy a transformé notre e-commerce. +40% de conversions en 2 semaines!"</p>
   <p style="color: #6b7280; font-size: 14px; margin: 0;"><strong>Sarah Johnson</strong> - CEO, EcoStore</p>
 </div>
 ```

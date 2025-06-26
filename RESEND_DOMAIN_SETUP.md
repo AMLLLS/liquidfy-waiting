@@ -1,4 +1,4 @@
-# 🚀 Configuration Domaine Resend pour Liquify
+# 🚀 Configuration Domaine Resend pour Liquidfy
 
 ## ⚠️ Problème Identifié
 
@@ -50,12 +50,12 @@ En attendant la vérification du domaine, vous pouvez tester avec :
 
 ### Option A : Email de Test Resend
 ```typescript
-from: 'Liquify <onboarding@resend.dev>'  // Domaine temporaire
+from: 'Liquidfy <onboarding@resend.dev>'  // Domaine temporaire
 ```
 
 ### Option B : Gmail/Email Personnel  
 ```typescript
-from: 'Liquify <votre-email@gmail.com>'  // Votre email
+from: 'Liquidfy <votre-email@gmail.com>'  // Votre email
 ```
 
 ## 🔧 Mise à Jour Temporaire
@@ -64,9 +64,9 @@ Modifions temporairement l'expéditeur :
 
 ```typescript
 // Dans app/api/subscribe/route.ts
-from: 'Liquify Team <onboarding@resend.dev>',  // Temporaire
+from: 'Liquidfy Team <onboarding@resend.dev>',  // Temporaire
 // ou
-from: 'Liquify Team <your-email@gmail.com>',   // Votre email
+from: 'Liquidfy Team <your-email@gmail.com>',   // Votre email
 ```
 
 ## ⚡ Tests de Performance

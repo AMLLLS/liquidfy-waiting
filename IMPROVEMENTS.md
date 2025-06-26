@@ -1,4 +1,4 @@
-# 🚀 Liquify Coming Soon - Améliorations Apportées
+# 🚀 Liquidfy Coming Soon - Améliorations Apportées
 
 ## ✅ Modifications Principales
 
@@ -132,4 +132,4 @@
 
 ---
 
-**🎉 La page Liquify Coming Soon est maintenant prête et optimisée !** 
+**🎉 La page Liquidfy Coming Soon est maintenant prête et optimisée !** 

@@ -10,7 +10,7 @@ export const WelcomeEmailTemplate = ({ email, totalSubscribers }: WelcomeEmailPr
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Welcome to Liquify</title>
+      <title>Welcome to Liquidfy</title>
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
       <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -35,7 +35,7 @@ export const WelcomeEmailTemplate = ({ email, totalSubscribers }: WelcomeEmailPr
                   <div style="width: 80px; height: 80px; background: rgba(255, 255, 255, 0.2); border-radius: 20px; margin: 0 auto 24px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px); border: 2px solid rgba(255, 255, 255, 0.3);">
                     <span style="color: white; font-size: 32px; font-weight: 800; font-family: 'Inter', sans-serif;">L</span>
                   </div>
-                  <h1 style="color: white; font-size: 32px; font-weight: 800; margin: 0 0 12px; font-family: 'Inter', sans-serif;">Welcome to Liquify!</h1>
+                  <h1 style="color: white; font-size: 32px; font-weight: 800; margin: 0 0 12px; font-family: 'Inter', sans-serif;">Welcome to Liquidfy!</h1>
                   <p style="color: rgba(255, 255, 255, 0.9); font-size: 18px; margin: 0; font-weight: 500;">You're now part of something amazing 🎉</p>
                 </td>
               </tr>
@@ -48,7 +48,7 @@ export const WelcomeEmailTemplate = ({ email, totalSubscribers }: WelcomeEmailPr
                   <div style="background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); border-radius: 16px; padding: 24px; margin-bottom: 32px; border-left: 4px solid #10b981;">
                     <h2 style="color: #065f46; font-size: 20px; font-weight: 700; margin: 0 0 8px; font-family: 'Inter', sans-serif;">🎊 Congratulations!</h2>
                     <p style="color: #047857; margin: 0; line-height: 1.6; font-weight: 500;">
-                      You've secured your spot on the exclusive Liquify waitlist. You're subscriber #${totalSubscribers} and you'll be among the first to access our revolutionary e-commerce platform!
+                      You've secured your spot on the exclusive Liquidfy waitlist. You're subscriber #${totalSubscribers} and you'll be among the first to access our revolutionary e-commerce platform!
                     </p>
                   </div>
                   
@@ -91,7 +91,7 @@ export const WelcomeEmailTemplate = ({ email, totalSubscribers }: WelcomeEmailPr
                   <!-- CTA Button -->
                   <div style="text-align: center; margin-bottom: 32px;">
                     <a href="https://liquidfy.app" style="display: inline-block; background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); color: white; text-decoration: none; padding: 16px 32px; border-radius: 12px; font-weight: 600; font-size: 16px; box-shadow: 0 8px 25px rgba(79, 70, 229, 0.3); transition: all 0.2s ease;">
-                      🌐 Visit Liquify.app
+                      🌐 Visit Liquidfy.app
                     </a>
                   </div>
                   
@@ -115,7 +115,7 @@ export const WelcomeEmailTemplate = ({ email, totalSubscribers }: WelcomeEmailPr
                     Stay tuned - we're launching very soon! 🚀
                   </p>
                   <p style="color: #9ca3af; margin: 0; font-size: 12px;">
-                    © 2024 Liquify. All rights reserved.<br>
+                    © 2024 Liquidfy. All rights reserved.<br>
                     <a href="https://liquidfy.app" style="color: #4f46e5; text-decoration: none;">liquidfy.app</a>
                   </p>
                 </td>
@@ -143,7 +143,7 @@ export const LaunchReminderEmailTemplate = ({ email, daysLeft }: LaunchReminderE
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Liquify Launch Coming Soon</title>
+      <title>Liquidfy Launch Coming Soon</title>
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     </head>
     <body style="background-color: #f8fafc; margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
@@ -156,7 +156,7 @@ export const LaunchReminderEmailTemplate = ({ email, daysLeft }: LaunchReminderE
               <tr>
                 <td style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); padding: 40px; text-align: center;">
                   <h1 style="color: white; font-size: 36px; font-weight: 800; margin: 0 0 12px;">🚨 ${daysLeft} Days Left!</h1>
-                  <p style="color: rgba(255, 255, 255, 0.9); font-size: 18px; margin: 0;">Liquify launches in ${daysLeft} days - Are you ready?</p>
+                  <p style="color: rgba(255, 255, 255, 0.9); font-size: 18px; margin: 0;">Liquidfy launches in ${daysLeft} days - Are you ready?</p>
                 </td>
               </tr>
               
@@ -165,7 +165,7 @@ export const LaunchReminderEmailTemplate = ({ email, daysLeft }: LaunchReminderE
                 <td style="padding: 40px; text-align: center;">
                   <h2 style="color: #111827; font-size: 24px; font-weight: 700; margin: 0 0 20px;">The Wait Is Almost Over! 🎉</h2>
                   <p style="color: #6b7280; margin: 0 0 32px; line-height: 1.6;">
-                    Liquify launches in just ${daysLeft} days, and as a waitlist member, you'll be among the first to access our 150+ premium e-commerce modules.
+                    Liquidfy launches in just ${daysLeft} days, and as a waitlist member, you'll be among the first to access our 150+ premium e-commerce modules.
                   </p>
                   
                   <div style="background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); border-radius: 16px; padding: 32px; margin-bottom: 32px;">
@@ -179,7 +179,7 @@ export const LaunchReminderEmailTemplate = ({ email, daysLeft }: LaunchReminderE
                   </div>
                   
                   <a href="https://liquidfy.app" style="display: inline-block; background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); color: white; text-decoration: none; padding: 16px 32px; border-radius: 12px; font-weight: 600; font-size: 16px; box-shadow: 0 8px 25px rgba(239, 68, 68, 0.3);">
-                    🔥 Get Ready at Liquify.app
+                    🔥 Get Ready at Liquidfy.app
                   </a>
                 </td>
               </tr>
@@ -201,7 +201,7 @@ export const LaunchAnnouncementEmailTemplate = (email: string) => {
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>🚀 Liquify is LIVE!</title>
+      <title>🚀 Liquidfy is LIVE!</title>
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     </head>
     <body style="background-color: #f8fafc; margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
@@ -214,7 +214,7 @@ export const LaunchAnnouncementEmailTemplate = (email: string) => {
               <tr>
                 <td style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); padding: 40px; text-align: center;">
                   <h1 style="color: white; font-size: 40px; font-weight: 800; margin: 0 0 12px;">🚀 WE'RE LIVE!</h1>
-                  <p style="color: rgba(255, 255, 255, 0.9); font-size: 20px; margin: 0;">Liquify is officially launched - Your early access starts NOW!</p>
+                  <p style="color: rgba(255, 255, 255, 0.9); font-size: 20px; margin: 0;">Liquidfy is officially launched - Your early access starts NOW!</p>
                 </td>
               </tr>
               
@@ -223,7 +223,7 @@ export const LaunchAnnouncementEmailTemplate = (email: string) => {
                 <td style="padding: 40px; text-align: center;">
                   <h2 style="color: #111827; font-size: 28px; font-weight: 700; margin: 0 0 20px;">The moment you've been waiting for... 🎉</h2>
                   <p style="color: #6b7280; margin: 0 0 32px; line-height: 1.6; font-size: 16px;">
-                    Liquify is now officially live! As a valued waitlist member, you now have exclusive access to our complete library of 150+ premium e-commerce modules.
+                    Liquidfy is now officially live! As a valued waitlist member, you now have exclusive access to our complete library of 150+ premium e-commerce modules.
                   </p>
                   
                   <div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 16px; padding: 32px; margin-bottom: 32px; border-left: 4px solid #f59e0b;">
@@ -233,7 +233,7 @@ export const LaunchAnnouncementEmailTemplate = (email: string) => {
                   </div>
                   
                   <a href="https://liquidfy.app/login" style="display: inline-block; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; text-decoration: none; padding: 20px 40px; border-radius: 12px; font-weight: 700; font-size: 18px; box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3); margin-bottom: 24px;">
-                    🎯 Access Liquify Now
+                    🎯 Access Liquidfy Now
                   </a>
                   
                   <p style="color: #9ca3af; margin: 0; font-size: 14px;">

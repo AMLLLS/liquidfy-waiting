@@ -1,4 +1,4 @@
--- Create subscribers table for Liquify waitlist
+-- Create subscribers table for Liquidfy waitlist
 CREATE TABLE IF NOT EXISTS subscribers (
   id BIGSERIAL PRIMARY KEY,
   email VARCHAR(255) UNIQUE NOT NULL,

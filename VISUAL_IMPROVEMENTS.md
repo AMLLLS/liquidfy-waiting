@@ -72,4 +72,4 @@
 - Cohesive animation easing (easeInOut)
 - Professional glass morphism effects
 
-The site now provides a premium, modern experience that effectively showcases Liquify's brand identity while maintaining excellent performance across all devices. 
+The site now provides a premium, modern experience that effectively showcases Liquidfy's brand identity while maintaining excellent performance across all devices. 

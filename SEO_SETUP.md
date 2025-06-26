@@ -1,4 +1,4 @@
-# 🚀 Configuration SEO & Métadonnées Liquify
+# 🚀 Configuration SEO & Métadonnées Liquidfy
 
 ## ✅ Implémentations Complétées
 
@@ -27,7 +27,7 @@
 
 ### 4. PWA (Progressive Web App)
 - ✅ **Manifest.json** : Configuration complète
-- ✅ **Theme Color** : #4f46e5 (bleu Liquify)
+- ✅ **Theme Color** : #4f46e5 (bleu Liquidfy)
 - ✅ **Background Color** : #ffffff
 - ✅ **Display Mode** : standalone
 
@@ -80,7 +80,7 @@
 <meta name="description" content="The #1 Ecom Library with 150+ Add-Ons to boost your CVR. Coming Soon." />
 
 <!-- Mots-clés -->
-<meta name="keywords" content="ecommerce, shopify, modules, conversion, liquify" />
+<meta name="keywords" content="ecommerce, shopify, modules, conversion, liquidfy" />
 ```
 
 ### Open Graph Complet
@@ -157,7 +157,7 @@ curl -I https://liquidfy.app/manifest.json
 ### Social Media
 - ✅ **Image Preview** : 1200x630px optimale
 - ✅ **Rich Snippets** : Titre, description, image
-- ✅ **Brand Consistency** : Logo et couleurs Liquify
+- ✅ **Brand Consistency** : Logo et couleurs Liquidfy
 
 ### Technical SEO
 - ✅ **Structured Data** : 3 types implémentés
