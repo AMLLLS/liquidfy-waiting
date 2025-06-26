@@ -50,14 +50,42 @@ export default function EmailForm({ onSuccess }: EmailFormProps) {
 
       const result = await response.json()
       
-      // Force error display if email wasn't sent
+      // COMPREHENSIVE EMAIL DEBUGGING
+      console.log('📧 FULL EMAIL RESULT:', result)
+      
       if (result.debug?.emailStatus !== 'sent') {
-        console.error('❌ EMAIL NOT SENT - Status:', result.debug?.emailStatus)
-        console.error('❌ DEBUG INFO:', result.debug)
-        alert(`❌ Email Error: ${result.debug?.emailStatus}\nCheck console for details`)
+        console.error('❌ EMAIL FAILED!')
+        console.error('- Status:', result.debug?.emailStatus)
+        console.error('- Error:', result.debug?.emailError)
+        console.error('- Resend Available:', result.debug?.hasResend)
+        console.error('- API Key:', result.debug?.hasApiKey)
+        console.error('- Email ID:', result.debug?.emailId)
+        
+        // Show detailed alert
+        alert(`❌ EMAIL FAILED!\n\nStatus: ${result.debug?.emailStatus}\nError: ${result.debug?.emailError}\n\nCheck console for full details.`)
       } else {
-        console.log('✅ EMAIL SENT SUCCESSFULLY:', result.debug?.emailId)
-        alert('✅ Email sent successfully! Check your inbox.')
+        console.log('✅ EMAIL SENT SUCCESSFULLY!')
+        console.log('- Email ID:', result.debug?.emailId)
+        console.log('- Total Subscribers:', result.totalSubscribers)
+        
+        // Verify email was actually sent
+        if (result.debug?.emailId) {
+          setTimeout(async () => {
+            try {
+              const verifyResponse = await fetch('/api/verify-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ emailId: result.debug.emailId })
+              })
+              const verifyData = await verifyResponse.json()
+              console.log('🔍 EMAIL VERIFICATION:', verifyData)
+            } catch (e) {
+              console.log('⚠️ Could not verify email:', e)
+            }
+          }, 3000) // Check after 3 seconds
+        }
+        
+        alert(`✅ EMAIL SENT!\n\nEmail ID: ${result.debug?.emailId}\nSubscriber #${result.totalSubscribers}\n\nCheck your inbox!`)
       }
 
       reset()

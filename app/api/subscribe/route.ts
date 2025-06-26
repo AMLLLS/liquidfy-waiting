@@ -249,19 +249,27 @@ export async function POST(request: NextRequest) {
       emailToSend: email
     };
 
-    // Send welcome email asynchronously with detailed error handling
+    // RELIABLE EMAIL SYSTEM - Multiple attempts with detailed logging
     let emailStatus = 'not_attempted';
     let emailError = null;
+    let emailId = null;
 
     if (resend && process.env.RESEND_API_KEY && isNew) {
       emailStatus = 'attempting';
       
-      try {
-        // Send email synchronously for debugging (await the result)
-        const result = await resend.emails.send({
-          from: 'Liquify Team <hello@liquidfy.app>',
-          to: email,
-          subject: '🚀 Welcome to Liquify - You\'re in the exclusive waitlist!',
+      // Try email sending with retries
+      let attempts = 0;
+      const maxAttempts = 3;
+      
+      while (attempts < maxAttempts && emailStatus !== 'sent') {
+        attempts++;
+        try {
+          console.log(`🔄 Email attempt ${attempts}/${maxAttempts} for: ${email}`);
+          
+          const result = await resend.emails.send({
+            from: 'Liquify Team <hello@liquidfy.app>',
+            to: email,
+            subject: '🚀 Welcome to Liquify - You\'re in the exclusive waitlist!',
                   html: `
           <div style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; max-width: 600px; margin: 0 auto; padding: 10px; background: #f1f5f9;">
             <div style="background: #fefefe !important; border-radius: 16px; box-shadow: 0 8px 25px rgba(0,0,0,0.08); overflow: hidden; border: 1px solid #e2e8f0; color-scheme: light !important;">
@@ -333,18 +341,30 @@ export async function POST(request: NextRequest) {
             </div>
           </div>
         `,
-        });
-        
-        emailStatus = 'sent';
-        console.log('✅ Email sent successfully:', result);
-        
-        // Add result details to debug
-        debugInfo.emailId = result?.data?.id || 'unknown';
-        
-      } catch (error: any) {
-        emailStatus = 'failed';
-        emailError = error.message || error.toString();
-        console.error('❌ Email failed:', error);
+          });
+          
+          // Check if email was actually sent
+          if (result && result.data && result.data.id) {
+            emailStatus = 'sent';
+            emailId = result.data.id;
+            console.log(`✅ Email sent successfully on attempt ${attempts}:`, result.data.id);
+            break; // Exit retry loop
+          } else {
+            throw new Error('Invalid response from Resend API');
+          }
+          
+        } catch (error: any) {
+          emailError = `Attempt ${attempts}: ${error.message || error.toString()}`;
+          console.error(`❌ Email attempt ${attempts} failed:`, error);
+          
+          if (attempts >= maxAttempts) {
+            emailStatus = 'failed';
+            console.error(`❌ All ${maxAttempts} email attempts failed for: ${email}`);
+          } else {
+            // Wait before retry (exponential backoff)
+            await new Promise(resolve => setTimeout(resolve, attempts * 1000));
+          }
+        }
       }
     } else {
       if (!resend) emailStatus = 'no_resend_instance';
@@ -364,6 +384,7 @@ export async function POST(request: NextRequest) {
         ...debugInfo,
         emailStatus,
         emailError,
+        emailId,
         timestamp: new Date().toISOString()
       }
     };
