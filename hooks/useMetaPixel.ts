@@ -16,11 +16,6 @@ export const useMetaPixel = () => {
 
   // Événement personnalisé générique
   const track = (eventName: string, parameters?: Record<string, any>) => {
-    console.log(`🔍 TRACK DEBUG - Event: ${eventName}`)
-    console.log(`🔍 TRACK DEBUG - Pixel Loaded: ${isPixelLoaded()}`)
-    console.log(`🔍 TRACK DEBUG - Pixel Configured: ${isPixelConfigured()}`)
-    console.log(`🔍 TRACK DEBUG - Window.fbq exists: ${typeof window !== 'undefined' && !!window.fbq}`)
-    
     if (isPixelLoaded()) {
       // Vérifier si le pixel est configuré
       if (!isPixelConfigured()) {
@@ -31,18 +26,17 @@ export const useMetaPixel = () => {
       // Merger avec les paramètres par défaut
       const finalParams = { ...META_PIXEL_CONFIG.DEFAULT_PARAMS, ...parameters }
       
-      console.log(`🔍 TRACK DEBUG - About to call fbq('track', '${eventName}', finalParams)`)
       window.fbq('track', eventName, finalParams)
-      console.log(`📊 Meta Pixel: ${eventName}`, finalParams)
-    } else {
-      console.error('❌ Meta Pixel not loaded! Cannot track event:', eventName)
+      
+      // Log simplifié pour production
+      if (process.env.NODE_ENV === 'development') {
+        console.log(`📊 Meta Pixel: ${eventName}`, finalParams)
+      }
     }
   }
 
   // Événement personnalisé avec nom custom
   const trackCustom = (eventName: string, parameters?: Record<string, any>) => {
-    console.log(`🔍 TRACK CUSTOM DEBUG - Event: ${eventName}`)
-    
     if (isPixelLoaded()) {
       if (!isPixelConfigured()) {
         console.warn('⚠️ Meta Pixel not configured! Replace YOUR_PIXEL_ID_HERE with your real Pixel ID')
@@ -51,11 +45,12 @@ export const useMetaPixel = () => {
       
       const finalParams = { ...META_PIXEL_CONFIG.DEFAULT_PARAMS, ...parameters }
       
-      console.log(`🔍 TRACK CUSTOM DEBUG - About to call fbq('trackCustom', '${eventName}', finalParams)`)
       window.fbq('trackCustom', eventName, finalParams)
-      console.log(`📊 Meta Pixel Custom: ${eventName}`, finalParams)
-    } else {
-      console.error('❌ Meta Pixel not loaded! Cannot track custom event:', eventName)
+      
+      // Log simplifié pour production
+      if (process.env.NODE_ENV === 'development') {
+        console.log(`📊 Meta Pixel Custom: ${eventName}`, finalParams)
+      }
     }
   }
 
