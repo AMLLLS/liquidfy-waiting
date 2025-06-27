@@ -379,7 +379,6 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
           </div>
 
           {/* Floating indicators */}
-          <div className="absolute -top-2 -right-2 w-4 h-4 bg-green-400 rounded-full animate-pulse"></div>
           <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-purple-400 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
         </div>
       </motion.div>
@@ -459,7 +458,6 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
               </div>
 
               {/* Floating indicators */}
-              <div className="absolute -top-2 -right-2 w-4 h-4 bg-green-400 rounded-full animate-pulse"></div>
               <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-purple-400 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
             </div>
           </motion.div>
