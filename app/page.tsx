@@ -166,7 +166,7 @@ export default function Home() {
                       : document.getElementById('join-waitlist') || document.querySelector('[data-section="email-form"]');
                     
                     if (emailFormSection) {
-                      const offsetTop = emailFormSection.getBoundingClientRect().top + window.pageYOffset - 80;
+                      const offsetTop = emailFormSection.getBoundingClientRect().top + window.pageYOffset - 60;
                       window.scrollTo({ 
                         top: offsetTop, 
                         behavior: 'smooth' 
