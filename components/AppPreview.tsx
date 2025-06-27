@@ -248,32 +248,32 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
             </p>
           </div>
           
-          {/* Features grid - moved here after The Liquidfy Solution */}
+          {/* Features grid - Desktop only, shown here after The Liquidfy Solution */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-4"
+            className="hidden md:grid grid-cols-4 gap-4"
           >
-            <div className="glass-effect rounded-xl p-4 md:p-4 hover:scale-105 transition-all duration-300">
-              <div className="text-2xl md:text-2xl mb-2 md:mb-2">⚡</div>
-              <h4 className="text-sm md:text-sm font-semibold text-white mb-1 md:mb-2">30-Second Setup</h4>
-              <p className="text-xs md:text-xs text-gray-400">Copy, paste, done. No coding required.</p>
+            <div className="glass-effect rounded-xl p-4 hover:scale-105 transition-all duration-300">
+              <div className="text-2xl mb-2">⚡</div>
+              <h4 className="text-sm font-semibold text-white mb-2">30-Second Setup</h4>
+              <p className="text-xs text-gray-400">Copy, paste, done. No coding required.</p>
             </div>
-            <div className="glass-effect rounded-xl p-4 md:p-4 hover:scale-105 transition-all duration-300">
-              <div className="text-2xl md:text-2xl mb-2 md:mb-2">🎨</div>
-              <h4 className="text-sm md:text-sm font-semibold text-white mb-1 md:mb-2">Unlimited Customization</h4>
-              <p className="text-xs md:text-xs text-gray-400">Make it yours. Every color, every text.</p>
+            <div className="glass-effect rounded-xl p-4 hover:scale-105 transition-all duration-300">
+              <div className="text-2xl mb-2">🎨</div>
+              <h4 className="text-sm font-semibold text-white mb-2">Unlimited Customization</h4>
+              <p className="text-xs text-gray-400">Make it yours. Every color, every text.</p>
             </div>
-            <div className="glass-effect rounded-xl p-4 md:p-4 hover:scale-105 transition-all duration-300">
-              <div className="text-2xl md:text-2xl mb-2 md:mb-2">📈</div>
-              <h4 className="text-sm md:text-sm font-semibold text-white mb-1 md:mb-2">Proven to Convert</h4>
-              <p className="text-xs md:text-xs text-gray-400">Used by stores doing 7-figures</p>
+            <div className="glass-effect rounded-xl p-4 hover:scale-105 transition-all duration-300">
+              <div className="text-2xl mb-2">📈</div>
+              <h4 className="text-sm font-semibold text-white mb-2">Proven to Convert</h4>
+              <p className="text-xs text-gray-400">Used by stores doing 7-figures</p>
             </div>
-            <div className="glass-effect rounded-xl p-4 md:p-4 hover:scale-105 transition-all duration-300">
-              <div className="text-2xl md:text-2xl mb-2 md:mb-2">💰</div>
-              <h4 className="text-sm md:text-sm font-semibold text-white mb-1 md:mb-2">One Price, Everything</h4>
-              <p className="text-xs md:text-xs text-gray-400">No per-module fees. Ever.</p>
+            <div className="glass-effect rounded-xl p-4 hover:scale-105 transition-all duration-300">
+              <div className="text-2xl mb-2">💰</div>
+              <h4 className="text-sm font-semibold text-white mb-2">One Price, Everything</h4>
+              <p className="text-xs text-gray-400">No per-module fees. Ever.</p>
             </div>
           </motion.div>
         </div>
@@ -400,7 +400,34 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
         </motion.div>
       </div>
 
-
+      {/* Features grid - Mobile only, shown after the two-column layout */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+        className="md:hidden grid grid-cols-2 gap-4 mt-12 mb-12"
+      >
+        <div className="glass-effect rounded-xl p-4 hover:scale-105 transition-all duration-300">
+          <div className="text-2xl mb-2">⚡</div>
+          <h4 className="text-sm font-semibold text-white mb-2">30-Second Setup</h4>
+          <p className="text-xs text-gray-400">Copy, paste, done. No coding required.</p>
+        </div>
+        <div className="glass-effect rounded-xl p-4 hover:scale-105 transition-all duration-300">
+          <div className="text-2xl mb-2">🎨</div>
+          <h4 className="text-sm font-semibold text-white mb-2">Unlimited Customization</h4>
+          <p className="text-xs text-gray-400">Make it yours. Every color, every text.</p>
+        </div>
+        <div className="glass-effect rounded-xl p-4 hover:scale-105 transition-all duration-300">
+          <div className="text-2xl mb-2">📈</div>
+          <h4 className="text-sm font-semibold text-white mb-2">Proven to Convert</h4>
+          <p className="text-xs text-gray-400">Used by stores doing 7-figures</p>
+        </div>
+        <div className="glass-effect rounded-xl p-4 hover:scale-105 transition-all duration-300">
+          <div className="text-2xl mb-2">💰</div>
+          <h4 className="text-sm font-semibold text-white mb-2">One Price, Everything</h4>
+          <p className="text-xs text-gray-400">No per-module fees. Ever.</p>
+        </div>
+      </motion.div>
 
       {/* Footer */}
       <motion.footer
