@@ -24,8 +24,8 @@ export default function ModuleSlider() {
     },
     { 
       id: 3, 
-      name: 'Ultra Menu', 
-      description: 'Advanced navigation system',
+      name: 'Bundle Explainer', 
+      description: 'Advanced Bundle/Pack Explainer',
       image: '/modules/ultra-menu.jpg',
       gradient: 'from-purple-500/20 to-pink-500/20',
       borderColor: 'border-purple-500/30'
