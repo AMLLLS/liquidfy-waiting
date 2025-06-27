@@ -37,6 +37,7 @@ export default function EmailForm({ onSuccess }: EmailFormProps) {
     setError(null)
     
     // 📊 Meta Pixel: Lead event
+    console.log('🎯 TRIGGERING LEAD EVENT:', data.email)
     trackLead(data.email)
 
     try {
@@ -93,6 +94,7 @@ export default function EmailForm({ onSuccess }: EmailFormProps) {
         alert(`✅ EMAIL SENT!\n\nEmail ID: ${result.debug?.emailId}\nSubscriber #${result.totalSubscribers}\n\nCheck your inbox!`)
         
         // 📊 Meta Pixel: Complete Registration event
+        console.log('🎯 TRIGGERING COMPLETE REGISTRATION EVENT:', data.email)
         trackCompleteRegistration(data.email)
       }
 
@@ -103,6 +105,7 @@ export default function EmailForm({ onSuccess }: EmailFormProps) {
       setError(err instanceof Error ? err.message : 'Something went wrong')
       
       // 📊 Meta Pixel: Form error event
+      console.log('🎯 TRIGGERING FORM ERROR EVENT:', err)
       trackEmailFormError(err instanceof Error ? err.message : 'unknown_error')
     } finally {
       setIsLoading(false)
@@ -144,7 +147,10 @@ export default function EmailForm({ onSuccess }: EmailFormProps) {
               placeholder="Enter your email address"
               className="w-full pl-12 pr-4 py-3 md:py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-sm md:text-base"
               disabled={isLoading}
-              onFocus={() => trackEmailFormStart()}
+              onFocus={() => {
+                console.log('🎯 TRIGGERING EMAIL FORM START EVENT')
+                trackEmailFormStart()
+              }}
             />
           </div>
 
