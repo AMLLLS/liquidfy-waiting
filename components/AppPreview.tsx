@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useState } from 'react'
+import { useMetaPixel } from '../hooks/useMetaPixel'
 
 
 // Secure Email Form Component
@@ -15,6 +16,7 @@ function SecureEmailForm({ onSuccess }: EmailFormProps) {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
   const [honeypot, setHoneypot] = useState('') // Bot trap
+  const { trackLead, trackCompleteRegistration, trackEmailFormStart, trackEmailFormError } = useMetaPixel()
 
   const validateEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -35,6 +37,10 @@ function SecureEmailForm({ onSuccess }: EmailFormProps) {
       setError('Please enter a valid email address')
       return
     }
+
+    // 📊 Meta Pixel: Lead event
+    console.log('🎯 TRIGGERING LEAD EVENT (SecureEmailForm):', email)
+    trackLead(email)
 
     setIsLoading(true)
     
@@ -57,9 +63,14 @@ function SecureEmailForm({ onSuccess }: EmailFormProps) {
       }
 
       // Success - call the success callback
+      console.log('🎯 TRIGGERING COMPLETE REGISTRATION EVENT (SecureEmailForm):', email)
+      trackCompleteRegistration(email)
+      
       setEmail('')
       onSuccess()
     } catch (err) {
+      console.log('🎯 TRIGGERING FORM ERROR EVENT (SecureEmailForm):', err)
+      trackEmailFormError(err instanceof Error ? err.message : 'unknown_error')
       setError('Something went wrong. Please try again.')
     } finally {
       setIsLoading(false)
@@ -91,6 +102,17 @@ function SecureEmailForm({ onSuccess }: EmailFormProps) {
           placeholder="Enter your email address" 
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          onFocus={() => {
+            console.log('🎯 TRIGGERING EMAIL FORM START EVENT (SecureEmailForm)')
+            trackEmailFormStart()
+            
+            // Test direct Lead aussi
+            console.log('🎯 TESTING SIMPLE LEAD EVENT ON FOCUS (SecureEmailForm)')
+            if (typeof window !== 'undefined' && window.fbq) {
+              window.fbq('track', 'Lead', { content_name: 'Email Focus Test SecureForm' })
+              console.log('✅ Direct fbq Lead call made (SecureEmailForm)')
+            }
+          }}
           className="w-full pl-12 pr-4 py-3 md:py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-sm md:text-base" 
           disabled={isLoading}
           required
