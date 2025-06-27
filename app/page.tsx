@@ -19,12 +19,8 @@ export default function Home() {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const { trackViewContent, trackFeatureView } = useMetaPixel()
   
-  // Track page view and view content on mount
+  // Track view content on mount (PageView handled by pixel init)
   useEffect(() => {
-    // Manual PageView tracking (more reliable than auto)
-    if (typeof window !== 'undefined' && window.fbq) {
-      window.fbq('track', 'PageView')
-    }
     trackViewContent('Liquidfy Landing Page')
   }, [trackViewContent])
 
