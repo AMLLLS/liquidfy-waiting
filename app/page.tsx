@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import SimpleBackground from '@/components/SimpleBackground'
@@ -10,10 +10,19 @@ import ModuleSlider from '@/components/ModuleSlider'
 import AppPreview from '@/components/AppPreview'
 import ConfettiEffect from '@/components/ConfettiEffect'
 import StructuredData from '@/components/StructuredData'
+import ScrollTracker from '@/components/ScrollTracker'
+import MetaPixelDebug from '@/components/MetaPixelDebug'
+import { useMetaPixel } from '@/hooks/useMetaPixel'
 
 
 export default function Home() {
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const { trackViewContent, trackFeatureView } = useMetaPixel()
+  
+  // Track page view on mount
+  useEffect(() => {
+    trackViewContent('Liquidfy Landing Page')
+  }, [])
 
   if (isSubmitted) {
     return (
@@ -69,6 +78,7 @@ export default function Home() {
       <main className="min-h-screen bg-gray-950 relative overflow-hidden">
         <StructuredData />
         <SimpleBackground />
+        <ScrollTracker />
         
         <div className="relative z-10">
         {/* Header with Logo and Title */}
@@ -250,6 +260,9 @@ export default function Home() {
           <AppPreview onEmailSuccess={() => setIsSubmitted(true)} />
         </div>
       </div>
+      
+      {/* Meta Pixel Debug Component */}
+      <MetaPixelDebug />
     </main>
   )
 } 

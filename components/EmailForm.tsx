@@ -1,11 +1,12 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { Mail, ArrowRight, Loader2 } from 'lucide-react'
+import { useMetaPixel } from '../hooks/useMetaPixel'
 
 const emailSchema = z.object({
   email: z.string().email('Please enter a valid email address'),
@@ -20,6 +21,7 @@ interface EmailFormProps {
 export default function EmailForm({ onSuccess }: EmailFormProps) {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const { trackLead, trackCompleteRegistration, trackEmailFormStart, trackEmailFormError } = useMetaPixel()
 
   const {
     register,
@@ -33,6 +35,9 @@ export default function EmailForm({ onSuccess }: EmailFormProps) {
   const onSubmit = async (data: EmailFormData) => {
     setIsLoading(true)
     setError(null)
+    
+    // 📊 Meta Pixel: Lead event
+    trackLead(data.email)
 
     try {
       const response = await fetch('/api/subscribe', {
@@ -86,6 +91,9 @@ export default function EmailForm({ onSuccess }: EmailFormProps) {
         }
         
         alert(`✅ EMAIL SENT!\n\nEmail ID: ${result.debug?.emailId}\nSubscriber #${result.totalSubscribers}\n\nCheck your inbox!`)
+        
+        // 📊 Meta Pixel: Complete Registration event
+        trackCompleteRegistration(data.email)
       }
 
       reset()
@@ -93,6 +101,9 @@ export default function EmailForm({ onSuccess }: EmailFormProps) {
     } catch (err) {
       console.error('❌ Email submission error:', err)
       setError(err instanceof Error ? err.message : 'Something went wrong')
+      
+      // 📊 Meta Pixel: Form error event
+      trackEmailFormError(err instanceof Error ? err.message : 'unknown_error')
     } finally {
       setIsLoading(false)
     }
@@ -133,6 +144,7 @@ export default function EmailForm({ onSuccess }: EmailFormProps) {
               placeholder="Enter your email address"
               className="w-full pl-12 pr-4 py-3 md:py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-sm md:text-base"
               disabled={isLoading}
+              onFocus={() => trackEmailFormStart()}
             />
           </div>
 
