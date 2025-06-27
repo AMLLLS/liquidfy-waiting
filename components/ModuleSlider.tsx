@@ -8,15 +8,15 @@ export default function ModuleSlider() {
   const modules = [
     { 
       id: 1, 
-      name: 'Customer Portal', 
-      description: 'Complete customer dashboard',
+      name: 'Social Media Video', 
+      description: 'Viral Social Media video module',
       image: '/modules/customer-portal.jpg',
       gradient: 'from-blue-500/20 to-cyan-500/20',
       borderColor: 'border-blue-500/30'
     },
     { 
       id: 2, 
-      name: 'Daily Deals', 
+      name: 'Mother Days Sale', 
       description: 'Flash sales & promotions',
       image: '/modules/daily-deals.jpg',
       gradient: 'from-green-500/20 to-emerald-500/20',
@@ -32,8 +32,8 @@ export default function ModuleSlider() {
     },
     { 
       id: 4, 
-      name: 'Social Share', 
-      description: 'Boost social engagement',
+      name: 'Trusted Reviews', 
+      description: 'Reviews & ratings system',
       image: '/modules/social-share.jpg',
       gradient: 'from-orange-500/20 to-red-500/20',
       borderColor: 'border-orange-500/30'
@@ -56,8 +56,8 @@ export default function ModuleSlider() {
     },
     { 
       id: 7, 
-      name: 'Wishlist Pro', 
-      description: 'Advanced wishlist features',
+      name: 'Payment Gateway', 
+      description: 'Klarna 4 parts payment module',
       image: '/modules/wishlist-pro.jpg',
       gradient: 'from-pink-500/20 to-rose-500/20',
       borderColor: 'border-pink-500/30'
