@@ -450,7 +450,7 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
                 {/* Dashboard content - Single large image */}
                 <div className="relative w-full h-48 rounded-lg overflow-hidden">
                   <Image
-                    src="/previewappm1.png"
+                    src="/dashboard-liquidfy.png"
                     alt="Liquidfy Dashboard Preview"
                     fill
                     className="object-cover"
