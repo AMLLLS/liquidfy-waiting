@@ -128,11 +128,8 @@ export default function ModuleSlider() {
                         alt={module.name}
                         fill
                         className="object-cover"
-                        onError={(e) => {
-                          // Fallback to placeholder if image doesn't exist
-                          const target = e.target as HTMLImageElement;
-                          target.src = '/previewappm1.png';
-                        }}
+                        sizes="(max-width: 768px) 192px, 224px"
+                        priority={index < 8} // Priorité pour les 8 premières images
                       />
                   </div>
                   
