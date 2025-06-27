@@ -105,13 +105,6 @@ function SecureEmailForm({ onSuccess }: EmailFormProps) {
           onFocus={() => {
             console.log('🎯 TRIGGERING EMAIL FORM START EVENT (SecureEmailForm)')
             trackEmailFormStart()
-            
-            // Test direct Lead aussi
-            console.log('🎯 TESTING SIMPLE LEAD EVENT ON FOCUS (SecureEmailForm)')
-            if (typeof window !== 'undefined' && window.fbq) {
-              window.fbq('track', 'Lead', { content_name: 'Email Focus Test SecureForm' })
-              console.log('✅ Direct fbq Lead call made (SecureEmailForm)')
-            }
           }}
           className="w-full pl-12 pr-4 py-3 md:py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-sm md:text-base" 
           disabled={isLoading}

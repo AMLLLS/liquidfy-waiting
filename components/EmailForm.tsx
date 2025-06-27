@@ -150,13 +150,6 @@ export default function EmailForm({ onSuccess }: EmailFormProps) {
               onFocus={() => {
                 console.log('🎯 TRIGGERING EMAIL FORM START EVENT')
                 trackEmailFormStart()
-                
-                // Test simple Lead event aussi
-                console.log('🎯 TESTING SIMPLE LEAD EVENT ON FOCUS')
-                if (typeof window !== 'undefined' && window.fbq) {
-                  window.fbq('track', 'Lead', { content_name: 'Email Focus Test' })
-                  console.log('✅ Direct fbq Lead call made')
-                }
               }}
             />
           </div>

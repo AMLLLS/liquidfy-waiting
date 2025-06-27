@@ -17,12 +17,17 @@ import { useMetaPixel } from '@/hooks/useMetaPixel'
 
 export default function Home() {
   const [isSubmitted, setIsSubmitted] = useState(false)
-  const { trackViewContent, trackFeatureView } = useMetaPixel()
+  const { trackViewContent, trackFeatureView, trackCompleteRegistration } = useMetaPixel()
   
   // Track view content on mount (PageView handled by pixel init)
   useEffect(() => {
-    trackViewContent('Liquidfy Landing Page')
-  }, [trackViewContent])
+    if (!isSubmitted) {
+      trackViewContent('Liquidfy Landing Page')
+    } else {
+      // Track success page view
+      trackViewContent('Liquidfy Success Page')
+    }
+  }, [trackViewContent, isSubmitted])
 
   if (isSubmitted) {
     return (
