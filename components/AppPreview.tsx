@@ -356,15 +356,22 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
         transition={{ duration: 0.8, delay: 0.6 }}
         className="md:hidden flex flex-col justify-center mb-12"
       >
-                 {/* App Preview Window */}
-         <div className="glass-effect rounded-2xl relative overflow-hidden">
+                 {/* App Preview Window - Mockup outside of glass-effect */}
+         <div className="bg-gray-800/50 rounded-lg p-6 relative">
+           <div className="flex items-center gap-2 mb-6">
+             <div className="w-3 h-3 bg-red-400 rounded-full"></div>
+             <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
+             <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+             <div className="ml-4 text-xs text-gray-400">liquidfy.app/dashboard</div>
+           </div>
+           
            {/* Dashboard content - Full size image */}
-           <div className="relative w-full h-60">
+           <div className="relative w-full h-60 rounded-lg overflow-hidden">
              <Image
                src="/dashboard-liquidfy.png"
                alt="Liquidfy Dashboard Preview"
                fill
-               className="object-cover rounded-2xl"
+               className="object-contain"
              />
            </div>
 
@@ -425,15 +432,22 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col justify-center"
           >
-            {/* App Preview Window */}
-            <div className="glass-effect rounded-2xl relative overflow-hidden h-full">
+            {/* App Preview Window - Mockup outside of glass-effect */}
+            <div className="bg-gray-800/50 rounded-lg p-6 relative h-full min-h-80">
+              <div className="flex items-center gap-2 mb-6">
+                <div className="w-3 h-3 bg-red-400 rounded-full"></div>
+                <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+                <div className="ml-4 text-xs text-gray-400">liquidfy.app/dashboard</div>
+              </div>
+              
               {/* Dashboard content - Full size image */}
-              <div className="relative w-full h-full min-h-80">
+              <div className="relative w-full h-full rounded-lg overflow-hidden" style={{ height: 'calc(100% - 3rem)' }}>
                 <Image
                   src="/dashboard-liquidfy.png"
                   alt="Liquidfy Dashboard Preview"
                   fill
-                  className="object-cover rounded-2xl"
+                  className="object-contain"
                 />
               </div>
 
