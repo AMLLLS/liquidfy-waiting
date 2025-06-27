@@ -356,31 +356,21 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
         transition={{ duration: 0.8, delay: 0.6 }}
         className="md:hidden flex flex-col justify-center mb-12"
       >
-        {/* App Preview Window */}
-        <div className="glass-effect rounded-2xl p-6 relative overflow-hidden">
-          {/* Browser mockup */}
-          <div className="bg-gray-800/50 rounded-lg p-6">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-3 h-3 bg-red-400 rounded-full"></div>
-              <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
-              <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-              <div className="ml-4 text-xs text-gray-400">liquidfy.app/dashboard</div>
-            </div>
-            
-            {/* Dashboard content - Single large image */}
-            <div className="relative w-full h-40 rounded-lg overflow-hidden">
-              <Image
-                src="/dashboard-liquidfy.png"
-                alt="Liquidfy Dashboard Preview"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
+                 {/* App Preview Window */}
+         <div className="glass-effect rounded-2xl relative overflow-hidden">
+           {/* Dashboard content - Full size image */}
+           <div className="relative w-full h-60">
+             <Image
+               src="/dashboard-liquidfy.png"
+               alt="Liquidfy Dashboard Preview"
+               fill
+               className="object-cover rounded-2xl"
+             />
+           </div>
 
-          {/* Floating indicators */}
-          <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-purple-400 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-        </div>
+           {/* Floating indicators */}
+           <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-purple-400 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+         </div>
       </motion.div>
 
       {/* Two-column layout for desktop with arrow */}
@@ -436,25 +426,15 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
             className="flex flex-col justify-center"
           >
             {/* App Preview Window */}
-            <div className="glass-effect rounded-2xl p-6 md:p-8 relative overflow-hidden h-full flex flex-col justify-center">
-              {/* Browser mockup */}
-              <div className="bg-gray-800/50 rounded-lg p-6">
-                <div className="flex items-center gap-2 mb-6">
-                  <div className="w-3 h-3 bg-red-400 rounded-full"></div>
-                  <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
-                  <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-                  <div className="ml-4 text-xs text-gray-400">liquidfy.app/dashboard</div>
-                </div>
-                
-                {/* Dashboard content - Single large image */}
-                <div className="relative w-full h-48 rounded-lg overflow-hidden">
-                  <Image
-                    src="/dashboard-liquidfy.png"
-                    alt="Liquidfy Dashboard Preview"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+            <div className="glass-effect rounded-2xl relative overflow-hidden h-full">
+              {/* Dashboard content - Full size image */}
+              <div className="relative w-full h-full min-h-80">
+                <Image
+                  src="/dashboard-liquidfy.png"
+                  alt="Liquidfy Dashboard Preview"
+                  fill
+                  className="object-cover rounded-2xl"
+                />
               </div>
 
               {/* Floating indicators */}
