@@ -64,8 +64,8 @@ export default function ModuleSlider() {
     },
     { 
       id: 8, 
-      name: 'Bundle Builder', 
-      description: 'Create product bundles',
+      name: 'Customer Satisfaction', 
+      description: 'Satisfaction Trust module',
       image: '/modules/bundle-builder.jpg',
       gradient: 'from-teal-500/20 to-cyan-500/20',
       borderColor: 'border-teal-500/30'
