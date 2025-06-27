@@ -143,8 +143,8 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
         className="text-center mb-16"
         id="meet-liquidfy"
       >
-        <h3 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 lg:mb-8">
-          Why Your Store Needs Liquidfy
+        <h3 className="text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 lg:mb-8">
+          Why Your Store Needs <span className="gradient-text">Liquidfy</span>
         </h3>
         <p className="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
           Stop losing customers to boring, generic stores. Get the tools you need to <span className="text-primary-400 font-semibold">stand out</span> and <span className="text-purple-400 font-semibold">dominate your market</span>.
@@ -214,7 +214,7 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
           </div>
           
           <div className="bg-gray-900/50 rounded-2xl p-6 md:p-8 border border-gray-800 mb-8">
-            <h4 className="text-2xl md:text-3xl font-bold text-white mb-4">The Problem Every Shopify Store Owner Faces:</h4>
+            <h4 className="text-xl md:text-3xl font-bold text-white mb-4">The Problem Every Shopify Store Owner Faces:</h4>
             <div className="grid md:grid-cols-2 gap-6 text-left">
               <div className="space-y-3">
                 <div className="flex items-start gap-3">
@@ -279,29 +279,133 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
         </div>
       </motion.div>
 
+      {/* Mobile: Get Early Access first */}
+      <motion.div
+        initial={{ opacity: 0, x: -30 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 0.5 }}
+        className="md:hidden flex flex-col mb-12"
+        id="join-waitlist"
+        data-section="email-form"
+      >
+        <div className="max-w-md mx-auto w-full">
+          <div className="glass-effect rounded-2xl p-6 flex flex-col">
+            <div className="text-center">
+              {/* Mobile: Large rocket icon */}
+              <div className="inline-block text-6xl mb-4">🚀</div>
+              <h3 className="text-3xl font-semibold mb-2">
+                <span className="gradient-text" style={{fontSize: '2.3rem'}}>Get Early Access</span>
+              </h3>
+              <p className="text-gray-400 text-s mb-4">
+                Be the first to access the platform that's changing ecommerce forever.
+              </p>
+              <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-3 mb-4 text-left">
+                <p className="text-green-300 text-xs font-medium">
+                  💰 Exclusive launch discount<br/>+ 7-day early access guaranteed
+                </p>
+              </div>
+            </div>
+            <SecureEmailForm onSuccess={onEmailSuccess} />
+            <div className="mt-6 text-center">
+              <p className="text-xs text-gray-500">⚡ No spam, no BS. Just the good stuff when we launch.</p>
+            </div>
+          </div>
+          
+          {/* Privacy notice */}
+          <div className="mt-4 text-center">
+            <p className="text-xs text-gray-500 bg-gray-900/50 rounded-lg px-3 py-2 border border-gray-800">
+              🔒 We respect your privacy. Unsubscribe at any time.
+            </p>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Features grid - Mobile only, shown after Get Early Access */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+        className="md:hidden grid grid-cols-2 gap-4 mb-12"
+      >
+        <div className="glass-effect rounded-xl p-4 hover:scale-105 transition-all duration-300">
+          <div className="text-2xl mb-2">⚡</div>
+          <h4 className="text-sm font-semibold text-white mb-2">30-Second Setup</h4>
+          <p className="text-xs text-gray-400">Copy, paste, done. No coding required.</p>
+        </div>
+        <div className="glass-effect rounded-xl p-4 hover:scale-105 transition-all duration-300">
+          <div className="text-2xl mb-2">🎨</div>
+          <h4 className="text-sm font-semibold text-white mb-2">Unlimited Customization</h4>
+          <p className="text-xs text-gray-400">Make it yours. Every color, every text.</p>
+        </div>
+        <div className="glass-effect rounded-xl p-4 hover:scale-105 transition-all duration-300">
+          <div className="text-2xl mb-2">📈</div>
+          <h4 className="text-sm font-semibold text-white mb-2">Proven to Convert</h4>
+          <p className="text-xs text-gray-400">Used by stores doing 7-figures</p>
+        </div>
+        <div className="glass-effect rounded-xl p-4 hover:scale-105 transition-all duration-300">
+          <div className="text-2xl mb-2">💰</div>
+          <h4 className="text-sm font-semibold text-white mb-2">One Price, Everything</h4>
+          <p className="text-xs text-gray-400">No per-module fees. Ever.</p>
+        </div>
+      </motion.div>
+
+      {/* Mobile: App Preview at the end */}
+      <motion.div
+        initial={{ opacity: 0, x: 30 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
+        className="md:hidden flex flex-col justify-center mb-12"
+      >
+        {/* App Preview Window */}
+        <div className="glass-effect rounded-2xl p-6 relative overflow-hidden">
+          {/* Browser mockup */}
+          <div className="bg-gray-800/50 rounded-lg p-6">
+            <div className="flex items-center gap-2 mb-6">
+              <div className="w-3 h-3 bg-red-400 rounded-full"></div>
+              <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
+              <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+              <div className="ml-4 text-xs text-gray-400">liquidfy.app/dashboard</div>
+            </div>
+            
+            {/* Dashboard content - Single large image */}
+            <div className="relative w-full h-40 rounded-lg overflow-hidden">
+              <Image
+                src="/previewappm1.png"
+                alt="Liquidfy Dashboard Preview"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Floating indicators */}
+          <div className="absolute -top-2 -right-2 w-4 h-4 bg-green-400 rounded-full animate-pulse"></div>
+          <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-purple-400 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+        </div>
+      </motion.div>
+
       {/* Two-column layout for desktop with arrow */}
-      <div className="relative">
+      <div className="relative hidden md:block">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-6">
           
-          {/* Left Column - Join Waitlist - Order 2 on mobile (appears after preview) */}
+          {/* Left Column - Join Waitlist - Desktop only */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="flex flex-col order-2 lg:order-1"
-            id="join-waitlist"
+            className="flex flex-col"
+            id="join-waitlist-desktop"
             data-section="email-form"
           >
             <div className="max-w-md mx-auto lg:mx-0 w-full">
               <div className="glass-effect rounded-2xl p-6 md:p-8 flex flex-col">
-                                  <div className="text-center lg:text-left">
-                    {/* Mobile: Large rocket icon, Desktop: Small rocket inline */}
-                    <div className="lg:hidden inline-block text-6xl md:text-7xl mb-4">🚀</div>
-                    <h3 className="text-3xl md:text-4xl font-semibold mb-2">
-                      <span className="hidden lg:inline text-4xl mr-3" style={{filter: 'none'}}>🚀</span>
-                      <span className="gradient-text" style={{fontSize: '2.3rem'}}>Get Early Access</span>
-                    </h3>
-                  <p className="text-gray-400 text-s md:text-sm mb-4">
+                <div className="text-center lg:text-left">
+                  {/* Desktop: Small rocket inline */}
+                  <h3 className="text-3xl md:text-4xl font-semibold mb-2">
+                    <span className="text-4xl mr-3" style={{filter: 'none'}}>🚀</span>
+                    <span className="gradient-text" style={{fontSize: '2.3rem'}}>Get Early Access</span>
+                  </h3>
+                  <p className="text-gray-400 text-xs md:text-sm mb-4">
                     Be the first to access the platform that's changing ecommerce forever.
                   </p>
                   <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-3 mb-4 text-left">
@@ -316,7 +420,7 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
                 </div>
               </div>
               
-              {/* Privacy notice - moved outside and better positioned */}
+              {/* Privacy notice */}
               <div className="mt-4 text-center lg:text-left">
                 <p className="text-xs text-gray-500 bg-gray-900/50 rounded-lg px-3 py-2 border border-gray-800">
                   🔒 We respect your privacy. Unsubscribe at any time.
@@ -325,15 +429,15 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
             </div>
           </motion.div>
 
-          {/* Right Column - App Preview - Order 1 on mobile (appears before form) */}
+          {/* Right Column - App Preview */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col justify-center order-1 lg:order-2"
+            className="flex flex-col justify-center"
           >
-            {/* App Preview Window - mt-10 only on mobile */}
-            <div className="glass-effect rounded-2xl p-6 md:p-8 relative overflow-hidden h-full flex flex-col justify-center mt-10 lg:mt-0">
+            {/* App Preview Window */}
+            <div className="glass-effect rounded-2xl p-6 md:p-8 relative overflow-hidden h-full flex flex-col justify-center">
               {/* Browser mockup */}
               <div className="bg-gray-800/50 rounded-lg p-6">
                 <div className="flex items-center gap-2 mb-6">
@@ -343,26 +447,14 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
                   <div className="ml-4 text-xs text-gray-400">liquidfy.app/dashboard</div>
                 </div>
                 
-                {/* Dashboard content - Made bigger */}
-                <div className="space-y-4">
-                  <div className="h-8 bg-gradient-to-r from-primary-500/20 to-purple-500/20 rounded w-3/4"></div>
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="h-20 bg-white/5 rounded border border-white/10 flex items-center justify-center">
-                      <span className="text-2xl opacity-50">📦</span>
-                    </div>
-                    <div className="h-20 bg-white/5 rounded border border-white/10 flex items-center justify-center">
-                      <span className="text-2xl opacity-50">📦</span>
-                    </div>
-                    <div className="h-20 bg-white/5 rounded border border-white/10 flex items-center justify-center">
-                      <span className="text-2xl opacity-50">📦</span>
-                    </div>
-                    <div className="h-20 bg-white/5 rounded border border-white/10 flex items-center justify-center">
-                      <span className="text-2xl opacity-50">📦</span>
-                    </div>
-                  </div>
-                  <div className="h-4 bg-gray-700/50 rounded w-1/2"></div>
-                  <div className="h-4 bg-gray-700/50 rounded w-2/3"></div>
-                  <div className="h-4 bg-gray-700/50 rounded w-3/4"></div>
+                {/* Dashboard content - Single large image */}
+                <div className="relative w-full h-48 rounded-lg overflow-hidden">
+                  <Image
+                    src="/previewappm1.png"
+                    alt="Liquidfy Dashboard Preview"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
               </div>
 
@@ -400,34 +492,7 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
         </motion.div>
       </div>
 
-      {/* Features grid - Mobile only, shown after the two-column layout */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-        className="md:hidden grid grid-cols-2 gap-4 mt-12 mb-12"
-      >
-        <div className="glass-effect rounded-xl p-4 hover:scale-105 transition-all duration-300">
-          <div className="text-2xl mb-2">⚡</div>
-          <h4 className="text-sm font-semibold text-white mb-2">30-Second Setup</h4>
-          <p className="text-xs text-gray-400">Copy, paste, done. No coding required.</p>
-        </div>
-        <div className="glass-effect rounded-xl p-4 hover:scale-105 transition-all duration-300">
-          <div className="text-2xl mb-2">🎨</div>
-          <h4 className="text-sm font-semibold text-white mb-2">Unlimited Customization</h4>
-          <p className="text-xs text-gray-400">Make it yours. Every color, every text.</p>
-        </div>
-        <div className="glass-effect rounded-xl p-4 hover:scale-105 transition-all duration-300">
-          <div className="text-2xl mb-2">📈</div>
-          <h4 className="text-sm font-semibold text-white mb-2">Proven to Convert</h4>
-          <p className="text-xs text-gray-400">Used by stores doing 7-figures</p>
-        </div>
-        <div className="glass-effect rounded-xl p-4 hover:scale-105 transition-all duration-300">
-          <div className="text-2xl mb-2">💰</div>
-          <h4 className="text-sm font-semibold text-white mb-2">One Price, Everything</h4>
-          <p className="text-xs text-gray-400">No per-module fees. Ever.</p>
-        </div>
-      </motion.div>
+
 
       {/* Footer */}
       <motion.footer

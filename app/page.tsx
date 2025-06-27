@@ -77,7 +77,7 @@ export default function Home() {
             <Logo />
             <div className="mt-4 md:mt-8">
               {/* Platform logos above title */}
-              <div className="flex justify-center items-center gap-4 mb-6">
+              <div className="flex justify-center items-center gap-4">
                 <div className="relative w-8 h-8 md:w-10 md:h-10">
                   <Image
                     src="/icon-shopify.png"
