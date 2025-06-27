@@ -159,10 +159,12 @@ export default function Home() {
                     transition: { duration: 0.1 }
                   }}
                   onClick={() => {
-                    // Scroll directly to the email form section
-                    const emailFormSection = document.querySelector('[data-section="email-form"]') || 
-                                           document.querySelector('.glass-effect') ||
-                                           document.getElementById('join-waitlist');
+                    // Scroll to email form section with proper detection for mobile/desktop
+                    const isDesktop = window.innerWidth >= 768;
+                    const emailFormSection = isDesktop 
+                      ? document.getElementById('join-waitlist-desktop') || document.querySelector('[data-section="email-form"]')
+                      : document.getElementById('join-waitlist') || document.querySelector('[data-section="email-form"]');
+                    
                     if (emailFormSection) {
                       const offsetTop = emailFormSection.getBoundingClientRect().top + window.pageYOffset - 80;
                       window.scrollTo({ 

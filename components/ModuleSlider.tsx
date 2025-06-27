@@ -40,8 +40,8 @@ export default function ModuleSlider() {
     },
     { 
       id: 5, 
-      name: 'Gift Cards', 
-      description: 'Digital gift card system',
+      name: 'Icon & Details with Title', 
+      description: 'Catchy module with icon & details',
       image: '/modules/gift-cards.jpg',
       gradient: 'from-yellow-500/20 to-amber-500/20',
       borderColor: 'border-yellow-500/30'
