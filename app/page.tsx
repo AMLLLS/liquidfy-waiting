@@ -69,9 +69,10 @@ export default function Home() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsSubmitted(false)}
-              className="bg-liquidfy-gradient-alt text-white px-6 md:px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 text-sm md:text-base"
+              className="bg-gray-700/50 text-gray-300 px-6 md:px-8 py-3 rounded-full font-medium hover:bg-gray-600/50 transition-all duration-300 text-sm md:text-base border border-gray-600/30"
+              data-fb-tracking="false"
             >
-              Join Another Email
+              ↺ Add Another Email
             </motion.button>
           </div>
         </motion.div>
