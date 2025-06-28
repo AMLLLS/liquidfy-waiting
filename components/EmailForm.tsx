@@ -8,6 +8,7 @@ import { z } from 'zod'
 import { Mail, ArrowRight, Loader2, Gift, Zap, Crown } from 'lucide-react'
 import { useMetaPixel } from '../hooks/useMetaPixel'
 import CountdownTimer from './CountdownTimer'
+import Image from 'next/image'
 
 const emailSchema = z.object({
   email: z.string().email('Please enter a valid email address'),
@@ -17,25 +18,15 @@ type EmailFormData = z.infer<typeof emailSchema>
 
 interface EmailFormProps {
   onSuccess: () => void
+  subscriberCount?: number
 }
 
-export default function EmailForm({ onSuccess }: EmailFormProps) {
+export default function EmailForm({ onSuccess, subscriberCount = 147 }: EmailFormProps) {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [hasTrackedFormStart, setHasTrackedFormStart] = useState(false)
   const [showBenefits, setShowBenefits] = useState(false)
-  const [subscriberCount, setSubscriberCount] = useState(847)
   const { trackLead, trackCompleteRegistration, trackEmailFormStart, trackEmailFormError } = useMetaPixel()
-
-  // Simulate real-time updates
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (Math.random() > 0.8) {
-        setSubscriberCount(prev => prev + 1)
-      }
-    }, 25000)
-    return () => clearInterval(interval)
-  }, [])
 
   // Launch countdown (7 days from now)
   const launchDate = new Date()
@@ -129,61 +120,72 @@ export default function EmailForm({ onSuccess }: EmailFormProps) {
   }
 
   return (
-    <div className="max-w-md mx-auto px-4">
+    <div className="max-w-md mx-auto">
+      {/* Timer as external banner - positioned above the main block */}
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="bg-gradient-to-r from-red-500/20 to-orange-500/20 border border-red-500/30 rounded-t-2xl p-3 mb-0"
+      >
+        <div className="flex items-center justify-center gap-2 text-orange-200 text-sm font-medium">
+          <span className="animate-pulse">⏰</span>
+          <span>Early Bird Launch Ends In:</span>
+        </div>
+        <CountdownTimer 
+          targetDate={launchDate}
+          className="mt-2 scale-75"
+        />
+      </motion.div>
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="glass-effect rounded-2xl p-6 md:p-8"
+        className="glass-effect rounded-b-2xl rounded-t-none p-6 md:p-8"
       >
-        {/* Urgency header */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.2 }}
-          className="text-center mb-6"
-        >
-          <div className="bg-gradient-to-r from-red-500/20 to-orange-500/20 border border-red-500/30 rounded-xl p-3 mb-4">
-            <div className="flex items-center justify-center gap-2 text-orange-200 text-sm font-medium">
-              <span className="animate-pulse">⏰</span>
-              <span>Early Bird Launch Ends In:</span>
-            </div>
-            <CountdownTimer 
-              targetDate={launchDate}
-              className="mt-2 scale-75"
-            />
-          </div>
-        </motion.div>
-
         <div className="text-center mb-6">
-          <motion.div
-            animate={{ rotate: [0, 10, -10, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="inline-block text-3xl md:text-4xl mb-4"
-          >
-            🚀
-          </motion.div>
-          <h3 className="text-xl md:text-2xl font-semibold gradient-text mb-2">
-            Join the Waitlist
-          </h3>
-          <p className="text-gray-400 text-sm md:text-base mb-4">
-            Secure your spot among the first <span className="text-primary-400 font-semibold">1,000 entrepreneurs</span> to transform their stores
+          {/* Mobile: Rocket on same line as title, smaller size */}
+          <div className="flex items-center justify-center gap-2 mb-2 md:hidden">
+            <span className="text-3xl">🚀</span>
+            <h3 className="text-3xl font-semibold">
+              <span className="gradient-text">Get Early Access</span>
+            </h3>
+          </div>
+          
+          {/* Desktop: Moderately bigger title */}
+          <div className="hidden md:flex items-center justify-center gap-3 mb-2">
+            <span className="text-3xl">🚀</span>
+            <h3 className="text-3xl font-semibold">
+              <span className="gradient-text">Get Early Access</span>
+            </h3>
+          </div>
+          
+          <p className="text-gray-400 text-sm mb-4">
+            Be the first to access the platform that's changing ecommerce forever.
           </p>
           
-          {/* Social proof */}
-          <div className="flex items-center justify-center gap-2 text-xs text-gray-500 mb-4">
+          {/* Launch discount badges */}
+          <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-3 mb-4 text-left">
+            <p className="text-green-300 text-xs font-medium">
+              💰 Exclusive launch discount<br/>+ 7-day early access guaranteed
+            </p>
+          </div>
+          
+          {/* Social proof with subscriberCount - Bigger on desktop */}
+          <div className="flex items-center justify-center gap-2 text-xs md:text-sm text-gray-500 mb-4">
             <div className="flex -space-x-1">
-              <div className="w-4 h-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full border border-white/20 flex items-center justify-center">
+              <div className="w-4 h-4 md:w-6 md:h-6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full border border-white/20 flex items-center justify-center">
                 <span className="text-white text-xs font-bold" style={{ fontSize: '8px' }}>TK</span>
               </div>
-              <div className="w-4 h-4 bg-gradient-to-r from-green-500 to-blue-500 rounded-full border border-white/20 flex items-center justify-center">
+              <div className="w-4 h-4 md:w-6 md:h-6 bg-gradient-to-r from-green-500 to-blue-500 rounded-full border border-white/20 flex items-center justify-center">
                 <span className="text-white text-xs font-bold" style={{ fontSize: '8px' }}>LM</span>
               </div>
-              <div className="w-4 h-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full border border-white/20 flex items-center justify-center">
+              <div className="w-4 h-4 md:w-6 md:h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full border border-white/20 flex items-center justify-center">
                 <span className="text-white text-xs font-bold" style={{ fontSize: '8px' }}>RC</span>
               </div>
             </div>
-            <span><span className="text-white font-medium">{subscriberCount}</span> already joined</span>
+            <span><span className="text-white font-medium">{subscriberCount}</span> entrepreneurs already joined</span>
           </div>
         </div>
 
@@ -276,7 +278,7 @@ export default function EmailForm({ onSuccess }: EmailFormProps) {
                 </>
               ) : (
                 <>
-                  Secure My Spot Now
+                  Secure My Early Access
                   <ArrowRight className="h-5 w-5" />
                 </>
               )}
@@ -284,9 +286,54 @@ export default function EmailForm({ onSuccess }: EmailFormProps) {
           </motion.button>
         </form>
         
-        {/* Single privacy notice */}
+        {/* Trust indicators */}
         <div className="text-center text-xs text-gray-500 mt-4">
-          <p>🔒 We respect your privacy. Unsubscribe at any time.</p>
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <span className="flex items-center gap-1">
+              <span className="text-green-400">✓</span>
+              No spam
+            </span>
+            <span className="flex items-center gap-1">
+              <span className="text-green-400">✓</span>
+              Unsubscribe anytime
+            </span>
+          </div>
+          
+          {/* Social Media Icons - Below trust indicators */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="flex justify-center items-center gap-4"
+          >
+            <a href="https://www.instagram.com/liquidfy.app/" className="hover:scale-110 transition-transform duration-200">
+              <Image
+                src="/instagram-liquidfy.png"
+                alt="Instagram"
+                width={24}
+                height={24}
+                className="opacity-60 hover:opacity-100 transition-opacity"
+              />
+            </a>
+            <a href="https://www.facebook.com/people/Liquidfyapp/61578050750090/" className="hover:scale-110 transition-transform duration-200">
+              <Image
+                src="/facebook-liquidfy.png"
+                alt="Facebook"
+                width={24}
+                height={24}
+                className="opacity-60 hover:opacity-100 transition-opacity"
+              />
+            </a>
+            <a href="https://x.com/liquidfyapp" className="hover:scale-110 transition-transform duration-200">
+              <Image
+                src="/x-liquidfy.png"
+                alt="X (Twitter)"
+                width={24}
+                height={24}
+                className="opacity-60 hover:opacity-100 transition-opacity"
+              />
+            </a>
+          </motion.div>
         </div>
       </motion.div>
     </div>

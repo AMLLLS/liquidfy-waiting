@@ -1,203 +1,10 @@
 'use client'
 
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { useState } from 'react'
+import EmailForm from './EmailForm'
 import { useMetaPixel } from '../hooks/useMetaPixel'
-
-
-// Secure Email Form Component
-interface EmailFormProps {
-  onSuccess: () => void
-}
-
-function SecureEmailForm({ onSuccess }: EmailFormProps) {
-  const [email, setEmail] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState('')
-  const [honeypot, setHoneypot] = useState('') // Bot trap
-  const [hasTrackedFormStart, setHasTrackedFormStart] = useState(false)
-  const [showBenefits, setShowBenefits] = useState(false)
-  const { trackLead, trackCompleteRegistration, trackEmailFormStart, trackEmailFormError } = useMetaPixel()
-
-  const validateEmail = (email: string) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    return emailRegex.test(email)
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setError('')
-
-    // Security checks
-    if (honeypot) return // Bot detected
-    if (!email.trim()) {
-      setError('Please enter your email address')
-      return
-    }
-    if (!validateEmail(email)) {
-      setError('Please enter a valid email address')
-      return
-    }
-
-    // 📊 Meta Pixel: Lead event
-    console.log('🎯 TRIGGERING LEAD EVENT (SecureEmailForm):', email)
-    trackLead(email)
-
-    setIsLoading(true)
-    
-    try {
-      const response = await fetch('/api/subscribe', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ 
-          email: email.trim()
-        }),
-      })
-
-      const result = await response.json()
-
-      if (!response.ok) {
-        setError('Something went wrong. Please try again.')
-        return
-      }
-
-      // Success - call the success callback
-      console.log('🎯 TRIGGERING COMPLETE REGISTRATION EVENT (SecureEmailForm):', email)
-      trackCompleteRegistration(email)
-      
-      setEmail('')
-      onSuccess()
-    } catch (err) {
-      console.log('🎯 TRIGGERING FORM ERROR EVENT (SecureEmailForm):', err)
-      trackEmailFormError(err instanceof Error ? err.message : 'unknown_error')
-      setError('Something went wrong. Please try again.')
-    } finally {
-      setIsLoading(false)
-    }
-  }
-
-  return (
-    <div>
-      {/* Enhanced benefits section that shows on focus */}
-      <motion.div
-        initial={{ opacity: 0, height: 0 }}
-        animate={{ 
-          opacity: showBenefits ? 1 : 0, 
-          height: showBenefits ? 'auto' : 0 
-        }}
-        transition={{ duration: 0.3 }}
-        className="overflow-hidden mb-4"
-      >
-        <div className="space-y-2 p-3 bg-gradient-to-r from-primary-500/10 to-purple-500/10 border border-primary-500/20 rounded-xl">
-          <div className="flex items-center gap-2 text-xs">
-            <span className="text-green-400">🎁</span>
-            <span className="text-green-300">FREE lifetime subscription draw</span>
-          </div>
-          <div className="flex items-center gap-2 text-xs">
-            <span className="text-blue-400">⚡</span>
-            <span className="text-blue-300">7-day early access guaranteed</span>
-          </div>
-          <div className="flex items-center gap-2 text-xs">
-            <span className="text-purple-400">💰</span>
-            <span className="text-purple-300">50% launch discount locked in</span>
-          </div>
-        </div>
-      </motion.div>
-
-      <form onSubmit={handleSubmit} className="space-y-4">
-        {/* Honeypot field - hidden from users but visible to bots */}
-        <input
-          type="text"
-          name="website"
-          value={honeypot}
-          onChange={(e) => setHoneypot(e.target.value)}
-          style={{ position: 'absolute', left: '-9999px', opacity: 0 }}
-          tabIndex={-1}
-          autoComplete="off"
-        />
-        
-        <div className="relative">
-          <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-gray-400">
-              <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-            </svg>
-          </div>
-          <input 
-            type="email" 
-            placeholder="Enter your email address" 
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            onFocus={() => {
-              setShowBenefits(true)
-              if (!hasTrackedFormStart) {
-                console.log('🎯 TRIGGERING EMAIL FORM START EVENT (SecureEmailForm) - FIRST TIME')
-                trackEmailFormStart()
-                setHasTrackedFormStart(true)
-              } else {
-                console.log('🔇 EmailFormStart already tracked, skipping...')
-              }
-            }}
-            onBlur={() => setShowBenefits(false)}
-            className="w-full pl-12 pr-4 py-3 md:py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-sm md:text-base" 
-            disabled={isLoading}
-            required
-          />
-        </div>
-        
-        {error && (
-          <p className="text-red-400 text-sm">{error}</p>
-        )}
-        
-        <button 
-          type="submit" 
-          disabled={isLoading || !email.trim()}
-          className="w-full bg-liquidfy-gradient-alt text-white py-3 md:py-4 px-6 rounded-xl font-semibold text-base md:text-lg flex items-center justify-center gap-2 hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden group"
-        >
-          {/* Animated background for urgency */}
-          <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          
-          <span className="relative z-10 flex items-center gap-2">
-            {isLoading ? (
-              <>
-                <svg className="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                Securing Your Spot...
-              </>
-            ) : (
-              <>
-                Secure My Early Access
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
-                  <path d="M5 12h14"></path>
-                  <path d="m12 5 7 7-7 7"></path>
-                </svg>
-              </>
-            )}
-          </span>
-        </button>
-        
-        {/* Trust indicators restored */}
-        <div className="text-center text-xs text-gray-500 mt-3">
-          <div className="flex items-center justify-center gap-3">
-            <span className="flex items-center gap-1">
-              <span className="text-green-400">✓</span>
-              No spam
-            </span>
-            <span className="flex items-center gap-1">
-              <span className="text-green-400">✓</span>
-              Unsubscribe anytime
-            </span>
-          </div>
-        </div>
-      </form>
-    </div>
-  )
-}
 
 interface AppPreviewProps {
   onEmailSuccess: () => void
@@ -465,8 +272,6 @@ export default function AppPreview({ onEmailSuccess, subscriberCount }: AppPrevi
         </div>
       </motion.div>
 
-
-
       {/* Mobile: Get Early Access first */}
       <motion.div
         initial={{ opacity: 0, x: -30 }}
@@ -477,71 +282,9 @@ export default function AppPreview({ onEmailSuccess, subscriberCount }: AppPrevi
         data-section="email-form"
       >
         <div className="max-w-md mx-auto w-full">
-          <div className="glass-effect rounded-2xl p-6 flex flex-col">
-            {/* Social Media Icons - Inside the glass block */}
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="mb-4"
-            >
-              <div className="flex justify-center items-center gap-6">
-                <a href="https://www.instagram.com/liquidfy.app/" className="hover:scale-110 transition-transform duration-200">
-                  <Image
-                    src="/instagram-liquidfy.png"
-                    alt="Instagram"
-                    width={28}
-                    height={28}
-                    className="opacity-80 hover:opacity-100 transition-opacity"
-                  />
-                </a>
-                <a href="#https://www.facebook.com/people/Liquidfyapp/61578050750090/" className="hover:scale-110 transition-transform duration-200">
-                  <Image
-                    src="/facebook-liquidfy.png"
-                    alt="Facebook"
-                    width={28}
-                    height={28}
-                    className="opacity-80 hover:opacity-100 transition-opacity"
-                  />
-                </a>
-                <a href="https://x.com/liquidfyapp" className="hover:scale-110 transition-transform duration-200">
-                  <Image
-                    src="/x-liquidfy.png"
-                    alt="X (Twitter)"
-                    width={28}
-                    height={28}
-                    className="opacity-80 hover:opacity-100 transition-opacity"
-                  />
-                </a>
-              </div>
-            </motion.div>
-            
-            <div className="text-center">
-              {/* Mobile: Rocket on same line as title, smaller size */}
-              <div className="flex items-center justify-center gap-2 mb-2">
-                <span className="text-2xl">🚀</span>
-                <h3 className="text-2xl font-semibold">
-                  <span className="gradient-text">Get Early Access</span>
-                </h3>
-              </div>
-              <p className="text-gray-400 text-s mb-4">
-                Be the first to access the platform that's changing ecommerce forever.
-              </p>
-              <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-3 mb-4 text-left">
-                <p className="text-green-300 text-xs font-medium">
-                  💰 Exclusive launch discount<br/>+ 7-day early access guaranteed
-                </p>
-              </div>
-            </div>
-            <SecureEmailForm onSuccess={onEmailSuccess} />
-          </div>
+            <EmailForm onSuccess={onEmailSuccess} subscriberCount={subscriberCount} />
           
-          {/* Single privacy notice */}
-          <div className="mt-4 text-center">
-            <p className="text-xs text-gray-500 bg-gray-900/50 rounded-lg px-3 py-2 border border-gray-800">
-              🔒 We respect your privacy. Unsubscribe at any time.
-            </p>
-          </div>
+
         </div>
       </motion.div>
 
@@ -621,24 +364,7 @@ export default function AppPreview({ onEmailSuccess, subscriberCount }: AppPrevi
             data-section="email-form"
           >
             <div className="max-w-md mx-auto lg:mx-0 w-full">
-              <div className="glass-effect rounded-2xl p-6 md:p-8 flex flex-col">
-                <div className="text-center lg:text-left">
-                  {/* Desktop: Small rocket inline */}
-                  <h3 className="text-3xl md:text-4xl font-semibold mb-2">
-                    <span className="text-4xl mr-3" style={{filter: 'none'}}>🚀</span>
-                    <span className="gradient-text" style={{fontSize: '2.3rem'}}>Get Early Access</span>
-                  </h3>
-                  <p className="text-gray-400 text-xs md:text-sm mb-4">
-                    Be the first to access the platform that's changing ecommerce forever.
-                  </p>
-                  <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-3 mb-4 text-left">
-                    <p className="text-green-300 text-xs md:text-sm font-medium">
-                      💰 Exclusive launch discount<br/>+ 7-day early access guaranteed
-                    </p>
-                  </div>
-                </div>
-                <SecureEmailForm onSuccess={onEmailSuccess} />
-              </div>
+              <EmailForm onSuccess={onEmailSuccess} subscriberCount={subscriberCount} />
             </div>
           </motion.div>
 
@@ -650,7 +376,7 @@ export default function AppPreview({ onEmailSuccess, subscriberCount }: AppPrevi
             className="flex flex-col justify-center"
           >
             {/* App Preview Window - Mockup outside of glass-effect */}
-            <div className="bg-gray-800/50 rounded-lg p-6 relative h-full min-h-80">
+            <div className="bg-gray-800/50 rounded-lg p-4 relative h-auto min-h-60">
               <div className="flex items-center gap-2 mb-6">
                 <div className="w-3 h-3 bg-red-400 rounded-full"></div>
                 <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
@@ -659,7 +385,7 @@ export default function AppPreview({ onEmailSuccess, subscriberCount }: AppPrevi
               </div>
               
               {/* Dashboard content - Full size image */}
-              <div className="relative w-full h-full rounded-lg overflow-hidden" style={{ height: 'calc(100% - 3rem)' }}>
+              <div className="relative w-full h-64 rounded-lg overflow-hidden">
                 <Image
                   src="/dashboard-liquidfy.png"
                   alt="Liquidfy Dashboard Preview"
@@ -701,8 +427,6 @@ export default function AppPreview({ onEmailSuccess, subscriberCount }: AppPrevi
         </motion.div>
       </div>
 
-
-
       {/* Footer */}
       <motion.footer
         initial={{ opacity: 0, y: 30 }}
@@ -737,8 +461,6 @@ export default function AppPreview({ onEmailSuccess, subscriberCount }: AppPrevi
           </div>
         </div>
       </motion.footer>
-
-
     </div>
   )
 } 

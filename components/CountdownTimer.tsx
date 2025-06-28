@@ -53,13 +53,7 @@ export default function CountdownTimer({
   }, [target, onExpire])
 
   const TimeUnit = ({ value, label }: { value: number; label: string }) => (
-    <motion.div
-      key={value}
-      initial={{ scale: 1.2, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ duration: 0.3 }}
-      className="flex flex-col items-center"
-    >
+    <div className="flex flex-col items-center">
       <div className="bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-sm border border-white/20 rounded-lg px-3 py-2 min-w-[3rem] text-center">
         <span className="text-xl md:text-2xl font-bold text-white">
           {value.toString().padStart(2, '0')}
@@ -68,7 +62,7 @@ export default function CountdownTimer({
       <span className="text-xs md:text-sm text-gray-400 mt-1 uppercase tracking-wider">
         {label}
       </span>
-    </motion.div>
+    </div>
   )
 
   return (
