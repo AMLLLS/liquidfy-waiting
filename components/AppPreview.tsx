@@ -160,7 +160,7 @@ export default function AppPreview({ onEmailSuccess, subscriberCount }: AppPrevi
               <div className="space-y-3">
                 <div className="flex items-start gap-3">
                   <span className="text-red-400 text-xl">❌</span>
-                  <p className="text-gray-300">Multiple plugins = Multiple subscriptions</p>
+                  <p className="text-gray-300">Multiple testing = Multiple plugins = Multiple subscriptions</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <span className="text-red-400 text-xl">❌</span>
