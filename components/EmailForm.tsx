@@ -28,9 +28,9 @@ export default function EmailForm({ onSuccess, subscriberCount = 147 }: EmailFor
   const [showBenefits, setShowBenefits] = useState(false)
   const { trackLead, trackCompleteRegistration, trackEmailFormStart, trackEmailFormError } = useMetaPixel()
 
-  // Launch countdown (7 days from now)
-  const launchDate = new Date()
-  launchDate.setDate(launchDate.getDate() + 7)
+  // Launch countdown - FIXED DATE (realistic countdown)
+  // Set a specific launch date that doesn't change on refresh
+  const launchDate = new Date('2025-07-7T10:00:00Z') // December 27, 2024 at 10:00 UTC
 
   const {
     register,
