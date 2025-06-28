@@ -48,8 +48,8 @@ export default function ModuleSlider() {
     },
     { 
       id: 6, 
-      name: 'Stock Alert', 
-      description: 'Inventory notifications',
+      name: 'Cart Countdown Timer', 
+      description: 'Countdown timer for cart',
       image: '/modules/stock-alert.jpg',
       gradient: 'from-indigo-500/20 to-blue-500/20',
       borderColor: 'border-indigo-500/30'
