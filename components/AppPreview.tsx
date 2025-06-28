@@ -393,6 +393,8 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
                alt="Liquidfy Dashboard Preview"
                fill
                className="object-contain"
+               loading="lazy"
+               sizes="(max-width: 768px) 100vw, 50vw"
              />
            </div>
 
