@@ -30,7 +30,7 @@ export default function EmailForm({ onSuccess, subscriberCount = 147 }: EmailFor
 
   // Launch countdown - FIXED DATE (realistic countdown)
   // Set a specific launch date that doesn't change on refresh
-  const launchDate = new Date('2025-07-7T10:00:00Z') // December 27, 2024 at 10:00 UTC
+  const launchDate = new Date('2025-07-07T10:00:00Z') // December 27, 2024 at 10:00 UTC
 
   const {
     register,
