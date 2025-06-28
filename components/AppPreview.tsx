@@ -300,6 +300,8 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
         </div>
       </motion.div>
 
+
+
       {/* Mobile: Get Early Access first */}
       <motion.div
         initial={{ opacity: 0, x: -30 }}
@@ -311,12 +313,52 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
       >
         <div className="max-w-md mx-auto w-full">
           <div className="glass-effect rounded-2xl p-6 flex flex-col">
+            {/* Social Media Icons - Inside the glass block */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="mb-4"
+            >
+              <div className="flex justify-center items-center gap-6">
+                <a href="https://www.instagram.com/liquidfy.app/" className="hover:scale-110 transition-transform duration-200">
+                  <Image
+                    src="/instagram-liquidfy.png"
+                    alt="Instagram"
+                    width={28}
+                    height={28}
+                    className="opacity-80 hover:opacity-100 transition-opacity"
+                  />
+                </a>
+                <a href="#https://www.facebook.com/people/Liquidfyapp/61578050750090/" className="hover:scale-110 transition-transform duration-200">
+                  <Image
+                    src="/facebook-liquidfy.png"
+                    alt="Facebook"
+                    width={28}
+                    height={28}
+                    className="opacity-80 hover:opacity-100 transition-opacity"
+                  />
+                </a>
+                <a href="https://x.com/liquidfyapp" className="hover:scale-110 transition-transform duration-200">
+                  <Image
+                    src="/x-liquidfy.png"
+                    alt="X (Twitter)"
+                    width={28}
+                    height={28}
+                    className="opacity-80 hover:opacity-100 transition-opacity"
+                  />
+                </a>
+              </div>
+            </motion.div>
+            
             <div className="text-center">
-              {/* Mobile: Large rocket icon */}
-              <div className="inline-block text-6xl mb-4">🚀</div>
-              <h3 className="text-3xl font-semibold mb-2">
-                <span className="gradient-text" style={{fontSize: '2.3rem'}}>Get Early Access</span>
-              </h3>
+              {/* Mobile: Rocket on same line as title, smaller size */}
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <span className="text-2xl">🚀</span>
+                <h3 className="text-2xl font-semibold">
+                  <span className="gradient-text">Get Early Access</span>
+                </h3>
+              </div>
               <p className="text-gray-400 text-s mb-4">
                 Be the first to access the platform that's changing ecommerce forever.
               </p>

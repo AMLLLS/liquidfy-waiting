@@ -11,7 +11,7 @@ import AppPreview from '@/components/AppPreview'
 import ConfettiEffect from '@/components/ConfettiEffect'
 import StructuredData from '@/components/StructuredData'
 import ScrollTracker from '@/components/ScrollTracker'
-import MetaPixelDebug from '@/components/MetaPixelDebug'
+
 import { useMetaPixel } from '@/hooks/useMetaPixel'
 
 
@@ -269,8 +269,7 @@ export default function Home() {
         </div>
       </div>
       
-      {/* Meta Pixel Debug Component */}
-      <MetaPixelDebug />
+
     </main>
   )
 } 
