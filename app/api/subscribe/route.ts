@@ -282,7 +282,7 @@ export async function POST(request: NextRequest) {
                 <!-- Subscriber badge -->
                 <div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important; border-radius: 12px; padding: 20px; margin-bottom: 28px; text-align: center; border: 1px solid #065f46;">
                   <h2 style="color: white !important; margin: 0 0 8px; font-size: 20px; font-weight: 700; font-family: 'Inter', sans-serif;">🎊 Congratulations!</h2>
-                  <p style="color: rgba(255,255,255,0.9) !important; margin: 0; line-height: 1.5; font-weight: 600; font-size: 16px;">You're subscriber #${totalSubscribers} on the exclusive Liquidfy waitlist</p>
+                  <p style="color: rgba(255,255,255,0.9) !important; margin: 0; line-height: 1.5; font-weight: 600; font-size: 16px;">You're subscriber #${142 + totalSubscribers} on the exclusive Liquidfy waitlist</p>
                 </div>
                 
                 <!-- The Problem -->

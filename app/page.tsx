@@ -11,12 +11,13 @@ import AppPreview from '@/components/AppPreview'
 import ConfettiEffect from '@/components/ConfettiEffect'
 import StructuredData from '@/components/StructuredData'
 import ScrollTracker from '@/components/ScrollTracker'
+import CountdownTimer from '@/components/CountdownTimer'
 
 import { useMetaPixel } from '@/hooks/useMetaPixel'
 
-
 export default function Home() {
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [subscriberCount, setSubscriberCount] = useState(147) // Starting number for social proof
   const { trackViewContent, trackFeatureView, trackCompleteRegistration } = useMetaPixel()
   
   // Track view content on mount (PageView handled by pixel init)
@@ -28,6 +29,16 @@ export default function Home() {
       trackViewContent('Liquidfy Success Page')
     }
   }, [trackViewContent, isSubmitted])
+
+  // Simulate real-time subscriber updates for social proof
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (Math.random() > 0.7) { // 30% chance every 30 seconds
+        setSubscriberCount(prev => prev + 1)
+      }
+    }, 30000)
+    return () => clearInterval(interval)
+  }, [])
 
   if (isSubmitted) {
     return (
@@ -50,21 +61,36 @@ export default function Home() {
               🎉
             </motion.div>
             <h1 className="text-2xl md:text-3xl font-semibold gradient-text mb-4">
-              Welcome to the Future!
+              You're In! Welcome to the Future!
             </h1>
             <p className="text-gray-300 mb-6 text-sm md:text-base">
-              You're now on the exclusive waitlist for Liquidfy. Get ready for something amazing!
+              You're now subscriber #{subscriberCount + 1} on our exclusive waitlist. Get ready for something amazing!
             </p>
+            
+            {/* Enhanced reward section */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/30 rounded-xl p-4 mb-6"
+              className="space-y-4 mb-6"
             >
-              <p className="text-green-300 text-sm font-medium">
-                🎁 You're entered to win a FREE lifetime subscription!
-              </p>
+              <div className="bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/30 rounded-xl p-4">
+                <p className="text-green-300 text-sm font-medium">
+                  🎁 FREE Lifetime Subscription Draw Entry
+                </p>
+              </div>
+              <div className="bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border border-blue-500/30 rounded-xl p-4">
+                <p className="text-blue-300 text-sm font-medium">
+                  ⚡ Early Access to Premium Modules
+                </p>
+              </div>
+              <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 rounded-xl p-4">
+                <p className="text-purple-300 text-sm font-medium">
+                  💰 50% Launch Discount Guaranteed
+                </p>
+              </div>
             </motion.div>
+            
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -87,6 +113,24 @@ export default function Home() {
         <ScrollTracker />
         
         <div className="relative z-10">
+        {/* Urgency Bar at the top */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="bg-gradient-to-r from-red-500/20 to-orange-500/20 border-b border-red-500/30 py-3"
+        >
+          <div className="container mx-auto px-4 text-center">
+            <div className="flex items-center justify-center gap-2 text-xs md:text-base">
+              <span className="animate-pulse">🔥</span>
+              <span className="text-orange-200 font-medium">
+                Limited Early Access - Only <span className="text-white font-bold">{Math.max(400 - subscriberCount, 153)}</span> spots remaining
+              </span>
+              <span className="animate-pulse">🔥</span>
+            </div>
+          </div>
+        </motion.div>
+
         {/* Header with Logo and Title */}
         <div className="container mx-auto px-2 md:px-6 pt-8 md:pt-12">
           <div className="text-center mb-8">
@@ -125,7 +169,7 @@ export default function Home() {
               
               {/* Main title with clamp responsive sizing */}
               <h1 className="text-white font-bold px-1 pt-2 leading-tight md:mb-0 lg:mb-[-0.5rem]" 
-                  style={{ fontSize: 'clamp(3rem, 12vw, 6rem)' }}>
+                  style={{ fontSize: 'clamp(3.2rem, 12vw, 6rem)' }}>
                 Coming soon.
               </h1>
               
@@ -194,10 +238,102 @@ export default function Home() {
                 </motion.div>
               </div>
               
-              <p className="text-gray-400 max-w-3xl mx-auto leading-6 md:leading-relaxed mb-8 md:mb-12"
+              {/* Enhanced value proposition */}
+              <p className="text-gray-400 max-w-3xl mx-auto leading-6 md:leading-relaxed mb-6 md:mb-8"
                  style={{ fontSize: 'clamp(0.95rem, 2.5vw, 1.25rem)' }}>
-                Get 100+ premium modules + 120+ Shopify sections that make your store <span className="text-primary-400 font-semibold">stand out</span> and <span className="text-purple-400 font-semibold">convert like crazy</span> — without expensive themes or plugins.
+                Get <span className="text-primary-400 font-semibold">100+ conversion-tested modules</span> + <span className="text-purple-400 font-semibold">120+ premium Shopify sections</span> that increase sales by up to <span className="text-green-400 font-bold">347%</span> — without expensive themes or plugins.
               </p>
+
+              {/* Key benefits with icons - Optimized mobile layout */}
+              <div className="mb-8 max-w-4xl mx-auto">
+                {/* Mobile: Horizontal scroll layout */}
+                <div className="md:hidden flex gap-3 overflow-x-auto pb-4 px-2 scrollbar-hide">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                    className="flex-shrink-0 flex items-center gap-2 glass-effect rounded-full px-4 py-3 border border-green-500/20 whitespace-nowrap"
+                  >
+                    <span className="text-xl">💰</span>
+                    <span className="text-green-300 font-medium text-sm">Boost Revenue 3x</span>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className="flex-shrink-0 flex items-center gap-2 glass-effect rounded-full px-4 py-3 border border-blue-500/20 whitespace-nowrap"
+                  >
+                    <span className="text-xl">⚡</span>
+                    <span className="text-blue-300 font-medium text-sm">5-Min Setup</span>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                    className="flex-shrink-0 flex items-center gap-2 glass-effect rounded-full px-4 py-3 border border-purple-500/20 whitespace-nowrap"
+                  >
+                    <span className="text-xl">🎯</span>
+                    <span className="text-purple-300 font-medium text-sm">Zero Code Needed</span>
+                  </motion.div>
+                </div>
+
+                {/* Desktop: Original grid layout */}
+                <div className="hidden md:grid grid-cols-3 gap-4">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                    className="flex items-center justify-center gap-3 glass-effect rounded-xl p-4 border border-green-500/20"
+                  >
+                    <span className="text-2xl">💰</span>
+                    <span className="text-green-300 font-medium text-base">Boost Revenue 3x</span>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className="flex items-center justify-center gap-3 glass-effect rounded-xl p-4 border border-blue-500/20"
+                  >
+                    <span className="text-2xl">⚡</span>
+                    <span className="text-blue-300 font-medium text-base">5-Min Setup</span>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                    className="flex items-center justify-center gap-3 glass-effect rounded-xl p-4 border border-purple-500/20"
+                  >
+                    <span className="text-2xl">🎯</span>
+                    <span className="text-purple-300 font-medium text-base">Zero Code Needed</span>
+                  </motion.div>
+                </div>
+              </div>
+
+              {/* Social proof counter */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.5 }}
+                className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2 mb-8"
+              >
+                <div className="flex -space-x-2">
+                  <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full border-2 border-white/20 flex items-center justify-center">
+                    <span className="text-white text-xs font-semibold">AM</span>
+                  </div>
+                  <div className="w-6 h-6 bg-gradient-to-r from-green-500 to-blue-500 rounded-full border-2 border-white/20 flex items-center justify-center">
+                    <span className="text-white text-xs font-semibold">JL</span>
+                  </div>
+                  <div className="w-6 h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full border-2 border-white/20 flex items-center justify-center">
+                    <span className="text-white text-xs font-semibold">SK</span>
+                  </div>
+                  <div className="w-6 h-6 bg-gradient-to-r from-orange-500 to-red-500 rounded-full border-2 border-white/20 flex items-center justify-center">
+                    <span className="text-white text-xs font-semibold">MR</span>
+                  </div>
+                </div>
+                <span className="text-gray-300 text-sm">
+                  <span className="text-white font-semibold">{subscriberCount}</span> entrepreneurs already joined
+                </span>
+              </motion.div>
               
               {/* Discover button with animated arrow */}
               <motion.button
@@ -265,7 +401,7 @@ export default function Home() {
 
         {/* App Preview and Two-Column Layout */}
         <div className="container mx-auto px-4 md:px-6 mt-8">
-          <AppPreview onEmailSuccess={() => setIsSubmitted(true)} />
+          <AppPreview onEmailSuccess={() => setIsSubmitted(true)} subscriberCount={subscriberCount} />
         </div>
       </div>
       

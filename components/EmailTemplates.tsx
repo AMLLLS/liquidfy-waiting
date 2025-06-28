@@ -48,7 +48,7 @@ export const WelcomeEmailTemplate = ({ email, totalSubscribers }: WelcomeEmailPr
                   <div style="background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); border-radius: 16px; padding: 24px; margin-bottom: 32px; border-left: 4px solid #10b981;">
                     <h2 style="color: #065f46; font-size: 20px; font-weight: 700; margin: 0 0 8px; font-family: 'Inter', sans-serif;">🎊 Congratulations!</h2>
                     <p style="color: #047857; margin: 0; line-height: 1.6; font-weight: 500;">
-                      You've secured your spot on the exclusive Liquidfy waitlist. You're subscriber #${totalSubscribers} and you'll be among the first to access our revolutionary e-commerce platform!
+                      You've secured your spot on the exclusive Liquidfy waitlist. You're subscriber #${142 + totalSubscribers} and you'll be among the first to access our revolutionary e-commerce platform!
                     </p>
                   </div>
                   
@@ -97,7 +97,7 @@ export const WelcomeEmailTemplate = ({ email, totalSubscribers }: WelcomeEmailPr
                   
                   <!-- Social proof -->
                   <div style="background: #f9fafb; border-radius: 12px; padding: 24px; text-align: center;">
-                    <p style="color: #6b7280; margin: 0 0 12px; font-size: 14px;">Join ${totalSubscribers} other entrepreneurs waiting for launch</p>
+                    <p style="color: #6b7280; margin: 0 0 12px; font-size: 14px;">Join ${142 + totalSubscribers} other entrepreneurs waiting for launch</p>
                     <div style="display: flex; justify-content: center; gap: 8px; margin-top: 16px;">
                       <div style="width: 8px; height: 8px; background: #10b981; border-radius: 50%;"></div>
                       <div style="width: 8px; height: 8px; background: #3b82f6; border-radius: 50%;"></div>

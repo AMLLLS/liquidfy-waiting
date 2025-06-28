@@ -16,7 +16,8 @@ function SecureEmailForm({ onSuccess }: EmailFormProps) {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
   const [honeypot, setHoneypot] = useState('') // Bot trap
-  const [hasTrackedFormStart, setHasTrackedFormStart] = useState(false) // Flag pour éviter les doublons
+  const [hasTrackedFormStart, setHasTrackedFormStart] = useState(false)
+  const [showBenefits, setShowBenefits] = useState(false)
   const { trackLead, trackCompleteRegistration, trackEmailFormStart, trackEmailFormError } = useMetaPixel()
 
   const validateEmail = (email: string) => {
@@ -79,81 +80,131 @@ function SecureEmailForm({ onSuccess }: EmailFormProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      {/* Honeypot field - hidden from users but visible to bots */}
-      <input
-        type="text"
-        name="website"
-        value={honeypot}
-        onChange={(e) => setHoneypot(e.target.value)}
-        style={{ position: 'absolute', left: '-9999px', opacity: 0 }}
-        tabIndex={-1}
-        autoComplete="off"
-      />
-      
-      <div className="relative">
-        <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-gray-400">
-            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-          </svg>
-        </div>
-        <input 
-          type="email" 
-          placeholder="Enter your email address" 
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          onFocus={() => {
-            if (!hasTrackedFormStart) {
-              console.log('🎯 TRIGGERING EMAIL FORM START EVENT (SecureEmailForm) - FIRST TIME')
-              trackEmailFormStart()
-              setHasTrackedFormStart(true)
-            } else {
-              console.log('🔇 EmailFormStart already tracked, skipping...')
-            }
-          }}
-          className="w-full pl-12 pr-4 py-3 md:py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-sm md:text-base" 
-          disabled={isLoading}
-          required
-        />
-      </div>
-      
-      {error && (
-        <p className="text-red-400 text-sm">{error}</p>
-      )}
-      
-      <button 
-        type="submit" 
-        disabled={isLoading || !email.trim()}
-        className="w-full bg-liquidfy-gradient-alt text-white py-3 md:py-4 px-6 rounded-xl font-semibold text-base md:text-lg flex items-center justify-center gap-2 hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+    <div>
+      {/* Enhanced benefits section that shows on focus */}
+      <motion.div
+        initial={{ opacity: 0, height: 0 }}
+        animate={{ 
+          opacity: showBenefits ? 1 : 0, 
+          height: showBenefits ? 'auto' : 0 
+        }}
+        transition={{ duration: 0.3 }}
+        className="overflow-hidden mb-4"
       >
-        {isLoading ? (
-          <>
-            <svg className="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
-              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        <div className="space-y-2 p-3 bg-gradient-to-r from-primary-500/10 to-purple-500/10 border border-primary-500/20 rounded-xl">
+          <div className="flex items-center gap-2 text-xs">
+            <span className="text-green-400">🎁</span>
+            <span className="text-green-300">FREE lifetime subscription draw</span>
+          </div>
+          <div className="flex items-center gap-2 text-xs">
+            <span className="text-blue-400">⚡</span>
+            <span className="text-blue-300">7-day early access guaranteed</span>
+          </div>
+          <div className="flex items-center gap-2 text-xs">
+            <span className="text-purple-400">💰</span>
+            <span className="text-purple-300">50% launch discount locked in</span>
+          </div>
+        </div>
+      </motion.div>
+
+      <form onSubmit={handleSubmit} className="space-y-4">
+        {/* Honeypot field - hidden from users but visible to bots */}
+        <input
+          type="text"
+          name="website"
+          value={honeypot}
+          onChange={(e) => setHoneypot(e.target.value)}
+          style={{ position: 'absolute', left: '-9999px', opacity: 0 }}
+          tabIndex={-1}
+          autoComplete="off"
+        />
+        
+        <div className="relative">
+          <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-gray-400">
+              <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
             </svg>
-            Joining...
-          </>
-        ) : (
-          <>
-            Join Waitlist
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
-              <path d="M5 12h14"></path>
-              <path d="m12 5 7 7-7 7"></path>
-            </svg>
-          </>
+          </div>
+          <input 
+            type="email" 
+            placeholder="Enter your email address" 
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            onFocus={() => {
+              setShowBenefits(true)
+              if (!hasTrackedFormStart) {
+                console.log('🎯 TRIGGERING EMAIL FORM START EVENT (SecureEmailForm) - FIRST TIME')
+                trackEmailFormStart()
+                setHasTrackedFormStart(true)
+              } else {
+                console.log('🔇 EmailFormStart already tracked, skipping...')
+              }
+            }}
+            onBlur={() => setShowBenefits(false)}
+            className="w-full pl-12 pr-4 py-3 md:py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-sm md:text-base" 
+            disabled={isLoading}
+            required
+          />
+        </div>
+        
+        {error && (
+          <p className="text-red-400 text-sm">{error}</p>
         )}
-      </button>
-    </form>
+        
+        <button 
+          type="submit" 
+          disabled={isLoading || !email.trim()}
+          className="w-full bg-liquidfy-gradient-alt text-white py-3 md:py-4 px-6 rounded-xl font-semibold text-base md:text-lg flex items-center justify-center gap-2 hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden group"
+        >
+          {/* Animated background for urgency */}
+          <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          
+          <span className="relative z-10 flex items-center gap-2">
+            {isLoading ? (
+              <>
+                <svg className="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                Securing Your Spot...
+              </>
+            ) : (
+              <>
+                Secure My Early Access
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </>
+            )}
+          </span>
+        </button>
+        
+        {/* Trust indicators restored */}
+        <div className="text-center text-xs text-gray-500 mt-3">
+          <div className="flex items-center justify-center gap-3">
+            <span className="flex items-center gap-1">
+              <span className="text-green-400">✓</span>
+              No spam
+            </span>
+            <span className="flex items-center gap-1">
+              <span className="text-green-400">✓</span>
+              Unsubscribe anytime
+            </span>
+          </div>
+        </div>
+      </form>
+    </div>
   )
 }
 
 interface AppPreviewProps {
   onEmailSuccess: () => void
+  subscriberCount: number
 }
 
-export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
+export default function AppPreview({ onEmailSuccess, subscriberCount }: AppPreviewProps) {
   return (
     <div>
       {/* Innovative Liquidfy description section */}
@@ -167,13 +218,65 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
         <h3 className="text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 lg:mb-8">
           Why Your Store Needs <span className="gradient-text">Liquidfy</span>
         </h3>
-        <p className="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
+        <p className="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto mb-8 leading-relaxed">
           Stop losing customers to boring, generic stores. Get the tools you need to <span className="text-primary-400 font-semibold">stand out</span> and <span className="text-purple-400 font-semibold">dominate your market</span>.
         </p>
+
+        {/* E-commerce reality and secrets */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="bg-gradient-to-r from-gray-800/50 to-gray-700/50 border border-gray-600/30 rounded-2xl p-6 mb-8 max-w-5xl mx-auto"
+        >
+          {/* Mobile: Vertical stack with visual separators */}
+          <div className="md:hidden space-y-4">
+            <div className="text-center">
+              <div className="inline-flex items-center gap-3 bg-red-500/10 border border-red-500/30 rounded-full px-4 py-2">
+                <div className="text-xl">🤫</div>
+                <div className="text-gray-300 text-sm">Most stores look identical</div>
+              </div>
+            </div>
+            <div className="flex justify-center">
+              <div className="w-px h-4 bg-gradient-to-b from-gray-600 to-transparent"></div>
+            </div>
+            <div className="text-center">
+              <div className="inline-flex items-center gap-3 bg-yellow-500/10 border border-yellow-500/30 rounded-full px-4 py-2">
+                <div className="text-xl">💸</div>
+                <div className="text-gray-300 text-sm">Expensive themes = same results</div>
+              </div>
+            </div>
+            <div className="flex justify-center">
+              <div className="w-px h-4 bg-gradient-to-b from-gray-600 to-transparent"></div>
+            </div>
+            <div className="text-center">
+              <div className="inline-flex items-center gap-3 bg-green-500/10 border border-green-500/30 rounded-full px-4 py-2">
+                <div className="text-xl">🎯</div>
+                <div className="text-gray-300 text-sm">Winners hide their secrets</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop: Original grid layout */}
+          <div className="hidden md:grid grid-cols-3 gap-6 text-center">
+            <div>
+              <div className="text-3xl md:text-4xl mb-2">🤫</div>
+              <div className="text-gray-300 text-sm">Most e-commerce stores look identical and blend into the background</div>
+            </div>
+            <div>
+              <div className="text-3xl md:text-4xl mb-2">💸</div>
+              <div className="text-gray-300 text-sm">Expensive themes and plugins give you the same results as everyone else</div>
+            </div>
+            <div>
+              <div className="text-3xl md:text-4xl mb-2">🎯</div>
+              <div className="text-gray-300 text-sm">Successful stores keep their conversion secrets to stay ahead</div>
+            </div>
+          </div>
+        </motion.div>
         
         <div className="max-w-5xl mx-auto">
-          {/* Key stats in a beautiful grid - 2 columns on mobile for first two items */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-8">
+          {/* Key stats in a beautiful grid - Desktop only, shown before problems */}
+          <div className="hidden md:grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-8">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -198,9 +301,9 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="glass-effect rounded-xl p-4 md:p-6 border border-blue-500/20 col-span-2 md:col-span-1"
+              className="glass-effect rounded-xl p-4 md:p-6 border border-green-500/20 col-span-2 md:col-span-1"
             >
-              {/* Platform icons instead of "3" */}
+              {/* Platform icons instead of "5 Min" */}
               <div className="flex justify-center items-center gap-2 mb-2">
                 <div className="relative w-8 h-8 md:w-10 md:h-10">
                   <Image
@@ -260,7 +363,7 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
             </div>
           </div>
           
-          <div className="bg-gradient-to-r from-primary-500/10 to-purple-500/10 rounded-2xl p-6 md:p-8 border border-primary-500/20 mb-12">
+          <div className="bg-gradient-to-r from-primary-500/10 to-purple-500/10 rounded-2xl p-6 md:p-8 border border-primary-500/20 mb-8">
             <h4 className="text-2xl md:text-3xl font-bold gradient-text mb-4">The Liquidfy Solution:</h4>
             <p className="text-gray-300 max-w-3xl mx-auto leading-relaxed text-lg">
               One subscription gives you <span className="text-primary-400 font-semibold">unlimited access</span> to premium modules and sections. 
@@ -268,13 +371,75 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
               <span className="text-blue-400 font-semibold"> converts like crazy</span>.
             </p>
           </div>
+
+          {/* Key stats in a beautiful grid - Mobile only, shown after The Liquidfy Solution */}
+          <div className="md:hidden grid grid-cols-2 gap-4 mb-8">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="glass-effect rounded-xl p-4 border border-primary-500/20"
+            >
+              <div className="text-2xl font-bold gradient-text mb-2">120+</div>
+              <div className="text-xs text-gray-400">Ready-to-Use Shopify Sections</div>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="glass-effect rounded-xl p-4 border border-purple-500/20"
+            >
+              <div className="text-2xl font-bold gradient-text mb-2">100+</div>
+              <div className="text-xs text-gray-400">Premium Conversion Modules</div>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="glass-effect rounded-xl p-4 border border-green-500/20 col-span-2"
+            >
+              {/* Platform icons */}
+              <div className="flex justify-center items-center gap-2 mb-2">
+                <div className="relative w-10 h-10">
+                  <Image
+                    src="/icon-shopify.png"
+                    alt="Shopify"
+                    width={40}
+                    height={40}
+                    className="rounded-md"
+                  />
+                </div>
+                <div className="relative w-10 h-10">
+                  <Image
+                    src="/icon-woocommerce.png"
+                    alt="WooCommerce"
+                    width={40}
+                    height={40}
+                    className="rounded-md"
+                  />
+                </div>
+                <div className="relative w-10 h-10">
+                  <Image
+                    src="/icon-wordpress.png"
+                    alt="WordPress"
+                    width={40}
+                    height={40}
+                    className="rounded-md"
+                  />
+                </div>
+              </div>
+              <div className="text-xs text-gray-400">Platforms Supported</div>
+            </motion.div>
+          </div>
           
           {/* Features grid - Desktop only, shown here after The Liquidfy Solution */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="hidden md:grid grid-cols-4 gap-4"
+            className="hidden md:grid grid-cols-4 gap-4 mb-12"
           >
             <div className="glass-effect rounded-xl p-4 hover:scale-105 transition-all duration-300">
               <div className="text-2xl mb-2">⚡</div>
@@ -369,12 +534,9 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
               </div>
             </div>
             <SecureEmailForm onSuccess={onEmailSuccess} />
-            <div className="mt-6 text-center">
-              <p className="text-xs text-gray-500">⚡ No spam, no BS. Just the good stuff when we launch.</p>
-            </div>
           </div>
           
-          {/* Privacy notice */}
+          {/* Single privacy notice */}
           <div className="mt-4 text-center">
             <p className="text-xs text-gray-500 bg-gray-900/50 rounded-lg px-3 py-2 border border-gray-800">
               🔒 We respect your privacy. Unsubscribe at any time.
@@ -476,16 +638,6 @@ export default function AppPreview({ onEmailSuccess }: AppPreviewProps) {
                   </div>
                 </div>
                 <SecureEmailForm onSuccess={onEmailSuccess} />
-                <div className="mt-6 text-center lg:text-left">
-                  <p className="text-xs md:text-sm text-gray-500">⚡ No spam, no BS. Just the good stuff when we launch.</p>
-                </div>
-              </div>
-              
-              {/* Privacy notice */}
-              <div className="mt-4 text-center lg:text-left">
-                <p className="text-xs text-gray-500 bg-gray-900/50 rounded-lg px-3 py-2 border border-gray-800">
-                  🔒 We respect your privacy. Unsubscribe at any time.
-                </p>
               </div>
             </div>
           </motion.div>
