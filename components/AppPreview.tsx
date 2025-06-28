@@ -272,21 +272,7 @@ export default function AppPreview({ onEmailSuccess, subscriberCount }: AppPrevi
         </div>
       </motion.div>
 
-      {/* Mobile: Get Early Access first */}
-      <motion.div
-        initial={{ opacity: 0, x: -30 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, delay: 0.5 }}
-        className="md:hidden flex flex-col mb-12"
-        id="join-waitlist"
-        data-section="email-form"
-      >
-        <div className="max-w-md mx-auto w-full">
-            <EmailForm onSuccess={onEmailSuccess} subscriberCount={subscriberCount} />
-          
 
-        </div>
-      </motion.div>
 
       {/* Features grid - Mobile only, shown after Get Early Access */}
       <motion.div

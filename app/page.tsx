@@ -331,7 +331,7 @@ export default function Home() {
                   </div>
                 </div>
                 <span className="text-gray-300 text-sm">
-                  <span className="text-white font-semibold">{subscriberCount}</span> entrepreneurs already joined
+                  <span className="text-white font-semibold">{subscriberCount}</span> store owners already joined
                 </span>
               </motion.div>
               
@@ -352,10 +352,10 @@ export default function Home() {
                       });
                     }
                   } else {
-                    // On mobile, scroll to Meet Liquidfy section
-                    const meetSection = document.getElementById('meet-liquidfy');
-                    if (meetSection) {
-                      const offsetTop = meetSection.offsetTop - 80;
+                    // On mobile, scroll to email form after slider
+                    const emailFormSection = document.getElementById('join-waitlist');
+                    if (emailFormSection) {
+                      const offsetTop = emailFormSection.offsetTop - 80;
                       window.scrollTo({ 
                         top: offsetTop, 
                         behavior: 'smooth' 
@@ -398,6 +398,22 @@ export default function Home() {
 
         {/* Module Slider */}
         <ModuleSlider />
+
+        {/* Mobile: Get Early Access - Moved after slider for better conversion */}
+        <div className="container mx-auto px-4 md:px-6 mt-8">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="md:hidden flex flex-col mb-12"
+            id="join-waitlist"
+            data-section="email-form"
+          >
+            <div className="max-w-md mx-auto w-full">
+              <EmailForm onSuccess={() => setIsSubmitted(true)} subscriberCount={subscriberCount} />
+            </div>
+          </motion.div>
+        </div>
 
         {/* App Preview and Two-Column Layout */}
         <div className="container mx-auto px-4 md:px-6 mt-8">
