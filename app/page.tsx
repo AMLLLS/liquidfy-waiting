@@ -64,30 +64,70 @@ export default function Home() {
               You're In! Welcome to the Future!
             </h1>
             <p className="text-gray-300 mb-6 text-sm md:text-base">
-              You're now subscriber #{subscriberCount + 1} on our exclusive waitlist. Get ready for something amazing!
+              You're now subscriber #{142 + subscriberCount} on our exclusive waitlist. Get ready for something amazing!
             </p>
             
-            {/* Enhanced reward section */}
+
+            
+            {/* Social Media Section */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="space-y-4 mb-6"
+              transition={{ delay: 0.7 }}
+              className="mb-6"
             >
-              <div className="bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/30 rounded-xl p-4">
-                <p className="text-green-300 text-sm font-medium">
-                  🎁 FREE Lifetime Subscription Draw Entry
-                </p>
-              </div>
-              <div className="bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border border-blue-500/30 rounded-xl p-4">
-                <p className="text-blue-300 text-sm font-medium">
-                  ⚡ Early Access to Premium Modules
-                </p>
-              </div>
-              <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 rounded-xl p-4">
-                <p className="text-purple-300 text-sm font-medium">
-                  💰 50% Launch Discount Guaranteed
-                </p>
+              <p className="text-gray-400 text-sm mb-4">
+                Follow us for exclusive updates and behind-the-scenes content:
+              </p>
+              <div className="flex justify-center items-center gap-6">
+                <motion.a 
+                  href="https://www.instagram.com/liquidfy.app/" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.2, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="hover:shadow-lg hover:shadow-pink-500/25 transition-all duration-300 rounded-full p-1"
+                >
+                  <Image
+                    src="/instagram-liquidfy.png"
+                    alt="Follow us on Instagram"
+                    width={32}
+                    height={32}
+                    className="opacity-80 hover:opacity-100 transition-opacity rounded-lg"
+                  />
+                </motion.a>
+                <motion.a 
+                  href="https://www.facebook.com/people/Liquidfyapp/61578050750090/" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.2, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 rounded-full p-1"
+                >
+                  <Image
+                    src="/facebook-liquidfy.png"
+                    alt="Follow us on Facebook"
+                    width={32}
+                    height={32}
+                    className="opacity-80 hover:opacity-100 transition-opacity rounded-lg"
+                  />
+                </motion.a>
+                <motion.a 
+                  href="https://x.com/liquidfyapp" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.2, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="hover:shadow-lg hover:shadow-gray-500/25 transition-all duration-300 rounded-full p-1"
+                >
+                  <Image
+                    src="/x-liquidfy.png"
+                    alt="Follow us on X (Twitter)"
+                    width={32}
+                    height={32}
+                    className="opacity-80 hover:opacity-100 transition-opacity rounded-lg"
+                  />
+                </motion.a>
               </div>
             </motion.div>
             
