@@ -59,7 +59,7 @@ export default function AppPreview({ onEmailSuccess, subscriberCount }: AppPrevi
             <div className="text-center">
               <div className="inline-flex items-center gap-3 bg-green-500/10 border border-green-500/30 rounded-full px-4 py-2">
                 <div className="text-xl">🎯</div>
-                <div className="text-gray-300 text-sm">Winners hide their secrets</div>
+                <div className="text-gray-300 text-sm">Winners hide their secrets assets</div>
               </div>
             </div>
           </div>
