@@ -185,7 +185,7 @@ export default function EmailForm({ onSuccess, subscriberCount = 147 }: EmailFor
                 <span className="text-white text-xs font-bold" style={{ fontSize: '8px' }}>RC</span>
               </div>
             </div>
-            <span><span className="text-white font-medium">{subscriberCount}</span> store owners already joined</span>
+            <span><span className="text-white font-medium">{142 + subscriberCount}</span> store owners already joined</span>
           </div>
         </div>
 

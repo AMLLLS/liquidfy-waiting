@@ -164,7 +164,7 @@ export default function Home() {
             <div className="flex items-center justify-center gap-2 text-xs md:text-base">
               <span className="animate-pulse">🔥</span>
               <span className="text-orange-200 font-medium">
-                Limited Early Access - Only <span className="text-white font-bold">{Math.max(400 - subscriberCount, 153)}</span> spots remaining
+                Limited Early Access - Only <span className="text-white font-bold">{Math.max(400 - (142 + subscriberCount), 153)}</span> spots remaining
               </span>
               <span className="animate-pulse">🔥</span>
             </div>
@@ -371,7 +371,7 @@ export default function Home() {
                   </div>
                 </div>
                 <span className="text-gray-300 text-sm">
-                  <span className="text-white font-semibold">{subscriberCount}</span> store owners already joined
+                  <span className="text-white font-semibold">{142 + subscriberCount}</span> store owners already joined
                 </span>
               </motion.div>
               
