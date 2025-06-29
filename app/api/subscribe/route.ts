@@ -401,13 +401,20 @@ export async function POST(request: NextRequest) {
       else if (!isNew) emailStatus = 'not_new_subscriber';
     }
 
-    // Return response
+    // Return response with debug information
     const responseData = {
       message: 'Successfully subscribed!',
       totalSubscribers,
       isNew,
       usingDatabase: !!(supabaseClient || sql),
-      databaseType: supabaseClient ? 'supabase' : sql ? 'postgres' : 'memory'
+      databaseType: supabaseClient ? 'supabase' : sql ? 'postgres' : 'memory',
+      debug: {
+        emailStatus,
+        emailError,
+        emailId,
+        hasResend: !!resend,
+        hasApiKey: !!process.env.RESEND_API_KEY
+      }
     };
 
     return NextResponse.json(responseData, { status: 200 })
