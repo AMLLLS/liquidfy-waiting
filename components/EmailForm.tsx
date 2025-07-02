@@ -129,8 +129,8 @@ export default function EmailForm({ onSuccess, subscriberCount = 147 }: EmailFor
             transition={{ delay: 0.2 }}
             className="text-sm md:text-sm text-gray-300 mb-4"
           >
-            Register now to secure your <span className="text-green-400 font-semibold">exclusive $300 discount</span><br className="hidden md:block" />
-            <span className="hidden md:inline"> </span>when we launch. Limited spots available.
+            Register now & your <span className="text-green-400 font-semibold">exclusive discount</span><br className="hidden md:block" />
+            <span className="hidden md:inline"> </span>when we launch.
           </motion.p>
           
           {/* Value Statistics - MOVED UP */}
@@ -157,7 +157,7 @@ export default function EmailForm({ onSuccess, subscriberCount = 147 }: EmailFor
           {/* Single powerful value prop */}
           <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-lg p-3 md:p-4 mb-4">
             <p className="text-base md:text-lg font-bold text-white mb-1">
-              Save $300 on Launch Day
+              Save up to $100+ on Launch Day
             </p>
             <p className="text-sm text-gray-300">
               <span className="line-through text-gray-500">Regular: $199</span> → 

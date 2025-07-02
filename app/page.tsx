@@ -652,7 +652,7 @@ export default function Home() {
             </h4>
             <p className="text-gray-300 mb-4 md:mb-6 max-w-2xl mx-auto text-sm md:text-base">
               Join <span className="text-white font-bold">{142 + subscriberCount}+ store owners</span> who are getting early access to everything they need for a store that actually converts. 
-              <span className="text-green-400 font-semibold"> Save $300 on launch day.</span>
+              <span className="text-green-400 font-semibold"> Save up to $300 on launch day.</span>
             </p>
             
             <div className="flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2 text-xs md:text-sm text-gray-400">
