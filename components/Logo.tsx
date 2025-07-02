@@ -41,7 +41,7 @@ export default function Logo() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-2xl md:text-3xl lg:text-4xl font-semibold text-white tracking-tight"
         >
-          Liquidfy.app
+          liquidfy.app
         </motion.h2>
       </div>
       
