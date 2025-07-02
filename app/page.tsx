@@ -503,7 +503,7 @@ export default function Home() {
             className="text-center max-w-4xl mx-auto"
           >
             <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 md:mb-6">
-              Why 98% of Shopify Stores <span className="text-red-400">Fail</span>
+            Don't Build Another <span className="text-red-400">Generic Store</span>
             </h2>
             <p className="text-base md:text-lg lg:text-xl text-gray-300 mb-6 md:mb-8 leading-relaxed px-2">
               They all use the same generic themes, boring layouts, and outdated modules. 
@@ -582,7 +582,7 @@ export default function Home() {
               <div className="grid grid-cols-3 gap-3 md:gap-6 mb-6">
                 <div className="text-center bg-white/5 rounded-lg p-3 md:p-4">
                   <div className="text-2xl md:text-3xl font-bold gradient-text mb-1">220+</div>
-                  <div className="text-xs md:text-sm text-gray-400">Premium Modules</div>
+                  <div className="text-xs md:text-sm text-gray-400">Add-ons</div>
                   <div className="text-xs text-gray-500 mt-1">Ready to copy-paste</div>
                 </div>
                 <div className="text-center bg-white/5 rounded-lg p-3 md:p-4">
@@ -593,7 +593,7 @@ export default function Home() {
                 <div className="text-center bg-white/5 rounded-lg p-3 md:p-4">
                   <div className="text-2xl md:text-3xl font-bold gradient-text mb-1">3x</div>
                   <div className="text-xs md:text-sm text-gray-400">More Sales</div>
-                  <div className="text-xs text-gray-500 mt-1">Proven results</div>
+                  <div className="text-xs text-gray-500 mt-1">Copied 7-digit stores</div>
                 </div>
               </div>
               
