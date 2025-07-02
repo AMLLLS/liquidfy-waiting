@@ -506,7 +506,7 @@ export default function Home() {
             Don't Build Another <span className="text-red-400">Generic Store</span>
             </h2>
             <p className="text-base md:text-lg lg:text-xl text-gray-300 mb-6 md:mb-8 leading-relaxed px-2">
-              They all use the same generic themes, boring layouts, and outdated modules. 
+              80% of failed stores use the same generic themes, boring layouts, and outdated modules. 
               <span className="text-primary-400 font-semibold"> Customers can't tell them apart.</span>
             </p>
             
@@ -532,10 +532,10 @@ export default function Home() {
                   </div>
                 </div>
                 <ul className="space-y-2 text-gray-300 text-left text-sm md:text-base">
-                  <li>• Generic $300+ themes</li>
-                  <li>• Multiple expensive plugins</li>
-                  <li>• Look like everyone else</li>
-                  <li>• Low conversion rates</li>
+                  <li>• Generic $300+ themes to be unique</li>
+                  <li>• Multiple expensive marketing plugins</li>
+                  <li>• Look like everyone else, no identity</li>
+                  <li>• Low conversion rates, low trust</li>
                 </ul>
               </div>
               
@@ -559,7 +559,7 @@ export default function Home() {
                   </div>
                 </div>
                 <ul className="space-y-2 text-gray-300 text-left text-sm md:text-base">
-                  <li>• 220+ unique modules from 6-7fig stores</li>
+                  <li>• 220+ unique modules & sections</li>
                   <li>• One affordable subscription</li>
                   <li>• Stand out instantly</li>
                   <li>• 3x better conversions</li>
