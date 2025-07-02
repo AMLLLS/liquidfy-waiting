@@ -21,7 +21,8 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  font-weight: 400; /* Default weight */
 }
 
 body {
@@ -38,6 +39,15 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+/* Ensure font weights are properly applied */
+.font-light { font-weight: 300 !important; }
+.font-normal { font-weight: 400 !important; }
+.font-medium { font-weight: 500 !important; }
+.font-semibold { font-weight: 600 !important; }
+.font-bold { font-weight: 700 !important; }
+.font-extrabold { font-weight: 800 !important; }
+.font-black { font-weight: 900 !important; }
 
 /* Enhanced gradient text with animation */
 .gradient-text {
@@ -217,6 +227,25 @@ input:focus {
   }
   100% {
     background-position: 200% 0;
+  }
+}
+
+/* Perfect infinite slider animations */
+@keyframes slideInfinite {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-560px); /* Exactly 8 items * 70px */
+  }
+}
+
+@keyframes slideInfiniteLarge {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-1600px); /* Exactly 8 large modules */
   }
 }
 

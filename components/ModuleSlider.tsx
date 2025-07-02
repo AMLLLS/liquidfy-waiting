@@ -92,16 +92,10 @@ export default function ModuleSlider() {
         >
           <motion.div
             className="flex gap-6 md:gap-8"
-            animate={{
-              x: [0, -2400], // Move by exactly 2/3 of total width to reset seamlessly
+            style={{ 
+              width: `${duplicatedModules.length * 200}px`,
+              animation: "slideInfiniteLarge 30s linear infinite"
             }}
-            transition={{
-              duration: 45, // Slower for smoother effect
-              repeat: Infinity,
-              ease: "linear",
-              repeatType: "loop" // Ensures seamless reset
-            }}
-            style={{ width: `${duplicatedModules.length * 200}px` }}
           >
             {duplicatedModules.map((module, index) => (
               <motion.div
