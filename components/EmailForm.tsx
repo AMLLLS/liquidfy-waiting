@@ -321,11 +321,7 @@ export default function EmailForm({ onSuccess, subscriberCount = 147 }: EmailFor
           <div className="flex items-center justify-center gap-3 md:gap-4 mb-2 md:mb-3">
             <span className="flex items-center gap-1">
               <span className="text-green-400">✓</span>
-              No spam
-            </span>
-            <span className="flex items-center gap-1">
-              <span className="text-green-400">✓</span>
-              Instant access
+              No spam, no BS. Only good stuff & news.
             </span>
           </div>
         </div>
