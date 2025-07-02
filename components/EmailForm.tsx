@@ -130,7 +130,7 @@ export default function EmailForm({ onSuccess, subscriberCount = 147 }: EmailFor
             className="text-sm md:text-sm text-gray-300 mb-4"
           >
             Register now & your <span className="text-green-400 font-semibold">exclusive discount</span><br className="hidden md:block" />
-            <span className="hidden md:inline"> </span>when we launch.
+            <span className="hidden md:inline"> </span> when we launch.
           </motion.p>
           
           {/* Value Statistics - MOVED UP */}
