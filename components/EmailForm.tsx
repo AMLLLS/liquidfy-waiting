@@ -129,8 +129,8 @@ export default function EmailForm({ onSuccess, subscriberCount = 147 }: EmailFor
             transition={{ delay: 0.2 }}
             className="text-sm md:text-sm text-gray-300 mb-4"
           >
-            Register now & your <span className="text-green-400 font-semibold">exclusive discount</span><br className="hidden md:block" />
-            <span className="hidden md:inline"> </span> at launch.
+            Register now & get your <span className="text-green-400 font-semibold">exclusive discount</span><br className="hidden md:block" />
+            <span className="hidden md:inline"> </span> at launch. We are not a Shopify App.
           </motion.p>
           
           {/* Value Statistics - MOVED UP */}
