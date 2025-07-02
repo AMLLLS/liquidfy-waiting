@@ -303,34 +303,63 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
             className="max-w-2xl mx-auto"
           >
-            {/* Floating module previews - MOVED ABOVE, LEFT ALIGNED */}
+            {/* Floating module previews - WITH ICONS + HORIZONTAL SCROLL ON MOBILE */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 2.0, duration: 0.6 }}
-              className="flex flex-wrap gap-2 mb-2 md:mb-3"
+              transition={{ delay: 1.2, duration: 0.5 }}
+              className="mb-2 md:mb-3"
             >
-              {[
-                { name: 'Bundle', color: 'bg-blue-500/20 border-blue-500/40' },
-                { name: 'Reviews', color: 'bg-green-500/20 border-green-500/40' },
-                { name: 'Timer', color: 'bg-purple-500/20 border-purple-500/40' },
-                { name: 'Social', color: 'bg-orange-500/20 border-orange-500/40' },
-                { name: 'Trust', color: 'bg-teal-500/20 border-teal-500/40' },
-                { name: 'Offers', color: 'bg-pink-500/20 border-pink-500/40' },
-              ].map((module, index) => (
-                <motion.div
-                  key={module.name}
-                  initial={{ opacity: 0, scale: 0.8, y: 10 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  transition={{ delay: 2.0 + index * 0.15, duration: 0.4 }}
-                  className={`${module.color} px-2 py-1 rounded text-xs text-white border`}
-                >
-                  {module.name}
-                </motion.div>
-              ))}
+              {/* Desktop: flex wrap, Mobile: horizontal scroll */}
+              <div className="hidden md:flex flex-wrap gap-2">
+                {[
+                  { name: 'Bundle', color: 'bg-blue-500/20 border-blue-500/40', icon: '📦' },
+                  { name: 'Reviews', color: 'bg-green-500/20 border-green-500/40', icon: '⭐' },
+                  { name: 'Timer', color: 'bg-purple-500/20 border-purple-500/40', icon: '⏰' },
+                  { name: 'Social', color: 'bg-orange-500/20 border-orange-500/40', icon: '💬' },
+                  { name: 'Trust', color: 'bg-teal-500/20 border-teal-500/40', icon: '🛡️' },
+                  { name: 'Offers', color: 'bg-pink-500/20 border-pink-500/40', icon: '🎁' },
+                ].map((module, index) => (
+                  <motion.div
+                    key={module.name}
+                    initial={{ opacity: 0, scale: 0.8, y: 10 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    transition={{ delay: 1.2 + index * 0.1, duration: 0.3 }}
+                    className={`${module.color} px-2 py-1 rounded text-xs text-white border flex items-center gap-1`}
+                  >
+                    <span className="text-[10px]">{module.icon}</span>
+                    {module.name}
+                  </motion.div>
+                ))}
+              </div>
+              
+              {/* Mobile: horizontal scroll */}
+              <div className="md:hidden overflow-x-auto scrollbar-hide">
+                <div className="flex gap-2 pb-1" style={{ width: 'max-content' }}>
+                  {[
+                    { name: 'Bundle', color: 'bg-blue-500/20 border-blue-500/40', icon: '📦' },
+                    { name: 'Reviews', color: 'bg-green-500/20 border-green-500/40', icon: '⭐' },
+                    { name: 'Timer', color: 'bg-purple-500/20 border-purple-500/40', icon: '⏰' },
+                    { name: 'Social', color: 'bg-orange-500/20 border-orange-500/40', icon: '💬' },
+                    { name: 'Trust', color: 'bg-teal-500/20 border-teal-500/40', icon: '🛡️' },
+                    { name: 'Offers', color: 'bg-pink-500/20 border-pink-500/40', icon: '🎁' },
+                  ].map((module, index) => (
+                    <motion.div
+                      key={`mobile-${module.name}`}
+                      initial={{ opacity: 0, scale: 0.8, x: 20 }}
+                      animate={{ opacity: 1, scale: 1, x: 0 }}
+                      transition={{ delay: 1.2 + index * 0.08, duration: 0.3 }}
+                      className={`${module.color} px-2 py-1 rounded text-xs text-white border flex items-center gap-1 flex-shrink-0`}
+                    >
+                      <span className="text-[10px]">{module.icon}</span>
+                      {module.name}
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
             </motion.div>
 
             {/* Search bar simulation */}
@@ -338,14 +367,14 @@ export default function Home() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.2, duration: 0.6 }}
+                transition={{ delay: 0.8, duration: 0.5 }}
                 className="flex items-center bg-gray-800/50 border border-gray-700/50 rounded-t-xl p-4 md:p-5"
               >
                 <div className="flex items-center gap-3 flex-1">
                   <motion.div
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1, rotate: 360 }}
-                    transition={{ delay: 1.4, duration: 0.6 }}
+                    transition={{ delay: 1.0, duration: 0.5 }}
                     className="text-gray-400"
                     style={{
                       animation: "spin 8s linear infinite"
@@ -357,12 +386,12 @@ export default function Home() {
                     className="flex-1"
                     initial={{ width: 0 }}
                     animate={{ width: "100%" }}
-                    transition={{ duration: 1.5, delay: 1.8, ease: "easeOut" }}
+                    transition={{ duration: 1.0, delay: 1.3, ease: "easeOut" }}
                   >
                     <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ delay: 2.2, duration: 0.5 }}
+                      transition={{ delay: 1.8, duration: 0.4 }}
                       className="text-gray-300 text-sm md:text-base"
                     >
                       <span className="text-primary-400">220+ modules</span> found for your store...
@@ -371,7 +400,7 @@ export default function Home() {
                   <motion.div
                     initial={{ scale: 0, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
-                    transition={{ delay: 2.8, type: "spring", stiffness: 200 }}
+                    transition={{ delay: 2.2, type: "spring", stiffness: 200 }}
                     className="text-green-400"
                   >
                     ✓
@@ -383,13 +412,13 @@ export default function Home() {
               <motion.div
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
-                transition={{ delay: 3.2, duration: 0.8, ease: "easeOut" }}
+                transition={{ delay: 2.5, duration: 0.6, ease: "easeOut" }}
                 className="bg-gray-800/30 border-l border-r border-b border-gray-700/50 rounded-b-xl p-3"
               >
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ delay: 3.5 }}
+                  transition={{ delay: 2.7 }}
                   className="text-xs text-gray-400 mb-2"
                 >
                   Search results:
@@ -398,7 +427,7 @@ export default function Home() {
                   <motion.div
                     initial={{ x: -200, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: 3.8, duration: 0.6 }}
+                    transition={{ delay: 2.9, duration: 0.5 }}
                     className="flex gap-2"
                     style={{
                       animation: "slideInfinite 20s linear infinite"
