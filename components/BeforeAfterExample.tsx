@@ -10,6 +10,7 @@ interface BeforeAfterExampleProps {
 
 export default function BeforeAfterExample({ onViewExample }: BeforeAfterExampleProps) {
   const [isImageVisible, setIsImageVisible] = useState(false)
+  const [isImageLoaded, setIsImageLoaded] = useState(false)
 
   const handleShowExample = () => {
     setIsImageVisible(!isImageVisible)
@@ -54,15 +55,28 @@ export default function BeforeAfterExample({ onViewExample }: BeforeAfterExample
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ delay: 0.2, duration: 0.4 }}
-                  className="rounded-xl overflow-hidden bg-gray-800/50 border border-gray-700/30"
+                  className="rounded-xl overflow-hidden bg-gray-800/50 border border-gray-700/30 relative"
                 >
+                  {/* Loading placeholder */}
+                  {!isImageLoaded && (
+                    <div className="w-full aspect-[1148/1193] bg-gray-800/50 flex items-center justify-center">
+                      <div className="text-gray-400 text-sm">Loading example...</div>
+                    </div>
+                  )}
+                  
                   <Image
                     src="/BEFORE-AFTER-LIQUIFY2.png"
                     alt="Before and After: Store transformation example"
                     width={1148}
                     height={1193}
-                    className="w-full h-auto"
-                    priority
+                    className={`w-full h-auto transition-opacity duration-300 ${
+                      isImageLoaded ? 'opacity-100' : 'opacity-0 absolute inset-0'
+                    }`}
+                    loading="lazy"
+                    quality={85}
+                    placeholder="blur"
+                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkrHB0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSorjrdOzW8w=="
+                    onLoad={() => setIsImageLoaded(true)}
                   />
                 </motion.div>
               </motion.div>
