@@ -336,7 +336,7 @@ export async function POST(request: NextRequest) {
                  <div style="background: linear-gradient(135deg, #111827 0%, #1f2937 100%) !important; border-radius: 12px; padding: 24px; text-align: center; margin-bottom: 24px;">
                    <h3 style="color: white !important; margin: 0 0 16px; font-size: 20px; font-weight: 700; font-family: 'Inter', sans-serif;">🎁 Your Exclusive Early Access Benefits</h3>
                    <div style="color: #d1d5db !important; font-size: 15px; line-height: 1.6;">
-                     <div style="margin: 0 0 8px; font-weight: 600; color: #d1d5db !important;">💰 <strong style="color: #d1d5db !important;">Exclusive discount code</strong> sent directly to your inbox at launch</div>
+                     <div style="margin: 0 0 8px; font-weight: 600; color: #d1d5db !important;">💰 <strong style="color: #d1d5db !important;">Exclusive discount access</strong> sent directly to your inbox at launch</div>
                      <div style="margin: 0 0 8px; font-weight: 600; color: #d1d5db !important;">⚡ <strong style="color: #d1d5db !important;">7-day exclusive access</strong> before public launch</div>
                      <div style="margin: 0 0 8px; font-weight: 600; color: #d1d5db !important;">🎯 <strong style="color: #d1d5db !important;">Priority support</strong> and feature requests</div>
                      <div style="margin: 0; font-weight: 600; color: #d1d5db !important;">🏆 <strong style="color: #d1d5db !important;">Bonus modules & sections</strong> only for waitlist members</div>

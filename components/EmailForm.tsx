@@ -179,7 +179,7 @@ export default function EmailForm({ onSuccess, subscriberCount = 147 }: EmailFor
               </div>
             </div>
             <span className="text-xs md:text-sm">
-              <span className="text-white font-medium">{142 + subscriberCount}</span> store owners joined
+              <span className="text-white font-medium">{142 + subscriberCount}</span> store owners already joined
             </span>
           </div>
         </div>
@@ -237,7 +237,7 @@ export default function EmailForm({ onSuccess, subscriberCount = 147 }: EmailFor
               {isLoading ? (
                 <>
                   <Loader2 className="h-4 w-4 md:h-5 md:w-5 animate-spin" />
-                  Securing Your $300 Savings...
+                  Going to grow your store...
                 </>
               ) : (
                 <>
