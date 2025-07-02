@@ -559,7 +559,7 @@ export default function Home() {
                   </div>
                 </div>
                 <ul className="space-y-2 text-gray-300 text-left text-sm md:text-base">
-                  <li>• 220+ unique modules</li>
+                  <li>• 220+ unique modules from 6-7fig stores</li>
                   <li>• One affordable subscription</li>
                   <li>• Stand out instantly</li>
                   <li>• 3x better conversions</li>
