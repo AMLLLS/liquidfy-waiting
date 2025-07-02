@@ -181,7 +181,7 @@ export default function Home() {
               {/* Main title with clamp responsive sizing */}
               <h1 className="text-white font-bold px-1 pt-2 leading-tight md:mb-0 lg:mb-[-0.5rem]" 
                   style={{ fontSize: 'clamp(1.5rem, 10vw, 5rem)', lineHeight: '1' }}>
-                #1 Ultimate Ecom <br/>Library App.
+                #1 Ecom Custom <br/>Code Library.
               </h1>
               
               {/* Register now subtitle with clamp responsive sizing and animated arrows */}
@@ -202,7 +202,7 @@ export default function Home() {
                 </motion.div>
                 <motion.h2 
                   className="font-bold gradient-text leading-tight md:py-1 cursor-pointer group"
-                  style={{ fontSize: 'clamp(2.25rem, 9vw, 4.5rem)', marginTop: '1.3rem' }}
+                  style={{ fontSize: 'clamp(2.25rem, 9vw, 4.5rem)', paddingTop: '1.3rem' }}
                   whileHover={{
                     scale: 1.05,
                     rotateY: 5,
