@@ -235,7 +235,7 @@ export default function EmailForm({ onSuccess, subscriberCount = 147 }: EmailFor
                 </>
               ) : (
                 <>
-                  🎯 Claim $99 Launch Price
+                  🎯 Secure My Early Access
                   <ArrowRight className="h-4 w-4 md:h-5 md:w-5" />
                 </>
               )}
