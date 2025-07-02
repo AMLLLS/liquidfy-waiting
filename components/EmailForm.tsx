@@ -210,7 +210,7 @@ export default function EmailForm({ onSuccess, subscriberCount = 147 }: EmailFor
             </div>
             <div className="flex items-center gap-3 text-sm">
               <Crown className="h-4 w-4 text-purple-400" />
-              <span className="text-purple-300">Unique % OFF discounts guaranteed</span>
+              <span className="text-purple-300">Unique % OFF discount guaranteed</span>
             </div>
           </div>
         </motion.div>
