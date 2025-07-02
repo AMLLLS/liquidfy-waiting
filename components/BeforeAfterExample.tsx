@@ -1,0 +1,75 @@
+'use client'
+
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
+
+interface BeforeAfterExampleProps {
+  onViewExample?: () => void
+}
+
+export default function BeforeAfterExample({ onViewExample }: BeforeAfterExampleProps) {
+  const [isImageVisible, setIsImageVisible] = useState(false)
+
+  const handleShowExample = () => {
+    setIsImageVisible(!isImageVisible)
+    if (!isImageVisible) {
+      onViewExample?.()
+    }
+  }
+
+  return (
+    <div className="container mx-auto px-4 md:px-6 py-2 md:py-3">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="max-w-4xl mx-auto"
+      >
+        {/* Better delimited container */}
+        <div className="bg-gray-800/20 border border-gray-700/30 rounded-xl p-3 md:p-4">
+          <div className="text-center">
+            <motion.button
+              onClick={handleShowExample}
+              className="group text-gray-400 hover:text-white text-sm md:text-base font-medium transition-colors duration-300 cursor-pointer border-b border-gray-700/50 hover:border-primary-400/50 pb-1"
+              whileHover={{ y: -1 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              {isImageVisible ? 'Hide example ↑' : 'Show me an example →'}
+            </motion.button>
+          </div>
+
+          {/* Inline Image Display */}
+          <AnimatePresence>
+            {isImageVisible && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="overflow-hidden"
+              >
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ delay: 0.2, duration: 0.4 }}
+                  className="rounded-xl overflow-hidden bg-gray-800/50 border border-gray-700/30"
+                >
+                  <Image
+                    src="/BEFORE-AFTER-LIQUIFY2.png"
+                    alt="Before and After: Store transformation example"
+                    width={1148}
+                    height={1193}
+                    className="w-full h-auto"
+                    priority
+                  />
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </motion.div>
+    </div>
+  )
+} 

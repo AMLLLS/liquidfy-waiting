@@ -130,7 +130,7 @@ export default function EmailForm({ onSuccess, subscriberCount = 147 }: EmailFor
             className="text-sm md:text-sm text-gray-300 mb-4"
           >
             Register now & your <span className="text-green-400 font-semibold">exclusive discount</span><br className="hidden md:block" />
-            <span className="hidden md:inline"> </span> when we launch.
+            <span className="hidden md:inline"> </span> at launch.
           </motion.p>
           
           {/* Value Statistics - MOVED UP */}
@@ -168,9 +168,15 @@ export default function EmailForm({ onSuccess, subscriberCount = 147 }: EmailFor
           {/* Social proof - Clean */}
           <div className="flex items-center justify-center gap-2 text-sm text-gray-400 mb-4">
             <div className="flex -space-x-1">
-              <div className="w-5 h-5 md:w-6 md:h-6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full border border-white/20"></div>
-              <div className="w-5 h-5 md:w-6 md:h-6 bg-gradient-to-r from-green-500 to-blue-500 rounded-full border border-white/20"></div>
-              <div className="w-5 h-5 md:w-6 md:h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full border border-white/20"></div>
+              <div className="w-5 h-5 md:w-6 md:h-6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full border border-white/20 flex items-center justify-center">
+                <span className="text-white text-[8px] md:text-[10px] font-medium">KL</span>
+              </div>
+              <div className="w-5 h-5 md:w-6 md:h-6 bg-gradient-to-r from-green-500 to-blue-500 rounded-full border border-white/20 flex items-center justify-center">
+                <span className="text-white text-[8px] md:text-[10px] font-medium">GD</span>
+              </div>
+              <div className="w-5 h-5 md:w-6 md:h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full border border-white/20 flex items-center justify-center">
+                <span className="text-white text-[8px] md:text-[10px] font-medium">MT</span>
+              </div>
             </div>
             <span className="text-xs md:text-sm">
               <span className="text-white font-medium">{142 + subscriberCount}</span> store owners joined
@@ -186,7 +192,7 @@ export default function EmailForm({ onSuccess, subscriberCount = 147 }: EmailFor
             <input
               {...register('email')}
               type="email"
-              placeholder="Enter your email for $99 early access"
+              placeholder="Enter your email"
               className="w-full pl-10 md:pl-12 pr-3 md:pr-4 py-3 md:py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-sm md:text-base"
               disabled={isLoading}
               onFocus={() => {

@@ -76,7 +76,7 @@ export default function ModuleSlider() {
   const duplicatedModules = [...modules, ...modules, ...modules]
 
   return (
-    <div className="relative w-screen -mx-4 md:-mx-6 lg:w-auto lg:mx-8 xl:mx-16 overflow-hidden pb-16">
+    <div className="relative w-screen -mx-4 md:-mx-6 lg:w-auto lg:mx-8 xl:mx-16 overflow-hidden pb-4">
       {/* Slider container with increased padding to prevent clipping */}
       <div className="flex justify-center">
         <div 

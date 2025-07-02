@@ -12,6 +12,7 @@ import ConfettiEffect from '@/components/ConfettiEffect'
 import StructuredData from '@/components/StructuredData'
 import ScrollTracker from '@/components/ScrollTracker'
 import CountdownTimer from '@/components/CountdownTimer'
+import BeforeAfterExample from '@/components/BeforeAfterExample'
 
 import { useMetaPixel } from '@/hooks/useMetaPixel'
 
@@ -608,6 +609,14 @@ export default function Home() {
         {/* Module Slider - MOVED UP to show solutions immediately */}
         <ModuleSlider />
 
+        {/* Before/After Example Section - Show real transformation */}
+        <BeforeAfterExample 
+          onViewExample={() => trackFeatureView('Before After Example View')}
+        />
+
+        {/* Spacer to separate from email form */}
+        <div className="py-4 md:py-6"></div>
+
         {/* Email Form Section - Prominent placement after seeing the solution */}
         <div className="container mx-auto px-4 md:px-6 py-8 md:py-12">
           {/* Mobile Email Form */}
@@ -658,7 +667,7 @@ export default function Home() {
             <div className="flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2 text-xs md:text-sm text-gray-400">
               <div className="flex items-center gap-1">
                 <span className="text-green-400">✓</span>
-                <span>220+ modules ready to use</span>
+                <span>220+ add-ons ready to use</span>
               </div>
               <span className="hidden md:inline text-gray-600">•</span>
               <div className="flex items-center gap-1">
@@ -668,7 +677,7 @@ export default function Home() {
               <span className="hidden md:inline text-gray-600">•</span>
               <div className="flex items-center gap-1">
                 <span className="text-green-400">✓</span>
-                <span>$300 launch discount</span>
+                <span>Up to $300 launch discount</span>
               </div>
             </div>
           </motion.div>
