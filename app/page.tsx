@@ -252,9 +252,9 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+                className="text-md md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
               >
-                The only platform you need to transform your Shopify store from <span className="text-red-400 font-semibold">generic</span> to <span className="gradient-text font-semibold">game-changing</span>
+                Get <span className="text-blue-400 font-semibold">100+ conversion-tested modules</span> + <span className="text-purple-400 font-semibold">120+ premium Shopify sections</span> that increase sales by up to <span className="text-green-400 font-semibold">347%</span> — without expensive themes or plugins.
               </motion.p>
               
               {/* Platform icons - cleaner presentation */}
@@ -503,8 +503,8 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 md:mb-6">
-            Don't Build Another <span className="text-red-400">Generic Store</span>
+            <h2 className="text-4xl md:text-6xl lg:text-6xl font-bold mb-4 md:mb-6">
+            Why Your Store <br/>Need <span className="gradient-text">Liquidfy</span>
             </h2>
             <p className="text-base md:text-lg lg:text-xl text-gray-300 mb-6 md:mb-8 leading-relaxed px-2">
               80% of failed stores use the same generic themes, boring layouts, and outdated modules. 
