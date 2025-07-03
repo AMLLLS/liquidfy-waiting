@@ -13,6 +13,7 @@ import StructuredData from '@/components/StructuredData'
 import ScrollTracker from '@/components/ScrollTracker'
 import CountdownTimer from '@/components/CountdownTimer'
 import BeforeAfterExample from '@/components/BeforeAfterExample'
+import FAQ from '@/components/FAQ'
 
 import { useMetaPixel } from '@/hooks/useMetaPixel'
 
@@ -408,92 +409,13 @@ export default function Home() {
                   </motion.div>
                 </div>
               </motion.div>
-              
-              {/* Mini slider directly attached as search results */}
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                transition={{ delay: 2.5, duration: 0.6, ease: "easeOut" }}
-                className="bg-gray-800/30 border-l border-r border-b border-gray-700/50 rounded-b-xl p-3"
-              >
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 2.7 }}
-                  className="text-xs text-gray-400 mb-2"
-                >
-                  Search results:
-                </motion.div>
-                <div className="relative overflow-hidden">
-                  <motion.div
-                    initial={{ x: -200, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: 2.9, duration: 0.5 }}
-                    className="flex gap-2"
-                    style={{
-                      animation: "slideInfinite 20s linear infinite"
-                    }}
-                  >
-                    {/* First set */}
-                    {[
-                      { name: 'Social Video', img: '/modules/customer-portal.jpg' },
-                      { name: 'Flash Sales', img: '/modules/daily-deals.jpg' },
-                      { name: 'Bundle Builder', img: '/modules/ultra-menu.jpg' },
-                      { name: 'Reviews', img: '/modules/social-share.jpg' },
-                      { name: 'Icons & Details', img: '/modules/gift-cards.jpg' },
-                      { name: 'Cart Timer', img: '/modules/stock-alert.jpg' },
-                      { name: 'Payment', img: '/modules/wishlist-pro.jpg' },
-                      { name: 'Trust', img: '/modules/bundle-builder.jpg' },
-                    ].map((module, index) => (
-                      <div key={`search-first-${index}`} className="flex-shrink-0 w-16 h-12 rounded border border-gray-600/50 overflow-hidden bg-gray-900/50 relative group">
-                        <Image
-                          src={module.img}
-                          alt={module.name}
-                          width={64}
-                          height={48}
-                          className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                        <div className="absolute bottom-0 left-0 right-0 p-1">
-                          <div className="text-white text-[8px] font-medium leading-none truncate">
-                            {module.name}
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                    {/* Duplicate set for infinite scroll */}
-                    {[
-                      { name: 'Social Video', img: '/modules/customer-portal.jpg' },
-                      { name: 'Flash Sales', img: '/modules/daily-deals.jpg' },
-                      { name: 'Bundle Builder', img: '/modules/ultra-menu.jpg' },
-                      { name: 'Reviews', img: '/modules/social-share.jpg' },
-                      { name: 'Icons & Details', img: '/modules/gift-cards.jpg' },
-                      { name: 'Cart Timer', img: '/modules/stock-alert.jpg' },
-                      { name: 'Payment', img: '/modules/wishlist-pro.jpg' },
-                      { name: 'Trust', img: '/modules/bundle-builder.jpg' },
-                    ].map((module, index) => (
-                      <div key={`search-second-${index}`} className="flex-shrink-0 w-16 h-12 rounded border border-gray-600/50 overflow-hidden bg-gray-900/50 relative group">
-                        <Image
-                          src={module.img}
-                          alt={module.name}
-                          width={64}
-                          height={48}
-                          className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                        <div className="absolute bottom-0 left-0 right-0 p-1">
-                          <div className="text-white text-[8px] font-medium leading-none truncate">
-                            {module.name}
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </motion.div>
-                </div>
-              </motion.div>
+
             </div>
           </motion.div>
         </div>
+
+        {/* Module Slider - MOVED HERE directly after search */}
+        <ModuleSlider />
 
         {/* Simplified Value Proposition - NEW */}
         <div className="container mx-auto px-4 md:px-6 py-4 md:py-8">
@@ -606,9 +528,6 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* Module Slider - MOVED UP to show solutions immediately */}
-        <ModuleSlider />
-
         {/* Before/After Example Section - Show real transformation */}
         <BeforeAfterExample 
           onViewExample={() => trackFeatureView('Before After Example View')}
@@ -617,35 +536,45 @@ export default function Home() {
         {/* Spacer to separate from email form */}
         <div className="py-4 md:py-6"></div>
 
-        {/* Email Form Section - Prominent placement after seeing the solution */}
+        {/* Email Form + FAQ Section - Side by side on desktop */}
         <div className="container mx-auto px-4 md:px-6 py-8 md:py-12">
-          {/* Mobile Email Form */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="md:hidden flex flex-col mb-8"
-            id="join-waitlist"
-            data-section="email-form"
-          >
-            <div className="max-w-sm mx-auto w-full">
-              <EmailForm onSuccess={() => setIsSubmitted(true)} subscriberCount={subscriberCount} />
-            </div>
-          </motion.div>
+          <div className="flex flex-col lg:flex-row lg:gap-12 xl:gap-16">
+            {/* Email Form Column */}
+            <div className="flex-1 lg:max-w-md">
+              {/* Mobile Email Form */}
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="lg:hidden flex flex-col mb-4"
+                id="join-waitlist"
+                data-section="email-form"
+              >
+                <div className="max-w-sm mx-auto w-full">
+                  <EmailForm onSuccess={() => setIsSubmitted(true)} subscriberCount={subscriberCount} />
+                </div>
+              </motion.div>
 
-          {/* Desktop Email Form */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="hidden md:flex justify-center"
-            id="join-waitlist-desktop"
-            data-section="email-form"
-          >
-            <div className="max-w-md w-full">
-              <EmailForm onSuccess={() => setIsSubmitted(true)} subscriberCount={subscriberCount} />
+              {/* Desktop Email Form */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="hidden lg:flex justify-center"
+                id="join-waitlist-desktop"
+                data-section="email-form"
+              >
+                <div className="max-w-md w-full">
+                  <EmailForm onSuccess={() => setIsSubmitted(true)} subscriberCount={subscriberCount} />
+                </div>
+              </motion.div>
             </div>
-          </motion.div>
+
+            {/* FAQ Column */}
+            <div className="flex-1 lg:max-w-2xl">
+              <FAQ />
+            </div>
+          </div>
         </div>
 
         {/* Final Push - Social Proof and Urgency */}
@@ -661,7 +590,7 @@ export default function Home() {
             </h4>
             <p className="text-gray-300 mb-4 md:mb-6 max-w-2xl mx-auto text-sm md:text-base">
               Join <span className="text-white font-bold">{142 + subscriberCount}+ store owners</span> who are getting early access to everything they need for a store that actually converts. 
-              <span className="text-green-400 font-semibold"> Save up to $300 on launch day.</span>
+              <span className="text-green-400 font-semibold"> Save up to +$100 on launch day.</span>
             </p>
             
             <div className="flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2 text-xs md:text-sm text-gray-400">
