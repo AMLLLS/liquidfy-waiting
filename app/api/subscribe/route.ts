@@ -350,11 +350,7 @@ export async function POST(request: NextRequest) {
                    </a>
                  </div>
                 
-                <!-- Social Proof -->
-                <div style="background: #f0fdf4 !important; border-radius: 10px; padding: 20px; text-align: center; border: 1px solid #bbf7d0;">
-                  <p style="color: #166534 !important; margin: 0 0 8px; font-size: 16px; font-weight: 700;">Our beta testers are already seeing results:</p>
-                  <p style="color: #15803d !important; margin: 0; font-size: 15px; font-weight: 600;">"My conversion rate increased by 34% in the first week!" - Sarah K.</p>
-                </div>
+
               </div>
               
               <!-- Footer -->
