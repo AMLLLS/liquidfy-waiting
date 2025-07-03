@@ -70,6 +70,14 @@ export default function ModuleSlider() {
       gradient: 'from-teal-500/20 to-cyan-500/20',
       borderColor: 'border-teal-500/30'
     },
+    { 
+      id: 9, 
+      name: 'Money Back Guarantee', 
+      description: 'Usefull section for trust',
+      image: '/modules/moneyback-guaranteed.jpg',
+      gradient: 'from-teal-500/20 to-cyan-500/20',
+      borderColor: 'border-teal-500/30'
+    },
   ]
 
   // Triple the modules for truly seamless infinite scroll
