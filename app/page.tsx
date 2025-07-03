@@ -262,7 +262,7 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="text-md md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
               >
-                Get <span className="text-blue-400 font-semibold">100+ conversion-tested modules</span> + <span className="text-purple-400 font-semibold">120+ premium Shopify sections</span> that increase sales by up to <span className="text-green-400 font-semibold">347%</span> — without expensive themes or plugins.
+                Get <span className="text-blue-400 font-semibold">100+ conversion-tested modules</span> + <span className="text-purple-400 font-semibold">120+ premium Shopify sections</span> that increase sales by up to <span className="text-green-400 font-semibold">347%</span> — without expensive themes or plugins. More than <span className="text-green-400 font-semibold">2K$ net worth</span> Library for less than 100$.
               </motion.p>
               
               {/* Platform icons - cleaner presentation */}
@@ -529,7 +529,7 @@ export default function Home() {
               
               <p className="text-center text-gray-300 text-sm md:text-base max-w-2xl mx-auto">
                 Stop wasting money on expensive themes and plugins that don't convert. 
-                <span className="text-green-400 font-semibold">Get everything you need in one platform.</span>
+                <span className="text-green-400 font-semibold">Get everything you need in one dashboard.</span>
               </p>
             </motion.div>
           </motion.div>
