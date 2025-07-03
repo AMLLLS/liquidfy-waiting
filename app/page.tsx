@@ -19,7 +19,7 @@ import { useMetaPixel } from '@/hooks/useMetaPixel'
 
 export default function Home() {
   const [isSubmitted, setIsSubmitted] = useState(false)
-  const [subscriberCount, setSubscriberCount] = useState(147) // Starting number for social proof
+  const [realSubscriberCount, setRealSubscriberCount] = useState(227) // Starting with BDD count + 200 boost
   const { trackViewContent, trackFeatureView, trackCompleteRegistration } = useMetaPixel()
   
   // Track view content on mount (PageView handled by pixel init)
@@ -32,14 +32,21 @@ export default function Home() {
     }
   }, [trackViewContent, isSubmitted])
 
-  // Simulate real-time subscriber updates for social proof
+  // Fetch real subscriber count from API (includes +200 boost)
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (Math.random() > 0.7) { // 30% chance every 30 seconds
-        setSubscriberCount(prev => prev + 1)
+    const fetchSubscriberCount = async () => {
+      try {
+        const response = await fetch('/api/subscribe')
+        const data = await response.json()
+        // API will return totalSubscribers + 200 boost
+        setRealSubscriberCount(data.totalSubscribers + 200)
+      } catch (error) {
+        console.error('Failed to fetch subscriber count:', error)
+        // Keep default fallback
       }
-    }, 30000)
-    return () => clearInterval(interval)
+    }
+    
+    fetchSubscriberCount()
   }, [])
 
   if (isSubmitted) {
@@ -66,7 +73,7 @@ export default function Home() {
               You're In! Welcome to the Future!
             </h1>
             <p className="text-gray-300 mb-6 text-sm md:text-base">
-              You're now subscriber #{142 + subscriberCount} on our exclusive waitlist. Get ready for something amazing!
+              You're now subscriber #{realSubscriberCount} on our exclusive waitlist. Get ready for something amazing!
             </p>
             
 
@@ -166,7 +173,7 @@ export default function Home() {
             <div className="flex items-center justify-center gap-2 text-xs md:text-base">
               <span className="animate-pulse">🔥</span>
               <span className="text-orange-200 font-medium">
-                Limited Early Access - Only <span className="text-white font-bold">{Math.max(400 - (142 + subscriberCount), 153)}</span> spots remaining
+                Limited Early Access - Only <span className="text-white font-bold">{Math.max(400 - realSubscriberCount, 153)}</span> spots remaining
               </span>
               <span className="animate-pulse">🔥</span>
             </div>
@@ -551,7 +558,7 @@ export default function Home() {
                 data-section="email-form"
               >
                 <div className="max-w-sm mx-auto w-full">
-                  <EmailForm onSuccess={() => setIsSubmitted(true)} subscriberCount={subscriberCount} />
+                  <EmailForm onSuccess={() => setIsSubmitted(true)} subscriberCount={realSubscriberCount} />
                 </div>
               </motion.div>
 
@@ -565,7 +572,7 @@ export default function Home() {
                 data-section="email-form"
               >
                 <div className="max-w-md w-full">
-                  <EmailForm onSuccess={() => setIsSubmitted(true)} subscriberCount={subscriberCount} />
+                  <EmailForm onSuccess={() => setIsSubmitted(true)} subscriberCount={realSubscriberCount} />
                 </div>
               </motion.div>
             </div>
@@ -586,10 +593,10 @@ export default function Home() {
             className="text-center bg-gradient-to-r from-primary-500/10 to-purple-500/10 border border-primary-500/20 rounded-xl md:rounded-2xl p-4 md:p-8 mx-2 md:mx-0"
           >
             <h4 className="text-xl md:text-2xl lg:text-3xl font-bold mb-3 md:mb-4">
-              Don't Build Another <span className="text-red-400">Generic Store</span>
+              Don't Build Another <span className="text-red-400"><br/>Generic Store</span>
             </h4>
             <p className="text-gray-300 mb-4 md:mb-6 max-w-2xl mx-auto text-sm md:text-base">
-              Join <span className="text-white font-bold">{142 + subscriberCount}+ store owners</span> who are getting early access to everything they need for a store that actually converts. 
+              Join <span className="text-white font-bold">{realSubscriberCount}+ store owners</span> who are getting early access to everything they need for a store that actually converts. 
               <span className="text-green-400 font-semibold"> Save up to +$100 on launch day.</span>
             </p>
             

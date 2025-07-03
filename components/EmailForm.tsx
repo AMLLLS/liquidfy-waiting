@@ -21,7 +21,7 @@ interface EmailFormProps {
   subscriberCount?: number
 }
 
-export default function EmailForm({ onSuccess, subscriberCount = 147 }: EmailFormProps) {
+export default function EmailForm({ onSuccess, subscriberCount = 227 }: EmailFormProps) {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [hasTrackedFormStart, setHasTrackedFormStart] = useState(false)
@@ -179,7 +179,7 @@ export default function EmailForm({ onSuccess, subscriberCount = 147 }: EmailFor
               </div>
             </div>
             <span className="text-xs md:text-sm">
-              <span className="text-white font-medium">{142 + subscriberCount}</span> store owners already joined
+              <span className="text-white font-medium">{subscriberCount}</span> store owners already joined
             </span>
           </div>
         </div>
