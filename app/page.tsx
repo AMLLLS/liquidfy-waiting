@@ -210,7 +210,7 @@ export default function Home() {
                 </motion.div>
                 <motion.h2 
                   className="font-bold gradient-text leading-tight md:py-1 cursor-pointer group"
-                  style={{ fontSize: 'clamp(2.25rem, 9vw, 4.5rem)', paddingTop: '1.3rem' }}
+                  style={{ fontSize: 'clamp(1.7rem, 8.5vw, 3.5rem)', paddingTop: '1.4rem' }}
                   whileHover={{
                     scale: 1.05,
                     rotateY: 5,
@@ -237,7 +237,7 @@ export default function Home() {
                     }
                   }}
                 >
-                  Register now
+                  Get Early Access
                 </motion.h2>
                 <motion.div
                   animate={{ 
