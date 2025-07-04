@@ -504,8 +504,8 @@ export default function Home() {
               transition={{ delay: 0.6 }}
               className="bg-gradient-to-r from-primary-500/5 to-purple-500/5 border border-primary-500/20 rounded-xl p-6 md:p-8 mt-8"
             >
-              <h3 className="text-xl md:text-2xl font-bold mb-6 text-center">
-                That's Why We Built <span className="gradient-text">Liquidfy</span>
+              <h3 className="text-2xl md:text-3xl font-bold mb-6 text-center">
+                The <span className="gradient-text">Liquidfy</span> Solution
               </h3>
               
               {/* Integrated key stats with context */}
@@ -528,8 +528,8 @@ export default function Home() {
               </div>
               
               <p className="text-center text-gray-300 text-sm md:text-base max-w-2xl mx-auto">
-                Stop wasting money on expensive themes and plugins that don't convert. 
-                <span className="text-green-400 font-semibold">Get everything you need in one dashboard.</span>
+              Early Access Subscriber have one unlimited license to all premium modules and sections. Mix, match, and customize everything to create a
+                <span className="text-green-400 font-semibold"> store that's uniquely yours and converts like crazy.</span>
               </p>
             </motion.div>
           </motion.div>
