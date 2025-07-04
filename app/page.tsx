@@ -188,7 +188,7 @@ export default function Home() {
               
               {/* Main title with clamp responsive sizing */}
               <h1 className="text-white font-bold px-1 pt-2 leading-tight md:mb-0 lg:mb-[-0.5rem]" 
-                  style={{ fontSize: 'clamp(1.5rem, 10vw, 5rem)', lineHeight: '1' }}>
+                  style={{ fontSize: 'clamp(1.7rem, 11vw, 6rem)', lineHeight: '1' }}>
                 #1 Ecom Custom <br/>Code Library.
               </h1>
               
