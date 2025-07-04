@@ -535,6 +535,108 @@ export default function Home() {
           </motion.div>
         </div>
 
+        {/* What's Included? - Refined Section */}
+        <div className="container mx-auto px-4 md:px-6 py-6 md:py-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="text-center mb-6 md:mb-8">
+              <h3 className="text-2xl md:text-3xl font-bold mb-3">
+                What's <span className="gradient-text">Included</span> in Your License?
+              </h3>
+              <p className="text-sm md:text-base text-gray-400 max-w-2xl mx-auto">
+                Early Access subscribers get one unlimited license to all premium modules and sections. 
+                Mix, match, and customize everything to create a store that's uniquely yours.
+              </p>
+            </div>
+
+            {/* Responsive Benefits Grid */}
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 mb-6 md:mb-8">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="bg-gray-800/20 border border-gray-700/30 rounded-lg p-3 md:p-4 text-center"
+              >
+                <div className="text-xl md:text-2xl mb-2">♾️</div>
+                <h4 className="text-xs md:text-sm font-semibold text-white mb-1">Unlimited Access</h4>
+                <p className="text-xs text-gray-400">One license unlocks everything. No monthly fees.</p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="bg-gray-800/20 border border-gray-700/30 rounded-lg p-3 md:p-4 text-center"
+              >
+                <div className="text-xl md:text-2xl mb-2">🎯</div>
+                <h4 className="text-xs md:text-sm font-semibold text-white mb-1">Mix & Match</h4>
+                <p className="text-xs text-gray-400">Combine any modules and sections freely.</p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+                className="bg-gray-800/20 border border-gray-700/30 rounded-lg p-3 md:p-4 text-center"
+              >
+                <div className="text-xl md:text-2xl mb-2">🎨</div>
+                <h4 className="text-xs md:text-sm font-semibold text-white mb-1">Customizable</h4>
+                <p className="text-xs text-gray-400">Colors, fonts, layouts adapt to your brand.</p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7 }}
+                className="bg-gray-800/20 border border-gray-700/30 rounded-lg p-3 md:p-4 text-center"
+              >
+                <div className="text-xl md:text-2xl mb-2">🌐</div>
+                <h4 className="text-xs md:text-sm font-semibold text-white mb-1">Works Everywhere</h4>
+                <p className="text-xs text-gray-400">Compatible with any Shopify theme.</p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8 }}
+                className="bg-gray-800/20 border border-gray-700/30 rounded-lg p-3 md:p-4 text-center"
+              >
+                <div className="text-xl md:text-2xl mb-2">🚀</div>
+                <h4 className="text-xs md:text-sm font-semibold text-white mb-1">Lifetime Updates</h4>
+                <p className="text-xs text-gray-400">New features added regularly.</p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.9 }}
+                className="bg-gray-800/20 border border-gray-700/30 rounded-lg p-3 md:p-4 text-center"
+              >
+                <div className="text-xl md:text-2xl mb-2">👑</div>
+                <h4 className="text-xs md:text-sm font-semibold text-white mb-1">Priority Support</h4>
+                <p className="text-xs text-gray-400">Dedicated support for early access.</p>
+              </motion.div>
+            </div>
+
+            {/* Subtle Value Proposition */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.0 }}
+              className="text-center bg-gradient-to-r from-primary-500/5 to-purple-500/5 border border-primary-500/20 rounded-lg p-4 md:p-6"
+            >
+              <p className="text-sm md:text-base text-gray-300">
+                <span className="text-green-400 font-semibold">One investment, unlimited possibilities.</span> 
+                While others pay monthly for limited features, you get everything forever.
+              </p>
+            </motion.div>
+          </motion.div>
+        </div>
+
         {/* Before/After Example Section - Show real transformation */}
         <BeforeAfterExample 
           onViewExample={() => trackFeatureView('Before After Example View')}
