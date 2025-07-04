@@ -161,7 +161,7 @@ export default function EmailForm({ onSuccess, subscriberCount = 227 }: EmailFor
             </p>
             <p className="text-sm text-gray-300">
               <span className="line-through text-gray-500">Regular: $199</span> → 
-              <span className="text-green-400 font-bold"> Early Bird: $99</span>
+              <span className="text-green-400 font-bold"> Early Access: $99</span>
             </p>
           </div>
           
