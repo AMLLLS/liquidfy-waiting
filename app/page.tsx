@@ -529,7 +529,7 @@ export default function Home() {
               
               <p className="text-center text-gray-300 text-sm md:text-base max-w-2xl mx-auto">
                 Stop wasting money on expensive themes and plugins that don't convert. 
-                <span className="text-green-400 font-semibold">Get everything you need in one dashboard.</span>
+                <span className="text-green-400 font-semibold"> Get everything you need in one dashboard.</span>
               </p>
             </motion.div>
           </motion.div>
