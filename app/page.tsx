@@ -544,8 +544,8 @@ export default function Home() {
             className="max-w-4xl mx-auto"
           >
             <div className="text-center mb-6 md:mb-8">
-              <h3 className="text-2xl md:text-3xl font-bold mb-3">
-                What's <span className="gradient-text">Included</span> in Your License?
+              <h3 className="text-3xl md:text-3xl font-bold mb-3">
+                What's <span className="gradient-text">Included</span> in <br/> Your License?
               </h3>
               <p className="text-sm md:text-base text-gray-400 max-w-2xl mx-auto">
                 Early Access subscribers get one unlimited license to all premium modules and sections. 
