@@ -2,6 +2,15 @@
 
 import { useCallback } from 'react'
 
+// Fonction utilitaire pour lire un cookie par nom
+function getCookie(name: string): string | undefined {
+  if (typeof document === 'undefined') return undefined;
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop()?.split(';').shift();
+  return undefined;
+}
+
 interface MetaConversionEvent {
   eventName: string
   email?: string
@@ -20,6 +29,9 @@ interface MetaConversionEvent {
 export function useMetaConversions() {
   const sendEvent = useCallback(async (event: MetaConversionEvent) => {
     try {
+      // Récupérer les cookies fbp et fbc côté client
+      const fbp = getCookie('_fbp');
+      const fbc = getCookie('_fbc');
       const response = await fetch('/api/meta-conversions', {
         method: 'POST',
         headers: {
@@ -29,6 +41,8 @@ export function useMetaConversions() {
           ...event,
           userAgent: event.userAgent || navigator.userAgent,
           eventSourceUrl: event.eventSourceUrl || window.location.href,
+          fbp,
+          fbc,
         }),
       })
 

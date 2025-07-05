@@ -73,7 +73,7 @@ async function sendEventToMeta(eventData: EventData) {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { eventName, email, userAgent, eventSourceUrl, customData } = body
+    const { eventName, email, userAgent, eventSourceUrl, customData, fbp, fbc } = body
 
     // Validate required fields
     if (!eventName) {
@@ -84,6 +84,9 @@ export async function POST(request: NextRequest) {
     const userData: any = {
       client_user_agent: userAgent || request.headers.get('user-agent') || ''
     }
+    // Ajouter fbp et fbc si présents
+    if (fbp) userData.fbp = fbp;
+    if (fbc) userData.fbc = fbc;
 
     // Add email if provided
     if (email) {
