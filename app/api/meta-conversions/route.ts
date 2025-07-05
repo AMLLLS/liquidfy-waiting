@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 
 // Meta Conversions API Configuration
 const META_ACCESS_TOKEN = 'EAAMTtSZBdsmcBPNk80nwzLuL9Uh5zYm1ujt47fxyzTsylqXBFPgi0VyU8ded6WrssWjZCWRRzisRaalV0a7Hn4WtZASOUblIimYGURsN3XBjB8N8Y4kc2bIyteRGZBDDKHgJbbT2iMlfNADy9hZACOi2AyRyZBofdVVc3CAoAHFvJNAG10dqhudL0LwYutpwZDZD'
-const PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID || '123456789' // Replace with your actual pixel ID
+const PIXEL_ID = '720945630867893' // Liquidfy Meta Pixel ID
 const API_VERSION = 'v18.0'
 
 // Utility function to hash email for privacy

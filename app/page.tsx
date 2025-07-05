@@ -207,7 +207,7 @@ export default function Home() {
                     repeat: Infinity,
                     ease: "easeInOut"
                   }}
-                  className="gradient-text text-2xl md:text-4xl font-bold"
+                  className="gradient-text text-2xl md:text-4xl font-bold mt-[1.4rem]"
                 >
                   →
                 </motion.div>
@@ -252,7 +252,7 @@ export default function Home() {
                     repeat: Infinity,
                     ease: "easeInOut"
                   }}
-                  className="gradient-text text-2xl md:text-4xl font-bold"
+                  className="gradient-text text-2xl md:text-4xl font-bold mt-[1.4rem]"
                 >
                   ←
                 </motion.div>
