@@ -47,6 +47,9 @@ export default function Home() {
     }
     
     fetchSubscriberCount()
+    
+    // Track page view for Meta Conversions API
+    trackViewContent('Liquidfy Landing Page')
   }, [])
 
   if (isSubmitted) {

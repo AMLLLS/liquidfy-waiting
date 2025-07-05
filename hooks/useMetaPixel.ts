@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { META_PIXEL_CONFIG, isPixelConfigured } from '../lib/meta-pixel'
+import { useMetaConversions } from './useMetaConversions'
 
 // Déclaration des types pour Facebook Pixel
 declare global {
@@ -9,6 +10,9 @@ declare global {
 }
 
 export const useMetaPixel = () => {
+  // Initialize Meta Conversions API
+  const metaConversions = useMetaConversions()
+  
   // Vérifier si le pixel est chargé
   const isPixelLoaded = () => {
     return typeof window !== 'undefined' && window.fbq
@@ -60,6 +64,9 @@ export const useMetaPixel = () => {
       content_name: contentName || 'Liquidfy Landing Page',
       content_category: 'SaaS Landing Page'
     })
+    
+    // Also send to Meta Conversions API
+    metaConversions.trackContentView(contentName || 'Liquidfy Landing Page')
   }
 
   const trackLead = (email?: string) => {
@@ -69,6 +76,11 @@ export const useMetaPixel = () => {
       value: 1,
       currency: 'USD'
     })
+    
+    // Also send to Meta Conversions API
+    if (email) {
+      metaConversions.trackLead(email)
+    }
   }
 
   const trackCompleteRegistration = (email?: string) => {
@@ -78,6 +90,11 @@ export const useMetaPixel = () => {
       value: 1,
       currency: 'USD'
     })
+    
+    // Also send to Meta Conversions API
+    if (email) {
+      metaConversions.trackCompleteRegistration(email)
+    }
   }
 
   const trackInitiateCheckout = () => {
@@ -95,6 +112,9 @@ export const useMetaPixel = () => {
       scroll_percentage: percentage,
       page_type: 'landing_page'
     })
+    
+    // Also send to Meta Conversions API
+    metaConversions.trackScrollDepth(percentage)
   }
 
   const trackFeatureView = (featureName: string) => {
@@ -109,6 +129,9 @@ export const useMetaPixel = () => {
       form_location: 'main_cta',
       page_type: 'landing_page'
     })
+    
+    // Also send to Meta Conversions API
+    metaConversions.trackEmailFormStart()
   }
 
   const trackEmailFormError = (errorType: string) => {
@@ -116,6 +139,23 @@ export const useMetaPixel = () => {
       error_type: errorType,
       form_location: 'main_cta'
     })
+    
+    // Also send to Meta Conversions API
+    metaConversions.trackEmailFormError(errorType)
+  }
+
+  const trackProspect = (email?: string) => {
+    track('Lead', {
+      content_name: 'Liquidfy Prospect',
+      content_category: 'Prospect',
+      value: 1,
+      currency: 'USD'
+    })
+    
+    // Also send to Meta Conversions API
+    if (email) {
+      metaConversions.trackProspect(email)
+    }
   }
 
   return {
@@ -129,6 +169,7 @@ export const useMetaPixel = () => {
     trackFeatureView,
     trackEmailFormStart,
     trackEmailFormError,
+    trackProspect,
     isPixelLoaded
   }
 } 

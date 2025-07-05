@@ -25,7 +25,7 @@ export default function EmailForm({ onSuccess, subscriberCount = 227 }: EmailFor
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [hasTrackedFormStart, setHasTrackedFormStart] = useState(false)
-  const { trackLead, trackCompleteRegistration, trackEmailFormStart, trackEmailFormError } = useMetaPixel()
+  const { trackLead, trackCompleteRegistration, trackEmailFormStart, trackEmailFormError, trackProspect } = useMetaPixel()
 
   // Launch countdown - FIXED DATE (realistic countdown)
   const launchDate = new Date('2025-07-10T10:00:00Z')
@@ -46,6 +46,10 @@ export default function EmailForm({ onSuccess, subscriberCount = 227 }: EmailFor
     // 📊 Meta Pixel: Lead event
     console.log('🎯 TRIGGERING LEAD EVENT:', data.email)
     trackLead(data.email)
+    
+    // 📊 Meta Conversions API: Prospect event
+    console.log('🎯 TRIGGERING PROSPECT EVENT:', data.email)
+    trackProspect(data.email)
 
     try {
       const response = await fetch('/api/subscribe', {
