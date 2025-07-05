@@ -406,7 +406,7 @@ export default function Home() {
                       transition={{ delay: 1.8, duration: 0.4 }}
                       className="text-gray-600 text-sm md:text-base"
                     >
-                      <span className="text-primary-600">220+ modules</span> found for your store...
+                      <span className="text-primary-600">220+ add-ons</span> found for your store...
                     </motion.div>
                   </motion.div>
                   <motion.div
