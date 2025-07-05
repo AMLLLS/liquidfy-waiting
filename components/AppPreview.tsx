@@ -48,7 +48,7 @@ export default function AppPreview({ onEmailSuccess, subscriberCount }: AppPrevi
               />
             </div>
           </div>
-          
+
           {/* Overlay CTA */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -62,21 +62,21 @@ export default function AppPreview({ onEmailSuccess, subscriberCount }: AppPrevi
             </div>
           </motion.div>
         </motion.div>
-
+        
         {/* Simple feature highlights - Desktop only */}
         <div className="grid md:grid-cols-3 gap-8 mb-12 max-w-4xl mx-auto">
-          <motion.div
+            <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
             className="text-center"
-          >
+            >
             <div className="text-4xl mb-4">🎨</div>
             <h4 className="text-lg font-bold mb-2">220+ Modules</h4>
             <p className="text-gray-400 text-sm">Every type of section, popup, and element you'll ever need</p>
-          </motion.div>
-          
-          <motion.div
+            </motion.div>
+            
+            <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
@@ -85,7 +85,7 @@ export default function AppPreview({ onEmailSuccess, subscriberCount }: AppPrevi
             <div className="text-4xl mb-4">⚡</div>
             <h4 className="text-lg font-bold mb-2">No Code</h4>
             <p className="text-gray-400 text-sm">Copy, paste, and customize. Works with any theme</p>
-          </motion.div>
+            </motion.div>
           
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -127,14 +127,14 @@ export default function AppPreview({ onEmailSuccess, subscriberCount }: AppPrevi
               className="w-full h-auto rounded-lg"
               priority
             />
-          </div>
-        </motion.div>
+        </div>
+      </motion.div>
 
         {/* Mobile feature highlights - Stacked vertically */}
         <div className="space-y-4 mb-6">
-          <motion.div
+      <motion.div
             initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
+        animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
             className="flex items-center gap-4 bg-gray-800/30 rounded-lg p-3"
           >
@@ -142,8 +142,8 @@ export default function AppPreview({ onEmailSuccess, subscriberCount }: AppPrevi
             <div className="text-left">
               <h4 className="text-sm font-bold text-white">220+ Premium Modules</h4>
               <p className="text-xs text-gray-400">Every section and element you need</p>
-            </div>
-          </motion.div>
+         </div>
+      </motion.div>
           
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -157,7 +157,7 @@ export default function AppPreview({ onEmailSuccess, subscriberCount }: AppPrevi
               <p className="text-xs text-gray-400">Copy, paste, and customize instantly</p>
             </div>
           </motion.div>
-          
+
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -174,7 +174,7 @@ export default function AppPreview({ onEmailSuccess, subscriberCount }: AppPrevi
       </motion.div>
 
       {/* Desktop Email Form */}
-      <motion.div
+        <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.3 }}
@@ -184,7 +184,7 @@ export default function AppPreview({ onEmailSuccess, subscriberCount }: AppPrevi
       >
         <div className="max-w-md w-full">
           <EmailForm onSuccess={onEmailSuccess} subscriberCount={subscriberCount} />
-        </div>
+                </div>
       </motion.div>
 
       {/* Final CTA section - Mobile optimized */}

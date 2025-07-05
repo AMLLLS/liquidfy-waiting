@@ -29,7 +29,7 @@ export default function WireframeBackground() {
       // Modern geometric grid with better spacing
       ctx.strokeStyle = 'rgba(99, 102, 241, 0.08)'
       ctx.lineWidth = 1
-      
+
       const gridSize = 80
       for (let x = 0; x < canvas.width; x += gridSize) {
         for (let y = 0; y < canvas.height; y += gridSize) {
