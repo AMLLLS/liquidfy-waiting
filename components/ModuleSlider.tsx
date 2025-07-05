@@ -84,7 +84,7 @@ export default function ModuleSlider() {
   const duplicatedModules = [...modules, ...modules, ...modules]
 
   return (
-    <div className="relative w-screen -mx-4 md:-mx-6 lg:w-auto lg:mx-8 xl:mx-16 overflow-hidden pb-4 -mt-2 md:-mt-4">
+    <div className="relative w-screen -mx-4 md:-mx-6 lg:w-auto lg:mx-8 xl:mx-16 overflow-hidden pb-8 -mt-2 md:-mt-4">
       {/* Slider container with increased padding to prevent clipping */}
       <div className="flex justify-center">
         <div 
@@ -94,8 +94,8 @@ export default function ModuleSlider() {
             WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
             width: '100%',
             overflow: 'hidden',
-            paddingTop: '20px', // Extra padding to prevent clipping on hover
-            paddingBottom: '20px'
+            paddingTop: '30px', // Extra padding to prevent clipping on hover
+            paddingBottom: '40px' // More padding at bottom for dropshadows
           }}
         >
           <motion.div
@@ -122,7 +122,7 @@ export default function ModuleSlider() {
                 } : {})}
               >
                 {/* Module card with modern design */}
-                <div className={`relative w-full h-40 md:h-44 glass-effect rounded-2xl overflow-hidden border ${module.borderColor} lg:hover:border-opacity-60 transition-all duration-300 lg:group-hover:shadow-2xl lg:group-hover:shadow-primary-500/10`}>
+                <div className={`relative w-full h-40 md:h-44 bg-white/90 rounded-2xl overflow-hidden border border-gray-200 lg:hover:border-opacity-60 transition-all duration-300 lg:group-hover:shadow-2xl lg:group-hover:shadow-blue-500/20`}>
                   {/* Module image with 16:9 aspect ratio */}
                   <div className="relative w-full h-24 md:h-28 overflow-hidden">
                                           <Image
@@ -138,22 +138,22 @@ export default function ModuleSlider() {
                   {/* Content below image */}
                   <div className="relative z-10 p-4 h-16 md:h-16 flex flex-col justify-center">
                     <div className="text-center">
-                      <h3 className="text-white font-semibold text-sm md:text-base mb-1 lg:group-hover:text-primary-200 transition-colors duration-300 leading-tight">
+                      <h3 className="text-gray-900 font-semibold text-sm md:text-base mb-1 lg:group-hover:text-blue-600 transition-colors duration-300 leading-tight">
                         {module.name}
                       </h3>
-                      <p className="text-gray-400 text-xs leading-tight lg:group-hover:text-gray-300 transition-colors duration-300">
+                      <p className="text-gray-600 text-xs leading-tight lg:group-hover:text-gray-700 transition-colors duration-300">
                         {module.description}
                       </p>
                     </div>
                   </div>
                   
                   {/* Hover glow effect - desktop only */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-white/5 to-transparent opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-blue-50/30 to-transparent opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300" />
                   
                   {/* Animated border - desktop only */}
                   <div className="absolute inset-0 rounded-2xl opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300" 
                        style={{
-                         background: `linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%)`,
+                         background: `linear-gradient(45deg, transparent 30%, rgba(59, 130, 246, 0.1) 50%, transparent 70%)`,
                          backgroundSize: '200% 200%',
                          animation: 'shimmer 2s infinite'
                        }} 

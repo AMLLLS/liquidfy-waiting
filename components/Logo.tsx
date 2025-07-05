@@ -39,7 +39,7 @@ export default function Logo() {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-2xl md:text-3xl lg:text-4xl font-semibold text-white tracking-tight"
+          className="text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-900 tracking-tight"
         >
           liquidfy.app
         </motion.h2>
@@ -49,7 +49,7 @@ export default function Logo() {
         initial={{ opacity: 0, width: 0 }}
         animate={{ opacity: 1, width: "100%" }}
         transition={{ duration: 0.8, delay: 0.4 }}
-        className="h-0.5 bg-gray-800 rounded-full mx-auto max-w-32 md:max-w-40"
+        className="h-0.5 bg-gray-300 rounded-full mx-auto max-w-32 md:max-w-40"
       />
     </motion.div>
   )

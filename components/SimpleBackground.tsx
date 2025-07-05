@@ -7,13 +7,13 @@ export default function SimpleBackground() {
     <div className="absolute inset-0 overflow-hidden" style={{ zIndex: 1 }}>
       {/* Main animated gradient orbs */}
       <motion.div
-        className="absolute -top-40 -left-40 w-80 h-80 rounded-full opacity-30"
+        className="absolute -top-40 -left-40 w-80 h-80 rounded-full opacity-20"
         style={{
-          background: 'radial-gradient(circle, rgba(99, 102, 241, 0.6) 0%, rgba(168, 85, 247, 0.3) 50%, transparent 70%)'
+          background: 'radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, rgba(147, 51, 234, 0.2) 50%, transparent 70%)'
         }}
         animate={{
           scale: [1, 1.3, 1],
-          opacity: [0.3, 0.5, 0.3],
+          opacity: [0.2, 0.3, 0.2],
           x: [0, 20, 0],
           y: [0, -15, 0],
         }}
@@ -25,13 +25,13 @@ export default function SimpleBackground() {
       />
 
       <motion.div
-        className="absolute -bottom-40 -right-40 w-96 h-96 rounded-full opacity-25"
+        className="absolute -bottom-40 -right-40 w-96 h-96 rounded-full opacity-15"
         style={{
-          background: 'radial-gradient(circle, rgba(168, 85, 247, 0.7) 0%, rgba(99, 102, 241, 0.4) 50%, transparent 70%)'
+          background: 'radial-gradient(circle, rgba(147, 51, 234, 0.4) 0%, rgba(59, 130, 246, 0.2) 50%, transparent 70%)'
         }}
         animate={{
           scale: [1.2, 1, 1.2],
-          opacity: [0.25, 0.4, 0.25],
+          opacity: [0.15, 0.25, 0.15],
           x: [0, -25, 0],
           y: [0, 10, 0],
         }}
@@ -44,14 +44,14 @@ export default function SimpleBackground() {
 
       {/* Additional animated gradient layers */}
       <motion.div
-        className="absolute top-1/3 left-1/2 w-64 h-64 rounded-full opacity-20"
+        className="absolute top-1/3 left-1/2 w-64 h-64 rounded-full opacity-15"
         style={{
-          background: 'radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, transparent 60%)',
+          background: 'radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 60%)',
           transform: 'translate(-50%, -50%)'
         }}
         animate={{
           scale: [0.8, 1.1, 0.8],
-          opacity: [0.2, 0.35, 0.2],
+          opacity: [0.15, 0.25, 0.15],
           rotate: [0, 180, 360],
         }}
         transition={{
@@ -62,13 +62,13 @@ export default function SimpleBackground() {
       />
 
       <motion.div
-        className="absolute bottom-1/4 left-1/4 w-48 h-48 rounded-full opacity-15"
+        className="absolute bottom-1/4 left-1/4 w-48 h-48 rounded-full opacity-10"
         style={{
-          background: 'radial-gradient(circle, rgba(147, 51, 234, 0.5) 0%, rgba(79, 70, 229, 0.3) 50%, transparent 70%)'
+          background: 'radial-gradient(circle, rgba(147, 51, 234, 0.3) 0%, rgba(79, 70, 229, 0.2) 50%, transparent 70%)'
         }}
         animate={{
           scale: [1, 0.7, 1],
-          opacity: [0.15, 0.3, 0.15],
+          opacity: [0.1, 0.2, 0.1],
           x: [0, 30, 0],
           y: [0, -20, 0],
         }}
@@ -81,11 +81,11 @@ export default function SimpleBackground() {
 
       {/* Subtle geometric shapes with enhanced animations */}
       <motion.div
-        className="absolute top-1/4 right-1/4 w-32 h-32 border border-primary-400/20 rounded-full"
+        className="absolute top-1/4 right-1/4 w-32 h-32 border border-blue-300/30 rounded-full"
         animate={{
           rotate: [0, 360],
           scale: [1, 1.2, 1],
-          borderColor: ['rgba(99, 102, 241, 0.2)', 'rgba(168, 85, 247, 0.3)', 'rgba(99, 102, 241, 0.2)'],
+          borderColor: ['rgba(59, 130, 246, 0.3)', 'rgba(147, 51, 234, 0.4)', 'rgba(59, 130, 246, 0.3)'],
         }}
         transition={{
           rotate: { duration: 25, repeat: Infinity, ease: "linear" },
@@ -95,12 +95,12 @@ export default function SimpleBackground() {
       />
 
       <motion.div
-        className="absolute bottom-1/3 left-1/5 w-24 h-24 border border-purple-400/20"
+        className="absolute bottom-1/3 left-1/5 w-24 h-24 border border-purple-300/30"
         style={{ clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)' }}
         animate={{
           rotate: [0, 360],
           y: [0, -20, 0],
-          borderColor: ['rgba(168, 85, 247, 0.2)', 'rgba(99, 102, 241, 0.3)', 'rgba(168, 85, 247, 0.2)'],
+          borderColor: ['rgba(147, 51, 234, 0.3)', 'rgba(59, 130, 246, 0.4)', 'rgba(147, 51, 234, 0.3)'],
         }}
         transition={{
           rotate: { duration: 15, repeat: Infinity, ease: "linear" },
@@ -118,12 +118,12 @@ export default function SimpleBackground() {
             left: `${15 + (i % 4) * 25}%`,
             top: `${25 + Math.floor(i / 4) * 50}%`,
             background: i % 2 === 0 
-              ? 'radial-gradient(circle, rgba(99, 102, 241, 0.6) 0%, transparent 70%)'
-              : 'radial-gradient(circle, rgba(168, 85, 247, 0.6) 0%, transparent 70%)'
+              ? 'radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, transparent 70%)'
+              : 'radial-gradient(circle, rgba(147, 51, 234, 0.4) 0%, transparent 70%)'
           }}
           animate={{
             y: [0, -25, 0],
-            opacity: [0.3, 0.7, 0.3],
+            opacity: [0.2, 0.5, 0.2],
             scale: [0.8, 1.2, 0.8],
           }}
           transition={{
@@ -137,16 +137,16 @@ export default function SimpleBackground() {
 
       {/* Animated mesh gradient overlay */}
       <motion.div
-        className="absolute inset-0 opacity-10"
+        className="absolute inset-0 opacity-5"
         style={{
           background: `
-            radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.3) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.3) 0%, transparent 50%),
-            radial-gradient(circle at 40% 40%, rgba(59, 130, 246, 0.2) 0%, transparent 50%)
+            radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(147, 51, 234, 0.15) 0%, transparent 50%),
+            radial-gradient(circle at 40% 40%, rgba(59, 130, 246, 0.1) 0%, transparent 50%)
           `
         }}
         animate={{
-          opacity: [0.1, 0.2, 0.1],
+          opacity: [0.05, 0.1, 0.05],
         }}
         transition={{
           duration: 10,

@@ -67,7 +67,7 @@ export default function FAQ() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="text-gray-400 text-base md:text-lg"
+            className="text-gray-600 text-base md:text-lg"
           >
             Everything you need to know about Liquidfy
           </motion.p>
@@ -81,13 +81,13 @@ export default function FAQ() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 + index * 0.1 }}
-              className="glass-effect rounded-xl border border-gray-700/50 overflow-hidden"
+              className="bg-white/80 rounded-xl border border-gray-200 overflow-hidden shadow-sm"
             >
               <button
                 onClick={() => toggleItem(item.id)}
-                className="w-full p-3 md:p-6 text-left flex items-center justify-between hover:bg-white/5 transition-colors duration-300 group"
+                className="w-full p-3 md:p-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-300 group"
               >
-                <h3 className="text-white font-medium text-sm md:text-lg pr-4 group-hover:text-primary-200 transition-colors">
+                <h3 className="text-gray-900 font-medium text-sm md:text-lg pr-4 group-hover:text-blue-600 transition-colors">
                   {item.question}
                 </h3>
                 <motion.div
@@ -95,7 +95,7 @@ export default function FAQ() {
                   transition={{ duration: 0.3 }}
                   className="flex-shrink-0"
                 >
-                  <ChevronDown className="w-5 h-5 text-gray-400 group-hover:text-primary-400 transition-colors" />
+                  <ChevronDown className="w-5 h-5 text-gray-500 group-hover:text-blue-600 transition-colors" />
                 </motion.div>
               </button>
 
@@ -109,8 +109,8 @@ export default function FAQ() {
                     className="overflow-hidden"
                   >
                     <div className="px-3 md:px-6 pb-3 md:pb-6 pt-0">
-                      <div className="border-t border-gray-700/30 pt-3 md:pt-4">
-                        <p className="text-gray-300 leading-relaxed text-xs md:text-base">
+                      <div className="border-t border-gray-200 pt-3 md:pt-4">
+                        <p className="text-gray-700 leading-relaxed text-xs md:text-base">
                           {item.answer}
                         </p>
                       </div>
@@ -129,17 +129,17 @@ export default function FAQ() {
           transition={{ delay: 0.9 }}
           className="text-center mt-8 md:mt-12"
         >
-          <div className="bg-gradient-to-r from-primary-500/10 to-purple-500/10 border border-primary-500/20 rounded-xl p-4 md:p-6">
-            <h4 className="text-white font-semibold mb-2 text-lg">
+          <div className="bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-xl p-4 md:p-6">
+            <h4 className="text-gray-900 font-semibold mb-2 text-lg">
               Still have questions?
             </h4>
-            <p className="text-gray-300 text-sm md:text-base mb-4">
+            <p className="text-gray-700 text-sm md:text-base mb-4">
               Join our early access list and get direct access to our team for any questions.
             </p>
             <div className="text-center">
               <a 
                 href="mailto:contact@liquidfy.app" 
-                className="text-primary-400 hover:text-primary-300 transition-colors font-medium"
+                className="text-blue-600 hover:text-blue-700 transition-colors font-medium"
               >
                 contact@liquidfy.app
               </a>

@@ -94,10 +94,10 @@ export default function EmailForm({ onSuccess, subscriberCount = 227 }: EmailFor
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="bg-gradient-to-r from-red-500/20 to-orange-500/20 border border-red-500/30 rounded-xl p-3 md:p-4 mb-4"
+        className="bg-gradient-to-r from-red-50 to-orange-50 border border-red-200 rounded-xl p-3 md:p-4 mb-4"
       >
         <div className="text-center">
-          <div className="text-orange-200 text-xs md:text-sm font-medium mb-2">
+          <div className="text-red-700 text-xs md:text-sm font-medium mb-2">
             🔥 Early Bird Launch Ends In:
           </div>
           <CountdownTimer 
@@ -111,13 +111,13 @@ export default function EmailForm({ onSuccess, subscriberCount = 227 }: EmailFor
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="glass-effect rounded-xl p-4 md:p-6 lg:p-8"
+        className="bg-white/90 rounded-xl p-4 md:p-6 lg:p-8 shadow-lg border border-gray-200"
       >
         <div className="text-center mb-4 md:mb-6">
           {/* Clean title */}
           <div className="flex items-center justify-center gap-2 md:gap-3 mb-3">
-            <span className="text-2xl md:text-3xl md:block hidden">🚀</span>
-            <h3 className="text-4xl md:text-2xl lg:text-3xl font-bold gradient-text">
+            <span className="text-2xl md:text-3xl md:block">🚀</span>
+            <h3 className="font-bold gradient-text" style={{ fontSize: '2rem' }}>
               Get Early Access
             </h3>
           </div>
@@ -127,9 +127,9 @@ export default function EmailForm({ onSuccess, subscriberCount = 227 }: EmailFor
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-sm md:text-sm text-gray-300 mb-4"
+            className="text-sm md:text-sm text-gray-600 mb-4"
           >
-            Register now & get your <span className="text-green-400 font-semibold">exclusive discount</span><br className="hidden md:block" />
+            Register now & get your <span className="text-green-600 font-semibold">exclusive discount</span><br className="hidden md:block" />
             <span className="hidden md:inline"> </span> at launch. We are not a Shopify App.
           </motion.p>
           
@@ -140,46 +140,46 @@ export default function EmailForm({ onSuccess, subscriberCount = 227 }: EmailFor
             transition={{ delay: 0.3 }}
             className="grid grid-cols-3 gap-2 md:gap-3 mb-4 text-center"
           >
-            <div className="bg-primary-500/10 border border-primary-500/20 rounded-lg p-2 md:p-3">
-              <div className="text-lg md:text-xl font-bold text-primary-400">130+</div>
-              <div className="text-xs text-gray-400">Sections</div>
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-2 md:p-3">
+              <div className="text-lg md:text-xl font-bold text-blue-600">130+</div>
+              <div className="text-xs text-gray-600">Sections</div>
             </div>
-            <div className="bg-purple-500/10 border border-purple-500/20 rounded-lg p-2 md:p-3">
-              <div className="text-lg md:text-xl font-bold text-purple-400">100+</div>
-              <div className="text-xs text-gray-400">Modules</div>
+            <div className="bg-purple-50 border border-purple-200 rounded-lg p-2 md:p-3">
+              <div className="text-lg md:text-xl font-bold text-purple-600">100+</div>
+              <div className="text-xs text-gray-600">Modules</div>
             </div>
-            <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-2 md:p-3">
-              <div className="text-lg md:text-xl font-bold text-green-400">$2K+</div>
-              <div className="text-xs text-gray-400">Net Worth</div>
+            <div className="bg-green-50 border border-green-200 rounded-lg p-2 md:p-3">
+              <div className="text-lg md:text-xl font-bold text-green-600">$2K+</div>
+              <div className="text-xs text-gray-600">Net Worth</div>
             </div>
           </motion.div>
           
           {/* Single powerful value prop */}
-          <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-lg p-3 md:p-4 mb-4">
-            <p className="text-base md:text-lg font-bold text-white mb-1">
+          <div className="bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-lg p-3 md:p-4 mb-4">
+            <p className="text-base md:text-lg font-bold text-gray-900 mb-1">
               Save up to $100+ on Launch Day
             </p>
-            <p className="text-sm text-gray-300">
+            <p className="text-sm text-gray-700">
               <span className="line-through text-gray-500">Regular: $199</span> → 
-              <span className="text-green-400 font-bold"> Early Access: $99</span>
+              <span className="text-green-600 font-bold"> Early Access: $99</span>
             </p>
           </div>
           
           {/* Social proof - Clean */}
-          <div className="flex items-center justify-center gap-2 text-sm text-gray-400 mb-4">
+          <div className="flex items-center justify-center gap-2 text-sm text-gray-600 mb-4">
             <div className="flex -space-x-1">
-              <div className="w-5 h-5 md:w-6 md:h-6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full border border-white/20 flex items-center justify-center">
+              <div className="w-5 h-5 md:w-6 md:h-6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full border border-white flex items-center justify-center">
                 <span className="text-white text-[8px] md:text-[10px] font-medium">KL</span>
               </div>
-              <div className="w-5 h-5 md:w-6 md:h-6 bg-gradient-to-r from-green-500 to-blue-500 rounded-full border border-white/20 flex items-center justify-center">
+              <div className="w-5 h-5 md:w-6 md:h-6 bg-gradient-to-r from-green-500 to-blue-500 rounded-full border border-white flex items-center justify-center">
                 <span className="text-white text-[8px] md:text-[10px] font-medium">GD</span>
               </div>
-              <div className="w-5 h-5 md:w-6 md:h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full border border-white/20 flex items-center justify-center">
+              <div className="w-5 h-5 md:w-6 md:h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full border border-white flex items-center justify-center">
                 <span className="text-white text-[8px] md:text-[10px] font-medium">MT</span>
               </div>
             </div>
             <span className="text-xs md:text-sm">
-              <span className="text-white font-medium">{subscriberCount}</span> store owners already joined
+              <span className="text-gray-900 font-medium">{subscriberCount}</span> store owners already joined
             </span>
           </div>
         </div>
@@ -193,7 +193,7 @@ export default function EmailForm({ onSuccess, subscriberCount = 227 }: EmailFor
               {...register('email')}
               type="email"
               placeholder="Enter your email"
-              className="w-full pl-10 md:pl-12 pr-3 md:pr-4 py-3 md:py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-sm md:text-base"
+              className="w-full pl-10 md:pl-12 pr-3 md:pr-4 py-3 md:py-4 bg-white border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-sm md:text-base"
               disabled={isLoading}
               onFocus={() => {
                 if (!hasTrackedFormStart) {
@@ -256,7 +256,7 @@ export default function EmailForm({ onSuccess, subscriberCount = 227 }: EmailFor
           transition={{ delay: 0.6 }}
           className="mt-4"
         >
-          <div className="relative overflow-hidden rounded-lg bg-gray-800/30 border border-gray-700/50 p-2">
+          <div className="relative overflow-hidden rounded-lg bg-gray-100 border border-gray-200 p-2">
             <motion.div
               className="flex gap-2"
               style={{
@@ -275,17 +275,17 @@ export default function EmailForm({ onSuccess, subscriberCount = 227 }: EmailFor
                 { name: 'Payment', img: '/modules/wishlist-pro.jpg' },
                 { name: 'Trust', img: '/modules/bundle-builder.jpg' },
               ].map((module, index) => (
-                <div key={`first-${index}`} className="flex-shrink-0 w-16 h-12 rounded border border-gray-600/50 overflow-hidden bg-gray-900/50 relative group">
+                <div key={`first-${index}`} className="flex-shrink-0 w-16 h-12 rounded border border-gray-300 overflow-hidden bg-white relative group shadow-sm">
                   <Image
                     src={module.img}
                     alt={module.name}
                     width={64}
                     height={48}
-                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                    className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-1">
-                    <div className="text-white text-[8px] font-medium leading-none truncate">
+                    <div className="text-white text-[8px] font-medium leading-none truncate drop-shadow-sm">
                       {module.name}
                     </div>
                   </div>
@@ -302,17 +302,17 @@ export default function EmailForm({ onSuccess, subscriberCount = 227 }: EmailFor
                 { name: 'Payment', img: '/modules/wishlist-pro.jpg' },
                 { name: 'Trust', img: '/modules/bundle-builder.jpg' },
               ].map((module, index) => (
-                <div key={`second-${index}`} className="flex-shrink-0 w-16 h-12 rounded border border-gray-600/50 overflow-hidden bg-gray-900/50 relative group">
+                <div key={`second-${index}`} className="flex-shrink-0 w-16 h-12 rounded border border-gray-300 overflow-hidden bg-white relative group shadow-sm">
                   <Image
                     src={module.img}
                     alt={module.name}
                     width={64}
                     height={48}
-                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                    className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-1">
-                    <div className="text-white text-[8px] font-medium leading-none truncate">
+                    <div className="text-white text-[8px] font-medium leading-none truncate drop-shadow-sm">
                       {module.name}
                     </div>
                   </div>

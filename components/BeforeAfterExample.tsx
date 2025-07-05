@@ -28,11 +28,11 @@ export default function BeforeAfterExample({ onViewExample }: BeforeAfterExample
         className="max-w-4xl mx-auto"
       >
         {/* Better delimited container */}
-        <div className="bg-gray-800/20 border border-gray-700/30 rounded-xl p-3 md:p-4">
+        <div className="bg-white/80 border border-gray-200 rounded-xl p-3 md:p-4 shadow-sm">
           <div className="text-center">
             <motion.button
               onClick={handleShowExample}
-              className="group text-gray-400 hover:text-white text-sm md:text-base font-medium transition-colors duration-300 cursor-pointer border-b border-gray-700/50 hover:border-primary-400/50 pb-1"
+              className="group text-gray-600 hover:text-gray-900 text-sm md:text-base font-medium transition-colors duration-300 cursor-pointer border-b border-gray-300 hover:border-blue-500 pb-1"
               whileHover={{ y: -1 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -55,13 +55,13 @@ export default function BeforeAfterExample({ onViewExample }: BeforeAfterExample
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ delay: 0.2, duration: 0.4 }}
-                  className="rounded-xl overflow-hidden bg-gray-800/50 border border-gray-700/30 relative max-w-2xl mx-auto p-3 md:p-4"
+                  className="rounded-xl overflow-hidden bg-white border border-gray-200 relative max-w-2xl mx-auto p-3 md:p-4 shadow-lg"
                 >
-                  <div className="rounded-lg overflow-hidden bg-gray-700/30">
+                  <div className="rounded-lg overflow-hidden bg-gray-100">
                     {/* Loading placeholder */}
                     {!isImageLoaded && (
-                      <div className="w-full aspect-[1148/1193] bg-gray-800/50 flex items-center justify-center">
-                        <div className="text-gray-400 text-sm">Loading example...</div>
+                      <div className="w-full aspect-[1148/1193] bg-gray-200 flex items-center justify-center">
+                        <div className="text-gray-600 text-sm">Loading example...</div>
                       </div>
                     )}
                     
