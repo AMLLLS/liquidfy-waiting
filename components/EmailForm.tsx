@@ -161,7 +161,7 @@ export default function EmailForm({ onSuccess, subscriberCount = 227 }: EmailFor
           {/* Single powerful value prop */}
           <div className="bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-lg p-3 md:p-4 mb-4">
             <p className="text-base md:text-lg font-bold text-gray-900 mb-1">
-              Save up to $100+ on Launch Day
+              Save up to $100 on Launch Day
             </p>
             <p className="text-sm text-gray-700">
               <span className="line-through text-gray-500">Regular: $199</span> → 
