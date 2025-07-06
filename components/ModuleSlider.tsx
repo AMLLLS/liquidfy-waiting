@@ -93,8 +93,7 @@ export default function ModuleSlider() {
             maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
             WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
             width: '100%',
-            overflow: 'hidden',
-            paddingTop: '30px', // Extra padding to prevent clipping on hover
+            overflow: 'hidden', // Extra padding to prevent clipping on hover
             paddingBottom: '40px' // More padding at bottom for dropshadows
           }}
         >
