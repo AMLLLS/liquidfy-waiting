@@ -121,7 +121,7 @@ export default function ModuleSlider() {
                 } : {})}
               >
                 {/* Module card with modern design */}
-                <div className={`relative w-full h-40 md:h-44 bg-white/90 rounded-2xl overflow-hidden border border-gray-200 lg:hover:border-opacity-60 transition-all duration-300 lg:group-hover:shadow-2xl lg:group-hover:shadow-blue-500/20`}>
+                <div className={`relative w-full h-40 md:h-44 bg-gray-800/90 rounded-2xl overflow-hidden border border-gray-700 lg:hover:border-opacity-60 transition-all duration-300 lg:group-hover:shadow-2xl lg:group-hover:shadow-blue-500/20`}>
                   {/* Module image with 16:9 aspect ratio */}
                   <div className="relative w-full h-24 md:h-28 overflow-hidden">
                                           <Image
@@ -137,17 +137,17 @@ export default function ModuleSlider() {
                   {/* Content below image */}
                   <div className="relative z-10 p-4 h-16 md:h-16 flex flex-col justify-center">
                     <div className="text-center">
-                      <h3 className="text-gray-900 font-semibold text-sm md:text-base mb-1 lg:group-hover:text-blue-600 transition-colors duration-300 leading-tight">
+                      <h3 className="text-white font-semibold text-sm md:text-base mb-1 lg:group-hover:text-blue-400 transition-colors duration-300 leading-tight">
                         {module.name}
                       </h3>
-                      <p className="text-gray-600 text-xs leading-tight lg:group-hover:text-gray-700 transition-colors duration-300">
+                      <p className="text-gray-300 text-xs leading-tight lg:group-hover:text-gray-200 transition-colors duration-300">
                         {module.description}
                       </p>
                     </div>
                   </div>
                   
                   {/* Hover glow effect - desktop only */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-blue-50/30 to-transparent opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-blue-900/30 to-transparent opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300" />
                   
                   {/* Animated border - desktop only */}
                   <div className="absolute inset-0 rounded-2xl opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300" 

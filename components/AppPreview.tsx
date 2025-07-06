@@ -136,7 +136,7 @@ export default function AppPreview({ onEmailSuccess, subscriberCount }: AppPrevi
             initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
-            className="flex items-center gap-4 bg-gray-800/30 rounded-lg p-3"
+            className="flex items-center gap-4 bg-gray-800/60 rounded-lg p-3"
           >
             <div className="text-2xl">🎨</div>
             <div className="text-left">
@@ -149,7 +149,7 @@ export default function AppPreview({ onEmailSuccess, subscriberCount }: AppPrevi
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4 }}
-            className="flex items-center gap-4 bg-gray-800/30 rounded-lg p-3"
+            className="flex items-center gap-4 bg-gray-800/60 rounded-lg p-3"
           >
             <div className="text-2xl">⚡</div>
             <div className="text-left">
@@ -162,7 +162,7 @@ export default function AppPreview({ onEmailSuccess, subscriberCount }: AppPrevi
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5 }}
-            className="flex items-center gap-4 bg-gray-800/30 rounded-lg p-3"
+            className="flex items-center gap-4 bg-gray-800/60 rounded-lg p-3"
           >
             <div className="text-2xl">💰</div>
             <div className="text-left">
@@ -207,12 +207,12 @@ export default function AppPreview({ onEmailSuccess, subscriberCount }: AppPrevi
             <span className="text-green-400">✓</span>
             <span>220+ modules ready to use</span>
           </div>
-          <span className="hidden md:inline text-gray-600">•</span>
+          <span className="hidden md:inline text-gray-500">•</span>
           <div className="flex items-center gap-1">
             <span className="text-green-400">✓</span>
             <span>No monthly fees</span>
           </div>
-          <span className="hidden md:inline text-gray-600">•</span>
+          <span className="hidden md:inline text-gray-500">•</span>
           <div className="flex items-center gap-1">
             <span className="text-green-400">✓</span>
             <span>Launch day discount</span>

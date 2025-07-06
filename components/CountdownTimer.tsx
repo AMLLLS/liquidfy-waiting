@@ -54,12 +54,12 @@ export default function CountdownTimer({
 
   const TimeUnit = ({ value, label }: { value: number; label: string }) => (
     <div className="flex flex-col items-center">
-      <div className="bg-white border border-gray-300 rounded-lg px-3 py-2 min-w-[3rem] text-center shadow-sm">
-        <span className="text-xl md:text-2xl font-bold text-gray-900">
+      <div className="bg-gray-800 border border-gray-600 rounded-lg px-3 py-2 min-w-[3rem] text-center shadow-sm">
+        <span className="text-xl md:text-2xl font-bold text-white">
           {value.toString().padStart(2, '0')}
         </span>
       </div>
-      <span className="text-xs md:text-sm text-gray-600 mt-1 uppercase tracking-wider">
+      <span className="text-xs md:text-sm text-gray-300 mt-1 uppercase tracking-wider">
         {label}
       </span>
     </div>
@@ -68,11 +68,11 @@ export default function CountdownTimer({
   return (
     <div className={`flex items-center justify-center gap-2 md:gap-4 ${className}`}>
       <TimeUnit value={timeLeft.days} label="Days" />
-      <span className="text-gray-600 text-xl md:text-2xl font-bold">:</span>
+      <span className="text-gray-300 text-xl md:text-2xl font-bold">:</span>
       <TimeUnit value={timeLeft.hours} label="Hours" />
-      <span className="text-gray-600 text-xl md:text-2xl font-bold">:</span>
+      <span className="text-gray-300 text-xl md:text-2xl font-bold">:</span>
       <TimeUnit value={timeLeft.minutes} label="Min" />
-      <span className="text-gray-600 text-xl md:text-2xl font-bold">:</span>
+      <span className="text-gray-300 text-xl md:text-2xl font-bold">:</span>
       <TimeUnit value={timeLeft.seconds} label="Sec" />
     </div>
   )
