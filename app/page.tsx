@@ -265,7 +265,7 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
               >
-                More than <span className="text-green-400 font-semibold">2K$ net worth</span> Library for less than 100$. Get <span className="text-blue-400 font-semibold">100+ conversion-tested modules</span> + <span className="text-purple-400 font-semibold">120+ premium Shopify sections</span> that increase sales — without expensive themes or plugins. 
+                The ultimate App to <span className="text-green-400 font-semibold">power up</span> your online business. Get <span className="text-blue-400 font-semibold">100+ conversion-tested modules</span> + <span className="text-purple-400 font-semibold">120+ premium Shopify sections</span> that increase sales — without expensive themes or plugins. 
               </motion.p>
               
               {/* Platform icons - cleaner presentation */}
