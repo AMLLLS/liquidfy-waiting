@@ -28,7 +28,7 @@ export default function EmailForm({ onSuccess, subscriberCount = 227 }: EmailFor
   const { trackLead, trackCompleteRegistration, trackEmailFormStart, trackEmailFormError, trackProspect } = useMetaPixel()
 
   // Launch countdown - FIXED DATE (realistic countdown)
-  const launchDate = new Date('2025-07-10T10:00:00Z')
+  const launchDate = new Date('2025-07-14T10:00:00Z')
 
   const {
     register,
