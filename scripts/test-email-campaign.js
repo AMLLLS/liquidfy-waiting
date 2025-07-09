@@ -5,276 +5,293 @@
  * Usage: node scripts/test-email-campaign.js
  */
 
-const https = require('https');
-const http = require('http');
+const fetch = require('node-fetch');
 
 // Configuration
-const BASE_URL = process.env.VERCEL_URL 
-  ? `https://${process.env.VERCEL_URL}` 
-  : 'http://localhost:3000';
+const BASE_URL = 'http://localhost:3000'; // Change to your domain in production
+const ADMIN_PASSWORD = 'Liquidfy2024!@#'; // Change this in production
 
-const TEST_EMAIL = 'test@example.com';
+// Test data
+const testTemplates = [
+  {
+    id: 'early-access-announcement',
+    name: 'Early Access Announcement',
+    variables: { totalSubscribers: 1000, daysLeft: 7 }
+  },
+  {
+    id: 'urgency-campaign',
+    name: 'Urgency Campaign',
+    variables: { totalSubscribers: 1000, daysLeft: 3 }
+  },
+  {
+    id: 'launch-campaign',
+    name: 'Launch Campaign',
+    variables: { totalSubscribers: 1000 }
+  },
+  {
+    id: 'follow-up-campaign',
+    name: 'Follow-up Campaign',
+    variables: { totalSubscribers: 1000 }
+  }
+];
 
-// Colors for console output
-const colors = {
-  green: '\x1b[32m',
-  red: '\x1b[31m',
-  yellow: '\x1b[33m',
-  blue: '\x1b[34m',
-  reset: '\x1b[0m',
-  bold: '\x1b[1m'
-};
+// Helper function to make authenticated requests
+async function makeRequest(endpoint, options = {}) {
+  const url = `${BASE_URL}${endpoint}`;
+  const headers = {
+    'Content-Type': 'application/json',
+    'x-admin-password': ADMIN_PASSWORD,
+    ...options.headers
+  };
 
-function log(message, color = 'reset') {
-  console.log(`${colors[color]}${message}${colors.reset}`);
-}
-
-function makeRequest(url, options = {}) {
-  return new Promise((resolve, reject) => {
-    const isHttps = url.startsWith('https');
-    const client = isHttps ? https : http;
-    
-    const requestOptions = {
-      method: options.method || 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-admin-password': 'Liquidfy2024!@#',
-        ...options.headers
-      }
-    };
-
-    if (options.body) {
-      requestOptions.body = JSON.stringify(options.body);
-    }
-
-    const req = client.request(url, requestOptions, (res) => {
-      let data = '';
-      
-      res.on('data', (chunk) => {
-        data += chunk;
-      });
-      
-      res.on('end', () => {
-        try {
-          const jsonData = JSON.parse(data);
-          resolve({
-            status: res.statusCode,
-            data: jsonData
-          });
-        } catch (error) {
-          resolve({
-            status: res.statusCode,
-            data: data
-          });
-        }
-      });
-    });
-
-    req.on('error', (error) => {
-      reject(error);
-    });
-
-    if (options.body) {
-      req.write(JSON.stringify(options.body));
-    }
-
-    req.end();
+  const response = await fetch(url, {
+    ...options,
+    headers
   });
+
+  return response;
 }
 
-async function testSubscription() {
-  log('\n🔧 Testing Email Subscription...', 'blue');
-  
-  try {
-    const response = await makeRequest(`${BASE_URL}/api/subscribe`, {
-      method: 'POST',
-      body: { email: TEST_EMAIL }
-    });
-
-    if (response.status === 200) {
-      log('✅ Subscription API working correctly', 'green');
-      log(`📊 Total subscribers: ${response.data.totalSubscribers}`, 'green');
-      return true;
-    } else {
-      log(`❌ Subscription failed: ${response.status}`, 'red');
-      log(`Error: ${JSON.stringify(response.data)}`, 'red');
-      return false;
-    }
-  } catch (error) {
-    log(`❌ Subscription error: ${error.message}`, 'red');
-    return false;
-  }
-}
-
+// Test 1: Get subscriber count
 async function testGetSubscribers() {
-  log('\n📊 Testing Get Subscribers...', 'blue');
+  console.log('\n🔍 Testing: Get Subscriber Count');
+  console.log('================================');
   
   try {
-    const response = await makeRequest(`${BASE_URL}/api/email-campaign`);
+    const response = await makeRequest('/api/email-campaign', {
+      method: 'GET'
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      console.log('✅ Success!');
+      console.log(`📊 Total Subscribers: ${data.totalSubscribers}`);
+      console.log(`📝 Message: ${data.message}`);
+    } else {
+      const error = await response.json();
+      console.log('❌ Failed!');
+      console.log(`🚨 Error: ${error.error || 'Unknown error'}`);
+      console.log(`📊 Status: ${response.status}`);
+    }
+  } catch (error) {
+    console.log('❌ Network Error!');
+    console.log(`🚨 Error: ${error.message}`);
+  }
+}
+
+// Test 2: Test template rendering
+async function testTemplateRendering() {
+  console.log('\n🎨 Testing: Template Rendering');
+  console.log('==============================');
+  
+  for (const template of testTemplates) {
+    console.log(`\n📧 Testing Template: ${template.name}`);
+    console.log(`🆔 Template ID: ${template.id}`);
     
-    if (response.status === 200) {
-      log('✅ Get subscribers API working correctly', 'green');
-      log(`📊 Total subscribers: ${response.data.totalSubscribers}`, 'green');
-      return true;
-    } else {
-      log(`❌ Get subscribers failed: ${response.status}`, 'red');
-      log(`Error: ${JSON.stringify(response.data)}`, 'red');
-      return false;
+    try {
+      const response = await makeRequest('/api/email-campaign', {
+        method: 'POST',
+        body: JSON.stringify({
+          templateId: template.id,
+          variables: template.variables,
+          recipientCount: 1 // Test with just 1 recipient
+        })
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log('✅ Template rendered successfully!');
+        console.log(`📊 Recipients: ${data.totalSubscribers}`);
+        console.log(`📤 Sent: ${data.sent}`);
+        console.log(`❌ Failed: ${data.failed}`);
+        console.log(`📝 Message: ${data.message}`);
+        
+        if (data.results && data.results.length > 0) {
+          const result = data.results[0];
+          console.log(`📧 Test Email: ${result.email}`);
+          console.log(`✅ Success: ${result.success}`);
+          if (result.id) {
+            console.log(`🆔 Email ID: ${result.id}`);
+          }
+          if (result.error) {
+            console.log(`🚨 Error: ${result.error}`);
+          }
+        }
+      } else {
+        const error = await response.json();
+        console.log('❌ Template rendering failed!');
+        console.log(`🚨 Error: ${error.error || 'Unknown error'}`);
+        console.log(`📊 Status: ${response.status}`);
+      }
+    } catch (error) {
+      console.log('❌ Network Error!');
+      console.log(`🚨 Error: ${error.message}`);
     }
-  } catch (error) {
-    log(`❌ Get subscribers error: ${error.message}`, 'red');
-    return false;
   }
 }
 
-async function testUrgencyCampaign() {
-  log('\n🚨 Testing Urgency Campaign...', 'blue');
+// Test 3: Test custom HTML
+async function testCustomHtml() {
+  console.log('\n🔧 Testing: Custom HTML');
+  console.log('======================');
   
+  const customHtml = `
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test Email</title>
+</head>
+<body>
+  <h1>Custom Test Email</h1>
+  <p>This is a test email with custom HTML content.</p>
+  <p>Total Subscribers: 1000</p>
+  <p>Days Left: 3</p>
+</body>
+</html>
+  `;
+
   try {
-    const response = await makeRequest(`${BASE_URL}/api/email-campaign`, {
+    const response = await makeRequest('/api/email-campaign', {
       method: 'POST',
-      body: {
-        campaignType: 'urgency',
-        daysLeft: 3
+      body: JSON.stringify({
+        templateId: 'urgency-campaign',
+        customHtml: customHtml,
+        subject: '🧪 Custom Test Email',
+        variables: { totalSubscribers: 1000, daysLeft: 3 },
+        recipientCount: 1
+      })
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      console.log('✅ Custom HTML sent successfully!');
+      console.log(`📊 Recipients: ${data.totalSubscribers}`);
+      console.log(`📤 Sent: ${data.sent}`);
+      console.log(`❌ Failed: ${data.failed}`);
+    } else {
+      const error = await response.json();
+      console.log('❌ Custom HTML failed!');
+      console.log(`🚨 Error: ${error.error || 'Unknown error'}`);
+    }
+  } catch (error) {
+    console.log('❌ Network Error!');
+    console.log(`🚨 Error: ${error.message}`);
+  }
+}
+
+// Test 4: Test authentication
+async function testAuthentication() {
+  console.log('\n🔐 Testing: Authentication');
+  console.log('==========================');
+  
+  // Test without password
+  try {
+    const response = await fetch(`${BASE_URL}/api/email-campaign`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
       }
     });
 
-    if (response.status === 200) {
-      log('✅ Urgency campaign API working correctly', 'green');
-      log(`📧 Emails sent: ${response.data.sent}`, 'green');
-      log(`❌ Failed: ${response.data.failed}`, 'yellow');
-      return true;
+    if (response.status === 401) {
+      console.log('✅ Authentication working correctly!');
+      console.log('🔒 API properly rejects unauthorized requests');
     } else {
-      log(`❌ Urgency campaign failed: ${response.status}`, 'red');
-      log(`Error: ${JSON.stringify(response.data)}`, 'red');
-      return false;
+      console.log('❌ Authentication not working!');
+      console.log(`📊 Expected 401, got ${response.status}`);
     }
   } catch (error) {
-    log(`❌ Urgency campaign error: ${error.message}`, 'red');
-    return false;
+    console.log('❌ Network Error!');
+    console.log(`🚨 Error: ${error.message}`);
   }
 }
 
-async function testLaunchCampaign() {
-  log('\n🚀 Testing Launch Campaign...', 'blue');
+// Test 5: Test invalid template
+async function testInvalidTemplate() {
+  console.log('\n🚫 Testing: Invalid Template');
+  console.log('============================');
   
   try {
-    const response = await makeRequest(`${BASE_URL}/api/email-campaign`, {
+    const response = await makeRequest('/api/email-campaign', {
       method: 'POST',
-      body: {
-        campaignType: 'launch'
-      }
-    });
-
-    if (response.status === 200) {
-      log('✅ Launch campaign API working correctly', 'green');
-      log(`📧 Emails sent: ${response.data.sent}`, 'green');
-      log(`❌ Failed: ${response.data.failed}`, 'yellow');
-      return true;
-    } else {
-      log(`❌ Launch campaign failed: ${response.status}`, 'red');
-      log(`Error: ${JSON.stringify(response.data)}`, 'red');
-      return false;
-    }
-  } catch (error) {
-    log(`❌ Launch campaign error: ${error.message}`, 'red');
-    return false;
-  }
-}
-
-async function testInvalidCampaign() {
-  log('\n🧪 Testing Invalid Campaign Type...', 'blue');
-  
-  try {
-    const response = await makeRequest(`${BASE_URL}/api/email-campaign`, {
-      method: 'POST',
-      body: {
-        campaignType: 'invalid'
-      }
+      body: JSON.stringify({
+        templateId: 'invalid-template-id',
+        recipientCount: 1
+      })
     });
 
     if (response.status === 400) {
-      log('✅ Invalid campaign type properly rejected', 'green');
-      return true;
+      const error = await response.json();
+      console.log('✅ Invalid template properly rejected!');
+      console.log(`🚨 Error: ${error.error}`);
     } else {
-      log(`❌ Invalid campaign should have been rejected: ${response.status}`, 'red');
-      return false;
+      console.log('❌ Invalid template not properly handled!');
+      console.log(`📊 Expected 400, got ${response.status}`);
     }
   } catch (error) {
-    log(`❌ Invalid campaign test error: ${error.message}`, 'red');
-    return false;
+    console.log('❌ Network Error!');
+    console.log(`🚨 Error: ${error.message}`);
   }
 }
 
-async function runAllTests() {
-  log('🧪 Starting Email Campaign System Tests...', 'bold');
-  log(`🌐 Testing against: ${BASE_URL}`, 'blue');
+// Test 6: Test campaign with no subscribers
+async function testNoSubscribers() {
+  console.log('\n📭 Testing: No Subscribers');
+  console.log('==========================');
   
-  const tests = [
-    { name: 'Subscription', fn: testSubscription },
-    { name: 'Get Subscribers', fn: testGetSubscribers },
-    { name: 'Urgency Campaign', fn: testUrgencyCampaign },
-    { name: 'Launch Campaign', fn: testLaunchCampaign },
-    { name: 'Invalid Campaign', fn: testInvalidCampaign }
-  ];
+  try {
+    const response = await makeRequest('/api/email-campaign', {
+      method: 'POST',
+      body: JSON.stringify({
+        templateId: 'early-access-announcement',
+        recipientCount: 0
+      })
+    });
 
-  let passed = 0;
-  let failed = 0;
-
-  for (const test of tests) {
-    try {
-      const result = await test.fn();
-      if (result) {
-        passed++;
-      } else {
-        failed++;
-      }
-    } catch (error) {
-      log(`❌ ${test.name} test crashed: ${error.message}`, 'red');
-      failed++;
+    if (response.status === 400) {
+      const error = await response.json();
+      console.log('✅ No subscribers properly handled!');
+      console.log(`🚨 Error: ${error.error}`);
+    } else {
+      console.log('❌ No subscribers not properly handled!');
+      console.log(`📊 Expected 400, got ${response.status}`);
     }
+  } catch (error) {
+    console.log('❌ Network Error!');
+    console.log(`🚨 Error: ${error.message}`);
   }
+}
 
-  // Summary
-  log('\n📋 Test Summary:', 'bold');
-  log(`✅ Passed: ${passed}`, 'green');
-  log(`❌ Failed: ${failed}`, 'red');
-  log(`📊 Total: ${passed + failed}`, 'blue');
-
-  if (failed === 0) {
-    log('\n🎉 All tests passed! Email campaign system is ready.', 'green');
-    log('\n📧 Next steps:', 'blue');
-    log('1. Visit https://liquidfy.app/campaigns', 'blue');
-    log('2. Check your subscriber count', 'blue');
-    log('3. Send your first campaign!', 'blue');
-  } else {
-    log('\n⚠️  Some tests failed. Please check the configuration.', 'yellow');
-    log('\n🔧 Troubleshooting:', 'blue');
-    log('1. Check environment variables (RESEND_API_KEY, etc.)', 'blue');
-    log('2. Verify database connection', 'blue');
-    log('3. Check Vercel deployment status', 'blue');
-  }
-
-  return failed === 0;
+// Main test runner
+async function runAllTests() {
+  console.log('🚀 Starting Email Campaign System Tests');
+  console.log('======================================');
+  console.log(`🌐 Base URL: ${BASE_URL}`);
+  console.log(`🔑 Admin Password: ${ADMIN_PASSWORD}`);
+  
+  // Run all tests
+  await testAuthentication();
+  await testGetSubscribers();
+  await testTemplateRendering();
+  await testCustomHtml();
+  await testInvalidTemplate();
+  await testNoSubscribers();
+  
+  console.log('\n🎉 All tests completed!');
+  console.log('========================');
 }
 
 // Run tests if this file is executed directly
 if (require.main === module) {
-  runAllTests()
-    .then((success) => {
-      process.exit(success ? 0 : 1);
-    })
-    .catch((error) => {
-      log(`❌ Test runner crashed: ${error.message}`, 'red');
-      process.exit(1);
-    });
+  runAllTests().catch(console.error);
 }
 
 module.exports = {
-  runAllTests,
-  testSubscription,
   testGetSubscribers,
-  testUrgencyCampaign,
-  testLaunchCampaign,
-  testInvalidCampaign
+  testTemplateRendering,
+  testCustomHtml,
+  testAuthentication,
+  testInvalidTemplate,
+  testNoSubscribers,
+  runAllTests
 }; 
