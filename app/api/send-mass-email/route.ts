@@ -9,7 +9,7 @@ export async function POST(request: NextRequest) {
     // Read the email template
     const fs = require('fs');
     const path = require('path');
-    const templatePath = path.join(process.cwd(), 'email-templates', 'preview-snippet-email.html');
+    const templatePath = path.join(process.cwd(), 'email-templates', 'early-bird-launch-email.html');
     
     if (!fs.existsSync(templatePath)) {
       return NextResponse.json(
