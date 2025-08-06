@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 LIQUIDFY IS NOW LIVE! Get 50% OFF Today Only</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: #374151;
+            background: #f8fafc;
+        }
+        
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            padding: 32px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+        
+        .logo {
+            width: 72px;
+            height: 72px;
+            border-radius: 16px;
+            border: 2px solid rgba(255,255,255,0.2);
+            margin: 0 auto 18px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header h1 {
+            color: white;
+            margin: 0 0 10px;
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header p {
+            color: rgba(255,255,255,0.9);
+            margin: 0;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1.4;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .content {
+            padding: 32px 20px;
+        }
+        
+        .launch-badge {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 28px;
+            text-align: center;
+            border: 2px solid #dc2626;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .launch-badge::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .launch-badge h2 {
+            color: white;
+            margin: 0 0 8px;
+            font-size: 24px;
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .launch-badge p {
+            color: rgba(255,255,255,0.9);
+            margin: 0;
+            line-height: 1.5;
+            font-weight: 600;
+            font-size: 16px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .discount-section {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 28px;
+            border: 2px solid #f59e0b;
+            text-align: center;
+        }
+        
+        .discount-section h3 {
+            color: #92400e;
+            margin: 0 0 16px;
+            font-size: 22px;
+            font-weight: 800;
+        }
+        
+        .discount-code {
+            background: #1f2937;
+            color: #fbbf24;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px 0;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            border: 2px solid #f59e0b;
+        }
+        
+        .price-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+        
+        .price-card {
+            background: #f9fafb;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .price-card.original {
+            background: #fee2e2;
+            border-color: #fca5a5;
+        }
+        
+        .price-card.discount {
+            background: #dcfce7;
+            border-color: #86efac;
+        }
+        
+        .price-card h4 {
+            font-weight: 700;
+            margin: 0 0 8px;
+            font-size: 16px;
+        }
+        
+        .price-card.original h4 {
+            color: #dc2626;
+        }
+        
+        .price-card.discount h4 {
+            color: #059669;
+        }
+        
+        .price {
+            font-size: 24px;
+            font-weight: 800;
+            margin: 0;
+        }
+        
+        .price-card.original .price {
+            color: #dc2626;
+            text-decoration: line-through;
+        }
+        
+        .price-card.discount .price {
+            color: #059669;
+        }
+        
+        .savings {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            border-radius: 8px;
+            padding: 12px;
+            margin: 16px 0;
+            text-align: center;
+            font-weight: 700;
+            font-size: 16px;
+        }
+        
+        .features-grid {
+            display: grid;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+        
+        .feature-card {
+            background: #f9fafb;
+            border-radius: 10px;
+            padding: 16px;
+            border-left: 3px solid #6366f1;
+        }
+        
+        .feature-card h4 {
+            color: #111827;
+            font-weight: 700;
+            margin: 0 0 6px;
+            font-size: 16px;
+        }
+        
+        .feature-card p {
+            color: #374151;
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        
+        .cta-section h3 {
+            color: white;
+            margin: 0 0 16px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        
+        .cta-section p {
+            color: #d1d5db;
+            font-size: 15px;
+            line-height: 1.6;
+            margin: 0 0 20px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            text-decoration: none;
+            padding: 18px 36px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 18px;
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+            transition: all 0.2s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+        }
+        
+        .urgency-banner {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            border-radius: 10px;
+            padding: 16px;
+            text-align: center;
+            margin-bottom: 24px;
+            border: 2px solid #dc2626;
+        }
+        
+        .urgency-banner h4 {
+            font-weight: 700;
+            margin: 0 0 8px;
+            font-size: 16px;
+        }
+        
+        .urgency-banner p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.4;
+            opacity: 0.9;
+        }
+        
+        .footer {
+            background: #f8fafc;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .footer p {
+            color: #64748b;
+            margin: 0 0 8px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .footer .copyright {
+            color: #94a3b8;
+            margin: 0;
+            font-size: 12px;
+        }
+        
+        .footer a {
+            color: #111827;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 600px) {
+            .content {
+                padding: 24px 16px;
+            }
+            
+            .header {
+                padding: 24px 16px;
+            }
+            
+            .header h1 {
+                font-size: 28px;
+            }
+            
+            .header p {
+                font-size: 16px;
+            }
+            
+            .price-comparison {
+                grid-template-columns: 1fr;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="header">
+            <img src="https://liquidfy.app/LOGO.png" alt="Liquidfy Logo" class="logo">
+            <h1>🚀 LIQUIDFY IS NOW LIVE!</h1>
+            <p>Your exclusive 50% discount is waiting inside</p>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Launch Badge -->
+            <div class="launch-badge">
+                <h2>🎉 CONGRATULATIONS!</h2>
+                <p>You're among the first to access the #1 Ecom Library with 220+ premium modules!</p>
+            </div>
+            
+            <!-- Discount Section -->
+            <div class="discount-section">
+                <h3>🎁 Your Exclusive 50% OFF Code</h3>
+                <p style="color: #a16207; margin: 0 0 16px; font-size: 16px; line-height: 1.5;">
+                    As a waitlist member, you get <strong>50% off the regular price</strong> for the next 24 hours only!
+                </p>
+                
+                <div class="discount-code">
+                    LIQUIDFY50
+                </div>
+                
+                <p style="color: #a16207; margin: 0; font-size: 14px; line-height: 1.4;">
+                    Use this code at checkout to get your lifetime access for just $99 instead of $199
+                </p>
+            </div>
+            
+            <!-- Price Comparison -->
+            <div class="price-comparison">
+                <div class="price-card original">
+                    <h4>Regular Price</h4>
+                    <div class="price">$199</div>
+                    <p style="color: #dc2626; margin: 8px 0 0; font-size: 12px;">After launch</p>
+                </div>
+                
+                <div class="price-card discount">
+                    <h4>Your Price</h4>
+                    <div class="price">$99</div>
+                    <p style="color: #059669; margin: 8px 0 0; font-size: 12px;">Today only</p>
+                </div>
+            </div>
+            
+            <!-- Savings Highlight -->
+            <div class="savings">
+                💰 You Save $100 + Get Lifetime Access!
+            </div>
+            
+            <!-- Features Grid -->
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h4>🎨 220+ Premium Modules</h4>
+                    <p>Every type of section, popup, and element you'll ever need for your store</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>⚡ Zero Code Required</h4>
+                    <p>Copy, paste, and customize. Works with any Shopify theme instantly</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>💰 Proven Results</h4>
+                    <p>Used by 1000+ stores to increase sales by 300%+ on average</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>🔄 Lifetime Updates</h4>
+                    <p>Get all future modules and updates included forever - no monthly fees</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>🎯 Priority Support</h4>
+                    <p>Direct access to our team for installation help and customization</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>🏆 Exclusive Bonuses</h4>
+                    <p>Early access members get 20+ bonus modules not available to the public</p>
+                </div>
+            </div>
+            
+            <!-- CTA Section -->
+            <div class="cta-section">
+                <h3>🚀 Ready to Transform Your Store?</h3>
+                <p>Join 1000+ successful store owners who are already using Liquidfy to boost their sales and stand out from the competition.</p>
+                <a href="https://liquidfy.app" class="cta-button">
+                    🔥 Get 50% OFF Now - $99 Only
+                </a>
+            </div>
+            
+            <!-- Urgency Banner -->
+            <div class="urgency-banner">
+                <h4>⏰ LIMITED TIME OFFER</h4>
+                <p>This 50% discount expires in 24 hours. After that, the price goes back to $199 permanently.</p>
+            </div>
+            
+            <!-- Social Proof -->
+            <div style="background: #f9fafb; border-radius: 10px; padding: 16px; text-align: center; border: 1px solid #e5e7eb;">
+                <h4 style="color: #111827; font-weight: 700; margin: 0 0 8px; font-size: 16px;">💬 What Our Users Say</h4>
+                <p style="color: #374151; margin: 0; font-size: 14px; line-height: 1.4; font-style: italic;">
+                    "Liquidfy modules increased my conversion rate by 47% in just 2 weeks. Best investment I've made for my store!" - Sarah M., Fashion Store Owner
+                </p>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>🚀 Liquidfy is now live! Don't miss your exclusive discount!</p>
+            <p class="copyright">
+                © 2024 Liquidfy. All rights reserved.<br>
+                <a href="https://liquidfy.app">liquidfy.app</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html> 

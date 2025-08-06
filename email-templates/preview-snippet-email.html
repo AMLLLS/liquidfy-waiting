@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎁 Your Exclusive Liquidfy Module Preview</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: #374151;
+            background: #f8fafc;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+        
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            margin: 0 auto 20px;
+            display: block;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .header h1 {
+            color: white;
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            line-height: 1.2;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            color: rgba(255,255,255,0.95);
+            font-size: 18px;
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        .header-badge {
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 20px;
+            padding: 4px 16px;
+            display: inline-block;
+            margin-top: 16px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header-badge span {
+            color: white;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        
+        .benefits-section {
+            background: #f7f8fa;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(60,60,100,0.06);
+            padding: 18px 24px;
+            margin: 32px auto 0 auto;
+            max-width: 520px;
+            text-align: center;
+        }
+        
+        .benefits-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 32px;
+            margin-top: 15px;
+        }
+        
+        .benefit-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .benefit-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(99,102,241,0.08);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .benefit-text {
+            color: #23272f;
+            font-size: 13px;
+            font-weight: 600;
+            text-align: center;
+            line-height: 1.3;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .status-banner {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+        
+        .status-banner h2 {
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .status-banner p {
+            color: rgba(255,255,255,0.9);
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .main-message {
+            background: #f9fafb;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
+            border-left: 4px solid #6366f1;
+        }
+        
+        .main-message h3 {
+            color: #111827;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        .main-message p {
+            color: #374151;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+        
+        .module-showcase {
+            background: #1f2937;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+        
+        .module-title {
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        
+        .module-description {
+            color: #d1d5db;
+            font-size: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        
+        .code-section {
+            background: #111827;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #374151;
+        }
+        
+        .code-title {
+            color: #374151;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .copy-button {
+            background: #6366f1;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .copy-button:hover {
+            background: #5b21b6;
+        }
+        
+        .code-content {
+            color: #e5e7eb;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 13px;
+            line-height: 1.4;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+        
+        .installation-guide {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 1px solid #f59e0b;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 32px;
+        }
+        
+        .installation-title {
+            color: #92400e;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .step {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .step-number {
+            background: #f59e0b;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 700;
+            margin-right: 12px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        
+        .step-content {
+            color: #92400e;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .step-highlight {
+            background: #fef3c7;
+            color: #d97706;
+            padding: 1px 4px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+        
+        .preview-notice {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 32px;
+        }
+        
+        .preview-notice h4 {
+            color: #dc2626;
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .preview-notice p {
+            color: #991b1b;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+        
+        .social-section {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+        
+        .social-title {
+            color: #374151;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .social-subtitle {
+            color: #6b7280;
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #6366f1;
+            color: white;
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        
+        .social-link:hover {
+            background: #5b21b6;
+            transform: translateY(-1px);
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            padding: 32px 30px;
+            text-align: center;
+            margin: 0 -30px -40px;
+        }
+        
+        .cta-title {
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        
+        .cta-subtitle {
+            color: rgba(255,255,255,0.9);
+            font-size: 15px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #ffffff;
+            color: #6366f1;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all 0.2s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .footer {
+            background: #f8fafc;
+            padding: 24px 30px;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .footer-text {
+            color: #64748b;
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+        
+        .unsubscribe {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 12px;
+        }
+        
+        .unsubscribe:hover {
+            color: #64748b;
+        }
+        
+        .unique-notification-ABC123 {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 5px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+        }
+        .unique-notification-ABC123 .unique-icon-DEF456 {
+            margin-right: 8px;
+            font-size: 24px;
+            animation: unique-bounce-GHI789 1.5s infinite;
+        }
+        .unique-notification-ABC123 .unique-highlight-JKL012 {
+            color: #5f4b8b;
+            font-weight: bold;
+        }
+        @keyframes unique-bounce-GHI789 {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(1deg); }
+        }
+        
+        @media (max-width: 600px) {
+            .email-container {
+                margin: 0;
+                border-radius: 0;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 24px;
+            }
+            
+            .header p {
+                font-size: 16px;
+            }
+            
+            .benefits-grid {
+                gap: 20px;
+            }
+            
+            .benefit-text {
+                font-size: 11px;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .social-link {
+                width: 100%;
+                max-width: 180px;
+                justify-content: center;
+            }
+        }
+        
+        /* Email client compatibility fixes */
+        .email-container {
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+        
+        .header, .content, .cta-section, .footer {
+            mso-padding-alt: 0;
+        }
+        
+        .cta-button {
+            mso-padding-alt: 14px 28px;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="header">
+            <a href="https://liquidfy.app" target="_blank" style="text-decoration: none; display: inline-block;">
+                <img src="https://liquidfy.app/LOGO.png" alt="Liquidfy Logo" class="logo">
+            </a>
+            <h1>🎁 Your Exclusive Module Preview</h1>
+            <p>Test a real Liquidfy module while you wait for launch</p>
+            <div class="header-badge">
+                <span>Early Access Member</span>
+            </div>
+        </div>
+        
+        <!-- Benefits Section -->
+        <div class="benefits-section">
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">⚡</div>
+                    <span class="benefit-text">Instant Results</span>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">💡</div>
+                    <span class="benefit-text">Easy to Use</span>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🔗</div>
+                    <span class="benefit-text">Unlimited Customization</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Status Banner -->
+            <div class="status-banner">
+                <h2>✅ Early Access Confirmed</h2>
+                <p>Your $99 launch price is locked in</p>
+            </div>
+            
+            <!-- Main Message -->
+            <div class="main-message">
+                <h3>🚀 Here's Your Free Liquidfy Module</h3>
+                <p>While you wait for the official launch, I wanted to give you a taste of what Liquidfy can do for your store.</p>
+                <p>This module is inspired by conversion strategies used by successful e-commerce brands. It's fully functional and ready to use on your store right now. Hundreds more are coming...</p>
+            </div>
+            
+            <!-- Module Showcase -->
+            <div class="module-showcase">
+                <h3 class="module-title">✨ Popular Product Notification</h3>
+                <p class="module-description">Create urgency with real-time social proof. Show how many people viewed the product to encourage immediate purchases.</p>
+                
+                <!-- Module Preview -->
+                <div class="code-section" style="background: #f8fafc; border: 1px solid #e2e8f0; margin-bottom: 16px;">
+                    <div class="code-header">
+                        <span class="code-title" style="color: #374151;">✨ Live Module Preview</span>
+                    </div>
+                    <div style="padding: 24px; text-align: center; min-height: 80px; display: flex; align-items: center; justify-content: center;">
+                        <div class="unique-notification-ABC123" style="min-width: 300px; max-width: 400px;">
+                            <div class="unique-icon-DEF456">
+                                👀
+                            </div>
+                            <div>
+                                Popular product! In the last 24 hours, <span class="unique-highlight-JKL012" id="view-count">6,269 people</span> viewed it!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Code Snippet -->
+                <div class="code-section">
+                    <div class="code-header">
+                        <span class="code-title">📦 Your Snippet (Just 2 Lines!)</span>
+                        <button class="copy-button" onclick="copySnippet()">Copy Code</button>
+                    </div>
+                    <div class="code-content" id="snippetCode">&lt;div id="liquidfy-module-container" data-module="popular-product-notification"&gt;&lt;/div&gt;
+&lt;script src="https://liquidfy-app.vercel.app/loader.js" defer&gt;&lt;/script&gt;</div>
+                </div>
+            </div>
+            
+            <!-- Installation Guide -->
+            <div class="installation-guide">
+                <h3 class="installation-title">
+                    🚀 Quick Installation Guide
+                </h3>
+                
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <div class="step-content">
+                        Go to <span class="step-highlight">Shopify Admin</span> → <span class="step-highlight">Online Store</span> → <span class="step-highlight">Themes</span>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <div class="step-content">
+                        Click <span class="step-highlight">"Customize"</span> on your active theme
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <div class="step-content">
+                        Navigate to any product page, click <span class="step-highlight">"Add section"</span>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <span class="step-number">4</span>
+                    <div class="step-content">
+                        Select <span class="step-highlight">"Custom HTML"</span> or <span class="step-highlight">"Custom Liquid"</span>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <span class="step-number">5</span>
+                    <div class="step-content">
+                        Paste the code above and <span class="step-highlight">Save</span> → Done! 🎉
+                    </div>
+                </div>
+                
+                <div style="margin-top:10px; text-align:center; color:#64748b; font-size:11px; line-height:1.5;">
+                    <span style="display:inline-block; margin-bottom:2px;">For <b>WordPress</b> or <b>WooCommerce</b>:</span><br/>
+                    Add a <b>Custom HTML</b> block or widget in your page or product editor, then paste the code above and save.
+                </div>
+            </div>
+            
+            <!-- Preview Notice -->
+            <div class="preview-notice">
+                <h4>⚠️ Preview Version Notice</h4>
+                <p><strong>This is a preview version.</strong> While fully functional, you cannot customize colors, text, or settings without the full Liquidfy Editor license.</p>
+                <p>The complete version with our visual editor is included in your $99 early access package!</p>
+            </div>
+            
+            <!-- Social Section -->
+            <div class="social-section">
+                <h3 class="social-title">📱 Follow Us for Updates</h3>
+                <p class="social-subtitle">Get exclusive previews and launch announcements</p>
+                
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=61578050750090" class="social-link">
+                        📘 Facebook
+                    </a>
+                    <a href="https://www.instagram.com/liquidfy.app/" class="social-link">
+                        📸 Instagram
+                    </a>
+                    <a href="https://x.com/liquidfyapp?s=21" class="social-link">
+                        🐦 Twitter
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2 class="cta-title">Ready for 220+ More Modules?</h2>
+            <p class="cta-subtitle">
+                Your $99 early access spot is reserved. Get lifetime access to our complete library when we launch!
+            </p>
+            <a href="https://liquidfy.app" class="cta-button">
+                🚀 Secure My $99 Spot
+            </a>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p class="footer-text">
+                You're receiving this because you signed up for early access to Liquidfy.<br>
+                Launch countdown: Less than 10 days remaining! ⏰
+            </p>
+            <a href="#" class="unsubscribe">Unsubscribe</a>
+        </div>
+    </div>
+    
+    <script>
+        function copySnippet() {
+            const code = document.getElementById('snippetCode').textContent;
+            
+            // Try modern clipboard API first
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(code).then(function() {
+                    showCopySuccess();
+                }).catch(function() {
+                    fallbackCopy();
+                });
+            } else {
+                fallbackCopy();
+            }
+        }
+        
+        function fallbackCopy() {
+            const textArea = document.createElement('textarea');
+            textArea.value = document.getElementById('snippetCode').textContent;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-999999px';
+            textArea.style.top = '-999999px';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                document.execCommand('copy');
+                showCopySuccess();
+            } catch (err) {
+                console.error('Fallback copy failed', err);
+            }
+            
+            document.body.removeChild(textArea);
+        }
+        
+        function showCopySuccess() {
+            const button = document.querySelector('.copy-button');
+            const originalText = button.textContent;
+            button.textContent = '✅ Copied!';
+            button.style.background = '#10b981';
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.style.background = '#6366f1';
+            }, 2000);
+        }
+        
+        // Animate the view count on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const viewCountElement = document.getElementById('view-count');
+            if (viewCountElement) {
+                let currentCount = 0;
+                const targetCount = 6269;
+                const duration = 3000;
+                const increment = targetCount / (duration / 16);
+                
+                const timer = setInterval(() => {
+                    currentCount += increment;
+                    if (currentCount >= targetCount) {
+                        currentCount = targetCount;
+                        clearInterval(timer);
+                    }
+                    viewCountElement.textContent = Math.floor(currentCount).toLocaleString() + ' people';
+                }, 16);
+            }
+        });
+    </script>
+</body>
+</html> 
