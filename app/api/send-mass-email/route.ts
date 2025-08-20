@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    console.log(`📧 Envoi en cours à ${emailList.length} abonnés...`);
+    console.log(`📧 Sending Early Bird launch emails to ${emailList.length} subscribers...`);
 
     // Send emails one by one to avoid batch issues
     const results = [];
@@ -57,9 +57,9 @@ export async function POST(request: NextRequest) {
         }
 
         const response = await resend.emails.send({
-          from: 'Liquidfy <noreply@liquidfy.app>',
+          from: 'Liquidfy Team <hello@liquidfy.app>',
           to: [email],
-          subject: '🎁 Your Exclusive Liquidfy Module Preview',
+          subject: '🚀 LIQUIDFY IS NOW LIVE! Your Exclusive Early Bird Access',
           html: emailHtml,
         });
 
@@ -77,7 +77,7 @@ export async function POST(request: NextRequest) {
                               error?.message || error?.toString() || 'Erreur inconnue';
           errors.push({ email, error: errorMessage });
         } else if (data && data.id) {
-          console.log(`✅ Email envoyé à ${email} - ID: ${data.id}`);
+          console.log(`✅ Early Bird email sent to ${email} - ID: ${data.id}`);
           results.push({ email, id: data.id });
         } else {
           console.error(`Réponse invalide pour ${email}:`, data);
@@ -99,11 +99,11 @@ export async function POST(request: NextRequest) {
     const successCount = results.length;
     const errorCount = errors.length;
 
-    console.log(`📊 Résumé: ${successCount} succès, ${errorCount} erreurs`);
+    console.log(`📊 Summary: ${successCount} Early Bird emails sent successfully, ${errorCount} errors`);
 
     return NextResponse.json({
       success: true,
-      message: `Envoi terminé: ${successCount} succès, ${errorCount} erreurs`,
+      message: `Early Bird launch emails sent: ${successCount} successful, ${errorCount} errors`,
       results,
       errors,
       totalSent: successCount,
