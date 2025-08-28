@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
     
     if (!fs.existsSync(templatePath)) {
       return NextResponse.json(
-        { error: 'Template email non trouvé' },
+        { error: 'Email template not found' },
         { status: 500 }
       );
     }
@@ -25,81 +25,103 @@ export async function POST(request: NextRequest) {
     try {
       const body = await request.json();
       emailList = body.emailList;
-    } catch (parseError) {
-      console.error('Erreur parsing JSON:', parseError);
+    } catch {
       return NextResponse.json(
-        { error: 'Format de données invalide' },
+        { error: 'Invalid JSON payload' },
         { status: 400 }
       );
     }
     
     if (!emailList || !Array.isArray(emailList) || emailList.length === 0) {
       return NextResponse.json(
-        { error: 'Liste d\'emails requise' },
+        { error: 'Email list is required' },
         { status: 400 }
       );
     }
 
-    console.log(`📧 Sending Early Bird launch emails to ${emailList.length} subscribers...`);
-
     // Send emails one by one to avoid batch issues
-    const results = [];
-    const errors = [];
+    const results: Array<{ email: string; id: string }> = [];
+    const errors: Array<{ email: string; error: string }> = [];
 
+    const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+    const isRetryable = (message: string) => {
+      const m = message.toLowerCase();
+      return (
+        m.includes('rate limit') ||
+        m.includes('too many requests') ||
+        m.includes('timeout') ||
+        m.includes('timed out') ||
+        m.includes('temporarily unavailable') ||
+        m.includes('service unavailable') ||
+        m.includes('bad gateway') ||
+        m.includes('gateway timeout') ||
+        m.includes('5xx')
+      );
+    };
+
+    const sendWithRetry = async (email: string, maxRetries = 3) => { 
+      let attempt = 0;
+      while (attempt < maxRetries) {
+        try {
+          const response = await resend.emails.send({
+            from: 'Liquidfy Team <hello@liquidfy.app>',
+            to: [email],
+            subject: '🚀 LIQUIDFY IS NOW LIVE! Your Exclusive Early Bird Access',
+            html: emailHtml,
+          });
+
+          if (response?.data?.id) {
+            results.push({ email, id: response.data.id });
+            return true;
+          }
+
+          const providerError = response?.error as any;
+          const message = typeof providerError === 'string'
+            ? providerError
+            : providerError?.message || 'Unknown provider error';
+
+          if (attempt < maxRetries - 1 && isRetryable(message)) {
+            await delay(2000 * Math.pow(2, attempt));
+            attempt++;
+            continue;
+          }
+
+          errors.push({ email, error: message });
+          return false;
+        } catch (e) {
+          const message = e instanceof Error ? e.message : 'Unknown error';
+          if (attempt < maxRetries - 1 && isRetryable(message)) {
+            await delay(2000 * Math.pow(2, attempt));
+            attempt++;
+            continue;
+          }
+          errors.push({ email, error: message });
+          return false;
+        }
+      }
+      return false;
+    };
+
+    // Process sequentially with a safe base delay to avoid rate limiting
     for (let i = 0; i < emailList.length; i++) {
       const email = emailList[i];
-      
-      try {
-        // Validate email format
-        if (!email || typeof email !== 'string' || !email.includes('@')) {
-          errors.push({ email, error: 'Format d\'email invalide' });
-          continue;
-        }
 
-        const response = await resend.emails.send({
-          from: 'Liquidfy Team <hello@liquidfy.app>',
-          to: [email],
-          subject: '🚀 LIQUIDFY IS NOW LIVE! Your Exclusive Early Bird Access',
-          html: emailHtml,
-        });
+      if (!email || typeof email !== 'string' || !email.includes('@')) {
+        errors.push({ email, error: 'Invalid email format' });
+        continue;
+      }
 
-        // Check if response is valid
-        if (!response) {
-          errors.push({ email, error: 'Réponse vide de l\'API Resend' });
-          continue;
-        }
+      await sendWithRetry(email, 3);
 
-        const { data, error } = response;
-
-        if (error) {
-          console.error(`Erreur pour ${email}:`, error);
-          const errorMessage = typeof error === 'string' ? error : 
-                              error?.message || error?.toString() || 'Erreur inconnue';
-          errors.push({ email, error: errorMessage });
-        } else if (data && data.id) {
-          console.log(`✅ Early Bird email sent to ${email} - ID: ${data.id}`);
-          results.push({ email, id: data.id });
-        } else {
-          console.error(`Réponse invalide pour ${email}:`, data);
-          errors.push({ email, error: 'Réponse invalide de l\'API' });
-        }
-
-        // Add a small delay to avoid rate limiting
-        if (i < emailList.length - 1) {
-          await new Promise(resolve => setTimeout(resolve, 200));
-        }
-
-      } catch (emailError) {
-        console.error(`Erreur critique pour ${email}:`, emailError);
-        const errorMessage = emailError instanceof Error ? emailError.message : 'Erreur critique lors de l\'envoi';
-        errors.push({ email, error: errorMessage });
+      // Base delay between sends (2s) to reduce rate limiting likelihood
+      if (i < emailList.length - 1) {
+        await delay(2000);
       }
     }
 
     const successCount = results.length;
     const errorCount = errors.length;
-
-    console.log(`📊 Summary: ${successCount} Early Bird emails sent successfully, ${errorCount} errors`);
 
     return NextResponse.json({
       success: true,
@@ -107,14 +129,13 @@ export async function POST(request: NextRequest) {
       results,
       errors,
       totalSent: successCount,
-      totalErrors: errorCount
+      totalErrors: errorCount,
     });
 
   } catch (error) {
-    console.error('Erreur serveur:', error);
-    const errorMessage = error instanceof Error ? error.message : 'Erreur inconnue';
+    const errorMessage = error instanceof Error ? error.message : 'Unknown server error';
     return NextResponse.json(
-      { error: 'Erreur interne du serveur', details: errorMessage },
+      { error: 'Internal server error', details: errorMessage },
       { status: 500 }
     );
   }
