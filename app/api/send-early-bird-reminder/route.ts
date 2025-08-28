@@ -45,9 +45,9 @@ export async function POST(request: NextRequest) {
           const response = await resend.emails.send({
             from: 'Liquidfy Team <hello@liquidfy.app>',
             to: email,
-            subject: '⏰ Last Chance: Your Early Bird Access Expires Soon',
+            subject: '⏰ Your Early Bird Access - Limited Time',
             html: emailTemplate,
-            text: 'Last chance to secure your Early Bird access to Liquidfy. Unlimited access for $99 one-time. Code: EARLYBIRD99. Claim now: https://liquidfy.app'
+            text: 'Your exclusive Early Bird access to Liquidfy is still available. Unlimited access for $99 one-time. Code: EARLYBIRD99. Get it now: https://liquidfy.app'
           });
 
           if (response?.data?.id) {
