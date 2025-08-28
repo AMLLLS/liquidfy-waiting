@@ -47,6 +47,7 @@ export async function POST(request: NextRequest) {
             to: email,
             subject: '⏰ Last Chance: Your Early Bird Access Expires Soon',
             html: emailTemplate,
+            text: 'Last chance to secure your Early Bird access to Liquidfy. Unlimited access for $99 one-time. Code: EARLYBIRD99. Claim now: https://liquidfy.app'
           });
 
           if (response?.data?.id) {

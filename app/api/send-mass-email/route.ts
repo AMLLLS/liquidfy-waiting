@@ -69,6 +69,7 @@ export async function POST(request: NextRequest) {
             to: [email],
             subject: '🚀 LIQUIDFY IS NOW LIVE! Your Exclusive Early Bird Access',
             html: emailHtml,
+            text: 'Liquidfy is now live. Your exclusive Early Bird access ($99 one-time) is available with code EARLYBIRD99. Unlimited access. No monthly fees. Claim it now: https://liquidfy.app'
           });
 
           if (response?.data?.id) {
