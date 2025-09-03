@@ -9,7 +9,7 @@ export async function POST(request: NextRequest) {
     // Read the email template
     const fs = require('fs');
     const path = require('path');
-    const templatePath = path.join(process.cwd(), 'email-templates', 'early-bird-launch-email.html');
+    const templatePath = path.join(process.cwd(), 'email-templates', 'early-bird-final-reminder.html');
     
     if (!fs.existsSync(templatePath)) {
       return NextResponse.json(
@@ -67,9 +67,9 @@ export async function POST(request: NextRequest) {
           const response = await resend.emails.send({
             from: 'Liquidfy Team <hello@liquidfy.app>',
             to: [email],
-            subject: '🚀 LIQUIDFY IS NOW LIVE! Your Exclusive Early Bird Access',
+            subject: '🎯 Your Early Bird Access - Final Reminder',
             html: emailHtml,
-            text: 'Liquidfy is now live. Your exclusive Early Bird access ($99 one-time) is available with code EARLYBIRD99. Unlimited access. No monthly fees. Claim it now: https://liquidfy.app'
+            text: 'Final reminder: Your Early Bird access to Liquidfy ($99 instead of $199) is still available. Code: EARLYBIRD99. Claim now: https://liquidfy.app'
           });
 
           if (response?.data?.id) {
@@ -126,7 +126,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({
       success: true,
-      message: `Early Bird launch emails sent: ${successCount} successful, ${errorCount} errors`,
+      message: `Early Bird reminder emails sent: ${successCount} successful, ${errorCount} errors`,
       results,
       errors,
       totalSent: successCount,

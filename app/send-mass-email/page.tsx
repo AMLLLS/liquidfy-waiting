@@ -90,9 +90,9 @@ test@example.com`);
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
       <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8">
         <div className="text-center mb-8">
-          <h1 className="text-2xl font-bold text-gray-900 mb-2">📧 Early Bird Launch - Mass Email</h1>
+          <h1 className="text-2xl font-bold text-gray-900 mb-2">📧 Early Bird Final Reminder</h1>
           <p className="text-gray-600">
-            Send the exclusive Early Bird launch email to all selected subscribers
+            Send the Early Bird final reminder email to selected subscribers
           </p>
         </div>
 
@@ -100,9 +100,9 @@ test@example.com`);
           <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
             <h3 className="font-medium text-yellow-900 mb-2">⚠️ Warning</h3>
             <ul className="text-sm text-yellow-800 space-y-1">
-              <li>• This will send the Early Bird launch email to ALL listed addresses</li>
+              <li>• This will send the Early Bird reminder email to ALL listed addresses</li>
               <li>• Irreversible action</li>
-              <li>• Double-check the template and code before sending</li>
+              <li>• Double-check the template and recipient list before sending</li>
               <li>• Make sure your list is correct</li>
             </ul>
           </div>
@@ -122,7 +122,7 @@ test@example.com`);
                 onClick={loadSampleEmails}
                 className="text-sm text-blue-600 hover:text-blue-800"
               >
-                Charger des exemples
+                Load sample emails
               </button>
               <span className="text-xs text-gray-500">
                 {emailList.split('\n').filter(email => email.trim().length > 0).length} emails
@@ -135,7 +135,7 @@ test@example.com`);
             disabled={isLoading || emailList.trim().length === 0}
             className="w-full bg-green-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-green-700 focus:ring-2 focus:ring-green-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {isLoading ? 'Sending...' : '🚀 Send Early Bird Emails'}
+            {isLoading ? 'Envoi en cours...' : '� Envoyer les mails de relance Early Bird'}
           </button>
         </div>
 
@@ -147,7 +147,7 @@ test@example.com`);
                 ⚠️ Final Confirmation
               </h3>
               <p className="text-gray-600 mb-6">
-                Are you ABSOLUTELY sure you want to send the <b>Early Bird launch email</b> to <strong>{emailList.split('\n').filter(email => email.trim().length > 0).length} subscribers</strong>?
+                Are you ABSOLUTELY sure you want to send the <b>Early Bird reminder email</b> to <strong>{emailList.split('\n').filter(email => email.trim().length > 0).length} subscribers</strong>?
               </p>
               <p className="text-sm text-gray-500 mb-6">
                 This action cannot be undone.
@@ -180,7 +180,7 @@ test@example.com`);
             <p className="text-sm font-medium">{result.message}</p>
             {result.totalSent !== undefined && (
               <p className="text-xs mt-2 opacity-75">
-                Number of subscribers affected: {result.totalSent}
+                Total subscribers affected: {result.totalSent}
                 {result.totalErrors && result.totalErrors > 0 && ` (${result.totalErrors} errors)`}
               </p>
             )}
@@ -207,12 +207,12 @@ test@example.com`);
         )}
 
         <div className="mt-8 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-          <h4 className="font-medium text-blue-900 mb-2">ℹ️ Information</h4>
+          <h4 className="font-medium text-blue-900 mb-2">ℹ️ Email Information</h4>
           <ul className="text-sm text-blue-800 space-y-1">
-            <li>• Email: "🚀 LIQUIDFY IS NOW LIVE! Your Exclusive Early Bird Access"</li>
+            <li>• Subject: "🎯 Your Early Bird Access - Final Reminder"</li>
             <li>• Offer: Unlimited access for $99, one-time payment, code <b>EARLYBIRD99</b></li>
-            <li>• Template: <b>early-bird-launch-email.html</b> (optimized for all email clients)</li>
-            <li>• This offer will never be repeated. Only for pre-registered users.</li>
+            <li>• Template: <b>early-bird-final-reminder.html</b> (optimized for all email clients)</li>
+            <li>• This is a REMINDER for those who haven't claimed their Early Bird offer yet</li>
             <li>• Logs: Available in Resend dashboard</li>
           </ul>
         </div>
