@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🎯 Your Early Bird Access - Final Reminder</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         
         * {
             margin: 0;
@@ -16,218 +16,329 @@
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
             line-height: 1.6;
-            color: #374151;
-            background: #f8fafc;
+            color: #1f2937;
+            background: #f9fafb;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         
         .email-container {
-            max-width: 600px;
+            max-width: 640px;
             margin: 0 auto;
             background: #ffffff;
-            border-radius: 16px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border-radius: 20px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             overflow: hidden;
-            border: 1px solid #e2e8f0;
+            border: 1px solid #e5e7eb;
         }
         
         .header {
-            background: linear-gradient(135deg, #059669 0%, #047857 100%);
-            padding: 32px 20px;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 8s ease-in-out infinite;
+            padding: 40px 32px;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
         
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
         .header::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: pulse 3s ease-in-out infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.6; }
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            pointer-events: none;
         }
         
         .logo {
-            width: 72px;
-            height: 72px;
+            width: 64px;
+            height: 64px;
             border-radius: 16px;
-            border: 2px solid rgba(255,255,255,0.2);
-            margin: 0 auto 18px;
+            border: 2px solid rgba(255,255,255,0.25);
+            margin: 0 auto 24px;
             position: relative;
-            z-index: 1;
+            z-index: 2;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
         }
         
         .header h1 {
             color: white;
-            margin: 0 0 10px;
-            font-size: 28px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
+            margin: 0 0 12px;
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -0.8px;
             position: relative;
-            z-index: 1;
+            z-index: 2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
         .header p {
-            color: rgba(255,255,255,0.9);
+            color: rgba(255,255,255,0.95);
             margin: 0;
             font-size: 18px;
             font-weight: 500;
-            line-height: 1.4;
+            line-height: 1.5;
             position: relative;
-            z-index: 1;
+            z-index: 2;
+            opacity: 0.9;
         }
         
         .content {
             padding: 32px 20px;
         }
         
-        .urgency-badge {
-            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+        .welcome-badge {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
             border-radius: 12px;
-            padding: 24px;
-            margin-bottom: 28px;
+            padding: 20px 24px;
+            margin-bottom: 32px;
             text-align: center;
-            border: 2px solid #059669;
-            position: relative;
-            overflow: hidden;
+            border: 1px solid #e2e8f0;
         }
         
-        .urgency-badge::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: pulse 2s ease-in-out infinite;
-        }
-        
-        .urgency-badge h2 {
-            color: white;
+        .welcome-badge h2 {
+            color: #374151;
             margin: 0 0 8px;
-            font-size: 24px;
-            font-weight: 800;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .urgency-badge p {
-            color: rgba(255,255,255,0.9);
-            margin: 0;
-            line-height: 1.5;
+            font-size: 20px;
             font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+        
+        .welcome-badge p {
+            color: #6b7280;
+            margin: 0;
+            line-height: 1.6;
+            font-weight: 500;
             font-size: 16px;
-            position: relative;
-            z-index: 1;
         }
         
-        .reminder-section {
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-            border-radius: 12px;
-            padding: 24px;
-            margin-bottom: 28px;
-            border: 2px solid #f59e0b;
+        .code-section {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 32px;
+            border: 1px solid #bfdbfe;
             text-align: center;
+            position: relative;
         }
         
-        .reminder-section h3 {
-            color: #92400e;
+        .code-section h3 {
+            color: #1e40af;
             margin: 0 0 16px;
-            font-size: 22px;
-            font-weight: 800;
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+        
+        .code-section p {
+            color: #3730a3;
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.6;
         }
         
         .access-code {
-            background: #1f2937;
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
             color: #fbbf24;
-            border-radius: 8px;
-            padding: 16px;
-            margin: 16px 0;
-            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-            font-size: 18px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            border: 2px solid #f59e0b;
-        }
-        
-        .price-comparison {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-bottom: 28px;
-        }
-        
-        .price-card {
-            background: #f9fafb;
-            border-radius: 10px;
+            border-radius: 12px;
             padding: 20px;
-            text-align: center;
-            border: 1px solid #e5e7eb;
-        }
-        
-        .price-card.after {
-            background: #fee2e2;
-            border-color: #fca5a5;
-        }
-        
-        .price-card.now {
-            background: #dcfce7;
-            border-color: #86efac;
-            border: 2px solid #059669;
-        }
-        
-        .price-card h4 {
+            margin: 20px 0;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 20px;
             font-weight: 700;
-            margin: 0 0 8px;
-            font-size: 16px;
+            letter-spacing: 3px;
+            border: 2px solid #374151;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            cursor: pointer;
+            transition: all 0.2s ease;
         }
         
-        .price-card.after h4 {
-            color: #dc2626;
+        .access-code:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
         
-        .price-card.now h4 {
-            color: #059669;
+        .value-proposition {
+            margin: 40px 0;
+            padding: 32px;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .value-proposition h3 {
+            text-align: center;
+            color: #1f2937;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 32px;
+            letter-spacing: -0.5px;
+        }
+        
+        .pricing-container {
+            display: flex;
+            gap: 24px;
+            align-items: stretch;
+            margin-bottom: 32px;
+        }
+        
+        .pricing-card {
+            flex: 1;
+            background: white;
+            border-radius: 16px;
+            padding: 28px 24px;
+            border: 2px solid transparent;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .pricing-card.standard {
+            border-color: #e5e7eb;
+            opacity: 0.7;
+        }
+        
+        .pricing-card.early-bird {
+            border-color: #6366f1;
+            box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.25);
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+        }
+        
+        .pricing-card.early-bird::before {
+            content: 'RECOMMENDED';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        
+        .plan-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 8px;
+        }
+        
+        .pricing-card.early-bird .plan-name {
+            color: #6366f1;
+        }
+        
+        .price-display {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 4px;
+            margin-bottom: 8px;
+        }
+        
+        .currency {
+            font-size: 20px;
+            font-weight: 600;
+            color: #6b7280;
         }
         
         .price {
-            font-size: 24px;
+            font-size: 36px;
             font-weight: 800;
-            margin: 0;
+            color: #1f2937;
+            letter-spacing: -1px;
         }
         
-        .price-card.after .price {
-            color: #dc2626;
+        .pricing-card.early-bird .price {
+            color: #6366f1;
         }
         
-        .price-card.now .price {
-            color: #059669;
+        .price-period {
+            font-size: 16px;
+            color: #6b7280;
+            font-weight: 500;
         }
         
-        .features-list {
-            margin: 16px 0;
-            text-align: left;
+        .price-description {
+            color: #6b7280;
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .features-section {
+            border-top: 1px solid #f3f4f6;
+            padding-top: 20px;
         }
         
         .feature-item {
             display: flex;
-            align-items: center;
-            margin-bottom: 8px;
+            align-items: flex-start;
+            margin-bottom: 12px;
             font-size: 14px;
             color: #374151;
+            line-height: 1.5;
         }
         
         .feature-icon {
-            margin-right: 8px;
+            margin-right: 12px;
+            margin-top: 2px;
             font-size: 16px;
+            flex-shrink: 0;
+        }
+        
+        .feature-icon.check {
+            color: #10b981;
+        }
+        
+        .feature-icon.cross {
+            color: #ef4444;
+        }
+        
+        .feature-text {
+            color: #374151;
+        }
+        
+        .pricing-card.standard .feature-text {
+            color: #6b7280;
+        }
+        
+        .value-highlight {
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            border: 1px solid #10b981;
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            margin-top: 24px;
+        }
+        
+        .value-highlight .savings {
+            color: #059669;
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+        
+        .value-highlight .savings-description {
+            color: #047857;
+            font-size: 14px;
+            font-weight: 500;
         }
         
         .savings {
@@ -239,6 +350,52 @@
             text-align: center;
             font-weight: 700;
             font-size: 16px;
+        }
+        
+        .value-section {
+            margin: 32px 0;
+            padding: 28px;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .value-section h3 {
+            text-align: center;
+            color: #1f2937;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -0.3px;
+        }
+        
+        .value-section .features-grid {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+        
+        .value-section .feature-item {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .value-section .feature-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        .value-section .feature-item strong {
+            display: block;
+            color: #1f2937;
+            font-size: 16px;
+            margin-bottom: 4px;
+            font-weight: 600;
         }
         
         .features-grid {
@@ -269,43 +426,70 @@
         }
         
         .cta-section {
-            background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
-            border-radius: 12px;
-            padding: 24px;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            border-radius: 20px;
+            padding: 40px 32px;
             text-align: center;
-            margin-bottom: 24px;
+            margin: 40px 0;
+            box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            pointer-events: none;
         }
         
         .cta-section h3 {
             color: white;
             margin: 0 0 16px;
-            font-size: 20px;
+            font-size: 28px;
             font-weight: 700;
+            letter-spacing: -0.5px;
+            position: relative;
+            z-index: 2;
         }
         
         .cta-section p {
-            color: #d1d5db;
-            font-size: 15px;
+            color: rgba(255,255,255,0.9);
+            font-size: 16px;
             line-height: 1.6;
-            margin: 0 0 20px;
+            margin: 0 0 28px;
+            position: relative;
+            z-index: 2;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 28px;
         }
         
         .cta-button {
             display: inline-block;
-            background: linear-gradient(135deg, #059669 0%, #047857 100%);
-            color: white;
+            background: white;
+            color: #6366f1;
             text-decoration: none;
-            padding: 18px 36px;
-            border-radius: 10px;
+            padding: 16px 32px;
+            border-radius: 12px;
             font-weight: 700;
-            font-size: 18px;
-            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
-            transition: all 0.2s ease;
+            font-size: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+            border: 2px solid white;
         }
         
         .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(5, 150, 105, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+            background: #f9fafb;
         }
         
         .final-warning {
@@ -386,129 +570,167 @@
 </head>
 <body>
     <div class="email-container">
-        <!-- Exclusivity Banner -->
-        <div style="background:linear-gradient(90deg,#059669 0%,#047857 100%);padding:18px 20px;text-align:center;">
-            <span style="color:white;font-size:14px;font-weight:700;letter-spacing:-0.5px;">
-                Early Bird Access Still Available - Limited Time
-            </span>
-        </div>
-        
         <!-- Header -->
         <div class="header">
             <a href="https://liquidfy.app" target="_blank" style="text-decoration: none; display: inline-block;">
                 <img src="https://liquidfy.app/LIQUIDFY-LOGO.png" alt="Liquidfy Logo" class="logo">
             </a>
-            <h1>⏰ Final Reminder: Early Bird Access</h1>
-            <p>Your exclusive $99 offer is still available</p>
+            <h1>Your Early Bird Access</h1>
+            <p>Transform your store with 220+ premium modules</p>
         </div>
         
         <!-- Main Content -->
         <div class="content">
-            <!-- Urgency Badge -->
-            <div class="urgency-badge">
-                <h2>Boost your Store CVR!</h2>
-                <p>You haven't claimed your exclusive Early Bird access yet </p><p>($99 instead of $199)</p>
+            <!-- Welcome Message -->
+            <div class="welcome-badge">
+                <h2>👋 Quick reminder for you</h2>
+                <p>We noticed you haven't claimed your exclusive Early Bird access to Liquidfy yet. No pressure – just wanted to make sure you didn't miss out.</p>
             </div>
             
-            <!-- Reminder Section -->
-            <div class="reminder-section">
+            <!-- Value Proposition -->
+            <div class="value-section">
+                <h3>What you'll get with Liquidfy:</h3>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <span class="feature-icon">🎯</span>
+                        <strong>220+ Premium Modules</strong><br>
+                        Boost sales, engagement, and conversions
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">⚡</span>
+                        <strong>Instant Setup</strong><br>
+                        One-click installation, zero technical skills needed
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">💝</span>
+                        <strong>Premium Support</strong><br>
+                        Direct access to our team for setup assistance
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing Comparison -->
+            <div class="value-proposition">
+                <h3>Your Special Pricing</h3>
+                <div class="pricing-container">
+                    <div class="pricing-card standard">
+                        <div class="pricing-header">
+                            <div class="plan-name">Regular Access</div>
+                            <div class="price-display">
+                                <span class="currency">$</span>
+                                <span class="price">199</span>
+                            </div>
+                            <div class="price-description">one-time payment</div>
+                        </div>
+                        <div class="features-section">
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                220+ premium modules
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                Standard setup support
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                Regular updates
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                Community access
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pricing-card early-bird">
+                        <div class="pricing-header">
+                            <div class="plan-name">Your Price Today</div>
+                            <div class="price-display">
+                                <span class="currency">$</span>
+                                <span class="price">99</span>
+                            </div>
+                            <div class="price-description">one-time payment • Save $100</div>
+                        </div>
+                        <div class="features-section">
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                Everything in Regular access
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <strong>Priority support & setup</strong>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <strong>First access to new modules</strong>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <strong>30-day money-back guarantee</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Access Code Section -->
+            <div class="code-section">
                 <h3>🎁 Your Early Bird Access Code</h3>
-                <p style="color: #a16207; margin: 0 0 16px; font-size: 16px; line-height: 1.5;">
-                    As a waitlist member, you still have access to this exclusive offer.
-                </p>
+                <p>As a waitlist member, you still have access to this exclusive offer:</p>
                 
                 <a href="https://liquidfy.app?utm_source=email&utm_medium=final-reminder&utm_campaign=early-bird&utm_content=promo-code" target="_blank" style="text-decoration: none; display: block;">
                     <div class="access-code">EARLYBIRD99</div>
                 </a>
                 
-                <p style="color: #a16207; margin: 0; font-size: 14px; line-height: 1.4;">
-                    Use this code at checkout to get lifetime unlimited access for just $99
-                </p>
-            </div>
-            
-            <!-- Price Comparison -->
-            <div class="price-comparison">
-                <div class="price-card after">
-                    <h4>Regular Price</h4>
-                    <div class="price">$199</div>
-                    <p style="color: #dc2626; margin: 8px 0 0; font-size: 12px;">Standard rate</p>
-                    <div class="features-list">
-                        <div class="feature-item"><span class="feature-icon">❌</span> Standard access</div>
-                        <div class="feature-item"><span class="feature-icon">❌</span> Standard support</div>
-                        <div class="feature-item"><span class="feature-icon">❌</span> No price guarantee</div>
-                    </div>
-                </div>
-                
-                <div class="price-card now">
-                    <h4>Early Bird (Limited Time)</h4>
-                    <div class="price">$99</div>
-                    <p style="color: #059669; margin: 8px 0 0; font-size: 12px;">One-time payment</p>
-                    <div class="features-list">
-                        <div class="feature-item"><span class="feature-icon">✅</span> Lifetime unlimited access</div>
-                        <div class="feature-item"><span class="feature-icon">✅</span> Priority support</div>
-                        <div class="feature-item"><span class="feature-icon">✅</span> All future updates</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Savings Highlight -->
-            <div class="savings">
-                💰 Save $100 + Get Lifetime Access!
-            </div>
-            
-            <!-- Features Grid -->
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h4>🎨 220+ Premium Modules</h4>
-                    <p>Every type of section, popup, and element you'll ever need for your store</p>
-                </div>
-                
-                <div class="feature-card">
-                    <h4>⚡ One-Click Install</h4>
-                    <p>Copy, paste, and customize. Works with any Shopify theme instantly</p>
-                </div>
-                
-                <div class="feature-card">
-                    <h4>💰 Proven Results</h4>
-                    <p>Used by 1000+ stores to increase sales by 300% on average</p>
-                </div>
-                
-                <div class="feature-card">
-                    <h4>🔄 Lifetime Updates</h4>
-                    <p>Get all future modules and updates included forever</p>
-                </div>
-                
-                <div class="feature-card">
-                    <h4>🎯 Priority Support</h4>
-                    <p>Direct access to our team for installation help and customization</p>
-                </div>
-                
-                <div class="feature-card">
-                    <h4>🚀 No Subscription</h4>
-                    <p>One payment of $99, no monthly fees, no limits</p>
-                </div>
+                <p>Use this code at checkout to get lifetime unlimited access for just $99</p>
             </div>
             
             <!-- CTA Section -->
             <div class="cta-section">
-                <h3>🚀 Claim Your Early Bird Access</h3>
-                <p>Join 1000+ successful store owners who are already using Liquidfy to boost their sales and stand out from the competition.</p>
+                <h3>Ready to transform your store?</h3>
+                <p>Join thousands of successful store owners who are already using Liquidfy to boost their sales and create engaging shopping experiences.</p>
                 <a href="https://liquidfy.app?utm_source=email&utm_medium=final-reminder&utm_campaign=early-bird&utm_content=main-cta" class="cta-button">
                     Get Early Bird Access - $99
                 </a>
             </div>
-            
-            <!-- Final Warning -->
-            <div class="final-warning">
-                <h4>💡 Limited Time Offer</h4>
-                <p>This Early Bird pricing is only available to waitlist members. After launch, the price increases to $199 permanently.</p>
+
+            <!-- Benefits Reminder -->
+            <div style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-radius: 12px; padding: 24px; margin: 32px 0; border: 1px solid #e2e8f0;">
+                <h4 style="color: #374151; font-weight: 600; margin: 0 0 16px; font-size: 18px; text-align: center;">Why Early Bird members love Liquidfy:</h4>
+                <div style="display: grid; gap: 12px; font-size: 14px;">
+                    <div style="display: flex; align-items: center; color: #374151;">
+                        <span style="color: #059669; margin-right: 8px;">✓</span>
+                        <strong>One-time payment:</strong> No monthly fees, no subscriptions
+                    </div>
+                    <div style="display: flex; align-items: center; color: #374151;">
+                        <span style="color: #059669; margin-right: 8px;">✓</span>
+                        <strong>Instant results:</strong> See improvements within hours
+                    </div>
+                    <div style="display: flex; align-items: center; color: #374151;">
+                        <span style="color: #059669; margin-right: 8px;">✓</span>
+                        <strong>Risk-free:</strong> 30-day money-back guarantee
+                    </div>
+                    <div style="display: flex; align-items: center; color: #374151;">
+                        <span style="color: #059669; margin-right: 8px;">✓</span>
+                        <strong>Future-proof:</strong> All updates included forever
+                    </div>
+                </div>
             </div>
             
             <!-- Social Proof -->
-            <div style="background: #f9fafb; border-radius: 10px; padding: 16px; text-align: center; border: 1px solid #e5e7eb;">
-                <h4 style="color: #111827; font-weight: 700; margin: 0 0 8px; font-size: 16px;">💬 What Our Users Say</h4>
-                <p style="color: #374151; margin: 0; font-size: 14px; line-height: 1.4; font-style: italic;">
-                    "This tool transformed my store. My sales doubled in less than a month!" - Sarah, Shopify Store Owner
+            <div style="background: #f9fafb; border-radius: 12px; padding: 20px; text-align: center; border: 1px solid #e5e7eb;">
+                <p style="color: #6b7280; margin: 0; font-size: 14px; line-height: 1.5; font-style: italic;">
+                    "Liquidfy modules helped us increase our conversion rate by 40% in the first month. The installation was seamless and the results were immediate."
+                </p>
+                <p style="color: #9ca3af; margin: 8px 0 0; font-size: 12px; font-weight: 500;">
+                    — Emma Chen, Fashion Store Owner
+                </p>
+            </div>
+            
+            <!-- Final Note -->
+            <div style="background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border-radius: 12px; padding: 20px; margin: 24px 0; border: 1px solid #fbbf24; text-align: center;">
+                <p style="color: #92400e; margin: 0; font-size: 14px; line-height: 1.5;">
+                    <strong>Friendly reminder:</strong> This Early Bird pricing is exclusive to our waitlist members. Regular pricing will be $199 after launch.
                 </p>
             </div>
         </div>
