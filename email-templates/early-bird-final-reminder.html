@@ -436,113 +436,8 @@
         }
 
         @media (max-width: 600px) {
-            .content {
-                padding: 16px;
-            }
-            
-            .value-section {
-                padding: 16px;
-                margin: 16px 0;
-            }
-            
-            .value-section h3 {
-                font-size: 18px;
-                margin-bottom: 12px;
-            }
-            
             .features-grid {
                 grid-template-columns: 1fr;
-                gap: 8px;
-            }
-            
-            .feature-item {
-                padding: 12px;
-                display: flex;
-                align-items: center;
-                text-align: left;
-                gap: 12px;
-            }
-            
-            .feature-icon {
-                font-size: 18px;
-                margin-bottom: 0;
-                flex-shrink: 0;
-            }
-            
-            .feature-item strong {
-                font-size: 13px;
-                margin-bottom: 2px;
-            }
-            
-            .value-proposition {
-                padding: 16px;
-                margin: 16px 0;
-            }
-            
-            .value-proposition h3 {
-                font-size: 18px;
-                margin-bottom: 16px;
-            }
-            
-            .pricing-container {
-                display: none;
-            }
-            
-            .pricing-mobile-compact {
-                display: block;
-            }
-            
-            .code-section {
-                padding: 16px;
-                margin: 16px 0;
-            }
-            
-            .code-section h3 {
-                font-size: 16px;
-                margin-bottom: 8px;
-            }
-            
-            .code-section p {
-                font-size: 13px;
-                margin-bottom: 12px;
-            }
-            
-            .access-code {
-                font-size: 14px;
-                padding: 12px;
-                letter-spacing: 1px;
-            }
-            
-            .cta-section {
-                padding: 20px 16px;
-                margin: 16px 0;
-            }
-            
-            .cta-section h3 {
-                font-size: 20px;
-                margin-bottom: 8px;
-            }
-            
-            .cta-section p {
-                font-size: 13px;
-                margin-bottom: 16px;
-            }
-            
-            .cta-button {
-                padding: 12px 24px;
-                font-size: 14px;
-            }
-            
-            .header {
-                padding: 20px 16px;
-            }
-            
-            .header h1 {
-                font-size: 22px;
-            }
-            
-            .header p {
-                font-size: 15px;
             }
         }
     </style>
@@ -588,116 +483,76 @@
                 </div>
             </div>
 
-            <!-- Pricing Comparison -->
-            <div class="value-proposition">
-                <h3>Your Special Pricing</h3>
+            <!-- Pricing Comparison COMPACT -->
+            <div style="margin: 24px 0; padding: 20px; background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-radius: 16px;">
+                <h3 style="text-align: center; color: #1f2937; font-size: 20px; font-weight: 700; margin-bottom: 16px;">Your Special Pricing</h3>
                 
-                <!-- Desktop Version -->
-                <div class="pricing-container">
-                    <div class="pricing-card standard">
-                        <div class="pricing-header">
-                            <div class="plan-name">Regular Access</div>
-                            <div class="price-display">
-                                <span class="currency">$</span>
-                                <span class="price">199</span>
-                            </div>
-                            <div class="price-description">one-time payment</div>
-                        </div>
-                        <div class="features-section">
-                            <div class="feature-item">
-                                <span class="feature-icon">✓</span>
-                                220+ premium modules
-                            </div>
-                            <div class="feature-item">
-                                <span class="feature-icon">✓</span>
-                                Standard setup support
-                            </div>
-                            <div class="feature-item">
-                                <span class="feature-icon">✓</span>
-                                Regular updates
-                            </div>
-                            <div class="feature-item">
-                                <span class="feature-icon">✓</span>
-                                Community access
-                            </div>
-                        </div>
-                    </div>
+                <!-- COMPACT PRICING TABLE -->
+                <table style="width: 100%; max-width: 500px; margin: 0 auto; background: white; border-radius: 12px; border: 2px solid #6366f1; position: relative; overflow: hidden;">
+                    <!-- BADGE -->
+                    <tr>
+                        <td colspan="3" style="text-align: center; background: #6366f1; color: white; padding: 8px; font-size: 12px; font-weight: 700;">
+                            ⭐ EARLY BIRD SPECIAL - Save $100
+                        </td>
+                    </tr>
                     
-                    <div class="pricing-card early-bird">
-                        <div class="pricing-header">
-                            <div class="plan-name">Your Price Today</div>
-                            <div class="price-display">
-                                <span class="currency">$</span>
-                                <span class="price">99</span>
-                            </div>
-                            <div class="price-description">one-time payment • Save $100</div>
-                        </div>
-                        <div class="features-section">
-                            <div class="feature-item">
-                                <span class="feature-icon">✓</span>
-                                Everything in Regular access
-                            </div>
-                            <div class="feature-item">
-                                <span class="feature-icon">✓</span>
-                                <strong>Priority support & setup</strong>
-                            </div>
-                            <div class="feature-item">
-                                <span class="feature-icon">✓</span>
-                                <strong>First access to new modules</strong>
-                            </div>
-                            <div class="feature-item">
-                                <span class="feature-icon">✓</span>
-                                <strong>30-day money-back guarantee</strong>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Mobile Compact Version -->
-                <div class="pricing-mobile-compact">
-                    <div class="mobile-badge">⭐ EARLY BIRD SPECIAL</div>
+                    <!-- PRICE COMPARISON -->
+                    <tr>
+                        <td style="padding: 16px 12px 8px; text-align: center; width: 40%; background: #fafafa;">
+                            <div style="font-size: 11px; color: #6b7280; margin-bottom: 4px;">Regular Price</div>
+                            <div style="font-size: 22px; font-weight: 800; color: #6b7280; text-decoration: line-through;">$199</div>
+                        </td>
+                        <td style="padding: 16px 8px 8px; text-align: center; width: 20%;">
+                            <div style="color: #ef4444; font-weight: 700; font-size: 18px;">→</div>
+                        </td>
+                        <td style="padding: 16px 12px 8px; text-align: center; width: 40%;">
+                            <div style="font-size: 11px; color: #6366f1; margin-bottom: 4px; font-weight: 600;">Your Price Today</div>
+                            <div style="font-size: 28px; font-weight: 800; color: #6366f1;">$99</div>
+                            <div style="font-size: 10px; color: #6366f1; margin-top: 2px;">one-time payment</div>
+                        </td>
+                    </tr>
                     
-                    <div class="mobile-price-row">
-                        <div class="mobile-price-col old">
-                            <div class="mobile-price-label">Regular Price</div>
-                            <div class="mobile-price">$199</div>
-                        </div>
-                        <div style="flex: 0.3; text-align: center; color: #ef4444; font-weight: 700; font-size: 20px;">→</div>
-                        <div class="mobile-price-col new">
-                            <div class="mobile-price-label">Your Price</div>
-                            <div class="mobile-price">$99</div>
-                        </div>
-                    </div>
+                    <!-- FEATURES GRID COMPACT -->
+                    <tr>
+                        <td colspan="3" style="padding: 12px 16px 16px;">
+                            <table style="width: 100%; font-size: 11px;">
+                                <tr>
+                                    <td style="padding: 3px 0; width: 50%; color: #374151;">
+                                        <span style="color: #6366f1; margin-right: 6px; font-weight: bold;">✓</span>220+ Premium Modules
+                                    </td>
+                                    <td style="padding: 3px 0; width: 50%; color: #374151;">
+                                        <span style="color: #6366f1; margin-right: 6px; font-weight: bold;">⚡</span>One-click Setup
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 3px 0; color: #374151;">
+                                        <span style="color: #6366f1; margin-right: 6px; font-weight: bold;">🎯</span>Priority Support
+                                    </td>
+                                    <td style="padding: 3px 0; color: #374151;">
+                                        <span style="color: #6366f1; margin-right: 6px; font-weight: bold;">🔄</span>Lifetime Updates
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 3px 0; color: #374151;">
+                                        <span style="color: #6366f1; margin-right: 6px; font-weight: bold;">💝</span>Early Access
+                                    </td>
+                                    <td style="padding: 3px 0; color: #374151;">
+                                        <span style="color: #6366f1; margin-right: 6px; font-weight: bold;">🛡️</span>30-Day Guarantee
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
                     
-                    <div class="mobile-savings">💰 Save $100 (50% OFF)</div>
-                    
-                    <div class="mobile-features">
-                        <div class="mobile-feature">
-                            <span class="mobile-feature-icon">✓</span>
-                            220+ Premium Modules
-                        </div>
-                        <div class="mobile-feature">
-                            <span class="mobile-feature-icon">⚡</span>
-                            One-time Payment
-                        </div>
-                        <div class="mobile-feature">
-                            <span class="mobile-feature-icon">🎯</span>
-                            Priority Support
-                        </div>
-                        <div class="mobile-feature">
-                            <span class="mobile-feature-icon">🔄</span>
-                            Lifetime Updates
-                        </div>
-                        <div class="mobile-feature">
-                            <span class="mobile-feature-icon">💝</span>
-                            Early Access
-                        </div>
-                        <div class="mobile-feature">
-                            <span class="mobile-feature-icon">🛡️</span>
-                            30-Day Guarantee
-                        </div>
-                    </div>
-                </div>
+                    <!-- SAVINGS HIGHLIGHT -->
+                    <tr>
+                        <td colspan="3" style="padding: 0 16px 16px;">
+                            <div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 8px; border-radius: 8px; text-align: center; font-weight: 700; font-size: 13px;">
+                                💰 You Save $100 (50% OFF) + No Monthly Fees Ever!
+                            </div>
+                        </td>
+                    </tr>
+                </table>
             </div>
             
             <!-- Access Code Section -->
