@@ -141,6 +141,10 @@
             margin: 0 auto;
         }
         
+        .pricing-mobile-compact {
+            display: none;
+        }
+        
         .pricing-card {
             background: white;
             border-radius: 20px;
@@ -344,135 +348,184 @@
             text-decoration: none;
         }
         
+        .pricing-mobile-compact {
+            background: white;
+            border-radius: 12px;
+            padding: 16px;
+            border: 2px solid #6366f1;
+            position: relative;
+        }
+        
+        .mobile-badge {
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #6366f1;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+        
+        .mobile-price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .mobile-price-col {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .mobile-price-col.old {
+            opacity: 0.6;
+        }
+        
+        .mobile-price-col.old .mobile-price {
+            text-decoration: line-through;
+        }
+        
+        .mobile-price {
+            font-size: 24px;
+            font-weight: 800;
+            color: #1f2937;
+        }
+        
+        .mobile-price-col.new .mobile-price {
+            color: #6366f1;
+        }
+        
+        .mobile-price-label {
+            font-size: 11px;
+            color: #6b7280;
+            margin-bottom: 4px;
+        }
+        
+        .mobile-savings {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 8px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 14px;
+            margin: 12px 0;
+        }
+        
+        .mobile-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            font-size: 11px;
+            color: #374151;
+        }
+        
+        .mobile-feature {
+            display: flex;
+            align-items: center;
+        }
+        
+        .mobile-feature-icon {
+            color: #6366f1;
+            margin-right: 6px;
+            font-size: 12px;
+        }
+
         @media (max-width: 600px) {
             .content {
-                padding: 20px 12px;
+                padding: 16px;
             }
             
             .value-section {
                 padding: 16px;
-                margin: 20px 0;
+                margin: 16px 0;
             }
             
             .value-section h3 {
                 font-size: 18px;
-                margin-bottom: 16px;
+                margin-bottom: 12px;
             }
             
             .features-grid {
                 grid-template-columns: 1fr;
-                gap: 12px;
+                gap: 8px;
             }
             
             .feature-item {
-                padding: 16px 12px;
+                padding: 12px;
+                display: flex;
+                align-items: center;
+                text-align: left;
+                gap: 12px;
             }
             
             .feature-icon {
-                font-size: 20px;
-                margin-bottom: 8px;
+                font-size: 18px;
+                margin-bottom: 0;
+                flex-shrink: 0;
             }
             
             .feature-item strong {
-                font-size: 14px;
-                margin-bottom: 4px;
+                font-size: 13px;
+                margin-bottom: 2px;
             }
             
             .value-proposition {
                 padding: 16px;
-                margin: 20px 0;
+                margin: 16px 0;
             }
             
             .value-proposition h3 {
-                font-size: 20px;
-                margin-bottom: 20px;
+                font-size: 18px;
+                margin-bottom: 16px;
             }
             
             .pricing-container {
-                grid-template-columns: 1fr;
-                gap: 16px;
-                max-width: 100%;
+                display: none;
             }
             
-            .pricing-card {
-                padding: 20px 16px;
-                border-radius: 12px;
-            }
-            
-            .pricing-card.early-bird {
-                transform: none;
-            }
-            
-            .pricing-card.early-bird::before {
-                font-size: 10px;
-                padding: 6px 12px;
-                top: -10px;
-            }
-            
-            .plan-name {
-                font-size: 16px;
-            }
-            
-            .price {
-                font-size: 32px !important;
-                letter-spacing: -1px;
-            }
-            
-            .currency {
-                font-size: 18px !important;
-            }
-            
-            .price-description {
-                font-size: 12px;
-                margin-bottom: 16px;
-            }
-            
-            .features-section {
-                padding-top: 16px;
-            }
-            
-            .pricing-card .feature-item {
-                margin-bottom: 10px;
-                font-size: 12px;
-            }
-            
-            .pricing-card .feature-icon {
-                font-size: 14px;
-                margin-right: 8px;
+            .pricing-mobile-compact {
+                display: block;
             }
             
             .code-section {
-                padding: 20px 16px;
-                margin: 20px 0;
+                padding: 16px;
+                margin: 16px 0;
             }
             
             .code-section h3 {
-                font-size: 18px;
+                font-size: 16px;
+                margin-bottom: 8px;
             }
             
             .code-section p {
-                font-size: 14px;
-                margin-bottom: 16px;
+                font-size: 13px;
+                margin-bottom: 12px;
             }
             
             .access-code {
-                font-size: 16px;
-                padding: 16px;
-                letter-spacing: 2px;
+                font-size: 14px;
+                padding: 12px;
+                letter-spacing: 1px;
             }
             
             .cta-section {
-                padding: 24px 16px;
-                margin: 20px 0;
+                padding: 20px 16px;
+                margin: 16px 0;
             }
             
             .cta-section h3 {
-                font-size: 22px;
+                font-size: 20px;
+                margin-bottom: 8px;
             }
             
             .cta-section p {
-                font-size: 14px;
-                margin-bottom: 20px;
+                font-size: 13px;
+                margin-bottom: 16px;
             }
             
             .cta-button {
@@ -481,15 +534,15 @@
             }
             
             .header {
-                padding: 24px 16px;
+                padding: 20px 16px;
             }
             
             .header h1 {
-                font-size: 24px;
+                font-size: 22px;
             }
             
             .header p {
-                font-size: 16px;
+                font-size: 15px;
             }
         }
     </style>
@@ -538,6 +591,8 @@
             <!-- Pricing Comparison -->
             <div class="value-proposition">
                 <h3>Your Special Pricing</h3>
+                
+                <!-- Desktop Version -->
                 <div class="pricing-container">
                     <div class="pricing-card standard">
                         <div class="pricing-header">
@@ -594,6 +649,52 @@
                                 <span class="feature-icon">✓</span>
                                 <strong>30-day money-back guarantee</strong>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Compact Version -->
+                <div class="pricing-mobile-compact">
+                    <div class="mobile-badge">⭐ EARLY BIRD SPECIAL</div>
+                    
+                    <div class="mobile-price-row">
+                        <div class="mobile-price-col old">
+                            <div class="mobile-price-label">Regular Price</div>
+                            <div class="mobile-price">$199</div>
+                        </div>
+                        <div style="flex: 0.3; text-align: center; color: #ef4444; font-weight: 700; font-size: 20px;">→</div>
+                        <div class="mobile-price-col new">
+                            <div class="mobile-price-label">Your Price</div>
+                            <div class="mobile-price">$99</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mobile-savings">💰 Save $100 (50% OFF)</div>
+                    
+                    <div class="mobile-features">
+                        <div class="mobile-feature">
+                            <span class="mobile-feature-icon">✓</span>
+                            220+ Premium Modules
+                        </div>
+                        <div class="mobile-feature">
+                            <span class="mobile-feature-icon">⚡</span>
+                            One-time Payment
+                        </div>
+                        <div class="mobile-feature">
+                            <span class="mobile-feature-icon">🎯</span>
+                            Priority Support
+                        </div>
+                        <div class="mobile-feature">
+                            <span class="mobile-feature-icon">🔄</span>
+                            Lifetime Updates
+                        </div>
+                        <div class="mobile-feature">
+                            <span class="mobile-feature-icon">💝</span>
+                            Early Access
+                        </div>
+                        <div class="mobile-feature">
+                            <span class="mobile-feature-icon">🛡️</span>
+                            30-Day Guarantee
                         </div>
                     </div>
                 </div>
