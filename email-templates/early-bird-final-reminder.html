@@ -345,17 +345,151 @@
         }
         
         @media (max-width: 600px) {
-            .pricing-container {
-                grid-template-columns: 1fr;
-                gap: 20px;
+            .content {
+                padding: 20px 12px;
+            }
+            
+            .value-section {
+                padding: 16px;
+                margin: 20px 0;
+            }
+            
+            .value-section h3 {
+                font-size: 18px;
+                margin-bottom: 16px;
             }
             
             .features-grid {
                 grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .feature-item {
+                padding: 16px 12px;
+            }
+            
+            .feature-icon {
+                font-size: 20px;
+                margin-bottom: 8px;
+            }
+            
+            .feature-item strong {
+                font-size: 14px;
+                margin-bottom: 4px;
+            }
+            
+            .value-proposition {
+                padding: 16px;
+                margin: 20px 0;
+            }
+            
+            .value-proposition h3 {
+                font-size: 20px;
+                margin-bottom: 20px;
+            }
+            
+            .pricing-container {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                max-width: 100%;
+            }
+            
+            .pricing-card {
+                padding: 20px 16px;
+                border-radius: 12px;
             }
             
             .pricing-card.early-bird {
                 transform: none;
+            }
+            
+            .pricing-card.early-bird::before {
+                font-size: 10px;
+                padding: 6px 12px;
+                top: -10px;
+            }
+            
+            .plan-name {
+                font-size: 16px;
+            }
+            
+            .price {
+                font-size: 32px !important;
+                letter-spacing: -1px;
+            }
+            
+            .currency {
+                font-size: 18px !important;
+            }
+            
+            .price-description {
+                font-size: 12px;
+                margin-bottom: 16px;
+            }
+            
+            .features-section {
+                padding-top: 16px;
+            }
+            
+            .pricing-card .feature-item {
+                margin-bottom: 10px;
+                font-size: 12px;
+            }
+            
+            .pricing-card .feature-icon {
+                font-size: 14px;
+                margin-right: 8px;
+            }
+            
+            .code-section {
+                padding: 20px 16px;
+                margin: 20px 0;
+            }
+            
+            .code-section h3 {
+                font-size: 18px;
+            }
+            
+            .code-section p {
+                font-size: 14px;
+                margin-bottom: 16px;
+            }
+            
+            .access-code {
+                font-size: 16px;
+                padding: 16px;
+                letter-spacing: 2px;
+            }
+            
+            .cta-section {
+                padding: 24px 16px;
+                margin: 20px 0;
+            }
+            
+            .cta-section h3 {
+                font-size: 22px;
+            }
+            
+            .cta-section p {
+                font-size: 14px;
+                margin-bottom: 20px;
+            }
+            
+            .cta-button {
+                padding: 12px 24px;
+                font-size: 14px;
+            }
+            
+            .header {
+                padding: 24px 16px;
+            }
+            
+            .header h1 {
+                font-size: 24px;
+            }
+            
+            .header p {
+                font-size: 16px;
             }
         }
     </style>
