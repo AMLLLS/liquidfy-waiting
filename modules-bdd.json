@@ -1,0 +1,343 @@
+{
+  "_id": {
+    "$oid": "6877072734fa1f7413ab9fb3"
+  },
+  "title": "Youve unlocked Free Shipping",
+  "description": "Display real-time social proof to increase conversions.",
+  "longDescription": "Display real-time social proof to increase conversions.",
+  "thumbnail": "/modules/cover/LIQUIDFY-Youve-unlocked-Free-Shipping-cover.png",
+  "images": [
+    "/modules/cover/LIQUIDFY-Youve-unlocked-Free-Shipping-cover.png"
+  ],
+  "category": "Social Proof",
+  "tags": [
+    "Shipping"
+  ],
+  "featured": false,
+  "status": "published",
+  "code": "<div class=\"loved-by-customers\"> <span>📦 You've unlocked free shipping!</span> </div> <style> .loved-by-customers { background-color: #D0FFE0; color: #008454; text-align: center; padding: 6px; margin-top: 20px; /* Adjust as needed */ border-radius: 20px; /* Adjust to desired pill shape */ width: 300px; /* Adjust width as needed */ margin-left: auto; margin-right: auto; font-size: 14px; font-weight: } </style>",
+  "slug": "social-proof-component-youve-unlocked",
+  "createdAt": {
+    "$date": "2025-07-16T01:57:57.306Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-16T08:40:06.999Z"
+  },
+  "originalTitle": "You’ve unlocked Free Shipping",
+  "downloads": 174,
+  "lastVariableUpdate": {
+    "$date": "2025-07-17T00:55:06.627Z"
+  },
+  "variableCount": 8,
+  "content": "<div class=\"loved-by-customers\"> <span>📦 You've unlocked free shipping!</span> </div> <style> .loved-by-customers { background-color: #D0FFE0; color: #008454; text-align: center; padding: 6px; margin-top: 20px; /* Adjust as needed */ border-radius: 20px; /* Adjust to desired pill shape */ width: 300px; /* Adjust width as needed */ margin-left: auto; margin-right: auto; font-size: 14px; font-weight: } </style>",
+  "lastVariableGeneration": {
+    "$date": "2025-07-17T21:27:27.561Z"
+  },
+  "isModernTemplate": true,
+  "templateCode": "<div class=\"loved-by-customers\"> <span>${shipping_info_1}</span> </div> <style> .loved-by-customers { background-color: ${background_color_2}; color: ${text_color_3}; text-align: center; padding: 6px; margin-top: ${margin_5}; /* Adjust as needed */ border-radius: 20px; /* Adjust to desired pill shape */ width: ${width_6}; /* Adjust width as needed */ margin-left: auto; margin-right: auto; font-size: ${font_size_4}; font-weight: } </style>",
+  "variables": [
+    {
+      "id": "var_1753080720696_7f6dm25um",
+      "name": "shipping_info_1",
+      "label": "Shipping Information",
+      "type": "text",
+      "defaultValue": "📦 You've unlocked free shipping!",
+      "description": "Customizable text. Current value: \"📦 You've unlocked free shipping!\"",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "shipping_info_1",
+      "isModern": true
+    },
+    {
+      "id": "var_1753080720696_zlmp79j7x",
+      "name": "background_color_2",
+      "label": "Background Color",
+      "type": "color",
+      "defaultValue": "#D0FFE0",
+      "description": "Customizable color. Current value: #D0FFE0",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "background_color_2",
+      "isModern": true
+    },
+    {
+      "id": "var_1753080720697_lfmm6a8jp",
+      "name": "text_color_3",
+      "label": "Text Color",
+      "type": "color",
+      "defaultValue": "#008454",
+      "description": "Customizable color. Current value: #008454",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "text_color_3",
+      "isModern": true
+    },
+    {
+      "id": "var_1753080720697_l63zsfeuq",
+      "name": "font_size_4",
+      "label": "Font Size",
+      "type": "size",
+      "defaultValue": "14px",
+      "description": "Customizable size. Current value: 14px",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "font_size_4",
+      "isModern": true
+    },
+    {
+      "id": "var_1753080720697_64ya01ic1",
+      "name": "margin_5",
+      "label": "Margin",
+      "type": "size",
+      "defaultValue": "20px",
+      "description": "Customizable size. Current value: 20px",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "margin_5",
+      "isModern": true
+    },
+    {
+      "id": "var_1753080720697_irt4w67w9",
+      "name": "width_6",
+      "label": "Width",
+      "type": "size",
+      "defaultValue": "300px",
+      "description": "Customizable size. Current value: 300px",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "width_6",
+      "isModern": true
+    }
+  ],
+  "popular": true
+}
+
+
+{
+  "_id": {
+    "$oid": "6877072734fa1f7413ab9fb4"
+  },
+  "title": "Only 8 items left at this",
+  "description": "Showcase customer reviews and ratings to boost confidence.",
+  "longDescription": "Showcase customer reviews and ratings to boost confidence.",
+  "thumbnail": "/modules/cover/LIQUIDFY-Only-8-items-left-at-this-cover.png",
+  "images": [
+    "/modules/cover/LIQUIDFY-Only-8-items-left-at-this-cover.png"
+  ],
+  "category": "Reviews",
+  "tags": [
+    "Urgency"
+  ],
+  "featured": false,
+  "status": "published",
+  "code": "<style> .blink { animation: blink-animation 1.5s steps(5, start) infinite; color: red; display: inline-block; /* Display as inline-block */ vertical-align: middle; /* Align vertically to middle */ font-size: 10px; /* Set font size */ } @keyframes blink-animation { to { visibility: hidden; } } .red-div { background-color: #ffcccc; padding: 2px 10px; /* 6px vertical, 10px horizontal */ border-radius: 8px; /* Rounded corners */ display: inline-block; /* Display as inline-block */ text-align: center; /* Center align the content */ margin: 0 auto; /* Horizontally center the red-div */ } .text { display: inline-block; /* Display as inline-block */ vertical-align: middle; /* Align vertically to middle */ margin-left: 10px; /* Add some space between the dot and the text */ color: #AD0000; /* Text color */ font-weight: 500; /* Medium font weight */ font-size: 12px; /* Set font size */ text-align: justify; /* Justify the text to the center */ } </style> <div class=\"red-div\"> <div class=\"blink\">&#9679;</div> <div class=\"text\">Only 4 bags left at this price.</div> </div>",
+  "slug": "reviews-component-only-8",
+  "createdAt": {
+    "$date": "2025-07-16T01:57:57.306Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-16T08:39:55.881Z"
+  },
+  "originalTitle": "Only 8 items left at this price",
+  "downloads": 79,
+  "__v": 1,
+  "isActive": true,
+  "lastVariableUpdate": {
+    "$date": "2025-07-17T00:55:06.830Z"
+  },
+  "variableCount": 13,
+  "lastVariableGeneration": {
+    "$date": "2025-07-17T21:27:27.866Z"
+  },
+  "isModernTemplate": true,
+  "templateCode": "<style> .blink { animation: blink-animation 1.5s steps(5, start) infinite; color: ${text_color_4}; display: inline-block; /* Display as inline-block */ vertical-align: middle; /* Align vertically to middle */ font-size: ${font_size_5}; /* Set font size */ } @keyframes blink-animation { to { visibility: hidden; } } .red-div { background-color: ${background_color_2}; padding: 2px 10px; /* 6px vertical, 10px horizontal */ border-radius: 8px; /* Rounded corners */ display: inline-block; /* Display as inline-block */ text-align: center; /* Center align the content */ margin: 0 auto; /* Horizontally center the red-div */ } .text { display: inline-block; /* Display as inline-block */ vertical-align: middle; /* Align vertically to middle */ margin-left: 10px; /* Add some space between the dot and the text */ color: ${text_color_3}; /* Text color */ font-weight: ${number_value_7}; /* Medium font weight */ font-size: ${font_size_6}; /* Set font size */ text-align: justify; /* Justify the text to the center */ } </style> <div class=\"red-div\"> <div class=\"blink\">&#9679;</div> <div class=\"text\">${sales_message_1}</div> </div>",
+  "variables": [
+    {
+      "id": "var_1753080720961_dr301erxn",
+      "name": "sales_message_1",
+      "label": "Sales Message",
+      "type": "text",
+      "defaultValue": "Only 4 bags left at this price.",
+      "description": "Customizable text. Current value: \"Only 4 bags left at this price.\"",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "sales_message_1",
+      "isModern": true
+    },
+    {
+      "id": "var_1753080720961_ca0z2azwk",
+      "name": "background_color_2",
+      "label": "Background Color",
+      "type": "color",
+      "defaultValue": "#ffcccc",
+      "description": "Customizable color. Current value: #ffcccc",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "background_color_2",
+      "isModern": true
+    },
+    {
+      "id": "var_1753080720961_txdceejd5",
+      "name": "text_color_3",
+      "label": "Text Color",
+      "type": "color",
+      "defaultValue": "#AD0000",
+      "description": "Customizable color. Current value: #AD0000",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "text_color_3",
+      "isModern": true
+    },
+    {
+      "id": "var_1753080720961_ab7xky06p",
+      "name": "text_color_4",
+      "label": "Text Color",
+      "type": "color",
+      "defaultValue": "red",
+      "description": "Customizable color. Current value: red",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "text_color_4",
+      "isModern": true
+    },
+    {
+      "id": "var_1753080720961_iuyoojlgl",
+      "name": "font_size_5",
+      "label": "Font Size",
+      "type": "size",
+      "defaultValue": "10px",
+      "description": "Customizable size. Current value: 10px",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "font_size_5",
+      "isModern": true
+    },
+    {
+      "id": "var_1753080720961_97uxll4kg",
+      "name": "font_size_6",
+      "label": "Font Size",
+      "type": "size",
+      "defaultValue": "12px",
+      "description": "Customizable size. Current value: 12px",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "font_size_6",
+      "isModern": true
+    },
+    {
+      "id": "var_1753080720962_zuss8r8j9",
+      "name": "number_value_7",
+      "label": "Number Value",
+      "type": "number",
+      "defaultValue": "500",
+      "description": "Customizable number. Current value: 500",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "number_value_7",
+      "isModern": true
+    }
+  ],
+  "popular": true
+}
+
+{
+  "_id": {
+    "$oid": "6877072834fa1f7413ab9fb5"
+  },
+  "title": "Amy just added this to her bag",
+  "description": "Enhance your store’s visual appeal with modern design.",
+  "longDescription": "Enhance your store’s visual appeal with modern design.",
+  "thumbnail": "/modules/cover/LIQUIDFY-Amy-just-added-this-to-her-bag-cover.png",
+  "images": [
+    "/modules/cover/LIQUIDFY-Amy-just-added-this-to-her-bag-cover.png"
+  ],
+  "category": "Design",
+  "tags": [
+    "Navigation"
+  ],
+  "featured": false,
+  "status": "published",
+  "code": "<style> .red-div { background-color: #FFF8D0; padding: 2px 10px; /* 6px vertical, 10px horizontal */ border-radius: 8px; /* Rounded corners */ display: inline-block; /* Display as inline-block */ text-align: center; /* Center align the content */ margin: 0 auto; /* Horizontally center the red-div */ color: #9F7301; /* Text color */ font-weight: 500; /* Medium font weight */ font-size: 12px; /* Set font size */ } .blink { color: inherit; /* Inherit color from parent */ display: inline-block; /* Display as inline-block */ vertical-align: middle; /* Align vertically to middle */ font-size: 12px; /* Set font size */ margin-right: 5px; /* Add some space between the dot and the text */ } </style> <div class=\"red-div\"> <span class=\"blink\">&#9679;</span> <span>Amy just added this to her bag</div>",
+  "slug": "design-component-amy-just",
+  "createdAt": {
+    "$date": "2025-07-16T01:57:57.306Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-16T08:39:39.603Z"
+  },
+  "originalTitle": "Amy just added this to her bag",
+  "downloads": 25,
+  "lastVariableUpdate": {
+    "$date": "2025-07-17T00:55:07.030Z"
+  },
+  "variableCount": 11,
+  "content": "<style> .red-div { background-color: #FFF8D0; padding: 2px 10px; /* 6px vertical, 10px horizontal */ border-radius: 8px; /* Rounded corners */ display: inline-block; /* Display as inline-block */ text-align: center; /* Center align the content */ margin: 0 auto; /* Horizontally center the red-div */ color: #9F7301; /* Text color */ font-weight: 500; /* Medium font weight */ font-size: 12px; /* Set font size */ } .blink { color: inherit; /* Inherit color from parent */ display: inline-block; /* Display as inline-block */ vertical-align: middle; /* Align vertically to middle */ font-size: 12px; /* Set font size */ margin-right: 5px; /* Add some space between the dot and the text */ } </style> <div class=\"red-div\"> <span class=\"blink\">&#9679;</span> <span>Amy just added this to her bag</div>",
+  "lastVariableGeneration": {
+    "$date": "2025-07-17T21:27:28.168Z"
+  },
+  "isModernTemplate": true,
+  "templateCode": "<style> .red-div { background-color: ${background_color_2}; padding: 2px 10px; /* 6px vertical, 10px horizontal */ border-radius: 8px; /* Rounded corners */ display: inline-block; /* Display as inline-block */ text-align: center; /* Center align the content */ margin: 0 auto; /* Horizontally center the red-div */ color: ${text_color_3}; /* Text color */ font-weight: ${number_value_5}; /* Medium font weight */ font-size: ${font_size_4}; /* Set font size */ } .blink { color: inherit; /* Inherit color from parent */ display: inline-block; /* Display as inline-block */ vertical-align: middle; /* Align vertically to middle */ font-size: 12px; /* Set font size */ margin-right: 5px; /* Add some space between the dot and the text */ } </style> <div class=\"red-div\"> <span class=\"blink\">&#9679;</span> <span>${title_1}</div>",
+  "variables": [
+    {
+      "id": "var_1753080721224_6qsv0tvs8",
+      "name": "title_1",
+      "label": "Title",
+      "type": "text",
+      "defaultValue": "Amy just added this to her bag",
+      "description": "Customizable text. Current value: \"Amy just added this to her bag\"",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "title_1",
+      "isModern": true
+    },
+    {
+      "id": "var_1753080721224_rqbswee2f",
+      "name": "background_color_2",
+      "label": "Background Color",
+      "type": "color",
+      "defaultValue": "#FFF8D0",
+      "description": "Customizable color. Current value: #FFF8D0",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "background_color_2",
+      "isModern": true
+    },
+    {
+      "id": "var_1753080721224_6sdyed7f8",
+      "name": "text_color_3",
+      "label": "Text Color",
+      "type": "color",
+      "defaultValue": "#9F7301",
+      "description": "Customizable color. Current value: #9F7301",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "text_color_3",
+      "isModern": true
+    },
+    {
+      "id": "var_1753080721224_nzrb97667",
+      "name": "font_size_4",
+      "label": "Font Size",
+      "type": "size",
+      "defaultValue": "12px",
+      "description": "Customizable size. Current value: 12px",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "font_size_4",
+      "isModern": true
+    },
+    {
+      "id": "var_1753080721224_e8iprj5kl",
+      "name": "number_value_5",
+      "label": "Number Value",
+      "type": "number",
+      "defaultValue": "500",
+      "description": "Customizable number. Current value: 500",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "number_value_5",
+      "isModern": true
+    }
+  ],
+  "popular": true
+}

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer - Multi-Context Edition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .countdown-announcement-bar {
+            width: 100%;
+            padding: 8px 16px;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .countdown-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            max-width: 100%;
+            margin: 0 auto;
+            flex-wrap: nowrap;
+        }
+
+        .countdown-text {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .countdown-wrapper {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            flex-wrap: nowrap;
+        }
+
+        .countdown-time {
+            padding: 4px 6px;
+            border-radius: 4px;
+            text-align: center;
+            min-width: 32px;
+            border: 1px solid;
+            transition: all 0.3s ease;
+        }
+
+        .countdown-time:hover {
+            transform: scale(1.05);
+        }
+
+        .countdown-time span {
+            display: block;
+            font-size: 12px;
+            font-weight: bold;
+            line-height: 1.1;
+        }
+
+        .countdown-time small {
+            display: block;
+            font-size: 8px;
+            font-weight: normal;
+            line-height: 1.1;
+            margin-top: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .countdown-text {
+                font-size: 11px;
+            }
+            .countdown-time span {
+                font-size: 10px;
+            }
+            .countdown-time small {
+                font-size: 7px;
+            }
+            .countdown-wrapper {
+                gap: 4px;
+            }
+            .countdown-announcement-bar {
+                padding: 6px 10px;
+            }
+            .countdown-content {
+                gap: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .countdown-text {
+                font-size: 10px;
+            }
+            .countdown-time {
+                min-width: 28px;
+                padding: 3px 4px;
+            }
+            .countdown-time span {
+                font-size: 9px;
+            }
+            .countdown-time small {
+                font-size: 6px;
+            }
+        }
+    </style>
+</head>
+<body class="p-8 bg-gray-100">
+
+    <div class="space-y-8">
+        
+        <!-- Version 1: Original (Welcome Offer) -->
+        <div>
+            <h2 class="text-xl font-bold mb-4 text-gray-800">Version 1: Welcome Offer (Original)</h2>
+            <div class="countdown-announcement-bar" style="background: #FFE5E5; color: #8E1919;">
+                <div class="countdown-content">
+                    <div class="countdown-text">Welcome Offer Ends Soon</div>
+                    <div class="countdown-wrapper">
+                        <div class="countdown-time" style="background: #FFE5E5; color: #8E1919; border-color: #8E1919;">
+                            <span id="countdown-hours-1">09</span>
+                            <small>HOURS</small>
+                        </div>
+                        <div class="countdown-time" style="background: #FFE5E5; color: #8E1919; border-color: #8E1919;">
+                            <span id="countdown-minutes-1">58</span>
+                            <small>MINUTES</small>
+                        </div>
+                        <div class="countdown-time" style="background: #FFE5E5; color: #8E1919; border-color: #8E1919;">
+                            <span id="countdown-seconds-1">18</span>
+                            <small>SECONDS</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Version 2: Flash Sale (Green Theme) -->
+        <div>
+            <h2 class="text-xl font-bold mb-4 text-gray-800">Version 2: Flash Sale</h2>
+            <div class="countdown-announcement-bar" style="background: #D1FAE5; color: #064E3B;">
+                <div class="countdown-content">
+                    <div class="countdown-text">⚡ Flash Sale Ends Soon</div>
+                    <div class="countdown-wrapper">
+                        <div class="countdown-time" style="background: #D1FAE5; color: #064E3B; border-color: #059669;">
+                            <span id="countdown-hours-2">03</span>
+                            <small>HOURS</small>
+                        </div>
+                        <div class="countdown-time" style="background: #D1FAE5; color: #064E3B; border-color: #059669;">
+                            <span id="countdown-minutes-2">24</span>
+                            <small>MINUTES</small>
+                        </div>
+                        <div class="countdown-time" style="background: #D1FAE5; color: #064E3B; border-color: #059669;">
+                            <span id="countdown-seconds-3">42</span>
+                            <small>SECONDS</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Version 3: Software Launch (Purple Theme) -->
+        <div>
+            <h2 class="text-xl font-bold mb-4 text-gray-800">Version 3: Software Launch</h2>
+            <div class="countdown-announcement-bar" style="background: #EDE9FE; color: #3730A3;">
+                <div class="countdown-content">
+                    <div class="countdown-text">🚀 Product Launch in</div>
+                    <div class="countdown-wrapper">
+                        <div class="countdown-time" style="background: #EDE9FE; color: #3730A3; border-color: #7C3AED;">
+                            <span id="countdown-hours-3">12</span>
+                            <small>HOURS</small>
+                        </div>
+                        <div class="countdown-time" style="background: #EDE9FE; color: #3730A3; border-color: #7C3AED;">
+                            <span id="countdown-minutes-3">35</span>
+                            <small>MINUTES</small>
+                        </div>
+                        <div class="countdown-time" style="background: #EDE9FE; color: #3730A3; border-color: #7C3AED;">
+                            <span id="countdown-seconds-3">07</span>
+                            <small>SECONDS</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Version 4: Early Bird Special (Blue Theme) -->
+        <div>
+            <h2 class="text-xl font-bold mb-4 text-gray-800">Version 4: Early Bird Special</h2>
+            <div class="countdown-announcement-bar" style="background: #DBEAFE; color: #1E3A8A;">
+                <div class="countdown-content">
+                    <div class="countdown-text">🐦 Early Bird Discount Expires</div>
+                    <div class="countdown-wrapper">
+                        <div class="countdown-time" style="background: #DBEAFE; color: #1E3A8A; border-color: #2563EB;">
+                            <span id="countdown-hours-4">06</span>
+                            <small>HOURS</small>
+                        </div>
+                        <div class="countdown-time" style="background: #DBEAFE; color: #1E3A8A; border-color: #2563EB;">
+                            <span id="countdown-minutes-4">17</span>
+                            <small>MINUTES</small>
+                        </div>
+                        <div class="countdown-time" style="background: #DBEAFE; color: #1E3A8A; border-color: #2563EB;">
+                            <span id="countdown-seconds-4">33</span>
+                            <small>SECONDS</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Version 5: Black Friday (Dark Theme) -->
+        <div>
+            <h2 class="text-xl font-bold mb-4 text-gray-800">Version 5: Black Friday</h2>
+            <div class="countdown-announcement-bar" style="background: #1F2937; color: #F59E0B;">
+                <div class="countdown-content">
+                    <div class="countdown-text">🖤 Black Friday Deal Ends</div>
+                    <div class="countdown-wrapper">
+                        <div class="countdown-time" style="background: #374151; color: #FCD34D; border-color: #F59E0B;">
+                            <span id="countdown-hours-5">23</span>
+                            <small>HOURS</small>
+                        </div>
+                        <div class="countdown-time" style="background: #374151; color: #FCD34D; border-color: #F59E0B;">
+                            <span id="countdown-minutes-5">45</span>
+                            <small>MINUTES</small>
+                        </div>
+                        <div class="countdown-time" style="background: #374151; color: #FCD34D; border-color: #F59E0B;">
+                            <span id="countdown-seconds-5">12</span>
+                            <small>SECONDS</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Simple countdown animation for demo purposes
+        function animateCountdown(hoursId, minutesId, secondsId) {
+            const hoursEl = document.getElementById(hoursId);
+            const minutesEl = document.getElementById(minutesId);
+            const secondsEl = document.getElementById(secondsId);
+            
+            if (!hoursEl || !minutesEl || !secondsEl) return;
+            
+            setInterval(() => {
+                let seconds = parseInt(secondsEl.textContent);
+                let minutes = parseInt(minutesEl.textContent);
+                let hours = parseInt(hoursEl.textContent);
+                
+                seconds--;
+                if (seconds < 0) {
+                    seconds = 59;
+                    minutes--;
+                    if (minutes < 0) {
+                        minutes = 59;
+                        hours--;
+                        if (hours < 0) {
+                            hours = 23;
+                        }
+                    }
+                }
+                
+                hoursEl.textContent = hours.toString().padStart(2, '0');
+                minutesEl.textContent = minutes.toString().padStart(2, '0');
+                secondsEl.textContent = seconds.toString().padStart(2, '0');
+            }, 1000);
+        }
+
+        // Initialize countdowns
+        animateCountdown('countdown-hours-1', 'countdown-minutes-1', 'countdown-seconds-1');
+        animateCountdown('countdown-hours-2', 'countdown-minutes-2', 'countdown-seconds-2');
+        animateCountdown('countdown-hours-3', 'countdown-minutes-3', 'countdown-seconds-3');
+        animateCountdown('countdown-hours-4', 'countdown-minutes-4', 'countdown-seconds-4');
+        animateCountdown('countdown-hours-5', 'countdown-minutes-5', 'countdown-seconds-5');
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+/* ANALYSE DES VARIABLES DYNAMIQUES MODULE 2 */
+
+/* VARIABLES IDENTIFIÉES POUR LE MODULE PRODUCT FEATURES */
+
+/* 1. VARIABLES D'IMAGES */
+- Image produit principale : "https://cdn.shopify.com/s/files/1/0637/5781/1919/files/ChatGPT_Image_May_4_2025_10_06_11_AM_1__1753442482364.png?v=1753442487"
+- Alt image principale : "Product Image"
+- Icône feature 1 : "https://cdn.shopify.com/s/files/1/0637/5781/1919/files/ChatGPT_Image_May_4_2025_10_06_11_AM_1__1753442482364.png?v=1753442487"
+- Alt icône 1 : "Feature 1 Icon"
+- Icône feature 2 : "https://cdn.shopify.com/s/files/1/0637/5781/1919/files/ChatGPT_Image_May_4_2025_10_06_11_AM_1__1753442482364.png?v=1753442487"
+- Alt icône 2 : "Feature 2 Icon"
+- Icône feature 3 : "https://cdn.shopify.com/s/files/1/0637/5781/1919/files/ChatGPT_Image_May_4_2025_10_06_11_AM_1__1753442482364.png?v=1753442487"
+- Alt icône 3 : "Feature 3 Icon"
+- Icône feature 4 : "https://cdn.shopify.com/s/files/1/0637/5781/1919/files/ChatGPT_Image_May_4_2025_10_06_11_AM_1__1753442482364.png?v=1753442487"
+- Alt icône 4 : "Feature 4 Icon"
+
+/* 2. VARIABLES DE TEXTE */
+- Titre principal : "Product Features"
+- Badge premium : "Premium"
+- Description : "Discover the outstanding features that make our product stand out from the competition."
+- Titre feature 1 : "High Quality Materials"
+- Description feature 1 : "Made with premium materials"
+- Titre feature 2 : "Easy to Use Design"
+- Description feature 2 : "Intuitive design makes this simple"
+- Titre feature 3 : "Multiple Configuration Options"
+- Description feature 3 : "Customize your experience"
+- Titre feature 4 : "Long-Term Value"
+- Description feature 4 : "A smart investment that pays"
+
+/* 3. VARIABLES DE COULEURS */
+- Background container : "rgb(255, 255, 255)" / "#ffffff"
+- Bordure container : "rgb(186, 230, 253)" / "#bae6fd"
+- Background section features : "rgb(250, 250, 250)" / "#fafafa"
+- Couleur titre principal : "rgb(54, 141, 181)" / "#368db5"
+- Couleur badge premium : "rgb(87, 205, 255)" / "#57cdff"
+- Couleur description : "rgb(85, 85, 85)" / "#555555"
+- Couleur titres features : "rgb(56, 56, 56)" / "#383838"
+
+/* 4. VARIABLES DE TAILLES */
+- Max-width container : "600px"
+- Padding container : "16px"
+- Gap layout : "16px"
+- Padding sections : "8px"
+- Padding content : "16px"
+- Taille titre : "18px"
+- Taille description : "14px"
+- Taille titre feature : "12px"
+- Taille description feature : "11px"
+- Taille icône : "16px"
+- Gap features : "12px"
+- Gap feature item : "8px"
+
+/* VARIABLES FINALES ORDONNÉES (28 variables) : */
+1. main_product_image_url (text) : URL image principale
+2. main_product_image_alt (text) : Alt image principale
+3. main_title (text) : "Product Features"
+4. premium_badge_text (text) : "Premium"
+5. main_description (text) : Description principale
+6. container_background_color (color) : "#ffffff"
+7. container_border_color (color) : "#bae6fd"
+8. content_background_color (color) : "#fafafa"
+9. title_color (color) : "#368db5"
+10. premium_badge_color (color) : "#57cdff"
+11. description_color (color) : "#555555"
+12. feature_title_color (color) : "#383838"
+13. feature1_icon_url (text) : URL icône 1
+14. feature1_icon_alt (text) : Alt icône 1
+15. feature1_title (text) : Titre feature 1
+16. feature1_description (text) : Description feature 1
+17. feature2_icon_url (text) : URL icône 2
+18. feature2_icon_alt (text) : Alt icône 2
+19. feature2_title (text) : Titre feature 2
+20. feature2_description (text) : Description feature 2
+21. feature3_icon_url (text) : URL icône 3
+22. feature3_icon_alt (text) : Alt icône 3
+23. feature3_title (text) : Titre feature 3
+24. feature3_description (text) : Description feature 3
+25. feature4_icon_url (text) : URL icône 4
+26. feature4_icon_alt (text) : Alt icône 4
+27. feature4_title (text) : Titre feature 4
+28. feature4_description (text) : Description feature 4
+29. container_max_width (size) : "600px"
+30. container_padding (size) : "16px"
+31. title_font_size (size) : "18px"
+32. description_font_size (size) : "14px"
+33. feature_title_font_size (size) : "12px"
+34. feature_description_font_size (size) : "11px"
+35. icon_size (size) : "16px"

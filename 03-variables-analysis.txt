@@ -1,0 +1,61 @@
+/* ANALYSE DES VARIABLES DYNAMIQUES */
+
+/* En me basant sur la structure des modules existants dans modules-bdd.json, voici les variables identifiées : */
+
+/* 1. VARIABLES DE TEXTE */
+- Titre principal : "FREE GIFTS WITH YOUR FIRST ORDER"
+- Texte du badge : "FREE" (constant dans ce contexte)
+- Prix produit 1 : "$10"
+- Nom produit 1 : "The Hand Book"
+- Alt image 1 : "The Hand Book"
+- Prix produit 2 : "$6"
+- Nom produit 2 : "Free Shipping"
+- Alt image 2 : "Free Shipping"
+- Prix produit 3 : "$19"
+- Nom produit 3 : "Lash Curler"
+- Alt image 3 : "Lash Curler"
+
+/* 2. VARIABLES D'IMAGES */
+- URL image produit 1 : "https://cdn.shopify.com/s/files/1/0591/6521/2734/files/input_kopyasi_32.png?v=1742817671"
+- URL image produit 2 : "https://cdn.shopify.com/s/files/1/0591/6521/2734/files/input_kopyasi_31.png?v=1742817524"
+- URL image produit 3 : "https://cdn.shopify.com/s/files/1/0591/6521/2734/files/input_kopyasi_33.png?v=1742817767"
+
+/* 3. VARIABLES DE COULEURS */
+- Couleur de fond du container : "#fcfcfc"
+- Couleur de fond des cartes : "#fce1ec"
+- Couleur du badge : "#ff5c8d"
+- Couleur du texte principal : "#374151"
+- Couleur des bordures : "black"
+
+/* 4. VARIABLES DE TAILLES */
+- Padding du container : "12px"
+- Gap entre les cartes : "8px"
+- Largeur des cartes : "80px"
+- Taille des images : "40px"
+- Taille de police du titre : "10px"
+- Taille de police du badge : "6px"
+- Taille de police du nom : "6px"
+
+/* VARIABLES FINALES IDENTIFIÉES (dans l'ordre d'apparition) : */
+1. main_title (text) : "FREE GIFTS WITH YOUR FIRST ORDER"
+2. container_background_color (color) : "#fcfcfc"
+3. card_background_color (color) : "#fce1ec"
+4. badge_background_color (color) : "#ff5c8d"
+5. text_color (color) : "#374151"
+6. border_color (color) : "black"
+7. product1_price (text) : "$10"
+8. product1_image_url (text) : "https://cdn.shopify.com/s/files/1/0591/6521/2734/files/input_kopyasi_32.png?v=1742817671"
+9. product1_name (text) : "The Hand Book"
+10. product2_price (text) : "$6"
+11. product2_image_url (text) : "https://cdn.shopify.com/s/files/1/0591/6521/2734/files/input_kopyasi_31.png?v=1742817524"
+12. product2_name (text) : "Free Shipping"
+13. product3_price (text) : "$19"
+14. product3_image_url (text) : "https://cdn.shopify.com/s/files/1/0591/6521/2734/files/input_kopyasi_33.png?v=1742817767"
+15. product3_name (text) : "Lash Curler"
+16. container_padding (size) : "12px"
+17. cards_gap (size) : "8px"
+18. card_width (size) : "80px"
+19. image_size (size) : "40px"
+20. title_font_size (size) : "10px"
+21. badge_font_size (size) : "6px"
+22. name_font_size (size) : "6px"

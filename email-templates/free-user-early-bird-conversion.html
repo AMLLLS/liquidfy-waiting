@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ Dernières 48h - Early Bird à 99€ avant 249€</title>
+    <style>
+        /* Reset styles for email compatibility */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background-color: #f7fafc;
+            margin: 0;
+            padding: 0;
+            width: 100% !important;
+            min-width: 100%;
+        }
+        
+        /* Container styles */
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Header styles */
+        .header {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .header-subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        /* Urgency banner */
+        .urgency-banner {
+            background: linear-gradient(90deg, #ef4444, #dc2626);
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        
+        /* Main content */
+        .content {
+            padding: 30px 20px;
+        }
+        
+        .greeting {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 20px;
+        }
+        
+        .main-message {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #4a5568;
+            margin-bottom: 25px;
+        }
+        
+        /* Price comparison table */
+        .price-comparison {
+            width: 100%;
+            margin: 25px 0;
+            border-collapse: collapse;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .price-comparison th,
+        .price-comparison td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .price-comparison th {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        .price-header-current {
+            background: linear-gradient(135deg, #10b981, #059669) !important;
+        }
+        
+        .price-header-future {
+            background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+        }
+        
+        .price-comparison td {
+            font-size: 15px;
+            color: #4a5568;
+        }
+        
+        .current-price {
+            background-color: #d1fae5;
+            color: #065f46;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        
+        .future-price {
+            background-color: #fee2e2;
+            color: #991b1b;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        
+        .savings-highlight {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        /* Features highlight */
+        .features-highlight {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            border-left: 4px solid #6366f1;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+        
+        .features-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1e40af;
+            margin-bottom: 15px;
+        }
+        
+        .features-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .features-list li {
+            padding: 8px 0;
+            color: #1e40af;
+            font-size: 15px;
+        }
+        
+        .features-list li:before {
+            content: "✨";
+            margin-right: 10px;
+        }
+        
+        /* CTA Button */
+        .cta-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7);
+            color: white;
+            text-decoration: none;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(99, 102, 241, 0.4);
+        }
+        
+        .cta-subtitle {
+            font-size: 14px;
+            color: #6b7280;
+            margin-top: 10px;
+        }
+        
+        /* Timeline */
+        .timeline {
+            background: linear-gradient(135deg, #fef3c7, #fed7aa);
+            border: 2px solid #f59e0b;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 25px 0;
+            text-align: center;
+        }
+        
+        .timeline-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #92400e;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-text {
+            font-size: 15px;
+            color: #b45309;
+        }
+        
+        /* Social proof */
+        .social-proof {
+            background-color: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+            text-align: center;
+        }
+        
+        .social-proof-stats {
+            display: table;
+            width: 100%;
+            margin: 15px 0;
+        }
+        
+        .stat-item {
+            display: table-cell;
+            text-align: center;
+            padding: 10px;
+            width: 33.33%;
+        }
+        
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #6366f1;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #1a202c;
+            color: #a0aec0;
+            padding: 25px 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .footer-links {
+            margin: 15px 0;
+        }
+        
+        .footer-links a {
+            color: #6366f1;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        
+        /* Mobile responsive */
+        @media only screen and (max-width: 600px) {
+            .email-container {
+                border-radius: 0;
+            }
+            
+            .header,
+            .content {
+                padding: 20px 15px;
+            }
+            
+            .urgency-banner {
+                font-size: 16px;
+                padding: 12px 15px;
+            }
+            
+            .price-comparison th,
+            .price-comparison td {
+                padding: 10px 8px;
+                font-size: 14px;
+            }
+            
+            .current-price,
+            .future-price {
+                font-size: 20px;
+            }
+            
+            .cta-button {
+                padding: 15px 30px;
+                font-size: 16px;
+            }
+            
+            .stat-item {
+                display: block;
+                width: 100%;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">🚀 Liquidfy</div>
+            <div class="header-subtitle">Votre avenir e-commerce commence maintenant</div>
+        </div>
+        
+        <!-- Urgency Banner -->
+        <div class="urgency-banner">
+            ⚡ DERNIÈRES 48 HEURES - Offre Early Bird à 99€ ⚡
+        </div>
+        
+        <!-- Main Content -->
+        <div class="content">
+            <div class="greeting">
+                Bonjour [PRENOM] ! 👋
+            </div>
+            
+            <div class="main-message">
+                <p><strong>Une opportunité comme celle-ci ne se représentera pas de sitôt...</strong></p>
+                
+                <p>En tant qu'utilisateur gratuit de Liquidfy, vous avez déjà découvert la puissance de nos modules premium. Mais ce que vous ne réalisez peut-être pas encore, c'est que <strong>dans 48 heures exactement</strong>, cette opportunité unique va disparaître pour toujours.</p>
+                
+                <p>L'offre Early Bird Lifetime à <strong>99€</strong> va passer à <strong>249€</strong> - soit une augmentation de 150€. Ce n'est pas juste une hausse de prix, c'est la fin d'une ère.</p>
+            </div>
+            
+            <!-- Price Comparison Table -->
+            <table class="price-comparison">
+                <tr>
+                    <th style="width: 40%">Période</th>
+                    <th class="price-header-current" style="width: 30%">Maintenant</th>
+                    <th class="price-header-future" style="width: 30%">Dans 48h</th>
+                </tr>
+                <tr>
+                    <td><strong>Early Bird Lifetime</strong></td>
+                    <td class="current-price">99€</td>
+                    <td class="future-price">249€</td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="savings-highlight">
+                        🎯 VOUS ÉCONOMISEZ 150€ EN AGISSANT MAINTENANT
+                    </td>
+                </tr>
+            </table>
+            
+            <!-- Features Highlight -->
+            <div class="features-highlight">
+                <div class="features-title">Ce que vous obtenez avec l'Early Bird Lifetime :</div>
+                <ul class="features-list">
+                    <li><strong>Accès à vie</strong> - Plus jamais d'abonnement</li>
+                    <li><strong>150+ modules premium</strong> - Valeur de 1000€+</li>
+                    <li><strong>Toutes les futures mises à jour</strong> incluses</li>
+                    <li><strong>Support prioritaire</strong> à vie</li>
+                    <li><strong>Customisation avancée</strong> illimitée</li>
+                    <li><strong>API complète</strong> pour vos intégrations</li>
+                </ul>
+            </div>
+            
+            <!-- Social Proof -->
+            <div class="social-proof">
+                <p><strong>Rejoignez 2,847 entrepreneurs malins qui ont déjà sécurisé leur Early Bird :</strong></p>
+                <div class="social-proof-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">2,847</span>
+                        <span class="stat-label">Early Birds</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">+127%</span>
+                        <span class="stat-label">CVR Moyen</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">99.2%</span>
+                        <span class="stat-label">Satisfaction</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Timeline -->
+            <div class="timeline">
+                <div class="timeline-title">⏰ TIMELINE CRITIQUE</div>
+                <div class="timeline-text">
+                    <strong>Jeudi 19 septembre à 23h59</strong> - Fin définitive de l'Early Bird<br>
+                    <strong>Vendredi 20 septembre</strong> - Prix standard à 249€
+                </div>
+            </div>
+            
+            <!-- CTA -->
+            <div class="cta-container">
+                <a href="https://liquidfy.app/early-bird-upgrade?user_id=[USER_ID]&utm_source=email&utm_campaign=free_user_conversion" class="cta-button">
+                    🚀 Sécuriser mon Early Bird à 99€
+                </a>
+                <div class="cta-subtitle">
+                    Paiement unique • Accès à vie • Garantie 30 jours
+                </div>
+            </div>
+            
+            <div class="main-message">
+                <p><strong>Pourquoi cette urgence est réelle :</strong></p>
+                
+                <p>Cette offre n'est pas un artifice marketing. Nous avons fixé un quota strict d'Early Birds pour maintenir la qualité de notre support. Une fois ce quota atteint ou le délai expiré, l'offre disparaît définitivement.</p>
+                
+                <p>Vous utilisez déjà Liquidfy en version gratuite. Vous savez donc que ça fonctionne. La seule question est : <strong>voulez-vous économiser 150€ et avoir accès à tout, à vie ?</strong></p>
+                
+                <p><em>Les regrets coûtent plus cher que les décisions.</em></p>
+            </div>
+            
+            <!-- Final CTA -->
+            <div class="cta-container">
+                <a href="https://liquidfy.app/early-bird-upgrade?user_id=[USER_ID]&utm_source=email&utm_campaign=free_user_conversion_bottom" class="cta-button">
+                    ⚡ OUI, je veux mon accès lifetime à 99€
+                </a>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>Liquidfy</strong> - La révolution e-commerce</p>
+            <div class="footer-links">
+                <a href="https://liquidfy.app/dashboard">Dashboard</a> |
+                <a href="https://liquidfy.app/support">Support</a> |
+                <a href="https://liquidfy.app/unsubscribe?email=[EMAIL]">Se désabonner</a>
+            </div>
+            <p>Cet email a été envoyé à [EMAIL] car vous êtes utilisateur gratuit de Liquidfy.</p>
+        </div>
+    </div>
+</body>
+</html>

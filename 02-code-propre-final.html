@@ -1,0 +1,98 @@
+<div class="free-gifts-container">
+    <div class="free-gifts-title">
+        FREE GIFTS WITH YOUR FIRST ORDER
+    </div>
+    <div class="gifts-grid">
+        <div class="gift-card">
+            <div class="gift-badge">
+                FREE <span class="price-strikethrough">$10</span>
+            </div>
+            <img src="https://cdn.shopify.com/s/files/1/0591/6521/2734/files/input_kopyasi_32.png?v=1742817671" alt="The Hand Book" class="gift-image">
+            <div class="gift-name">The Hand Book</div>
+        </div>
+        <div class="gift-card">
+            <div class="gift-badge">
+                FREE <span class="price-strikethrough">$6</span>
+            </div>
+            <img src="https://cdn.shopify.com/s/files/1/0591/6521/2734/files/input_kopyasi_31.png?v=1742817524" alt="Free Shipping" class="gift-image">
+            <div class="gift-name">Free Shipping</div>
+        </div>
+        <div class="gift-card">
+            <div class="gift-badge">
+                FREE <span class="price-strikethrough">$19</span>
+            </div>
+            <img src="https://cdn.shopify.com/s/files/1/0591/6521/2734/files/input_kopyasi_33.png?v=1742817767" alt="Lash Curler" class="gift-image">
+            <div class="gift-name">Lash Curler</div>
+        </div>
+    </div>
+</div>
+
+<style>
+.free-gifts-container {
+    background-color: #fcfcfc;
+    padding: 12px;
+    width: 100%;
+}
+
+.free-gifts-title {
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+.gifts-grid {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.gift-card {
+    position: relative;
+    background-color: #fce1ec;
+    border: 2px dashed black;
+    border-radius: 6px;
+    width: 80px;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gift-badge {
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff5c8d;
+    color: white;
+    font-size: 6px;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 4px;
+    width: 56px;
+    text-align: center;
+}
+
+.price-strikethrough {
+    text-decoration: line-through;
+}
+
+.gift-image {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin: 8px 0;
+}
+
+.gift-name {
+    font-size: 6px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #374151;
+    text-align: center;
+}
+</style>

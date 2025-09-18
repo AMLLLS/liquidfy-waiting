@@ -1,0 +1,304 @@
+{
+  "title": "Free gifts with your first order",
+  "description": "Display attractive free gifts offered with first order to increase conversions.",
+  "longDescription": "Display attractive free gifts offered with first order to increase conversions.",
+  "thumbnail": "/modules/cover/LIQUIDFY-Free-gifts-with-your-first-order-cover.png",
+  "images": [
+    "/modules/cover/LIQUIDFY-Free-gifts-with-your-first-order-cover.png"
+  ],
+  "category": "Promotions",
+  "tags": [
+    "Free Gifts",
+    "First Order",
+    "Promotions"
+  ],
+  "featured": false,
+  "status": "published",
+  "code": "<div class=\"free-gifts-container\"> <div class=\"free-gifts-title\"> FREE GIFTS WITH YOUR FIRST ORDER </div> <div class=\"gifts-grid\"> <div class=\"gift-card\"> <div class=\"gift-badge\"> FREE <span class=\"price-strikethrough\">$10</span> </div> <img src=\"https://cdn.shopify.com/s/files/1/0591/6521/2734/files/input_kopyasi_32.png?v=1742817671\" alt=\"The Hand Book\" class=\"gift-image\"> <div class=\"gift-name\">The Hand Book</div> </div> <div class=\"gift-card\"> <div class=\"gift-badge\"> FREE <span class=\"price-strikethrough\">$6</span> </div> <img src=\"https://cdn.shopify.com/s/files/1/0591/6521/2734/files/input_kopyasi_31.png?v=1742817524\" alt=\"Free Shipping\" class=\"gift-image\"> <div class=\"gift-name\">Free Shipping</div> </div> <div class=\"gift-card\"> <div class=\"gift-badge\"> FREE <span class=\"price-strikethrough\">$19</span> </div> <img src=\"https://cdn.shopify.com/s/files/1/0591/6521/2734/files/input_kopyasi_33.png?v=1742817767\" alt=\"Lash Curler\" class=\"gift-image\"> <div class=\"gift-name\">Lash Curler</div> </div> </div> </div> <style> .free-gifts-container { background-color: #fcfcfc; padding: 12px; width: 100%; } .free-gifts-title { font-size: 10px; font-weight: bold; text-align: center; text-transform: uppercase; letter-spacing: 0.1em; color: #374151; margin-bottom: 8px; } .gifts-grid { display: flex; justify-content: center; gap: 8px; } .gift-card { position: relative; background-color: #fce1ec; border: 2px dashed black; border-radius: 6px; width: 80px; padding: 4px; display: flex; flex-direction: column; align-items: center; } .gift-badge { position: absolute; top: -8px; left: 50%; transform: translateX(-50%); background-color: #ff5c8d; color: white; font-size: 6px; font-weight: bold; padding: 2px 8px; border-radius: 4px; width: 56px; text-align: center; } .price-strikethrough { text-decoration: line-through; } .gift-image { width: 40px; height: 40px; object-fit: contain; margin: 8px 0; } .gift-name { font-size: 6px; font-weight: bold; text-transform: uppercase; color: #374151; text-align: center; } </style>",
+  "slug": "promotions-component-free-gifts",
+  "createdAt": {
+    "$date": "2025-01-16T14:30:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-01-16T14:30:00.000Z"
+  },
+  "originalTitle": "Free gifts with your first order",
+  "downloads": 0,
+  "lastVariableUpdate": {
+    "$date": "2025-01-16T14:30:00.000Z"
+  },
+  "variableCount": 22,
+  "content": "<div class=\"free-gifts-container\"> <div class=\"free-gifts-title\"> FREE GIFTS WITH YOUR FIRST ORDER </div> <div class=\"gifts-grid\"> <div class=\"gift-card\"> <div class=\"gift-badge\"> FREE <span class=\"price-strikethrough\">$10</span> </div> <img src=\"https://cdn.shopify.com/s/files/1/0591/6521/2734/files/input_kopyasi_32.png?v=1742817671\" alt=\"The Hand Book\" class=\"gift-image\"> <div class=\"gift-name\">The Hand Book</div> </div> <div class=\"gift-card\"> <div class=\"gift-badge\"> FREE <span class=\"price-strikethrough\">$6</span> </div> <img src=\"https://cdn.shopify.com/s/files/1/0591/6521/2734/files/input_kopyasi_31.png?v=1742817524\" alt=\"Free Shipping\" class=\"gift-image\"> <div class=\"gift-name\">Free Shipping</div> </div> <div class=\"gift-card\"> <div class=\"gift-badge\"> FREE <span class=\"price-strikethrough\">$19</span> </div> <img src=\"https://cdn.shopify.com/s/files/1/0591/6521/2734/files/input_kopyasi_33.png?v=1742817767\" alt=\"Lash Curler\" class=\"gift-image\"> <div class=\"gift-name\">Lash Curler</div> </div> </div> </div> <style> .free-gifts-container { background-color: #fcfcfc; padding: 12px; width: 100%; } .free-gifts-title { font-size: 10px; font-weight: bold; text-align: center; text-transform: uppercase; letter-spacing: 0.1em; color: #374151; margin-bottom: 8px; } .gifts-grid { display: flex; justify-content: center; gap: 8px; } .gift-card { position: relative; background-color: #fce1ec; border: 2px dashed black; border-radius: 6px; width: 80px; padding: 4px; display: flex; flex-direction: column; align-items: center; } .gift-badge { position: absolute; top: -8px; left: 50%; transform: translateX(-50%); background-color: #ff5c8d; color: white; font-size: 6px; font-weight: bold; padding: 2px 8px; border-radius: 4px; width: 56px; text-align: center; } .price-strikethrough { text-decoration: line-through; } .gift-image { width: 40px; height: 40px; object-fit: contain; margin: 8px 0; } .gift-name { font-size: 6px; font-weight: bold; text-transform: uppercase; color: #374151; text-align: center; } </style>",
+  "lastVariableGeneration": {
+    "$date": "2025-01-16T14:30:00.000Z"
+  },
+  "isModernTemplate": true,
+  "templateCode": "<div class=\"free-gifts-container\"> <div class=\"free-gifts-title\"> ${main_title_1} </div> <div class=\"gifts-grid\"> <div class=\"gift-card\"> <div class=\"gift-badge\"> FREE <span class=\"price-strikethrough\">${product1_price_7}</span> </div> <img src=\"${product1_image_url_8}\" alt=\"${product1_name_9}\" class=\"gift-image\"> <div class=\"gift-name\">${product1_name_9}</div> </div> <div class=\"gift-card\"> <div class=\"gift-badge\"> FREE <span class=\"price-strikethrough\">${product2_price_10}</span> </div> <img src=\"${product2_image_url_11}\" alt=\"${product2_name_12}\" class=\"gift-image\"> <div class=\"gift-name\">${product2_name_12}</div> </div> <div class=\"gift-card\"> <div class=\"gift-badge\"> FREE <span class=\"price-strikethrough\">${product3_price_13}</span> </div> <img src=\"${product3_image_url_14}\" alt=\"${product3_name_15}\" class=\"gift-image\"> <div class=\"gift-name\">${product3_name_15}</div> </div> </div> </div> <style> .free-gifts-container { background-color: ${container_background_color_2}; padding: ${container_padding_16}; width: 100%; } .free-gifts-title { font-size: ${title_font_size_20}; font-weight: bold; text-align: center; text-transform: uppercase; letter-spacing: 0.1em; color: ${text_color_5}; margin-bottom: 8px; } .gifts-grid { display: flex; justify-content: center; gap: ${cards_gap_17}; } .gift-card { position: relative; background-color: ${card_background_color_3}; border: 2px dashed ${border_color_6}; border-radius: 6px; width: ${card_width_18}; padding: 4px; display: flex; flex-direction: column; align-items: center; } .gift-badge { position: absolute; top: -8px; left: 50%; transform: translateX(-50%); background-color: ${badge_background_color_4}; color: white; font-size: ${badge_font_size_21}; font-weight: bold; padding: 2px 8px; border-radius: 4px; width: 56px; text-align: center; } .price-strikethrough { text-decoration: line-through; } .gift-image { width: ${image_size_19}; height: ${image_size_19}; object-fit: contain; margin: 8px 0; } .gift-name { font-size: ${name_font_size_22}; font-weight: bold; text-transform: uppercase; color: ${text_color_5}; text-align: center; } </style>",
+  "variables": [
+    {
+      "id": "var_1753080720696_main_title_1",
+      "name": "main_title_1",
+      "label": "Main Title",
+      "type": "text",
+      "defaultValue": "FREE GIFTS WITH YOUR FIRST ORDER",
+      "description": "Customizable text. Current value: \"FREE GIFTS WITH YOUR FIRST ORDER\"",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "main_title_1",
+      "isModern": true
+    },
+    {
+      "id": "var_1753080720696_container_bg_2",
+      "name": "container_background_color_2",
+      "label": "Container Background Color",
+      "type": "color",
+      "defaultValue": "#fcfcfc",
+      "description": "Customizable color. Current value: #fcfcfc",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "container_background_color_2",
+      "isModern": true
+    },
+    {
+      "id": "var_1753080720696_card_bg_3",
+      "name": "card_background_color_3",
+      "label": "Card Background Color",
+      "type": "color",
+      "defaultValue": "#fce1ec",
+      "description": "Customizable color. Current value: #fce1ec",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "card_background_color_3",
+      "isModern": true
+    },
+    {
+      "id": "var_1753080720696_badge_bg_4",
+      "name": "badge_background_color_4",
+      "label": "Badge Background Color",
+      "type": "color",
+      "defaultValue": "#ff5c8d",
+      "description": "Customizable color. Current value: #ff5c8d",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "badge_background_color_4",
+      "isModern": true
+    },
+    {
+      "id": "var_1753080720696_text_color_5",
+      "name": "text_color_5",
+      "label": "Text Color",
+      "type": "color",
+      "defaultValue": "#374151",
+      "description": "Customizable color. Current value: #374151",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "text_color_5",
+      "isModern": true
+    },
+    {
+      "id": "var_1753080720696_border_color_6",
+      "name": "border_color_6",
+      "label": "Border Color",
+      "type": "color",
+      "defaultValue": "black",
+      "description": "Customizable color. Current value: black",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "border_color_6",
+      "isModern": true
+    },
+    {
+      "id": "var_1753080720696_product1_price_7",
+      "name": "product1_price_7",
+      "label": "Product 1 Price",
+      "type": "text",
+      "defaultValue": "$10",
+      "description": "Customizable text. Current value: \"$10\"",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "product1_price_7",
+      "isModern": true
+    },
+    {
+      "id": "var_1753080720696_product1_image_8",
+      "name": "product1_image_url_8",
+      "label": "Product 1 Image URL",
+      "type": "text",
+      "defaultValue": "https://cdn.shopify.com/s/files/1/0591/6521/2734/files/input_kopyasi_32.png?v=1742817671",
+      "description": "Customizable text. Current value: \"https://cdn.shopify.com/s/files/1/0591/6521/2734/files/input_kopyasi_32.png?v=1742817671\"",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "product1_image_url_8",
+      "isModern": true
+    },
+    {
+      "id": "var_1753080720696_product1_name_9",
+      "name": "product1_name_9",
+      "label": "Product 1 Name",
+      "type": "text",
+      "defaultValue": "The Hand Book",
+      "description": "Customizable text. Current value: \"The Hand Book\"",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "product1_name_9",
+      "isModern": true
+    },
+    {
+      "id": "var_1753080720696_product2_price_10",
+      "name": "product2_price_10",
+      "label": "Product 2 Price",
+      "type": "text",
+      "defaultValue": "$6",
+      "description": "Customizable text. Current value: \"$6\"",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "product2_price_10",
+      "isModern": true
+    },
+    {
+      "id": "var_1753080720696_product2_image_11",
+      "name": "product2_image_url_11",
+      "label": "Product 2 Image URL",
+      "type": "text",
+      "defaultValue": "https://cdn.shopify.com/s/files/1/0591/6521/2734/files/input_kopyasi_31.png?v=1742817524",
+      "description": "Customizable text. Current value: \"https://cdn.shopify.com/s/files/1/0591/6521/2734/files/input_kopyasi_31.png?v=1742817524\"",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "product2_image_url_11",
+      "isModern": true
+    },
+    {
+      "id": "var_1753080720696_product2_name_12",
+      "name": "product2_name_12",
+      "label": "Product 2 Name",
+      "type": "text",
+      "defaultValue": "Free Shipping",
+      "description": "Customizable text. Current value: \"Free Shipping\"",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "product2_name_12",
+      "isModern": true
+    },
+    {
+      "id": "var_1753080720696_product3_price_13",
+      "name": "product3_price_13",
+      "label": "Product 3 Price",
+      "type": "text",
+      "defaultValue": "$19",
+      "description": "Customizable text. Current value: \"$19\"",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "product3_price_13",
+      "isModern": true
+    },
+    {
+      "id": "var_1753080720696_product3_image_14",
+      "name": "product3_image_url_14",
+      "label": "Product 3 Image URL",
+      "type": "text",
+      "defaultValue": "https://cdn.shopify.com/s/files/1/0591/6521/2734/files/input_kopyasi_33.png?v=1742817767",
+      "description": "Customizable text. Current value: \"https://cdn.shopify.com/s/files/1/0591/6521/2734/files/input_kopyasi_33.png?v=1742817767\"",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "product3_image_url_14",
+      "isModern": true
+    },
+    {
+      "id": "var_1753080720696_product3_name_15",
+      "name": "product3_name_15",
+      "label": "Product 3 Name",
+      "type": "text",
+      "defaultValue": "Lash Curler",
+      "description": "Customizable text. Current value: \"Lash Curler\"",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "product3_name_15",
+      "isModern": true
+    },
+    {
+      "id": "var_1753080720696_container_padding_16",
+      "name": "container_padding_16",
+      "label": "Container Padding",
+      "type": "size",
+      "defaultValue": "12px",
+      "description": "Customizable size. Current value: 12px",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "container_padding_16",
+      "isModern": true
+    },
+    {
+      "id": "var_1753080720696_cards_gap_17",
+      "name": "cards_gap_17",
+      "label": "Cards Gap",
+      "type": "size",
+      "defaultValue": "8px",
+      "description": "Customizable size. Current value: 8px",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "cards_gap_17",
+      "isModern": true
+    },
+    {
+      "id": "var_1753080720696_card_width_18",
+      "name": "card_width_18",
+      "label": "Card Width",
+      "type": "size",
+      "defaultValue": "80px",
+      "description": "Customizable size. Current value: 80px",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "card_width_18",
+      "isModern": true
+    },
+    {
+      "id": "var_1753080720696_image_size_19",
+      "name": "image_size_19",
+      "label": "Image Size",
+      "type": "size",
+      "defaultValue": "40px",
+      "description": "Customizable size. Current value: 40px",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "image_size_19",
+      "isModern": true
+    },
+    {
+      "id": "var_1753080720696_title_font_size_20",
+      "name": "title_font_size_20",
+      "label": "Title Font Size",
+      "type": "size",
+      "defaultValue": "10px",
+      "description": "Customizable size. Current value: 10px",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "title_font_size_20",
+      "isModern": true
+    },
+    {
+      "id": "var_1753080720696_badge_font_size_21",
+      "name": "badge_font_size_21",
+      "label": "Badge Font Size",
+      "type": "size",
+      "defaultValue": "6px",
+      "description": "Customizable size. Current value: 6px",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "badge_font_size_21",
+      "isModern": true
+    },
+    {
+      "id": "var_1753080720696_name_font_size_22",
+      "name": "name_font_size_22",
+      "label": "Name Font Size",
+      "type": "size",
+      "defaultValue": "6px",
+      "description": "Customizable size. Current value: 6px",
+      "startOffset": 0,
+      "endOffset": 0,
+      "modernName": "name_font_size_22",
+      "isModern": true
+    }
+  ],
+  "popular": false
+}

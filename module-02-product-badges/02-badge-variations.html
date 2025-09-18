@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Badge Set - Multi-Context Edition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .badge-container {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: nowrap;
+            max-width: 100%;
+            overflow-x: auto;
+            padding: 8px 0;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .badge:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .badge-text {
+            font-weight: 600;
+        }
+
+        .badge-icon {
+            font-size: 14px;
+        }
+
+        /* Responsive adjustments */
+        @media (min-width: 640px) {
+            .badge-container {
+                gap: 16px;
+            }
+            
+            .badge {
+                gap: 8px;
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+            
+            .badge-icon {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .badge {
+                padding: 4px 8px;
+                font-size: 11px;
+                gap: 3px;
+            }
+            
+            .badge-container {
+                gap: 6px;
+            }
+        }
+    </style>
+</head>
+<body class="p-8 bg-gray-100">
+
+    <div class="space-y-8">
+        
+        <!-- Version 1: Original (Korean Skincare) -->
+        <div>
+            <h2 class="text-xl font-bold mb-4 text-gray-800">Version 1: Korean Skincare Products</h2>
+            <div class="badge-container">
+                <div class="badge" style="background-color: rgb(255, 229, 229); color: rgb(0, 0, 0); border-color: rgb(252, 165, 165);">
+                    <span class="badge-text">#1 Best-Selling Face Serum</span>
+                </div>
+                <div class="badge" style="background-color: rgb(255, 229, 229); color: rgb(0, 0, 0); border-color: rgb(252, 165, 165);">
+                    <span class="badge-icon">🇰🇷</span>
+                    <span class="badge-text">Made in Korea</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Version 2: Fitness/Wellness -->
+        <div>
+            <h2 class="text-xl font-bold mb-4 text-gray-800">Version 2: Fitness & Wellness Products</h2>
+            <div class="badge-container">
+                <div class="badge" style="background-color: rgb(220, 252, 231); color: rgb(5, 46, 22); border-color: rgb(134, 239, 172);">
+                    <span class="badge-text">#1 Best-Selling Protein Powder</span>
+                </div>
+                <div class="badge" style="background-color: rgb(220, 252, 231); color: rgb(5, 46, 22); border-color: rgb(134, 239, 172);">
+                    <span class="badge-icon">🇺🇸</span>
+                    <span class="badge-text">Made in USA</span>
+                </div>
+                <div class="badge" style="background-color: rgb(220, 252, 231); color: rgb(5, 46, 22); border-color: rgb(134, 239, 172);">
+                    <span class="badge-icon">🌱</span>
+                    <span class="badge-text">100% Natural</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Version 3: Tech/Software -->
+        <div>
+            <h2 class="text-xl font-bold mb-4 text-gray-800">Version 3: Tech & Software Products</h2>
+            <div class="badge-container">
+                <div class="badge" style="background-color: rgb(237, 233, 254); color: rgb(55, 48, 163); border-color: rgb(196, 181, 253);">
+                    <span class="badge-text">#1 Best-Selling SaaS Tool</span>
+                </div>
+                <div class="badge" style="background-color: rgb(237, 233, 254); color: rgb(55, 48, 163); border-color: rgb(196, 181, 253);">
+                    <span class="badge-icon">⚡</span>
+                    <span class="badge-text">AI-Powered</span>
+                </div>
+                <div class="badge" style="background-color: rgb(237, 233, 254); color: rgb(55, 48, 163); border-color: rgb(196, 181, 253);">
+                    <span class="badge-icon">🔒</span>
+                    <span class="badge-text">Enterprise Security</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Version 4: Food/Organic -->
+        <div>
+            <h2 class="text-xl font-bold mb-4 text-gray-800">Version 4: Organic Food Products</h2>
+            <div class="badge-container">
+                <div class="badge" style="background-color: rgb(254, 243, 199); color: rgb(120, 53, 15); border-color: rgb(253, 224, 71);">
+                    <span class="badge-text">#1 Best-Selling Organic Coffee</span>
+                </div>
+                <div class="badge" style="background-color: rgb(254, 243, 199); color: rgb(120, 53, 15); border-color: rgb(253, 224, 71);">
+                    <span class="badge-icon">🇨🇴</span>
+                    <span class="badge-text">Single Origin</span>
+                </div>
+                <div class="badge" style="background-color: rgb(254, 243, 199); color: rgb(120, 53, 15); border-color: rgb(253, 224, 71);">
+                    <span class="badge-icon">🌿</span>
+                    <span class="badge-text">Fair Trade</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Version 5: Fashion/Luxury -->
+        <div>
+            <h2 class="text-xl font-bold mb-4 text-gray-800">Version 5: Fashion & Luxury</h2>
+            <div class="badge-container">
+                <div class="badge" style="background-color: rgb(255, 241, 242); color: rgb(136, 19, 55); border-color: rgb(252, 165, 165);">
+                    <span class="badge-text">#1 Best-Selling Designer Bag</span>
+                </div>
+                <div class="badge" style="background-color: rgb(255, 241, 242); color: rgb(136, 19, 55); border-color: rgb(252, 165, 165);">
+                    <span class="badge-icon">🇮🇹</span>
+                    <span class="badge-text">Italian Leather</span>
+                </div>
+                <div class="badge" style="background-color: rgb(255, 241, 242); color: rgb(136, 19, 55); border-color: rgb(252, 165, 165);">
+                    <span class="badge-icon">✨</span>
+                    <span class="badge-text">Limited Edition</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

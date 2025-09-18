@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Review Card - Skincare Edition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .review-container {
+            max-width: 300px;
+            padding: 16px;
+            border: 1px dashed #cbd5e1;
+            border-radius: 12px;
+            background: linear-gradient(to bottom, #ffffff, #f1f5f9);
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .review-container:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #e2e8f0;
+        }
+
+        .review-content {
+            flex: 1;
+        }
+
+        .reviewer-info {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-bottom: 6px;
+        }
+
+        .reviewer-name {
+            font-weight: bold;
+            font-size: 14px;
+            color: #1e293b;
+        }
+
+        .verified-icon {
+            width: 16px;
+            height: 16px;
+            color: #3b82f6;
+        }
+
+        .star-rating {
+            color: #0ea5e9;
+            font-size: 14px;
+        }
+
+        .review-text {
+            margin-top: 6px;
+            font-size: 12px;
+            color: #64748b;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        @media (max-width: 640px) {
+            .review-container {
+                max-width: 280px;
+                padding: 12px;
+                gap: 10px;
+            }
+            
+            .avatar {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .reviewer-name {
+                font-size: 13px;
+            }
+            
+            .review-text {
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+<body class="p-8 bg-gray-100">
+
+    <div class="space-y-8">
+        
+        <!-- Version 1: Original with skincare context -->
+        <div>
+            <h2 class="text-xl font-bold mb-4 text-gray-800">Version 1: Skincare Product Review</h2>
+            <div class="review-container">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Avatar" class="avatar">
+                <div class="review-content">
+                    <div class="reviewer-info">
+                        <strong class="reviewer-name">Sarah K.</strong>
+                        <svg class="verified-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C5.373 0 0 5.373 0 12c0 4.99 3.062 9.246 7.437 11.004L12 24l4.563-0.996C20.938 21.246 24 16.99 24 12c0-6.627-5.373-12-12-12zm-1 17l-4-4 1.41-1.42L11 14.17l6.59-6.59L19 9l-8 8z"></path>
+                        </svg>
+                        <span class="star-rating">★★★★★</span>
+                    </div>
+                    <p class="review-text">This serum transformed my skin texture in just 2 weeks. Amazing results!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Version 2: Wellness/Fitness context -->
+        <div>
+            <h2 class="text-xl font-bold mb-4 text-gray-800">Version 2: Fitness Product Review</h2>
+            <div class="review-container" style="border-color: #a7f3d0; background: linear-gradient(to bottom, #ffffff, #ecfdf5);">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Avatar" class="avatar" style="border-color: #10b981;">
+                <div class="review-content">
+                    <div class="reviewer-info">
+                        <strong class="reviewer-name">Mike T.</strong>
+                        <svg class="verified-icon" viewBox="0 0 24 24" fill="currentColor" style="color: #10b981;">
+                            <path d="M12 0C5.373 0 0 5.373 0 12c0 4.99 3.062 9.246 7.437 11.004L12 24l4.563-0.996C20.938 21.246 24 16.99 24 12c0-6.627-5.373-12-12-12zm-1 17l-4-4 1.41-1.42L11 14.17l6.59-6.59L19 9l-8 8z"></path>
+                        </svg>
+                        <span class="star-rating" style="color: #059669;">★★★★★</span>
+                    </div>
+                    <p class="review-text">This protein powder helped me gain 8lbs of muscle. Taste is incredible too!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Version 3: Tech/Software context -->
+        <div>
+            <h2 class="text-xl font-bold mb-4 text-gray-800">Version 3: Software Product Review</h2>
+            <div class="review-container" style="border-color: #c4b5fd; background: linear-gradient(to bottom, #ffffff, #faf5ff);">
+                <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Avatar" class="avatar" style="border-color: #8b5cf6;">
+                <div class="review-content">
+                    <div class="reviewer-info">
+                        <strong class="reviewer-name">Emma R.</strong>
+                        <svg class="verified-icon" viewBox="0 0 24 24" fill="currentColor" style="color: #8b5cf6;">
+                            <path d="M12 0C5.373 0 0 5.373 0 12c0 4.99 3.062 9.246 7.437 11.004L12 24l4.563-0.996C20.938 21.246 24 16.99 24 12c0-6.627-5.373-12-12-12zm-1 17l-4-4 1.41-1.42L11 14.17l6.59-6.59L19 9l-8 8z"></path>
+                        </svg>
+                        <span class="star-rating" style="color: #7c3aed;">★★★★★</span>
+                    </div>
+                    <p class="review-text">This app saved me 15 hours per week. Automation features are game-changing!</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
