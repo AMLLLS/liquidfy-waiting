@@ -67,9 +67,9 @@ export async function POST(request: NextRequest) {
           const response = await resend.emails.send({
             from: 'Liquidfy Team <hello@liquidfy.app>',
             to: [email],
-            subject: '⚡ FINAL HOURS: $99 → $249 Price Jump Tomorrow',
+            subject: 'Your Early Bird Upgrade – Special Pricing Ending Soon',
             html: emailHtml,
-            text: 'FINAL HOURS: Your exclusive $99 Early Bird price expires tomorrow! The price jumps to $249. Lock in your savings now with code EARLYBIRD99. Claim your deal: https://liquidfy.app/upgrade?code=EARLYBIRD99'
+            text: 'Hi! We wanted to let you know that Early Bird pricing for Liquidfy is ending soon. Upgrade for $99 (regular $249) and unlock all features. Use code EARLYBIRD99 at checkout. Learn more: https://liquidfy.app/upgrade?code=EARLYBIRD99'
           });
 
           if (response?.data?.id) {
