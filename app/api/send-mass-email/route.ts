@@ -67,9 +67,9 @@ export async function POST(request: NextRequest) {
           const response = await resend.emails.send({
             from: 'Liquidfy Team <hello@liquidfy.app>',
             to: [email],
-            subject: 'Your Early Bird Upgrade – Special Pricing Ending Soon',
+            subject: 'Welcome to Liquidfy - Your Lifetime Access is Ready',
             html: emailHtml,
-            text: 'Hi! We wanted to let you know that Early Bird pricing for Liquidfy is ending soon. Upgrade for $99 (regular $249) and unlock all features. Use code EARLYBIRD99 at checkout. Learn more: https://liquidfy.app/upgrade?code=EARLYBIRD99'
+            text: 'Congratulations Dave Brennan! Your Unlimited license payment has been processed. Plan: Early Bird (Unlimited). Amount Paid: $99.00. Access Level: Lifetime Access. Access your dashboard: https://liquidfy.app/dashboard'
           });
 
           if (response?.data?.id) {
