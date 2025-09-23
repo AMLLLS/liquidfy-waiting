@@ -1,0 +1,190 @@
+<div class="bundle-offer-container">
+  <div class="bundle-header">
+    <h2 class="offer-title">${main_title_1}</h2>
+  </div>
+  <div class="bundle-content">
+    <div class="bundle-title-row">
+      <h3 class="bundle-name">${bundle_name_2} <span class="item-count">${item_count_3}</span></h3>
+      <div class="pricing">
+        <span class="original-price">${global_crossed_price_4}</span>
+        <span class="free-badge">${badge_text_5}</span>
+      </div>
+    </div>
+    <div class="bundle-items">
+      <div class="bundle-item">
+        <div class="item-image">
+          <img src="${product1_image_url_8}" alt="${product1_name_6}" loading="lazy">
+          <span class="free-indicator">+</span>
+        </div>
+        <div class="item-details">
+          <h4 class="item-name">${product1_name_6}</h4>
+        </div>
+        <div class="item-pricing">
+          <span class="crossed-price">${product1_crossed_price_7}</span>
+          <span class="current-price">€0,00</span>
+        </div>
+      </div>
+      <div class="bundle-item">
+        <div class="item-image">
+          <img src="${product2_image_url_11}" alt="${product2_name_9}" loading="lazy">
+          <span class="free-indicator">+</span>
+        </div>
+        <div class="item-details">
+          <h4 class="item-name">${product2_name_9}</h4>
+        </div>
+        <div class="item-pricing">
+          <span class="crossed-price">${product2_crossed_price_10}</span>
+          <span class="current-price">€0,00</span>
+        </div>
+      </div>
+      <div class="bundle-item">
+        <div class="item-image">
+          <img src="${product3_image_url_14}" alt="${product3_name_12}" loading="lazy">
+          <span class="free-indicator">+</span>
+        </div>
+        <div class="item-details">
+          <h4 class="item-name">${product3_name_12}</h4>
+        </div>
+        <div class="item-pricing">
+          <span class="crossed-price">${product3_crossed_price_13}</span>
+          <span class="current-price">€0,00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <style>
+    .bundle-offer-container {
+      max-width: 440px;
+      margin: 32px auto;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      border: 1.5px solid ${border_color_15};
+      border-radius: 10px;
+      overflow: hidden;
+      background: ${background_color_16};
+      /* Suppression du transform: scale et transform-origin */
+      box-shadow: 0 4px 24px rgba(30, 107, 107, 0.08);
+    }
+    .bundle-header {
+      background: ${header_background_color_17};
+      padding: 18px 0 12px 0;
+      text-align: center;
+      border-bottom: 1.5px solid ${header_border_color_18};
+    }
+    .offer-title {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 700;
+      color: ${main_title_color_19};
+      letter-spacing: 0.5px;
+    }
+    .bundle-content {
+      padding: 24px 20px 20px 20px;
+      background: ${content_background_color_20};
+    }
+    .bundle-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid ${title_row_border_color_21};
+    }
+    .bundle-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: ${bundle_name_color_22};
+      margin: 0;
+    }
+    .item-count {
+      font-size: 13px;
+      color: ${item_count_color_23};
+      font-weight: 400;
+    }
+    .pricing {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .original-price {
+      font-size: 13px;
+      color: ${crossed_price_color_24};
+      text-decoration: line-through;
+    }
+    .free-badge {
+      background: ${badge_gradient_25};
+      color: white;
+      padding: 5px 14px;
+      border-radius: 16px;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      box-shadow: 0 2px 8px ${badge_shadow_26};
+      display: inline-block;
+    }
+    .bundle-items {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .bundle-item {
+      display: flex;
+      align-items: center;
+      padding: 12px 8px;
+      background: ${item_background_color_27};
+      border-radius: 6px;
+    }
+    .item-image {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      margin-right: 16px;
+      flex-shrink: 0;
+    }
+    .item-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .free-indicator {
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      width: 16px;
+      height: 16px;
+      background: ${plus_indicator_color_28};
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    .item-details {
+      flex-grow: 1;
+    }
+    .item-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: ${product_name_color_29};
+      margin: 0;
+    }
+    .item-pricing {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 2px;
+    }
+    .crossed-price {
+      font-size: 12px;
+      color: ${item_crossed_price_color_30};
+      text-decoration: line-through;
+    }
+    .current-price {
+      font-size: 15px;
+      font-weight: 700;
+      color: ${current_price_color_31};
+    }
+  </style>
+</div>

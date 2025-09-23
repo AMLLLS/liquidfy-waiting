@@ -1,0 +1,74 @@
+<div class="riskfree-module">
+  <div class="riskfree-content">
+    <div class="riskfree-text">
+      <span class="riskfree-highlight">${riskfree_highlight_text}</span> ${riskfree_text}
+    </div>
+    <a href="${riskfree_btn_url}" class="riskfree-btn">
+      ${riskfree_btn_text}
+    </a>
+  </div>
+  <style>
+    .riskfree-module {
+      margin: 0;
+      padding: 24px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      width: 100%;
+    }
+    .riskfree-content {
+      width: 100%;
+      max-width: ${riskfree_max_width};
+      text-align: center;
+      padding: 0;
+      margin: 0;
+    }
+    .riskfree-text {
+      font-size: 20px;
+      margin: 0 0 8px 0;
+      color: ${riskfree_text_color};
+    }
+    .riskfree-highlight {
+      color: ${riskfree_highlight_color};
+      font-weight: bold;
+    }
+    .riskfree-btn {
+      display: inline-block;
+      width: 100%;
+      font-size: 17px;
+      font-weight: bold;
+      color: ${riskfree_btn_text_color};
+      background: ${riskfree_btn_gradient};
+      padding: 12px;
+      border-radius: ${riskfree_btn_radius};
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s;
+      border: none;
+      box-sizing: border-box;
+      box-shadow: ${riskfree_btn_shadow};
+    }
+    .riskfree-btn:hover {
+      background: ${riskfree_btn_hover_gradient};
+    }
+    @media (max-width: 768px) {
+      .riskfree-text {
+        font-size: 17px !important;
+      }
+      .riskfree-btn {
+        font-size: 15px !important;
+        padding: 10px !important;
+      }
+    }
+    @media (max-width: 480px) {
+      .riskfree-text {
+        font-size: 15px !important;
+      }
+      .riskfree-btn {
+        font-size: 13px !important;
+        padding: 8px !important;
+      }
+    }
+  </style>
+</div>

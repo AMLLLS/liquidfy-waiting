@@ -1,0 +1,44 @@
+{
+  "title": "Risk Free Button",
+  "description": "A full-width, modern call-to-action button with a dynamic highlight and responsive design.",
+  "longDescription": "A full-width, modern call-to-action button with a dynamic highlight and responsive design. Perfect for product or cart pages to boost trust and conversions.",
+  "thumbnail": "/modules/cover/LIQUIDFY-Risk-Free-Button-cover.png",
+  "images": [
+    "/modules/cover/LIQUIDFY-Risk-Free-Button-cover.png"
+  ],
+  "category": "Trust",
+  "tags": [
+    "Risk Free",
+    "Button",
+    "Call to Action"
+  ],
+  "featured": false,
+  "status": "published",
+  "code": "<div class=\"riskfree-module\"><div class=\"riskfree-content\"><div class=\"riskfree-text\"><span class=\"riskfree-highlight\">8k+</span> satisfied customers this month</div><a href=\"#\" class=\"riskfree-btn\">100% SATISFIED! Try it or get a full refund.</a></div><style>.riskfree-module{margin:0;padding:24px 0;display:flex;justify-content:center;align-items:center;background:transparent;width:100%}.riskfree-content{width:100%;max-width:480px;text-align:center;padding:0;margin:0}.riskfree-text{font-size:20px;margin:0 0 8px 0;color:#2B3A4A}.riskfree-highlight{color:#0A3D62;font-weight:bold}.riskfree-btn{display:inline-block;width:100%;font-size:17px;font-weight:bold;color:#fff;background:linear-gradient(90deg,#1FC8DB 0%,#2CB5A0 100%);padding:12px;border-radius:6px;cursor:pointer;text-decoration:none;transition:background 0.3s;border:none;box-sizing:border-box;box-shadow:0 2px 12px rgba(44,181,160,0.10)}.riskfree-btn:hover{background:linear-gradient(90deg,#2CB5A0 0%,#1FC8DB 100%)}@media (max-width:768px){.riskfree-text{font-size:17px !important}.riskfree-btn{font-size:15px !important;padding:10px !important}}@media (max-width:480px){.riskfree-text{font-size:15px !important}.riskfree-btn{font-size:13px !important;padding:8px !important}}</style></div>",
+  "slug": "cta-risk-free-button",
+  "createdAt": { "$date": "2025-09-21T15:00:00.000Z" },
+  "updatedAt": { "$date": "2025-09-21T15:00:00.000Z" },
+  "originalTitle": "Risk Free Button",
+  "downloads": 0,
+  "lastVariableUpdate": { "$date": "2025-09-21T15:00:00.000Z" },
+  "variableCount": 12,
+  "content": "<div class=\"riskfree-module\"><div class=\"riskfree-content\"><div class=\"riskfree-text\"><span class=\"riskfree-highlight\">8k+</span> satisfied customers this month</div><a href=\"#\" class=\"riskfree-btn\">100% SATISFIED! Try it or get a full refund.</a></div><style>.riskfree-module{margin:0;padding:24px 0;display:flex;justify-content:center;align-items:center;background:transparent;width:100%}.riskfree-content{width:100%;max-width:480px;text-align:center;padding:0;margin:0}.riskfree-text{font-size:20px;margin:0 0 8px 0;color:#2B3A4A}.riskfree-highlight{color:#0A3D62;font-weight:bold}.riskfree-btn{display:inline-block;width:100%;font-size:17px;font-weight:bold;color:#fff;background:linear-gradient(90deg,#1FC8DB 0%,#2CB5A0 100%);padding:12px;border-radius:6px;cursor:pointer;text-decoration:none;transition:background 0.3s;border:none;box-sizing:border-box;box-shadow:0 2px 12px rgba(44,181,160,0.10)}.riskfree-btn:hover{background:linear-gradient(90deg,#2CB5A0 0%,#1FC8DB 100%)}@media (max-width:768px){.riskfree-text{font-size:17px !important}.riskfree-btn{font-size:15px !important;padding:10px !important}}@media (max-width:480px){.riskfree-text{font-size:15px !important}.riskfree-btn{font-size:13px !important;padding:8px !important}}</style></div>",
+  "lastVariableGeneration": { "$date": "2025-09-21T15:00:00.000Z" },
+  "isModernTemplate": true,
+  "templateCode": "<div class=\"riskfree-module\"> <div class=\"riskfree-content\"> <div class=\"riskfree-text\"> <span class=\"riskfree-highlight\">${riskfree_highlight_text}</span> ${riskfree_text} </div> <a href=\"${riskfree_btn_url}\" class=\"riskfree-btn\"> ${riskfree_btn_text} </a> </div> <style> .riskfree-module { margin: 0; padding: 24px 0; display: flex; justify-content: center; align-items: center; background: transparent; width: 100%; } .riskfree-content { width: 100%; max-width: ${riskfree_max_width}; text-align: center; padding: 0; margin: 0; } .riskfree-text { font-size: 20px; margin: 0 0 8px 0; color: ${riskfree_text_color}; } .riskfree-highlight { color: ${riskfree_highlight_color}; font-weight: bold; } .riskfree-btn { display: inline-block; width: 100%; font-size: 17px; font-weight: bold; color: ${riskfree_btn_text_color}; background: ${riskfree_btn_gradient}; padding: 12px; border-radius: ${riskfree_btn_radius}; cursor: pointer; text-decoration: none; transition: background 0.3s; border: none; box-sizing: border-box; box-shadow: ${riskfree_btn_shadow}; } .riskfree-btn:hover { background: ${riskfree_btn_hover_gradient}; } @media (max-width: 768px) { .riskfree-text { font-size: 17px !important; } .riskfree-btn { font-size: 15px !important; padding: 10px !important; } } @media (max-width: 480px) { .riskfree-text { font-size: 15px !important; } .riskfree-btn { font-size: 13px !important; padding: 8px !important; } } </style> </div>",
+  "variables": [
+    { "name": "riskfree_highlight_text", "label": "Highlight Text", "type": "text", "defaultValue": "8k+" },
+    { "name": "riskfree_text", "label": "Main Text", "type": "text", "defaultValue": "satisfied customers this month" },
+    { "name": "riskfree_btn_text", "label": "Button Text", "type": "text", "defaultValue": "100% SATISFIED! Try it or get a full refund." },
+    { "name": "riskfree_btn_gradient", "label": "Button Gradient", "type": "text", "defaultValue": "linear-gradient(90deg, #1FC8DB 0%, #2CB5A0 100%)" },
+    { "name": "riskfree_btn_text_color", "label": "Button Text Color", "type": "color", "defaultValue": "#fff" },
+    { "name": "riskfree_text_color", "label": "Text Color", "type": "color", "defaultValue": "#2B3A4A" },
+    { "name": "riskfree_highlight_color", "label": "Highlight Color", "type": "color", "defaultValue": "#0A3D62" },
+    { "name": "riskfree_btn_radius", "label": "Button Border Radius", "type": "text", "defaultValue": "6px" },
+    { "name": "riskfree_btn_shadow", "label": "Button Shadow", "type": "text", "defaultValue": "0 2px 12px rgba(44,181,160,0.10)" },
+    { "name": "riskfree_btn_hover_gradient", "label": "Button Hover Gradient", "type": "text", "defaultValue": "linear-gradient(90deg, #2CB5A0 0%, #1FC8DB 100%)" },
+    { "name": "riskfree_btn_url", "label": "Button URL", "type": "text", "defaultValue": "#" },
+    { "name": "riskfree_max_width", "label": "Max Width", "type": "text", "defaultValue": "480px" }
+  ],
+  "popular": false
+}

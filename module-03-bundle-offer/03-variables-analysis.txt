@@ -1,0 +1,76 @@
+/* VARIABLES DYNAMIQUES POUR MODULE BUNDLE OFFER */
+
+/* 1. TEXTES */
+- Titre principal : "Starter Kit Special"
+- Nom du bundle : "Starter Essentials"
+- Compteur d'items : "(3 items)"
+- Prix barré global : "€99,00"
+- Badge : "INCLUDED!"
+- Nom produit 1 : "Eco Bottle"
+- Prix barré 1 : "€39,00"
+- Nom produit 2 : "Bamboo Mixer"
+- Prix barré 2 : "€39,00"
+- Nom produit 3 : "Steel Straw"
+- Prix barré 3 : "€39,00"
+
+/* 2. IMAGES */
+- Image produit 1 : url
+- Image produit 2 : url
+- Image produit 3 : url
+
+/* 3. COULEURS */
+- Couleur bordure principale : #1B6B6B
+- Couleur background principal : #E5F9F7
+- Couleur header : #E5F9F7
+- Couleur bordure header : #1B6B6B
+- Couleur titre principal : #1B6B6B
+- Couleur background content : #F1FFFB
+- Couleur bordure titre row : #7FE6D6
+- Couleur nom bundle : #1B6B6B
+- Couleur compteur : #2E8B57
+- Couleur prix barré : #2E8B57
+- Couleur badge : linear-gradient(135deg, #3ED6B7, #1B6B6B)
+- Couleur badge shadow : rgba(30, 214, 183, 0.3)
+- Couleur background item : #E5F9F7
+- Couleur pastille + : #1B6B6B
+- Couleur nom produit : #1B6B6B
+- Couleur prix barré item : #2E8B57
+- Couleur prix actuel : #3ED6B7
+
+/* 4. AUTRES (si besoin) */
+- Tous les textes (badge, titres, noms, etc.)
+- Tous les prix
+- Tous les backgrounds et bordures
+
+/* 5. STRUCTURE DES VARIABLES (exemple) */
+1. main_title
+2. bundle_name
+3. item_count
+4. global_crossed_price
+5. badge_text
+6. product1_name
+7. product1_crossed_price
+8. product1_image_url
+9. product2_name
+10. product2_crossed_price
+11. product2_image_url
+12. product3_name
+13. product3_crossed_price
+14. product3_image_url
+15. border_color
+16. background_color
+17. header_background_color
+18. header_border_color
+19. main_title_color
+20. content_background_color
+21. title_row_border_color
+22. bundle_name_color
+23. item_count_color
+24. crossed_price_color
+25. badge_gradient
+26. badge_shadow
+27. item_background_color
+28. plus_indicator_color
+29. product_name_color
+30. item_crossed_price_color
+31. current_price_color

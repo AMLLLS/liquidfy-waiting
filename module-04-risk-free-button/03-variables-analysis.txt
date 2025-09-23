@@ -1,0 +1,14 @@
+# Variables dynamiques à prévoir pour le module Risk Free Button
+
+1. riskfree_highlight_text : texte mis en avant (ex: "8k+")
+2. riskfree_text : texte principal au-dessus du bouton (ex: "satisfied customers this month")
+3. riskfree_btn_text : texte du bouton (ex: "100% SATISFIED! Try it or get a full refund.")
+4. riskfree_btn_gradient : couleur de fond du bouton (ex: "linear-gradient(90deg, #1FC8DB 0%, #2CB5A0 100%)")
+5. riskfree_btn_text_color : couleur du texte du bouton (ex: "#fff")
+6. riskfree_text_color : couleur du texte principal (ex: "#2B3A4A")
+7. riskfree_highlight_color : couleur du texte mis en avant (ex: "#0A3D62")
+8. riskfree_btn_radius : border-radius du bouton (ex: "6px")
+9. riskfree_btn_shadow : ombre portée du bouton (ex: "0 2px 12px rgba(44,181,160,0.10)")
+10. riskfree_btn_hover_gradient : gradient au hover (optionnel)
+11. riskfree_btn_url : URL du bouton (ex: "#")
+12. riskfree_max_width : largeur max du module (ex: "480px")

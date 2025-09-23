@@ -9,7 +9,7 @@ export async function POST(request: NextRequest) {
     // Read the email template
     const fs = require('fs');
     const path = require('path');
-    const templatePath = path.join(process.cwd(), 'email-templates', 'payment-success-notification.html');
+  const templatePath = path.join(process.cwd(), 'email-templates', 'early-bird-final-reminder.html');
     
     if (!fs.existsSync(templatePath)) {
       return NextResponse.json(
@@ -67,9 +67,9 @@ export async function POST(request: NextRequest) {
           const response = await resend.emails.send({
             from: 'Liquidfy Team <hello@liquidfy.app>',
             to: [email],
-            subject: 'Welcome to Liquidfy - Your Lifetime Access is Ready',
+            subject: '🎯 Your Early Bird Access - Final Reminder',
             html: emailHtml,
-            text: 'Congratulations Dave Brennan! Your Unlimited license payment has been processed. Plan: Early Bird (Unlimited). Amount Paid: $99.00. Access Level: Lifetime Access. Access your dashboard: https://liquidfy.app/dashboard'
+            text: 'Hi! This is your friendly reminder: you still have access to the exclusive Early Bird offer for Liquidfy. Get 220+ premium modules, priority support, and lifetime updates for just $99 (instead of $199). Use code EARLYBIRD99 at checkout. Claim your access: https://liquidfy.app'
           });
 
           if (response?.data?.id) {
