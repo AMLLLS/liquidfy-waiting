@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="x-apple-disable-message-reformatting">
+    <meta name="format-detection" content="telephone=no,address=no,email=no,date=no,url=no">
+    <title>Liquidfy - Dashboard Update</title>
+    
+    <!--[if mso]>
+    <style>
+        * { font-family: Arial, sans-serif !important; }
+    </style>
+    <![endif]-->
+    
+    <style>
+        /* Reset styles */
+        body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+        table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+        img { -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
+        
+        /* Base styles */
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100% !important;
+            height: 100% !important;
+            background-color: #F4F4F4;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+        
+        /* Container */
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Content styles */
+        .content {
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .header {
+            padding: 32px 40px 24px;
+            text-align: center;
+            border-bottom: 1px solid #E5E5E5;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0A0A0A;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+        
+        .hero {
+            padding: 40px 40px 32px;
+            text-align: center;
+        }
+        
+        .hero-title {
+            margin: 0 0 12px;
+            font-size: 28px;
+            font-weight: 600;
+            color: #0A0A0A;
+            line-height: 1.3;
+            letter-spacing: -0.5px;
+        }
+        
+        .hero-subtitle {
+            margin: 0 0 24px;
+            font-size: 16px;
+            color: #6B6B6B;
+            line-height: 1.5;
+        }
+        
+        .body-content {
+            padding: 0 40px 32px;
+        }
+        
+        .text-block {
+            margin: 0 0 20px;
+            font-size: 15px;
+            color: #404040;
+            line-height: 1.6;
+        }
+        
+        .feature-list {
+            margin: 24px 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .feature-item {
+            margin: 0 0 16px;
+            padding-left: 28px;
+            position: relative;
+            font-size: 15px;
+            color: #404040;
+            line-height: 1.6;
+        }
+        
+        .feature-item:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #7C3AED;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        .cta-container {
+            padding: 32px 40px;
+            text-align: center;
+            background-color: #FAFAFA;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: #0A0A0A;
+            color: #FFFFFF !important;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+        
+        .cta-button:hover {
+            background-color: #262626;
+        }
+        
+        .cta-secondary {
+            display: inline-block;
+            margin-top: 16px;
+            color: #6B6B6B !important;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .divider {
+            height: 1px;
+            background-color: #E5E5E5;
+            margin: 32px 40px;
+        }
+        
+        .benefits-grid {
+            padding: 0 40px 32px;
+        }
+        
+        .benefit-card {
+            margin-bottom: 24px;
+            padding: 20px;
+            background-color: #FAFAFA;
+            border-radius: 6px;
+        }
+        
+        .benefit-title {
+            margin: 0 0 8px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #0A0A0A;
+        }
+        
+        .benefit-text {
+            margin: 0;
+            font-size: 14px;
+            color: #6B6B6B;
+            line-height: 1.5;
+        }
+        
+        .footer {
+            padding: 32px 40px;
+            text-align: center;
+            color: #888888;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        
+        .footer a {
+            color: #888888;
+            text-decoration: underline;
+        }
+        
+        .social-links {
+            margin: 20px 0 0;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            margin: 0 8px;
+            color: #888888;
+            text-decoration: none;
+            font-size: 13px;
+        }
+        
+        /* Responsive */
+        @media only screen and (max-width: 600px) {
+            .email-container {
+                width: 100% !important;
+            }
+            
+            .content {
+                border-radius: 0 !important;
+            }
+            
+            .header,
+            .hero,
+            .body-content,
+            .cta-container,
+            .benefits-grid,
+            .footer {
+                padding-left: 24px !important;
+                padding-right: 24px !important;
+            }
+            
+            .hero-title {
+                font-size: 24px !important;
+            }
+            
+            .divider {
+                margin-left: 24px !important;
+                margin-right: 24px !important;
+            }
+        }
+        
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            .content {
+                background-color: #FFFFFF !important;
+            }
+            .hero-title,
+            .benefit-title,
+            .text-block,
+            .feature-item {
+                color: #0A0A0A !important;
+            }
+        }
+    </style>
+</head>
+<body style="margin: 0; padding: 0; background-color: #F4F4F4;">
+    
+    <!-- Preheader (hidden text for inbox preview) -->
+    <div style="display: none; max-height: 0px; overflow: hidden;">
+        Discover the new Liquidfy dashboard - cleaner, faster, more powerful
+    </div>
+    
+    <!-- Spacer -->
+    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+        <tr>
+            <td style="padding: 40px 0;">
+                
+                <!-- Email Container -->
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" class="email-container" align="center">
+                    
+                    <!-- Content Card -->
+                    <tr>
+                        <td class="content" style="background-color: #FFFFFF; border-radius: 8px; overflow: hidden;">
+                            
+                            <!-- Header -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td class="header" style="padding: 32px 40px 24px; text-align: center; border-bottom: 1px solid #E5E5E5;">
+                                        <a href="https://liquidfy.app" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px; justify-content: center;">
+                                            <!-- Logo Image -->
+                                            <img src="https://liquidfy.app/LIQUIDFY-LOGO.png" 
+                                                 alt="Liquidfy" 
+                                                 height="32" 
+                                                 style="height: 32px; width: auto; display: inline-block; vertical-align: middle;"
+                                            />
+                                            <!-- Logo Text -->
+                                            <span class="logo" style="font-size: 32px; font-weight: 500; color: #0A0A0A;">
+                                                Liquidfy
+                                            </span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Hero Section -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td class="hero" style="padding: 40px 40px 32px; text-align: center;">
+                                        <h1 class="hero-title" style="margin: 0 0 12px; font-size: 28px; font-weight: 600; color: #0A0A0A; line-height: 1.3;">
+                                            Your Dashboard Just Got Better
+                                        </h1>
+                                        <p class="hero-subtitle" style="margin: 0 0 24px; font-size: 16px; color: #6B6B6B; line-height: 1.5;">
+                                            We've redesigned your workspace to help you work faster and more efficiently
+                                        </p>
+                                        
+                                        <!-- Dashboard Screenshot -->
+                                        <a href="https://liquidfy.app/dashboard" style="display: block; margin: 24px 0 0;">
+                                            <img src="https://liquidfy.app/images/dashboard-preview.png" 
+                                                 alt="New Liquidfy Dashboard" 
+                                                 width="520" 
+                                                 style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #E5E5E5; display: block; margin: 0 auto;"
+                                            />
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Body Content -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td class="body-content" style="padding: 0 40px 32px;">
+                                        <p class="text-block" style="margin: 0 0 20px; font-size: 15px; color: #404040; line-height: 1.6;">
+                                            Hi there,
+                                        </p>
+                                        <p class="text-block" style="margin: 0 0 20px; font-size: 15px; color: #404040; line-height: 1.6;">
+                                            We've been working hard to make Liquidfy even more intuitive and powerful. Our latest dashboard update brings a cleaner interface, improved navigation, and enhanced performance.
+                                        </p>
+                                        
+                                        <ul class="feature-list" style="margin: 24px 0; padding: 0; list-style: none;">
+                                            <li class="feature-item" style="margin: 0 0 16px; padding-left: 28px; position: relative; font-size: 15px; color: #404040; line-height: 1.6;">
+                                                <strong>Cleaner Design</strong> – Minimalist interface for better focus
+                                            </li>
+                                            <li class="feature-item" style="margin: 0 0 16px; padding-left: 28px; position: relative; font-size: 15px; color: #404040; line-height: 1.6;">
+                                                <strong>Faster Performance</strong> – Optimized for speed and reliability
+                                            </li>
+                                            <li class="feature-item" style="margin: 0 0 16px; padding-left: 28px; position: relative; font-size: 15px; color: #404040; line-height: 1.6;">
+                                                <strong>Smart Navigation</strong> – Find what you need in seconds
+                                            </li>
+                                            <li class="feature-item" style="margin: 0 0 16px; padding-left: 28px; position: relative; font-size: 15px; color: #404040; line-height: 1.6;">
+                                                <strong>Dark Mode</strong> – Easy on the eyes, day or night
+                                            </li>
+                                        </ul>
+                                        
+                                        <p class="text-block" style="margin: 0 0 20px; font-size: 15px; color: #404040; line-height: 1.6;">
+                                            These improvements are just the beginning. We're constantly evolving Liquidfy to help you build better, faster.
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- CTA Section -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td class="cta-container" style="padding: 32px 40px; text-align: center; background-color: #FAFAFA;">
+                                        <a href="https://liquidfy.app/dashboard" class="cta-button" style="display: inline-block; padding: 14px 32px; background-color: #0A0A0A; color: #FFFFFF; text-decoration: none; border-radius: 8px; font-size: 15px; font-weight: 500;">
+                                            Explore New Dashboard
+                                        </a>
+                                        <br>
+                                        <a href="https://liquidfy.app/pricing" class="cta-secondary" style="display: inline-block; margin-top: 16px; color: #6B6B6B; text-decoration: none; font-size: 14px;">
+                                            View pricing plans →
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Divider -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td>
+                                        <div class="divider" style="height: 1px; background-color: #E5E5E5; margin: 32px 40px;"></div>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Benefits Grid -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td class="benefits-grid" style="padding: 0 40px 32px;">
+                                        
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                            <tr>
+                                                <td class="benefit-card" style="margin-bottom: 24px; padding: 20px; background-color: #FAFAFA; border-radius: 6px;">
+                                                    <h3 class="benefit-title" style="margin: 0 0 8px; font-size: 16px; font-weight: 600; color: #0A0A0A;">
+                                                        🚀 Unlimited Add-ons
+                                                    </h3>
+                                                    <p class="benefit-text" style="margin: 0; font-size: 14px; color: #6B6B6B; line-height: 1.5;">
+                                                        Access our entire library of premium add-ons. Build anything, without limits.
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="benefit-card" style="margin-bottom: 24px; padding: 20px; background-color: #FAFAFA; border-radius: 6px;">
+                                                    <h3 class="benefit-title" style="margin: 0 0 8px; font-size: 16px; font-weight: 600; color: #0A0A0A;">
+                                                        ⚡️ Priority Support
+                                                    </h3>
+                                                    <p class="benefit-text" style="margin: 0; font-size: 14px; color: #6B6B6B; line-height: 1.5;">
+                                                        Get help when you need it. Our team responds within hours, not days.
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="benefit-card" style="margin-bottom: 0; padding: 20px; background-color: #FAFAFA; border-radius: 6px;">
+                                                    <h3 class="benefit-title" style="margin: 0 0 8px; font-size: 16px; font-weight: 600; color: #0A0A0A;">
+                                                        🎯 Early Access
+                                                    </h3>
+                                                    <p class="benefit-text" style="margin: 0; font-size: 14px; color: #6B6B6B; line-height: 1.5;">
+                                                        Be the first to try new features and add-ons before anyone else.
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- Footer -->
+                    <tr>
+                        <td class="footer" style="padding: 32px 40px; text-align: center; color: #888888; font-size: 13px; line-height: 1.6;">
+                            <p style="margin: 0 0 12px;">
+                                Questions? Just reply to this email, we're here to help.
+                            </p>
+                            <p style="margin: 0 0 20px;">
+                                <a href="https://liquidfy.app" style="color: #888888; text-decoration: underline;">liquidfy.app</a>
+                            </p>
+                            
+                            <div class="social-links" style="margin: 20px 0 0;">
+                                <a href="https://twitter.com/liquidfy" style="display: inline-block; margin: 0 8px; color: #888888; text-decoration: none; font-size: 13px;">Twitter</a>
+                                <span style="color: #D4D4D4;">•</span>
+                                <a href="https://github.com/liquidfy" style="display: inline-block; margin: 0 8px; color: #888888; text-decoration: none; font-size: 13px;">GitHub</a>
+                                <span style="color: #D4D4D4;">•</span>
+                                <a href="https://liquidfy.app/docs" style="display: inline-block; margin: 0 8px; color: #888888; text-decoration: none; font-size: 13px;">Docs</a>
+                            </div>
+                            
+                            <p style="margin: 24px 0 0; font-size: 12px; color: #A1A1A1;">
+                                © 2025 Liquidfy. All rights reserved.<br>
+                                <a href="https://liquidfy.app/unsubscribe" style="color: #A1A1A1; text-decoration: underline;">Unsubscribe</a> | 
+                                <a href="https://liquidfy.app/preferences" style="color: #A1A1A1; text-decoration: underline;">Email Preferences</a>
+                            </p>
+                        </td>
+                    </tr>
+                    
+                </table>
+                
+            </td>
+        </tr>
+    </table>
+    
+</body>
+</html>

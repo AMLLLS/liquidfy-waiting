@@ -9,7 +9,7 @@ export async function POST(request: NextRequest) {
     // Read the email template
     const fs = require('fs');
     const path = require('path');
-  const templatePath = path.join(process.cwd(), 'email-templates', 'early-bird-final-reminder.html');
+    const templatePath = path.join(process.cwd(), 'email-template.html');
     
     if (!fs.existsSync(templatePath)) {
       return NextResponse.json(
@@ -67,9 +67,9 @@ export async function POST(request: NextRequest) {
           const response = await resend.emails.send({
             from: 'Liquidfy Team <hello@liquidfy.app>',
             to: [email],
-            subject: '🎯 Your Early Bird Access - Final Reminder',
+            subject: 'Your Dashboard Just Got Better - Liquidfy Update',
             html: emailHtml,
-            text: 'Hi! This is your friendly reminder: you still have access to the exclusive Early Bird offer for Liquidfy. Get 220+ premium modules, priority support, and lifetime updates for just $99 (instead of $199). Use code EARLYBIRD99 at checkout. Claim your access: https://liquidfy.app'
+            text: 'Hi there! We have redesigned your Liquidfy workspace to help you work faster and more efficiently. Discover the new dashboard with cleaner design, faster performance, smart navigation, and dark mode. Explore the new dashboard: https://liquidfy.app/dashboard'
           });
 
           if (response?.data?.id) {

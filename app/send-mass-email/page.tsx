@@ -90,9 +90,9 @@ test@example.com`);
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
       <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8">
         <div className="text-center mb-8">
-          <h1 className="text-2xl font-bold text-gray-900 mb-2">📧 Early Bird Final Reminder</h1>
+          <h1 className="text-2xl font-bold text-gray-900 mb-2">📧 Dashboard Update Announcement</h1>
           <p className="text-gray-600">
-            Send the Early Bird final reminder email to selected subscribers
+            Send the new dashboard update email to selected subscribers
           </p>
         </div>
 
@@ -100,7 +100,7 @@ test@example.com`);
           <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
             <h3 className="font-medium text-yellow-900 mb-2">⚠️ Warning</h3>
             <ul className="text-sm text-yellow-800 space-y-1">
-              <li>• This will send the Early Bird reminder email to ALL listed addresses</li>
+              <li>• This will send the dashboard update email to ALL listed addresses</li>
               <li>• Irreversible action</li>
               <li>• Double-check the template and recipient list before sending</li>
               <li>• Make sure your list is correct</li>
@@ -115,7 +115,7 @@ test@example.com`);
               value={emailList}
               onChange={(e) => setEmailList(e.target.value)}
               placeholder="amael.lelaisant@gmail.com&#10;patrice.lelaisant@gmail.com&#10;..."
-              className="w-full h-32 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full h-32 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 bg-white"
             />
             <div className="mt-2 flex justify-between items-center">
               <button
@@ -135,7 +135,7 @@ test@example.com`);
             disabled={isLoading || emailList.trim().length === 0}
             className="w-full bg-green-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-green-700 focus:ring-2 focus:ring-green-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {isLoading ? 'Envoi en cours...' : '� Envoyer les mails de relance Early Bird'}
+            {isLoading ? 'Envoi en cours...' : '📤 Envoyer l\'annonce dashboard update'}
           </button>
         </div>
 
@@ -147,7 +147,7 @@ test@example.com`);
                 ⚠️ Final Confirmation
               </h3>
               <p className="text-gray-600 mb-6">
-                Are you ABSOLUTELY sure you want to send the <b>Early Bird reminder email</b> to <strong>{emailList.split('\n').filter(email => email.trim().length > 0).length} subscribers</strong>?
+                Are you ABSOLUTELY sure you want to send the <b>dashboard update email</b> to <strong>{emailList.split('\n').filter(email => email.trim().length > 0).length} subscribers</strong>?
               </p>
               <p className="text-sm text-gray-500 mb-6">
                 This action cannot be undone.
