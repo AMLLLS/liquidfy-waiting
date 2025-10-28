@@ -246,45 +246,19 @@ function initDynamicPriceBadges() {
     // Calculate and update discount badge
     const discountPercent = calculateDiscountPercent(compareAtPrice, currentPrice);
     
-    // DEBUG LOG
-    console.log('🔍 PRICE DEBUG:', {
-        currentPrice: currentPrice,
-        compareAtPrice: compareAtPrice,
-        discountPercent: discountPercent,
-        condition1_compareAtPriceExists: !!compareAtPrice,
-        condition2_compareGreaterThanCurrent: compareAtPrice > currentPrice,
-        condition3_discountPositive: discountPercent > 0,
-        willDisplay: compareAtPrice && compareAtPrice > currentPrice && discountPercent > 0,
-        discountBadgeElement: discountBadge,
-        comparePriceElement: comparePriceEl
-    });
-    
     // Update discount badge and compare price (only if compare price exists and is higher than current)
     if (compareAtPrice && compareAtPrice > currentPrice && discountPercent > 0) {
-        // FORCE display with inline styles
+        // FORCE display with inline styles + !important
         discountBadge.textContent = `-${discountPercent}%`;
-        discountBadge.style.display = 'inline-block';
-        discountBadge.style.visibility = 'visible';
+        discountBadge.style.setProperty('display', 'inline-block', 'important');
+        discountBadge.style.setProperty('visibility', 'visible', 'important');
         
         comparePriceEl.textContent = formatPrice(compareAtPrice, config.currencySymbol);
-        comparePriceEl.style.display = 'inline-block';
-        comparePriceEl.style.visibility = 'visible';
-        
-        console.log('✅ AFFICHAGE FORCÉ:', {
-            discount: discountBadge.textContent,
-            comparePrice: comparePriceEl.textContent,
-            discountDisplay: discountBadge.style.display,
-            comparePriceDisplay: comparePriceEl.style.display
-        });
+        comparePriceEl.style.setProperty('display', 'inline-block', 'important');
+        comparePriceEl.style.setProperty('visibility', 'visible', 'important');
     } else {
-        discountBadge.style.display = 'none';
-        comparePriceEl.style.display = 'none';
-        
-        console.log('❌ CACHÉ car:', {
-            hasComparePrice: !!compareAtPrice,
-            isGreater: compareAtPrice > currentPrice,
-            hasDiscount: discountPercent > 0
-        });
+        discountBadge.style.setProperty('display', 'none', 'important');
+        comparePriceEl.style.setProperty('display', 'none', 'important');
     }
 
     // Update current price
@@ -307,6 +281,54 @@ if (document.readyState === 'loading') {
     // DOM already loaded, init immediately
     initDynamicPriceBadges();
 }
+
+// Force display persistence (fight against Shopify theme hiding elements)
+let forcedDisplayInterval = null;
+let forceAttempts = 0;
+const MAX_FORCE_ATTEMPTS = 6; // 6 attempts x 200ms = 1.2 seconds max
+
+function forceDisplayPersistent() {
+    forceAttempts++;
+    
+    const discountBadge = document.getElementById('discount-badge');
+    const comparePriceEl = document.getElementById('compare-price');
+    
+    if (!discountBadge || !comparePriceEl) return;
+    
+    // Only force if we have compare price data
+    if (window.liquidProductData && window.liquidProductData.comparePrice && 
+        window.liquidProductData.comparePrice > window.liquidProductData.currentPrice) {
+        
+        const currentDisplay = window.getComputedStyle(discountBadge).display;
+        const compareDisplay = window.getComputedStyle(comparePriceEl).display;
+        
+        // If visible, we're done - stop monitoring
+        if (currentDisplay !== 'none' && compareDisplay !== 'none') {
+            if (forcedDisplayInterval) {
+                clearInterval(forcedDisplayInterval);
+                forcedDisplayInterval = null;
+            }
+            return;
+        }
+        
+        // Force back if hidden
+        if (currentDisplay === 'none' || compareDisplay === 'none') {
+            discountBadge.style.setProperty('display', 'inline-block', 'important');
+            comparePriceEl.style.setProperty('display', 'inline-block', 'important');
+        }
+    }
+    
+    // Stop after max attempts
+    if (forceAttempts >= MAX_FORCE_ATTEMPTS && forcedDisplayInterval) {
+        clearInterval(forcedDisplayInterval);
+        forcedDisplayInterval = null;
+    }
+}
+
+// Start monitoring after 100ms, check every 200ms
+setTimeout(function() {
+    forcedDisplayInterval = setInterval(forceDisplayPersistent, 200);
+}, 100);
 
 // Function to update prices from variant object
 function updatePricesFromVariant(variant) {

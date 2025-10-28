@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="x-apple-disable-message-reformatting">
     <meta name="format-detection" content="telephone=no,address=no,email=no,date=no,url=no">
+    <meta name="color-scheme" content="light only">
+    <meta name="supported-color-schemes" content="light">
     <title>New Add-ons Available - Liquidfy</title>
     
     <!--[if mso]>
@@ -15,6 +17,12 @@
     <![endif]-->
     
     <style>
+        /* Force light mode - prevent dark mode conversion */
+        :root {
+            color-scheme: light only;
+            supported-color-schemes: light;
+        }
+        
         /* Reset styles */
         body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
         table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
@@ -372,11 +380,112 @@
             }
         }
         
-        /* Dark mode override */
+        /* Force light mode - Gmail/Outlook dark mode prevention */
         @media (prefers-color-scheme: dark) {
-            .content,
+            body {
+                background-color: #FAFAFA !important;
+            }
+            
+            .content {
+                background-color: #FFFFFF !important;
+            }
+            
+            .header {
+                background: linear-gradient(135deg, #0A0A0A 0%, #262626 100%) !important;
+            }
+            
+            .logo {
+                color: #FFFFFF !important;
+            }
+            
+            .hero {
+                background: linear-gradient(180deg, #FAFAFA 0%, #FFFFFF 100%) !important;
+            }
+            
+            .hero-title {
+                color: #0A0A0A !important;
+            }
+            
+            .hero-subtitle {
+                color: #404040 !important;
+            }
+            
+            .hero-count {
+                background-color: #0A0A0A !important;
+                color: #FFFFFF !important;
+            }
+            
+            .intro-paragraph {
+                color: #6B6B6B !important;
+            }
+            
+            .addon-card {
+                background-color: #FAFAFA !important;
+            }
+            
+            .addon-category {
+                background-color: #E5E5E5 !important;
+                color: #6B6B6B !important;
+            }
+            
+            .addon-title {
+                color: #0A0A0A !important;
+            }
+            
+            .addon-description {
+                color: #6B6B6B !important;
+            }
+            
+            .addon-link {
+                color: #0A0A0A !important;
+            }
+            
+            .stats-section {
+                background-color: #FAFAFA !important;
+            }
+            
+            .stat-number {
+                color: #0A0A0A !important;
+            }
+            
+            .stat-label {
+                color: #6B6B6B !important;
+            }
+            
+            .cta-section {
+                background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%) !important;
+            }
+            
+            .cta-title {
+                color: #FFFFFF !important;
+            }
+            
+            .cta-text {
+                color: rgba(255,255,255,0.8) !important;
+            }
+            
+            .cta-button {
+                background-color: #FFFFFF !important;
+                color: #0A0A0A !important;
+            }
+            
+            .cta-note {
+                color: rgba(255,255,255,0.6) !important;
+            }
+            
             .footer {
                 background-color: #FFFFFF !important;
+                color: #888888 !important;
+            }
+            
+            .footer-links a {
+                color: #888888 !important;
+            }
+            
+            /* Force specific elements that Gmail might override */
+            [data-ogsc] {
+                background-color: #FFFFFF !important;
+                color: #0A0A0A !important;
             }
         }
     </style>
@@ -391,7 +500,7 @@
     <!-- Spacer -->
     <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
         <tr>
-            <td style="padding: 32px 0;">
+            <td style="padding: 0px;">
                 
                 <!-- Email Container -->
                 <table role="presentation" cellspacing="0" cellpadding="0" border="0" class="email-container" align="center">
