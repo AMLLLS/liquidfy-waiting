@@ -1,0 +1,48 @@
+ANALYSE DES VARIABLES - Module 07: Statistics Section
+=====================================================
+
+NOMBRE TOTAL DE VARIABLES : 17
+
+SECTION HEADER (4 variables)
+----------------------------
+1. title_main          → "Proven Results"
+2. title_accent        → "Worth Celebrating"
+3. subtitle            → "Real numbers from real customers who transformed their experience."
+4. accent_color        → "#E8B931" (doré/gold)
+
+STATISTIQUE 1 (2 variables)
+---------------------------
+5. stat1_number        → "92k+"
+6. stat1_label         → "Happy customers worldwide"
+
+STATISTIQUE 2 (2 variables)
+---------------------------
+7. stat2_number        → "87%"
+8. stat2_label         → "Noticed improvement within 3 weeks"
+
+STATISTIQUE 3 (2 variables)
+---------------------------
+9. stat3_number        → "41%"
+10. stat3_label        → "Experience instant comfort"
+
+COULEURS GÉNÉRALES (4 variables)
+--------------------------------
+11. gradient_start     → "#1A1A2E" (dark blue)
+12. gradient_end       → "#0F0F1E" (darker blue)
+13. text_color         → "#FFFFFF" (white)
+14. border_color       → "rgba(255, 255, 255, 0.15)" (white transparent)
+
+LAYOUT (3 variables)
+-------------------
+15. border_radius      → "16px"
+16. padding_vertical   → "60px"
+17. padding_horizontal → "30px"
+
+RÉSUMÉ :
+--------
+- Header: 4 variables (titre divisé, sous-titre, couleur accent)
+- Stats: 6 variables (3 stats × 2 = number + label)
+- Couleurs: 4 variables (gradient start/end, texte, bordures)
+- Layout: 3 variables (radius, padding V/H)
+
+Total: 17 variables (juste ce qui suffit, pas excessif)

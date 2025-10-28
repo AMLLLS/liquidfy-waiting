@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Price Badges - Code Brut Analysis</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            padding: 40px;
+            background: #f5f5f5;
+            line-height: 1.6;
+        }
+        .analysis-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #DC2626;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #374151;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #E5E7EB;
+        }
+        h3 {
+            color: #6B7280;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .code-display {
+            background: #1F2937;
+            color: #F3F4F6;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .highlight {
+            background: #FEF3C7;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+        .note {
+            background: #EFF6FF;
+            border-left: 4px solid #3B82F6;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .warning {
+            background: #FEF2F2;
+            border-left: 4px solid #DC2626;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .success {
+            background: #F0FDF4;
+            border-left: 4px solid #10B981;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+        li {
+            margin: 8px 0;
+        }
+        .demo-box {
+            border: 2px dashed #D1D5DB;
+            padding: 30px;
+            border-radius: 8px;
+            background: #F9FAFB;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="analysis-container">
+    <div class="section">
+        <h1>🏷️ Module 19: Dynamic Price Badges</h1>
+        <p><strong>Type:</strong> Product Pricing Module with Automatic Calculations</p>
+        <p><strong>Context:</strong> Product page integration - Displays discount badge, old price, new price, and extra cart discount</p>
+        <p><strong>Key Feature:</strong> All prices and percentages calculated dynamically from product data</p>
+    </div>
+
+    <div class="section">
+        <h2>📋 Original Code (As Provided)</h2>
+        <div class="code-display">&lt;div class="p-6 bg-white"&gt;
+  &lt;style&gt;
+    .product-price-badges {
+      max-width: 320px;
+      width: 100%;
+    }
+
+    /* Top line (discount, old price, new price) */
+    .product-top-line {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: nowrap;
+    }
+
+    .product-discount {
+      background-color: #c73225;
+      color: #fff;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 5px;
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+
+    .product-old {
+      color: #a0a0a0;
+      text-decoration: line-through;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .product-new {
+      color: #000;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    /* Smaller, single-line badge */
+    .product-cart-badge {
+      background-color: #c73225;
+      color: #fff;
+      font-weight: 600;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 13px;
+      margin-top: 8px;
+      text-align: left;
+      line-height: 1;
+      white-space: nowrap;
+      display: inline-block;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .product-top-line { gap: 5px; }
+      .product-discount { font-size: 11px; padding: 3px 6px; }
+      .product-old { font-size: 12px; }
+      .product-new { font-size: 15px; }
+      .product-cart-badge { font-size: 12px; padding: 5px 8px; border-radius: 5px; }
+    }
+  &lt;/style&gt;
+  
+  &lt;div class="product-price-badges"&gt;
+    &lt;div class="product-top-line"&gt;
+      &lt;span class="product-discount"&gt;-30%&lt;/span&gt;
+      &lt;span class="product-old"&gt;$154.99&lt;/span&gt;
+      &lt;span class="product-new"&gt;$108.49&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="product-cart-badge"&gt;
+      Extra 10% Off in Cart $97.64
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</div>
+    </div>
+
+    <div class="section">
+        <h2>🎯 Module Purpose & Context</h2>
+        
+        <div class="success">
+            <strong>✅ Perfect Use Case:</strong> Product page pricing display with automatic discount calculations
+        </div>
+
+        <h3>What This Module Does:</h3>
+        <ul>
+            <li><strong>Displays product pricing</strong> with visual discount badge</li>
+            <li><strong>Shows old price (compare_at_price)</strong> - strikethrough style</li>
+            <li><strong>Shows current price</strong> - bold, prominent</li>
+            <li><strong>Calculates discount percentage</strong> automatically from prices</li>
+            <li><strong>Shows additional cart discount</strong> with calculated final price</li>
+        </ul>
+
+        <h3>Dynamic Calculations Required:</h3>
+        <ol>
+            <li><strong>Discount Percentage:</strong> <code>((compare_price - current_price) / compare_price) * 100</code></li>
+            <li><strong>Cart Final Price:</strong> <code>current_price * (1 - cart_discount_percent / 100)</code></li>
+        </ol>
+
+        <div class="note">
+            <strong>💡 Integration Context:</strong> This module fetches product price data from the page (Shopify product object, meta tags, or data attributes) and performs all calculations automatically.
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🏗️ Structure Analysis</h2>
+
+        <h3>Component Breakdown:</h3>
+        <ul>
+            <li><strong>Container:</strong> <code>.product-price-badges</code> - Max-width 320px, full width</li>
+            <li><strong>Top Line:</strong> <code>.product-top-line</code> - Flexbox horizontal layout
+                <ul>
+                    <li><code>.product-discount</code> - Red badge with percentage (e.g., "-30%")</li>
+                    <li><code>.product-old</code> - Strikethrough compare price (e.g., "$154.99")</li>
+                    <li><code>.product-new</code> - Bold current price (e.g., "$108.49")</li>
+                </ul>
+            </li>
+            <li><strong>Cart Badge:</strong> <code>.product-cart-badge</code> - Red badge with extra discount message
+                <ul>
+                    <li>Format: "Extra X% Off in Cart $Y.YY"</li>
+                    <li>Final price calculated from current price and cart discount %</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>🎨 Design Elements</h2>
+
+        <h3>Colors:</h3>
+        <ul>
+            <li><strong>Discount Badges:</strong> #c73225 (red background) + white text</li>
+            <li><strong>Old Price:</strong> #a0a0a0 (gray, strikethrough)</li>
+            <li><strong>New Price:</strong> #000 (black, bold)</li>
+        </ul>
+
+        <h3>Typography:</h3>
+        <ul>
+            <li><strong>Discount badge:</strong> 12px, weight 600</li>
+            <li><strong>Old price:</strong> 14px</li>
+            <li><strong>New price:</strong> 18px, weight 700</li>
+            <li><strong>Cart badge:</strong> 13px, weight 600</li>
+        </ul>
+
+        <h3>Spacing:</h3>
+        <ul>
+            <li><strong>Top line gap:</strong> 8px between elements</li>
+            <li><strong>Cart badge margin-top:</strong> 8px</li>
+            <li><strong>Badge padding:</strong> 4px 8px (discount), 6px 10px (cart)</li>
+            <li><strong>Border radius:</strong> 5px (discount), 6px (cart badge)</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>📱 Responsive Behavior</h2>
+
+        <h3>Mobile Adjustments (max-width: 480px):</h3>
+        <ul>
+            <li><strong>Top line gap:</strong> 8px → 5px</li>
+            <li><strong>Discount badge:</strong> 12px → 11px, padding 4px 8px → 3px 6px</li>
+            <li><strong>Old price:</strong> 14px → 12px</li>
+            <li><strong>New price:</strong> 18px → 15px</li>
+            <li><strong>Cart badge:</strong> 13px → 12px, padding 6px 10px → 5px 8px, border-radius 6px → 5px</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>⚙️ JavaScript Requirements</h2>
+
+        <div class="warning">
+            <strong>⚠️ Critical:</strong> This module MUST have JavaScript to:
+            <ol>
+                <li>Fetch product price and compare_at_price from page data</li>
+                <li>Calculate discount percentage dynamically</li>
+                <li>Calculate final cart price based on extra discount %</li>
+                <li>Update DOM with calculated values</li>
+            </ol>
+        </div>
+
+        <h3>Data Sources (Shopify Context):</h3>
+        <ul>
+            <li><strong>Product Price:</strong> From <code>product.price</code> or meta tags</li>
+            <li><strong>Compare Price:</strong> From <code>product.compare_at_price</code> or meta tags</li>
+            <li><strong>Currency:</strong> From shop settings or auto-detect</li>
+        </ul>
+
+        <h3>Calculation Logic:</h3>
+        <div class="code-display">// Calculate discount percentage
+const comparePrice = 154.99; // From product data
+const currentPrice = 108.49;  // From product data
+const discountPercent = Math.round(((comparePrice - currentPrice) / comparePrice) * 100);
+// Result: 30%
+
+// Calculate cart final price
+const cartDiscountPercent = 10; // From user settings
+const finalPrice = currentPrice * (1 - cartDiscountPercent / 100);
+// Result: 97.64</div>
+    </div>
+
+    <div class="section">
+        <h2>🔧 Variables Needed</h2>
+
+        <h3>User Configurable:</h3>
+        <ol>
+            <li><strong>cart_extra_discount_percent</strong> (number) - Extra discount % shown in cart badge (e.g., 10)</li>
+            <li><strong>cart_discount_message</strong> (text) - Message text before percentage (e.g., "Extra")</li>
+            <li><strong>cart_discount_suffix</strong> (text) - Text after percentage (e.g., "Off in Cart")</li>
+            <li><strong>show_cart_badge</strong> (boolean) - Toggle cart badge visibility</li>
+            <li><strong>currency_symbol</strong> (text) - Currency symbol (default: "$")</li>
+            <li><strong>discount_badge_color</strong> (color) - Background color for badges</li>
+            <li><strong>discount_text_color</strong> (color) - Text color for badges</li>
+            <li><strong>old_price_color</strong> (color) - Color for strikethrough price</li>
+            <li><strong>new_price_color</strong> (color) - Color for current price</li>
+            <li><strong>discount_badge_radius</strong> (dimension) - Border radius for discount badge</li>
+            <li><strong>cart_badge_radius</strong> (dimension) - Border radius for cart badge</li>
+            <li><strong>max_width</strong> (dimension) - Max width of container</li>
+        </ol>
+
+        <h3>Automatically Calculated (from product data):</h3>
+        <ul>
+            <li>Original price (compare_at_price)</li>
+            <li>Current price (price)</li>
+            <li>Discount percentage</li>
+            <li>Final cart price</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>🎬 Demo - Original Code Rendering</h2>
+        <div class="demo-box">
+            <div class="p-6 bg-white">
+                <style>
+                  .product-price-badges {
+                    max-width: 320px;
+                    width: 100%;
+                  }
+
+                  .product-top-line {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    flex-wrap: nowrap;
+                  }
+
+                  .product-discount {
+                    background-color: #c73225;
+                    color: #fff;
+                    font-weight: 600;
+                    padding: 4px 8px;
+                    border-radius: 5px;
+                    font-size: 12px;
+                    flex-shrink: 0;
+                  }
+
+                  .product-old {
+                    color: #a0a0a0;
+                    text-decoration: line-through;
+                    font-size: 14px;
+                    flex-shrink: 0;
+                  }
+
+                  .product-new {
+                    color: #000;
+                    font-weight: 700;
+                    font-size: 18px;
+                  }
+
+                  .product-cart-badge {
+                    background-color: #c73225;
+                    color: #fff;
+                    font-weight: 600;
+                    padding: 6px 10px;
+                    border-radius: 6px;
+                    font-size: 13px;
+                    margin-top: 8px;
+                    text-align: left;
+                    line-height: 1;
+                    white-space: nowrap;
+                    display: inline-block;
+                  }
+
+                  @media (max-width: 480px) {
+                    .product-top-line {
+                      gap: 5px;
+                    }
+                    .product-discount {
+                      font-size: 11px;
+                      padding: 3px 6px;
+                    }
+                    .product-old {
+                      font-size: 12px;
+                    }
+                    .product-new {
+                      font-size: 15px;
+                    }
+                    .product-cart-badge {
+                      font-size: 12px;
+                      padding: 5px 8px;
+                      border-radius: 5px;
+                    }
+                  }
+                </style>
+                <div class="product-price-badges">
+                    <div class="product-top-line">
+                        <span class="product-discount">-30%</span>
+                        <span class="product-old">$154.99</span>
+                        <span class="product-new">$108.49</span>
+                    </div>
+                    <div class="product-cart-badge">
+                        Extra 10% Off in Cart $97.64
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>✅ Next Steps</h2>
+        <ol>
+            <li>Create clean production code with JavaScript calculations</li>
+            <li>Document all variables (12 configurable + auto-calculated values)</li>
+            <li>Create template version with ${} placeholders</li>
+            <li>Generate final MongoDB JSON structure</li>
+        </ol>
+
+        <div class="note">
+            <strong>🎯 Key Objective:</strong> Make this module 100% dynamic so users only configure the extra cart discount % and styling - all prices and calculations happen automatically from product page data.
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

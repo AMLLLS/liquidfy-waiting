@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deal Flash Timer - Clean Code</title>
+</head>
+<body>
+
+<!-- MODULE: Deal Flash Timer -->
+<div class="deal-flash-module">
+    <div class="deal-card">
+        <div class="deal-header">
+            <span class="deal-badge">⚡ FLASH DEAL</span>
+            <div class="deal-timer-compact">
+                <span class="timer-icon">⏰</span>
+                <span class="timer-text">
+                    <span id="deal-hours">02</span>:<span id="deal-minutes">30</span>:<span id="deal-seconds">45</span>
+                </span>
+            </div>
+        </div>
+
+        <div class="deal-content">
+            <h3 class="deal-title">Premium Wireless Headphones</h3>
+            <p class="deal-description">Noise-cancelling, 40h battery life</p>
+            
+            <div class="deal-pricing">
+                <div class="price-group">
+                    <span class="price-original">$299</span>
+                    <span class="price-current">$89</span>
+                </div>
+                <span class="price-discount">-70%</span>
+            </div>
+
+            <div class="deal-stock">
+                <div class="stock-info">
+                    <span class="stock-label">Only <strong id="stock-count">3</strong> left in stock!</span>
+                </div>
+                <div class="stock-bar-container">
+                    <div class="stock-bar-fill" id="stock-bar" style="width: 12%;"></div>
+                </div>
+            </div>
+
+            <button class="deal-cta">Grab This Deal →</button>
+        </div>
+    </div>
+</div>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.deal-flash-module {
+    width: 100%;
+    max-width: 380px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.deal-card {
+    background: #FFFFFF;
+    border: 2px solid #E5E7EB;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.deal-card:hover {
+    border-color: #EF4444;
+    box-shadow: 0 8px 24px rgba(239, 68, 68, 0.15);
+}
+
+.deal-header {
+    background: linear-gradient(135deg, #DC2626 0%, #EF4444 100%);
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.deal-badge {
+    font-size: 12px;
+    font-weight: 700;
+    color: #FFFFFF;
+    letter-spacing: 0.5px;
+}
+
+.deal-timer-compact {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.timer-icon {
+    font-size: 14px;
+}
+
+.timer-text {
+    font-size: 13px;
+    font-weight: 700;
+    color: #FFFFFF;
+    font-variant-numeric: tabular-nums;
+}
+
+.deal-content {
+    padding: 20px;
+}
+
+.deal-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 4px;
+    line-height: 1.3;
+}
+
+.deal-description {
+    font-size: 13px;
+    color: #6B7280;
+    margin-bottom: 16px;
+}
+
+.deal-pricing {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.price-group {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.price-original {
+    font-size: 16px;
+    color: #9CA3AF;
+    text-decoration: line-through;
+    font-weight: 500;
+}
+
+.price-current {
+    font-size: 28px;
+    font-weight: 800;
+    color: #DC2626;
+}
+
+.price-discount {
+    background: #FEE2E2;
+    color: #DC2626;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+.deal-stock {
+    margin-bottom: 16px;
+}
+
+.stock-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.stock-label {
+    font-size: 13px;
+    color: #DC2626;
+    font-weight: 500;
+}
+
+.stock-label strong {
+    font-weight: 700;
+}
+
+.stock-bar-container {
+    width: 100%;
+    height: 6px;
+    background: #F3F4F6;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.stock-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #DC2626 0%, #EF4444 100%);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.deal-cta {
+    width: 100%;
+    background: #DC2626;
+    color: #FFFFFF;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.deal-cta:hover {
+    background: #B91C1C;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+.deal-cta:active {
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .deal-flash-module {
+        max-width: 100%;
+    }
+
+    .deal-card {
+        border-radius: 10px;
+    }
+
+    .deal-content {
+        padding: 16px;
+    }
+
+    .deal-title {
+        font-size: 16px;
+    }
+
+    .price-current {
+        font-size: 24px;
+    }
+
+    .price-discount {
+        font-size: 14px;
+    }
+}
+</style>
+
+<script>
+function initDealTimer() {
+    const config = {
+        endDate: new Date(Date.now() + 2.5 * 60 * 60 * 1000), // 2.5 hours from now
+        hoursElementId: 'deal-hours',
+        minutesElementId: 'deal-minutes',
+        secondsElementId: 'deal-seconds',
+        stockElementId: 'stock-count',
+        stockBarId: 'stock-bar',
+        initialStock: 3,
+        totalStock: 25
+    };
+
+    const hoursElement = document.getElementById(config.hoursElementId);
+    const minutesElement = document.getElementById(config.minutesElementId);
+    const secondsElement = document.getElementById(config.secondsElementId);
+    const stockElement = document.getElementById(config.stockElementId);
+    const stockBar = document.getElementById(config.stockBarId);
+
+    if (!hoursElement || !minutesElement || !secondsElement) {
+        console.error('Deal timer elements not found');
+        return;
+    }
+
+    // Update stock bar
+    if (stockBar && stockElement) {
+        const stockPercentage = (config.initialStock / config.totalStock) * 100;
+        stockBar.style.width = stockPercentage + '%';
+        stockElement.textContent = config.initialStock;
+    }
+
+    function updateTimer() {
+        const now = new Date().getTime();
+        const endTime = new Date(config.endDate).getTime();
+        const distance = endTime - now;
+
+        if (distance < 0) {
+            hoursElement.textContent = '00';
+            minutesElement.textContent = '00';
+            secondsElement.textContent = '00';
+            clearInterval(timerInterval);
+            return;
+        }
+
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        hoursElement.textContent = String(hours).padStart(2, '0');
+        minutesElement.textContent = String(minutes).padStart(2, '0');
+        secondsElement.textContent = String(seconds).padStart(2, '0');
+    }
+
+    updateTimer();
+    const timerInterval = setInterval(updateTimer, 1000);
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', initDealTimer);
+</script>
+
+</body>
+</html>

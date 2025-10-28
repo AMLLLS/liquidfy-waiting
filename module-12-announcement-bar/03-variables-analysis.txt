@@ -1,0 +1,115 @@
+═══════════════════════════════════════════════════════════════
+  MODULE 12 - ANNOUNCEMENT BAR COUNTDOWN - ANALYSE DES VARIABLES
+═══════════════════════════════════════════════════════════════
+
+📊 NOMBRE TOTAL DE VARIABLES: 26
+
+───────────────────────────────────────────────────────────────
+1. CONTENU / TEXTES
+───────────────────────────────────────────────────────────────
+
+1. announcement_text            "Welcome Offer Ends Soon"
+2. countdown_end_date           "2025-10-28 23:59:59" (date/heure de fin)
+3. label_hours                  "HOURS"
+4. label_minutes                "MINUTES"
+5. label_seconds                "SECONDS"
+
+───────────────────────────────────────────────────────────────
+2. COULEURS - BARRE D'ANNONCE
+───────────────────────────────────────────────────────────────
+
+6. bar_bg_color                 "#FFE5E5" (rose très clair)
+7. bar_text_color               "#8E1919" (rouge foncé)
+
+───────────────────────────────────────────────────────────────
+3. COULEURS - BLOCS COUNTDOWN
+───────────────────────────────────────────────────────────────
+
+8. block_bg_color               "#FFE5E5" (rose clair)
+9. block_text_color             "#8E1919" (rouge foncé)
+10. block_border_color          "#8E1919" (rouge foncé)
+11. block_border_width          "1px"
+
+───────────────────────────────────────────────────────────────
+4. DIMENSIONS - DESKTOP (>768px)
+───────────────────────────────────────────────────────────────
+
+12. bar_padding_desktop         "6px 12px"
+13. bar_border_radius           "8px"
+14. announcement_text_size      "12px"
+15. content_gap                 "8px"
+16. countdown_gap               "4px"
+17. block_padding               "2px 4px"
+18. block_min_width             "28px"
+19. block_border_radius         "3px"
+20. number_font_size            "10px"
+21. label_font_size             "7px"
+
+───────────────────────────────────────────────────────────────
+5. DIMENSIONS - MOBILE (≤768px)
+───────────────────────────────────────────────────────────────
+
+22. bar_padding_mobile          "4px 8px"
+23. announcement_text_size_mobile "10px"
+24. countdown_gap_mobile        "3px"
+25. number_font_size_mobile     "9px"
+26. label_font_size_mobile      "6px"
+
+───────────────────────────────────────────────────────────────
+6. OPTIONS / COMPORTEMENT
+───────────────────────────────────────────────────────────────
+
+27. hide_when_expired           "false" (masquer la barre à la fin)
+28. show_days                   "false" (afficher les jours si > 24h)
+
+───────────────────────────────────────────────────────────────
+📋 NOTES IMPORTANTES
+───────────────────────────────────────────────────────────────
+
+✓ JavaScript REQUIS pour le compte à rebours fonctionnel
+✓ countdown_end_date doit être au format ISO ou timestamp
+✓ Le countdown se met à jour chaque seconde
+✓ Option hide_when_expired masque automatiquement la barre à 00:00:00
+✓ Les chiffres sont padded avec 0 (09 au lieu de 9)
+✓ Support responsive avec réduction des tailles sur mobile
+✓ Layout flex permet d'avoir texte + countdown côte à côte
+
+───────────────────────────────────────────────────────────────
+🎨 UTILISATION DES VARIABLES
+───────────────────────────────────────────────────────────────
+
+TEXTE D'ANNONCE:
+- Afficher announcement_text en gras à gauche/centre
+- Font-size: announcement_text_size (12px desktop, 10px mobile)
+- Couleur: bar_text_color
+
+BLOCS COUNTDOWN:
+- 3 blocs minimum (heures, minutes, secondes)
+- Optionnel: 4ème bloc pour les jours si show_days = true
+- Chaque bloc contient:
+  * <span> pour le chiffre (number_font_size, bold)
+  * <small> pour le label (label_font_size, normal)
+
+COULEURS:
+- Barre: bar_bg_color + bar_text_color
+- Blocs: block_bg_color + block_text_color + border
+
+JAVASCRIPT:
+- Calculer temps restant jusqu'à countdown_end_date
+- Mettre à jour les spans #countdown-hours, #countdown-minutes, #countdown-seconds
+- Si hide_when_expired = true → display:none quand temps écoulé
+- Padding des chiffres: String(hours).padStart(2, '0')
+
+───────────────────────────────────────────────────────────────
+💡 VARIANTES POSSIBLES
+───────────────────────────────────────────────────────────────
+
+1. Avec jours (DAYS:HOURS:MINUTES:SECONDS)
+2. Mode "daily reset" (réinitialise à minuit chaque jour)
+3. Avec icône ⏰ avant le texte
+4. Position sticky en haut de page
+5. Animation flash quand < 1 minute
+6. Différentes couleurs (bleu, vert, jaune, etc.)
+7. Mode "evergreen" (toujours X heures pour chaque visiteur)
+
+═══════════════════════════════════════════════════════════════

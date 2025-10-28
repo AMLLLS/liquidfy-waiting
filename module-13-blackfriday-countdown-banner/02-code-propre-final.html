@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Friday Countdown Banner - Clean Code</title>
+</head>
+<body>
+
+<!-- MODULE: Black Friday Countdown Banner -->
+<div class="bf-countdown-banner-module">
+    <div class="bf-banner">
+        <div class="bf-content">
+            <div class="bf-left">
+                <div class="bf-badge">BLACK FRIDAY</div>
+                <h2 class="bf-title">Up to 70% OFF</h2>
+                <p class="bf-subtitle">Limited time offer - Don't miss out!</p>
+            </div>
+            <div class="bf-right">
+                <div class="bf-timer-label">Sale ends in:</div>
+                <div class="bf-timer">
+                    <div class="bf-timer-block">
+                        <span class="bf-timer-number" id="bf-days">02</span>
+                        <span class="bf-timer-label-small">Days</span>
+                    </div>
+                    <div class="bf-timer-separator">:</div>
+                    <div class="bf-timer-block">
+                        <span class="bf-timer-number" id="bf-hours">14</span>
+                        <span class="bf-timer-label-small">Hours</span>
+                    </div>
+                    <div class="bf-timer-separator">:</div>
+                    <div class="bf-timer-block">
+                        <span class="bf-timer-number" id="bf-minutes">32</span>
+                        <span class="bf-timer-label-small">Mins</span>
+                    </div>
+                    <div class="bf-timer-separator">:</div>
+                    <div class="bf-timer-block">
+                        <span class="bf-timer-number" id="bf-seconds">45</span>
+                        <span class="bf-timer-label-small">Secs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.bf-countdown-banner-module {
+    width: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.bf-banner {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border-radius: 12px;
+    padding: 24px 32px;
+    position: relative;
+    overflow: hidden;
+}
+
+.bf-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 215, 0, 0.1) 50%, transparent 70%);
+    pointer-events: none;
+}
+
+.bf-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+    position: relative;
+    z-index: 1;
+}
+
+.bf-left {
+    flex: 1;
+}
+
+.bf-badge {
+    display: inline-block;
+    background: #FFD700;
+    color: #1a1a1a;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.bf-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.bf-subtitle {
+    font-size: 14px;
+    color: #B8B8B8;
+    font-weight: 400;
+}
+
+.bf-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.bf-timer-label {
+    font-size: 12px;
+    color: #FFD700;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.bf-timer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.bf-timer-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 8px;
+    padding: 8px 12px;
+    min-width: 60px;
+}
+
+.bf-timer-number {
+    font-size: 24px;
+    font-weight: 700;
+    color: #FFD700;
+    line-height: 1;
+}
+
+.bf-timer-label-small {
+    font-size: 10px;
+    color: #B8B8B8;
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.bf-timer-separator {
+    font-size: 24px;
+    font-weight: 700;
+    color: #FFD700;
+    margin: 0 -4px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .bf-banner {
+        padding: 20px 24px;
+    }
+
+    .bf-content {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .bf-left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bf-right {
+        align-items: center;
+    }
+
+    .bf-title {
+        font-size: 28px;
+    }
+
+    .bf-timer-block {
+        min-width: 50px;
+        padding: 6px 8px;
+    }
+
+    .bf-timer-number {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .bf-banner {
+        padding: 16px 20px;
+        border-radius: 8px;
+    }
+
+    .bf-title {
+        font-size: 24px;
+    }
+
+    .bf-subtitle {
+        font-size: 12px;
+    }
+
+    .bf-timer {
+        gap: 4px;
+    }
+
+    .bf-timer-block {
+        min-width: 40px;
+        padding: 4px 6px;
+    }
+
+    .bf-timer-number {
+        font-size: 18px;
+    }
+
+    .bf-timer-label-small {
+        font-size: 8px;
+    }
+
+    .bf-timer-separator {
+        font-size: 18px;
+        margin: 0 -2px;
+    }
+}
+</style>
+
+<script>
+function initBFCountdown() {
+    const config = {
+        endDate: new Date('2025-11-29 23:59:59'), // Black Friday end date
+        daysElementId: 'bf-days',
+        hoursElementId: 'bf-hours',
+        minutesElementId: 'bf-minutes',
+        secondsElementId: 'bf-seconds'
+    };
+
+    const daysElement = document.getElementById(config.daysElementId);
+    const hoursElement = document.getElementById(config.hoursElementId);
+    const minutesElement = document.getElementById(config.minutesElementId);
+    const secondsElement = document.getElementById(config.secondsElementId);
+
+    if (!daysElement || !hoursElement || !minutesElement || !secondsElement) {
+        console.error('Black Friday countdown elements not found');
+        return;
+    }
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const endTime = new Date(config.endDate).getTime();
+        const distance = endTime - now;
+
+        if (distance < 0) {
+            daysElement.textContent = '00';
+            hoursElement.textContent = '00';
+            minutesElement.textContent = '00';
+            secondsElement.textContent = '00';
+            clearInterval(countdownInterval);
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        daysElement.textContent = String(days).padStart(2, '0');
+        hoursElement.textContent = String(hours).padStart(2, '0');
+        minutesElement.textContent = String(minutes).padStart(2, '0');
+        secondsElement.textContent = String(seconds).padStart(2, '0');
+    }
+
+    updateCountdown();
+    const countdownInterval = setInterval(updateCountdown, 1000);
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', initBFCountdown);
+</script>
+
+</body>
+</html>

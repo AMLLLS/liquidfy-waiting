@@ -1,0 +1,135 @@
+ANALYSE DES VARIABLES - MODULE 09 : SHIPPING BADGE
+===========================================================
+
+FICHIER SOURCE : 02-code-propre-final.html
+
+1. TEXTES ET CONTENU
+---------------------
+Variable 1: ${status_text_before}
+  Valeur actuelle : "Ready to "
+  Description : Texte avant le mot en gras dans la section status
+  Type : Texte simple
+
+Variable 2: ${status_text_bold}
+  Valeur actuelle : "Ship"
+  Description : Texte en gras dans la section status
+  Type : Texte simple
+
+Variable 3: ${delivery_text}
+  Valeur actuelle : "Fast Delivery"
+  Description : Texte de la section livraison
+  Type : Texte simple
+
+2. IMAGE
+--------
+Variable 4: ${flag_url}
+  Valeur actuelle : "https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Greece.svg"
+  Description : URL du drapeau/icône
+  Type : URL complète
+
+Variable 5: ${flag_alt}
+  Valeur actuelle : "Country flag"
+  Description : Texte alternatif pour l'image du drapeau
+  Type : Texte simple
+
+3. COULEURS
+-----------
+Variable 6: ${badge_bg_color}
+  Valeur actuelle : "#FFFFFF"
+  Description : Couleur de fond du badge
+  Type : Couleur hex
+
+Variable 7: ${badge_text_color}
+  Valeur actuelle : "#1F2937"
+  Description : Couleur du texte principal
+  Type : Couleur hex
+
+Variable 8: ${status_dot_color}
+  Valeur actuelle : "#3B82F6"
+  Description : Couleur de la pastille animée (bleu)
+  Type : Couleur hex
+
+Variable 9: ${badge_shadow}
+  Valeur actuelle : "0 2px 8px rgba(0, 0, 0, 0.08)"
+  Description : Ombre portée du badge
+  Type : CSS box-shadow
+
+4. DIMENSIONS
+-------------
+Variable 10: ${badge_padding}
+  Valeur actuelle : "10px 24px"
+  Description : Padding interne du badge (desktop)
+  Type : Dimension CSS
+
+Variable 11: ${sections_gap}
+  Valeur actuelle : "20px"
+  Description : Espacement entre les 2 sections (desktop)
+  Type : Dimension CSS
+
+Variable 12: ${section_gap}
+  Valeur actuelle : "8px"
+  Description : Espacement entre icône et texte dans une section (desktop)
+  Type : Dimension CSS
+
+Variable 13: ${status_dot_size}
+  Valeur actuelle : "12px"
+  Description : Taille de la pastille animée (desktop)
+  Type : Dimension CSS
+
+Variable 14: ${flag_size}
+  Valeur actuelle : "20px"
+  Description : Taille du drapeau (desktop)
+  Type : Dimension CSS
+
+Variable 15: ${badge_font_size}
+  Valeur actuelle : "15px"
+  Description : Taille de police du badge (desktop)
+  Type : Dimension CSS
+
+Variable 16: ${badge_max_width}
+  Valeur actuelle : "95vw"
+  Description : Largeur maximale du badge
+  Type : Dimension CSS
+
+5. RESPONSIVE (TABLET)
+----------------------
+Variable 17: ${badge_padding_tablet}
+  Valeur actuelle : "9px 20px"
+  Description : Padding tablette
+  Type : Dimension CSS
+
+Variable 18: ${badge_font_size_tablet}
+  Valeur actuelle : "14px"
+  Description : Taille de police tablette
+  Type : Dimension CSS
+
+6. RESPONSIVE (MOBILE)
+----------------------
+Variable 19: ${badge_padding_mobile}
+  Valeur actuelle : "8px 16px"
+  Description : Padding mobile
+  Type : Dimension CSS
+
+Variable 20: ${badge_font_size_mobile}
+  Valeur actuelle : "13px"
+  Description : Taille de police mobile
+  Type : Dimension CSS
+
+=============================================================
+TOTAL : 20 VARIABLES
+=============================================================
+
+CATÉGORIES :
+- Textes/Contenu : 3 variables
+- Image : 2 variables
+- Couleurs : 4 variables
+- Dimensions Desktop : 7 variables
+- Responsive Tablet : 2 variables
+- Responsive Mobile : 2 variables
+
+NOTES IMPORTANTES :
+- La variable ${status_text_before} peut contenir un espace final pour l'affichage
+- L'animation pulse est codée en dur (opacity 1 → 0.5 → 1)
+- Le badge utilise border-radius: 9999px pour un effet pill parfait
+- Les dimensions responsive sont gérées dans les media queries
+- Le drapeau utilise border-radius: 50% pour être circulaire

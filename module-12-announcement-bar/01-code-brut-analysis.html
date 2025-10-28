@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 12 - Announcement Bar Countdown - Code Brut</title>
+</head>
+<body style="margin: 0; padding: 20px; background: #f5f5f5; font-family: Arial, sans-serif;">
+    
+    <div style="max-width: 1200px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; margin-bottom: 20px;">
+        <h1 style="margin: 0 0 10px 0; font-size: 24px;">Module 12 - Announcement Bar avec Countdown (Code Brut)</h1>
+        <p style="color: #666; margin: 0 0 20px 0;">Code fourni par l'utilisateur - Barre d'annonce avec compte à rebours</p>
+    </div>
+
+    <!-- CODE BRUT ORIGINAL -->
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="font-size: 18px; margin-bottom: 15px; background: white; padding: 15px; border-radius: 8px;">Rendu du code brut:</h2>
+        
+        <div class="w-full">
+            <style>
+                .kodu-countdown-announcement-bar {
+                  width: 100%;
+                  background: #FFE5E5;
+                  color: #8E1919;
+                  padding: 6px 12px;
+                  font-weight: bold;
+                  text-align: center;
+                  border-radius: 8px;
+                }
+
+                .kodu-countdown-content {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  gap: 8px;
+                  max-width: 100%;
+                  margin: 0 auto;
+                  flex-wrap: nowrap;
+                }
+
+                .kodu-countdown-text {
+                  font-size: 12px;
+                }
+
+                .kodu-countdown-wrapper {
+                  display: flex;
+                  gap: 4px;
+                  justify-content: center;
+                  flex-wrap: nowrap;
+                }
+
+                .kodu-countdown-time {
+                  background: #FFE5E5;
+                  color: #8E1919;
+                  border: 1px solid #8E1919;
+                  padding: 2px 4px;
+                  border-radius: 3px;
+                  text-align: center;
+                  min-width: 28px;
+                }
+
+                .kodu-countdown-time span {
+                  display: block;
+                  font-size: 10px;
+                  font-weight: bold;
+                  line-height: 1.1;
+                }
+
+                .kodu-countdown-time small {
+                  display: block;
+                  font-size: 7px;
+                  font-weight: normal;
+                  line-height: 1.1;
+                }
+
+                @media (max-width: 768px) {
+                  .kodu-countdown-text {
+                    font-size: 10px;
+                  }
+                  .kodu-countdown-time span {
+                    font-size: 9px;
+                  }
+                  .kodu-countdown-time small {
+                    font-size: 6px;
+                  }
+                  .kodu-countdown-wrapper {
+                    gap: 3px;
+                  }
+                  .kodu-countdown-announcement-bar {
+                    padding: 4px 8px;
+                  }
+                }
+            </style>
+            
+            <div class="kodu-countdown-announcement-bar">
+                <div class="kodu-countdown-content">
+                    <div class="kodu-countdown-text">Welcome Offer Ends Soon</div>
+                    <div class="kodu-countdown-wrapper">
+                        <div class="kodu-countdown-time">
+                            <span id="kodu-countdown-hours">09</span>
+                            <small>HOURS</small>
+                        </div>
+                        <div class="kodu-countdown-time">
+                            <span id="kodu-countdown-minutes">59</span>
+                            <small>MINUTES</small>
+                        </div>
+                        <div class="kodu-countdown-time">
+                            <span id="kodu-countdown-seconds">33</span>
+                            <small>SECONDS</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ANALYSE DU CODE -->
+    <div style="max-width: 1200px; margin: 30px auto; background: #f9f9f9; padding: 25px; border-radius: 8px;">
+        <h2 style="font-size: 18px; margin-bottom: 15px;">📋 Analyse du Module</h2>
+        
+        <div style="line-height: 1.8;">
+            <div style="margin-bottom: 20px;">
+                <h3 style="font-size: 14px; font-weight: bold; margin-bottom: 8px;">Type de module:</h3>
+                <p style="color: #666; margin: 0;">Barre d'annonce avec compte à rebours (Announcement Bar with Countdown Timer)</p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <h3 style="font-size: 14px; font-weight: bold; margin-bottom: 8px;">Éléments principaux:</h3>
+                <ul style="color: #666; margin: 0; padding-left: 20px;">
+                    <li><strong>Barre d'annonce:</strong> Background rose clair (#FFE5E5), texte rouge (#8E1919)</li>
+                    <li><strong>Texte d'annonce:</strong> "Welcome Offer Ends Soon" (12px, bold)</li>
+                    <li><strong>Compte à rebours:</strong> 3 blocs (Heures, Minutes, Secondes)</li>
+                    <li><strong>Blocs de temps:</strong> Border rouge, background rose clair, chiffres en gras</li>
+                    <li><strong>Labels:</strong> "HOURS", "MINUTES", "SECONDS" en tout petit (7px)</li>
+                </ul>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <h3 style="font-size: 14px; font-weight: bold; margin-bottom: 8px;">Structure:</h3>
+                <ul style="color: #666; margin: 0; padding-left: 20px;">
+                    <li>Container principal avec background et padding</li>
+                    <li>Layout flex centré (texte + countdown côte à côte)</li>
+                    <li>3 blocs de temps avec border et min-width</li>
+                    <li>Chiffres en <span> et labels en <small></li>
+                </ul>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <h3 style="font-size: 14px; font-weight: bold; margin-bottom: 8px;">Couleurs utilisées:</h3>
+                <ul style="color: #666; margin: 0; padding-left: 20px;">
+                    <li><strong>Background barre:</strong> #FFE5E5 (rose très clair)</li>
+                    <li><strong>Texte:</strong> #8E1919 (rouge foncé)</li>
+                    <li><strong>Border blocs:</strong> 1px solid #8E1919</li>
+                    <li><strong>Background blocs:</strong> #FFE5E5 (même que la barre)</li>
+                </ul>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <h3 style="font-size: 14px; font-weight: bold; margin-bottom: 8px;">Fonctionnalités à ajouter:</h3>
+                <ul style="color: #666; margin: 0; padding-left: 20px;">
+                    <li><strong>JavaScript:</strong> Compte à rebours fonctionnel avec date/heure de fin configurable</li>
+                    <li><strong>Option:</strong> Afficher/masquer les jours si période > 24h</li>
+                    <li><strong>Option:</strong> Masquer la barre automatiquement quand le compte à rebours atteint 0</li>
+                    <li><strong>Responsive:</strong> Tailles de police réduites sur mobile</li>
+                </ul>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <h3 style="font-size: 14px; font-weight: bold; margin-bottom: 8px;">Variables à créer:</h3>
+                <ul style="color: #666; margin: 0; padding-left: 20px;">
+                    <li>Texte d'annonce</li>
+                    <li>Date/heure de fin du countdown</li>
+                    <li>Labels des blocs (Hours, Minutes, Seconds)</li>
+                    <li>Couleurs (background barre, texte, border)</li>
+                    <li>Tailles de police (desktop + mobile)</li>
+                    <li>Border-radius, padding, gaps</li>
+                    <li>Option: afficher les jours</li>
+                    <li>Option: masquer automatiquement à la fin</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 style="font-size: 14px; font-weight: bold; margin-bottom: 8px;">Points d'attention:</h3>
+                <ul style="color: #666; margin: 0; padding-left: 20px;">
+                    <li>Le compte à rebours doit être dynamique (JavaScript requis)</li>
+                    <li>Gérer le timezone pour la date de fin</li>
+                    <li>Padding des chiffres avec 0 (09 au lieu de 9)</li>
+                    <li>Mobile: réduire gaps et tailles pour tenir sur petit écran</li>
+                    <li>Option pour réinitialiser le countdown (ex: chaque jour à minuit)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,298 @@
+MODULE 19: DYNAMIC PRICE BADGES - VARIABLES ANALYSIS
+=====================================================
+
+Total Variables: 15
+- 12 User-Configurable Variables
+- 3 Display Variants (optional CSS classes)
+
+=====================================================
+CATEGORY 1: PRODUCT DATA (Auto-fetched from page)
+=====================================================
+
+Note: These are automatically retrieved from product page data
+(Shopify product object, meta tags, or data attributes)
+
+1. product_compare_price (auto-calculated)
+   - Source: product.compare_at_price OR meta tags OR data attributes
+   - Used for: Original/strikethrough price display
+   - Example: 154.99
+
+2. product_current_price (auto-calculated)
+   - Source: product.price OR meta tags OR data attributes
+   - Used for: Current sale price display
+   - Example: 108.49
+
+3. discount_percentage (auto-calculated)
+   - Formula: ((compare_price - current_price) / compare_price) * 100
+   - Rounded to nearest integer
+   - Used for: Discount badge display
+   - Example: 30 (displayed as "-30%")
+
+=====================================================
+CATEGORY 2: CART DISCOUNT SETTINGS (3 variables)
+=====================================================
+
+4. cart_extra_discount_percent
+   - Type: number
+   - Default: 10
+   - Description: Additional discount percentage applied in cart
+   - Used in calculation: current_price * (1 - cart_discount / 100)
+   - Range: 0-100
+
+5. cart_discount_message
+   - Type: text
+   - Default: "Extra"
+   - Description: Text before the discount percentage
+   - Example: "Extra" → "Extra 10% Off in Cart"
+
+6. cart_discount_suffix
+   - Type: text
+   - Default: "Off in Cart"
+   - Description: Text after the discount percentage
+   - Example: "Off in Cart" → "Extra 10% Off in Cart $97.64"
+
+=====================================================
+CATEGORY 3: DISPLAY SETTINGS (4 variables)
+=====================================================
+
+7. show_cart_badge
+   - Type: boolean
+   - Default: true
+   - Description: Toggle visibility of cart discount badge
+   - When false: cart badge is hidden
+
+8. currency_symbol
+   - Type: text
+   - Default: "$"
+   - Description: Currency symbol to display before prices
+   - Examples: "$", "€", "£", "¥"
+
+9. max_container_width
+   - Type: dimension
+   - Default: "320px"
+   - Description: Maximum width of the price badges container
+   - Applied to: .product-price-badges
+
+10. top_line_gap
+    - Type: dimension
+    - Default: "8px"
+    - Description: Gap between elements in top line (badge, old price, new price)
+    - Mobile: automatically reduces to 5px
+
+=====================================================
+CATEGORY 4: COLOR SETTINGS (5 variables)
+=====================================================
+
+11. discount_badge_bg_color
+    - Type: color
+    - Default: "#c73225"
+    - Description: Background color for discount badge and cart badge
+    - Applied to: .product-discount and .product-cart-badge
+
+12. discount_badge_text_color
+    - Type: color
+    - Default: "#FFFFFF"
+    - Description: Text color for discount badge and cart badge
+
+13. old_price_color
+    - Type: color
+    - Default: "#a0a0a0"
+    - Description: Color for strikethrough compare price
+    - Applied to: .product-old
+
+14. new_price_color
+    - Type: color
+    - Default: "#000000"
+    - Description: Color for current sale price
+    - Applied to: .product-new
+
+15. badge_border_radius
+    - Type: dimension
+    - Default: "5px"
+    - Description: Border radius for discount badge
+    - Cart badge uses 6px by default
+
+=====================================================
+CATEGORY 5: TYPOGRAPHY (Built-in, not customizable)
+=====================================================
+
+Desktop Sizes:
+- Discount badge: 12px, weight 600
+- Old price: 14px
+- New price: 18px, weight 700
+- Cart badge: 13px, weight 600
+
+Mobile Sizes (max-width: 480px):
+- Discount badge: 11px
+- Old price: 12px
+- New price: 15px
+- Cart badge: 12px
+
+=====================================================
+CATEGORY 6: SPACING (Built-in responsive)
+=====================================================
+
+Desktop:
+- Top line gap: 8px
+- Discount badge padding: 4px 8px
+- Cart badge padding: 6px 10px
+- Cart badge margin-top: 8px
+
+Mobile (max-width: 480px):
+- Top line gap: 5px
+- Discount badge padding: 3px 6px
+- Cart badge padding: 5px 8px
+
+=====================================================
+JAVASCRIPT CALCULATIONS
+=====================================================
+
+Function 1: calculateDiscountPercent(comparePrice, currentPrice)
+-----------------------------------------------------------------
+Input: 
+  - comparePrice: 154.99
+  - currentPrice: 108.49
+
+Calculation:
+  discount = ((154.99 - 108.49) / 154.99) * 100
+  discount = (46.50 / 154.99) * 100
+  discount = 30.0%
+
+Output: 30 (rounded integer)
+Display: "-30%"
+
+Function 2: calculateCartPrice(currentPrice, cartDiscountPercent)
+------------------------------------------------------------------
+Input:
+  - currentPrice: 108.49
+  - cartDiscountPercent: 10
+
+Calculation:
+  finalPrice = 108.49 * (1 - 10 / 100)
+  finalPrice = 108.49 * 0.9
+  finalPrice = 97.641
+
+Output: 97.64 (formatted to 2 decimals)
+Display: "Extra 10% Off in Cart $97.64"
+
+Function 3: formatPrice(price, currencySymbol)
+-----------------------------------------------
+Input:
+  - price: 97.641
+  - currencySymbol: "$"
+
+Calculation:
+  rounded = price.toFixed(2) // 97.64
+
+Output: "$97.64"
+
+=====================================================
+DATA FETCHING STRATEGY (Priority order)
+=====================================================
+
+1. Shopify Product Object (highest priority)
+   - window.ShopifyAnalytics.meta.product
+   - product.variants[0].price / 100
+   - product.variants[0].compare_at_price / 100
+
+2. Meta Tags
+   - <meta property="product:price:amount" content="108.49">
+   - <meta property="product:compare_at_price" content="154.99">
+
+3. Data Attributes
+   - <div data-product-price="108.49" data-compare-price="154.99">
+
+4. Fallback to Config
+   - Use hardcoded values from config object
+
+=====================================================
+EDGE CASES HANDLED
+=====================================================
+
+1. No Compare Price
+   - If compareAtPrice is null/0, hide discount badge
+   - Show only current price
+
+2. Current Price >= Compare Price
+   - Discount percent = 0
+   - Hide discount badge (no discount to show)
+
+3. Cart Discount = 0
+   - Hide cart badge when cartDiscountPercent is 0
+
+4. showCartBadge = false
+   - Add 'hidden' class to cart badge element
+
+5. Invalid Product Data
+   - Console error logged
+   - Module fails gracefully without breaking page
+
+=====================================================
+MODULE VARIANTS (Optional)
+=====================================================
+
+While not variables, these CSS class modifiers can be added:
+
+1. .compact-mode
+   - Reduced padding and font sizes
+   - For tight spaces
+
+2. .inline-mode
+   - Display as inline element instead of block
+
+3. .dark-theme
+   - Alternative color scheme for dark backgrounds
+
+=====================================================
+INTEGRATION EXAMPLES
+=====================================================
+
+Example 1: Shopify Product Page
+---------------------------------
+The module automatically detects Shopify product data:
+- Reads from window.ShopifyAnalytics.meta.product
+- Converts prices from cents to dollars
+- Updates all displays dynamically
+
+Example 2: Custom E-commerce
+-----------------------------
+Add data attributes to any container:
+<div data-product-price="108.49" data-compare-price="154.99">
+  <!-- Price badges module here -->
+</div>
+
+Example 3: Manual Configuration
+--------------------------------
+If no product data found, uses config defaults:
+compareAtPrice: 154.99
+currentPrice: 108.49
+
+=====================================================
+SUMMARY OF USER-CONFIGURABLE VARIABLES
+=====================================================
+
+MUST Configure:
+1. cart_extra_discount_percent (if showing cart badge)
+
+OPTIONAL Configure:
+2. cart_discount_message
+3. cart_discount_suffix
+4. show_cart_badge
+5. currency_symbol
+6. max_container_width
+7. top_line_gap
+8. discount_badge_bg_color
+9. discount_badge_text_color
+10. old_price_color
+11. new_price_color
+12. badge_border_radius
+
+AUTO-CALCULATED (No config needed):
+- Product compare price
+- Product current price
+- Discount percentage
+- Final cart price
+
+=====================================================
+END OF VARIABLES ANALYSIS
+=====================================================

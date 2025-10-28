@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 12 - Announcement Bar Countdown - Template Code</title>
+</head>
+<body>
+
+<!-- MODULE 12: ANNOUNCEMENT BAR WITH COUNTDOWN - TEMPLATE AVEC VARIABLES -->
+<div class="announcement-bar-module">
+    <div class="announcement-bar">
+        <div class="announcement-content">
+            <!-- Texte d'annonce -->
+            <div class="announcement-text">${announcement_text}</div>
+            
+            <!-- Compte à rebours -->
+            <div class="countdown-wrapper">
+                <div class="countdown-block">
+                    <span class="countdown-number" id="countdown-hours">09</span>
+                    <small class="countdown-label">${label_hours}</small>
+                </div>
+                <div class="countdown-block">
+                    <span class="countdown-number" id="countdown-minutes">59</span>
+                    <small class="countdown-label">${label_minutes}</small>
+                </div>
+                <div class="countdown-block">
+                    <span class="countdown-number" id="countdown-seconds">33</span>
+                    <small class="countdown-label">${label_seconds}</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Module principal */
+.announcement-bar-module {
+    width: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Barre d'annonce */
+.announcement-bar {
+    width: 100%;
+    background: ${bar_bg_color};
+    color: ${bar_text_color};
+    padding: ${bar_padding_desktop};
+    text-align: center;
+    border-radius: ${bar_border_radius};
+}
+
+/* Contenu centré */
+.announcement-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: ${content_gap};
+    max-width: 100%;
+    margin: 0 auto;
+    flex-wrap: nowrap;
+}
+
+/* Texte d'annonce */
+.announcement-text {
+    font-size: ${announcement_text_size};
+    font-weight: 700;
+    color: ${bar_text_color};
+}
+
+/* Wrapper du countdown */
+.countdown-wrapper {
+    display: flex;
+    gap: ${countdown_gap};
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+/* Bloc de temps (heures, minutes, secondes) */
+.countdown-block {
+    background: ${block_bg_color};
+    color: ${block_text_color};
+    border: ${block_border_width} solid ${block_border_color};
+    padding: ${block_padding};
+    border-radius: ${block_border_radius};
+    text-align: center;
+    min-width: ${block_min_width};
+}
+
+/* Chiffre du countdown */
+.countdown-number {
+    display: block;
+    font-size: ${number_font_size};
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+/* Label (HOURS, MINUTES, etc.) */
+.countdown-label {
+    display: block;
+    font-size: ${label_font_size};
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+/* RESPONSIVE */
+
+/* Mobile */
+@media (max-width: 768px) {
+    .announcement-bar {
+        padding: ${bar_padding_mobile};
+    }
+
+    .announcement-text {
+        font-size: ${announcement_text_size_mobile};
+    }
+
+    .countdown-wrapper {
+        gap: ${countdown_gap_mobile};
+    }
+
+    .countdown-number {
+        font-size: ${number_font_size_mobile};
+    }
+
+    .countdown-label {
+        font-size: ${label_font_size_mobile};
+    }
+}
+</style>
+
+<script>
+function initCountdown(){const config={endDate:new Date('${countdown_end_date}'),hoursElementId:'countdown-hours',minutesElementId:'countdown-minutes',secondsElementId:'countdown-seconds',hideWhenExpired:${hide_when_expired},barElementClass:'announcement-bar'};const hoursElement=document.getElementById(config.hoursElementId);const minutesElement=document.getElementById(config.minutesElementId);const secondsElement=document.getElementById(config.secondsElementId);const barElement=document.querySelector(`.${config.barElementClass}`);if(!hoursElement||!minutesElement||!secondsElement){console.error('Countdown elements not found');return}function updateCountdown(){const now=new Date().getTime();const endTime=new Date(config.endDate).getTime();const distance=endTime-now;if(distance<0){hoursElement.textContent='00';minutesElement.textContent='00';secondsElement.textContent='00';if(config.hideWhenExpired&&barElement){barElement.style.display='none'}clearInterval(countdownInterval);return}const hours=Math.floor(distance/(1000*60*60));const minutes=Math.floor((distance%(1000*60*60))/(1000*60));const seconds=Math.floor((distance%(1000*60))/1000);hoursElement.textContent=String(hours).padStart(2,'0');minutesElement.textContent=String(minutes).padStart(2,'0');secondsElement.textContent=String(seconds).padStart(2,'0')}updateCountdown();const countdownInterval=setInterval(updateCountdown,1000)}document.addEventListener('DOMContentLoaded',initCountdown);
+</script>
+
+</body>
+</html>

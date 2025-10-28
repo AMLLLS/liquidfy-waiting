@@ -1,0 +1,316 @@
+ANALYSE DES VARIABLES - MODULE 10 : PRODUCT Q&A
+=====================================================
+
+FICHIER SOURCE : 02-code-propre-final.html
+
+1. HEADER
+---------
+Variable 1: ${qa_title}
+  Valeur actuelle : "Customer Questions"
+  Description : Titre principal de la section
+  Type : Texte simple
+
+Variable 2: ${qa_view_all_text}
+  Valeur actuelle : "View All"
+  Description : Texte du lien "Voir tout"
+  Type : Texte simple
+
+Variable 3: ${qa_view_all_count}
+  Valeur actuelle : "6"
+  Description : Nombre total de questions
+  Type : Nombre
+
+Variable 4: ${qa_view_all_url}
+  Valeur actuelle : "#"
+  Description : URL du lien "View All"
+  Type : URL
+
+2. TABS (FILTRES)
+-----------------
+Variable 5: ${tab_all_label}
+  Valeur actuelle : "All"
+  Description : Label du tab "All"
+  Type : Texte simple
+
+Variable 6: ${tab_1_label}
+  Valeur actuelle : "Usage Guide"
+  Description : Label du tab 1
+  Type : Texte simple
+
+Variable 7: ${tab_1_category}
+  Valeur actuelle : "usage"
+  Description : ID de catégorie du tab 1
+  Type : Texte simple (slug)
+
+Variable 8: ${tab_2_label}
+  Valeur actuelle : "Benefits"
+  Description : Label du tab 2
+  Type : Texte simple
+
+Variable 9: ${tab_2_category}
+  Valeur actuelle : "benefits"
+  Description : ID de catégorie du tab 2
+  Type : Texte simple (slug)
+
+Variable 10: ${tab_3_label}
+  Valeur actuelle : "Quality"
+  Description : Label du tab 3
+  Type : Texte simple
+
+Variable 11: ${tab_3_category}
+  Valeur actuelle : "quality"
+  Description : ID de catégorie du tab 3
+  Type : Texte simple (slug)
+
+Variable 12: ${tab_4_label}
+  Valeur actuelle : "Delivery"
+  Description : Label du tab 4
+  Type : Texte simple
+
+Variable 13: ${tab_4_category}
+  Valeur actuelle : "delivery"
+  Description : ID de catégorie du tab 4
+  Type : Texte simple (slug)
+
+Variable 14: ${tab_5_label}
+  Valeur actuelle : "Warranty"
+  Description : Label du tab 5
+  Type : Texte simple
+
+Variable 15: ${tab_5_category}
+  Valeur actuelle : "warranty"
+  Description : ID de catégorie du tab 5
+  Type : Texte simple (slug)
+
+3. BRAND INFO (GLOBAL)
+----------------------
+Variable 16: ${brand_logo_url}
+  Valeur actuelle : "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=100"
+  Description : URL du logo de la marque (utilisé dans toutes les réponses)
+  Type : URL complète
+
+Variable 17: ${brand_logo_alt}
+  Valeur actuelle : "VitaLife"
+  Description : Texte alternatif du logo
+  Type : Texte simple
+
+Variable 18: ${brand_name}
+  Valeur actuelle : "VitaLife"
+  Description : Nom de la marque (utilisé dans toutes les réponses)
+  Type : Texte simple
+
+4. Q&A CARD 1
+-------------
+Variable 19: ${qa_1_question}
+  Valeur actuelle : "How do I use this product daily?"
+  Description : Question de la card 1
+  Type : Texte simple
+
+Variable 20: ${qa_1_answer}
+  Valeur actuelle : "Take one serving in the morning with breakfast and another in the evening for best results."
+  Description : Réponse de la card 1
+  Type : Texte simple
+
+Variable 21: ${qa_1_category}
+  Valeur actuelle : "usage"
+  Description : Catégorie de la card 1
+  Type : Texte simple (slug)
+
+5. Q&A CARD 2
+-------------
+Variable 22: ${qa_2_question}
+  Valeur actuelle : "Can it be combined with other supplements?"
+  Description : Question de la card 2
+  Type : Texte simple
+
+Variable 23: ${qa_2_answer}
+  Valeur actuelle : "Yes, it's safe to combine with most supplements. Consult your healthcare provider for specific combinations."
+  Description : Réponse de la card 2
+  Type : Texte simple
+
+Variable 24: ${qa_2_category}
+  Valeur actuelle : "usage"
+  Description : Catégorie de la card 2
+  Type : Texte simple (slug)
+
+6. Q&A CARD 3
+-------------
+Variable 25: ${qa_3_question}
+  Valeur actuelle : "What are the key benefits?"
+  Description : Question de la card 3
+  Type : Texte simple
+
+Variable 26: ${qa_3_answer}
+  Valeur actuelle : "Boosts energy, supports immunity, improves focus, and promotes overall wellness with natural ingredients."
+  Description : Réponse de la card 3
+  Type : Texte simple
+
+Variable 27: ${qa_3_category}
+  Valeur actuelle : "benefits"
+  Description : Catégorie de la card 3
+  Type : Texte simple (slug)
+
+7. Q&A CARD 4
+-------------
+Variable 28: ${qa_4_question}
+  Valeur actuelle : "How long until I see results?"
+  Description : Question de la card 4
+  Type : Texte simple
+
+Variable 29: ${qa_4_answer}
+  Valeur actuelle : "Most customers notice improved energy levels within 5-7 days of consistent daily use."
+  Description : Réponse de la card 4
+  Type : Texte simple
+
+Variable 30: ${qa_4_category}
+  Valeur actuelle : "quality"
+  Description : Catégorie de la card 4
+  Type : Texte simple (slug)
+
+8. Q&A CARD 5
+-------------
+Variable 31: ${qa_5_question}
+  Valeur actuelle : "Is there a satisfaction guarantee?"
+  Description : Question de la card 5
+  Type : Texte simple
+
+Variable 32: ${qa_5_answer}
+  Valeur actuelle : "Yes! We offer a 30-day money-back guarantee if you're not completely satisfied with your purchase."
+  Description : Réponse de la card 5
+  Type : Texte simple
+
+Variable 33: ${qa_5_category}
+  Valeur actuelle : "warranty"
+  Description : Catégorie de la card 5
+  Type : Texte simple (slug)
+
+9. Q&A CARD 6
+-------------
+Variable 34: ${qa_6_question}
+  Valeur actuelle : "What's the shipping time?"
+  Description : Question de la card 6
+  Type : Texte simple
+
+Variable 35: ${qa_6_answer}
+  Valeur actuelle : "We ship within 24 hours. Standard delivery takes 2-4 business days in most regions."
+  Description : Réponse de la card 6
+  Type : Texte simple
+
+Variable 36: ${qa_6_category}
+  Valeur actuelle : "delivery"
+  Description : Catégorie de la card 6
+  Type : Texte simple (slug)
+
+10. COULEURS
+------------
+Variable 37: ${module_bg_color}
+  Valeur actuelle : "#FFFFFF"
+  Description : Couleur de fond du module
+  Type : Couleur hex
+
+Variable 38: ${title_color}
+  Valeur actuelle : "#1F2937"
+  Description : Couleur du titre principal
+  Type : Couleur hex
+
+Variable 39: ${view_all_color}
+  Valeur actuelle : "#6B7280"
+  Description : Couleur du lien "View All"
+  Type : Couleur hex
+
+Variable 40: ${tab_bg_color}
+  Valeur actuelle : "#F9FAFB"
+  Description : Couleur de fond des tabs inactifs
+  Type : Couleur hex
+
+Variable 41: ${tab_text_color}
+  Valeur actuelle : "#4B5563"
+  Description : Couleur du texte des tabs inactifs
+  Type : Couleur hex
+
+Variable 42: ${tab_border_color}
+  Valeur actuelle : "#E5E7EB"
+  Description : Couleur de la bordure des tabs inactifs
+  Type : Couleur hex
+
+Variable 43: ${tab_active_bg_color}
+  Valeur actuelle : "#3B82F6"
+  Description : Couleur de fond du tab actif
+  Type : Couleur hex
+
+Variable 44: ${tab_active_text_color}
+  Valeur actuelle : "#FFFFFF"
+  Description : Couleur du texte du tab actif
+  Type : Couleur hex
+
+Variable 45: ${card_bg_color}
+  Valeur actuelle : "#FFFFFF"
+  Description : Couleur de fond des cartes
+  Type : Couleur hex
+
+Variable 46: ${card_border_color}
+  Valeur actuelle : "#E5E7EB"
+  Description : Couleur de la bordure des cartes
+  Type : Couleur hex
+
+Variable 47: ${question_color}
+  Valeur actuelle : "#1F2937"
+  Description : Couleur du texte des questions
+  Type : Couleur hex
+
+Variable 48: ${answer_bg_color}
+  Valeur actuelle : "#F0F9FF"
+  Description : Couleur de fond des réponses
+  Type : Couleur hex
+
+Variable 49: ${answer_text_color}
+  Valeur actuelle : "#4B5563"
+  Description : Couleur du texte des réponses
+  Type : Couleur hex
+
+Variable 50: ${answer_border_color}
+  Valeur actuelle : "#3B82F6"
+  Description : Couleur de la bordure gauche des réponses
+  Type : Couleur hex
+
+Variable 51: ${brand_name_color}
+  Valeur actuelle : "#1F2937"
+  Description : Couleur du nom de la marque
+  Type : Couleur hex
+
+11. LAYOUT ET DIMENSIONS
+------------------------
+Variable 52: ${container_max_width}
+  Valeur actuelle : "1200px"
+  Description : Largeur max du conteneur
+  Type : Dimension CSS
+
+Variable 53: ${card_min_width}
+  Valeur actuelle : "320px"
+  Description : Largeur minimale des cartes (desktop)
+  Type : Dimension CSS
+
+Variable 54: ${card_flex_basis}
+  Valeur actuelle : "85%"
+  Description : Largeur de base des cartes en flex
+  Type : Pourcentage
+
+=============================================================
+TOTAL : 54 VARIABLES
+=============================================================
+
+CATÉGORIES :
+- Header : 4 variables
+- Tabs : 11 variables (labels + catégories)
+- Brand global : 3 variables
+- Q&A Cards : 18 variables (6 cards × 3 propriétés)
+- Couleurs : 15 variables
+- Layout : 3 variables
+
+NOTES IMPORTANTES :
+- Le logo brand est GLOBAL (même URL/alt pour toutes les cartes)
+- Le nom brand est GLOBAL (même nom pour toutes les réponses)
+- Les catégories doivent correspondre entre tabs et cards
+- JavaScript filtre par data-category (doit matcher tab_X_category et qa_X_category)
+- Responsive : dimensions en media queries codées en dur
+- Animation : scroll smooth + transform sur hover

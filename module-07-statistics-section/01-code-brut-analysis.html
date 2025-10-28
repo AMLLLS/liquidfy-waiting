@@ -1,0 +1,67 @@
+<!-- CODE BRUT ORIGINAL : Statistics Section (extrait de l'inspecteur) -->
+
+<!-- 
+ANALYSE DU CODE BRUT :
+======================
+
+PROBLÈME DE TAILLE :
+- Code extrait d'un iframe/card = artificiellement petit
+- transform: scale(0.8) = RETIRE ce n'est qu'un effet visuel temporaire
+- padding: 24px 18px = trop petit, doit être ~60px 30px
+- font-size: 26px (titre) = trop petit, doit être ~40-48px
+- font-size: 22px (chiffres) = trop petit, doit être ~32-40px
+- font-size: 13px/11px = trop petit, doit être ~16-14px
+- gap: 12px/8px = trop petit, doit être ~20px/12px
+- max-width: 320px = trop petit, doit être ~500-600px
+
+STRUCTURE :
+- Section avec gradient background (dark)
+- Container centralisé
+- Titre avec mot en italique doré
+- Sous-titre
+- 3 statistiques (chiffre doré + description)
+- Séparateurs (border-top)
+
+COULEURS ACTUELLES :
+- Background: linear-gradient(rgb(44,44,44), rgb(30,30,30))
+- Text: white (#FFFFFF)
+- Accent (chiffres + mot italique): rgb(202,183,73) = #CAB749 (doré)
+- Borders: rgba(255,255,255,0.2)
+
+MODIFICATIONS À FAIRE :
+1. Supprimer transform: scale(0.8)
+2. Augmenter TOUTES les tailles (padding, fonts, gaps, max-width)
+3. Changer les couleurs pour éviter copie exacte
+4. Nettoyer le code (inline styles → classes)
+5. Ajouter responsive (mobile/tablet)
+-->
+
+<section style="padding: 24px 18px; background: linear-gradient(rgb(44, 44, 44), rgb(30, 30, 30)); color: rgb(255, 255, 255); display: flex; align-items: center; justify-content: center; transform: scale(0.8); transform-origin: center center; overflow: visible; border-radius: 12px; width: auto; height: auto;">
+  <div style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; text-align: center;">
+    <div>
+      <h2 style="font-size: 26px; font-weight: 700; margin: 0px; line-height: 1.1;">
+        satisfaction <span style="font-style: italic; color: rgb(202, 183, 73);">you can trust.</span>
+      </h2>
+      <p style="margin-top: 8px; font-size: 13px; opacity: 0.9;">
+        We have the data to prove our product works.
+      </p>
+    </div>
+    
+    <div style="width: 100%; max-width: 320px;">
+      <div style="display: flex; align-items: center; gap: 8px; border-top: 1px solid rgba(255, 255, 255, 0.2); padding: 6px 0px;">
+        <p style="font-size: 22px; font-weight: 700; color: rgb(202, 183, 73); margin: 0px; min-width: 65px;">86k+</p>
+        <p style="margin: 0px; font-size: 11px; line-height: 1.2;">Customers relieved</p>
+      </div>
+      
+      <div style="display: flex; align-items: center; gap: 8px; border-top: 1px solid rgba(255, 255, 255, 0.2); padding: 6px 0px;">
+        <p style="font-size: 22px; font-weight: 700; color: rgb(202, 183, 73); margin: 0px; min-width: 65px;">91%</p>
+        <p style="margin: 0px; font-size: 11px; line-height: 1.2;">Less pain in 4 weeks</p>
+      </div>
+      
+      <div style="display: flex; align-items: center; gap: 8px; border-top: 1px solid rgba(255, 255, 255, 0.2); padding: 6px 0px;">
+        <p style="font-size: 22px; font-weight: 700; color: rgb(202, 183, 73); margin: 0px; min-width: 65px;">34%</p>
+        <p style="margin: 0px; font-size: 11px; line-height: 1.2;">Immediate relief</p>
+      </div>
+    </div>
+  </div>
+</section>

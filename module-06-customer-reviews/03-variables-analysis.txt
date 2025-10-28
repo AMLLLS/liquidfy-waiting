@@ -1,0 +1,52 @@
+# Variables dynamiques pour le module Customer Reviews
+
+## Textes Header
+1. rating_badge : texte du badge rating (ex: "★ Rated 4.9/5 based on +52,480 reviews")
+2. section_title_accent : mot accentué du titre (ex: "Real")
+3. section_title_rest : reste du titre (ex: "Customer Stories")
+
+## Review 1
+4. review1_image_url : URL de l'image du review
+5. review1_image_alt : texte alternatif de l'image
+6. review1_stars : nombre d'étoiles (ex: "★★★★★")
+7. review1_author_name : nom de l'auteur (ex: "Sarah")
+8. review1_author_age : âge de l'auteur (ex: "28")
+9. review1_text : texte du témoignage
+10. review1_product_image : URL de l'image du produit
+11. review1_product_name : nom du produit (ex: "Premium Product")
+12. review1_product_price : prix actuel (ex: "$45")
+13. review1_product_old_price : ancien prix (ex: "$60")
+14. review1_purchase_date : date d'achat (ex: "April")
+
+## Review 2
+15. review2_image_url : URL de l'image du review
+16. review2_image_alt : texte alternatif de l'image
+17. review2_stars : nombre d'étoiles
+18. review2_author_name : nom de l'auteur (ex: "Olivia")
+19. review2_author_age : âge de l'auteur (ex: "32")
+20. review2_text : texte du témoignage
+21. review2_product_image : URL de l'image du produit
+22. review2_product_name : nom du produit
+23. review2_product_price : prix actuel
+24. review2_product_old_price : ancien prix
+25. review2_purchase_date : date d'achat
+
+## Review 3
+26. review3_image_url : URL de l'image du review
+27. review3_image_alt : texte alternatif de l'image
+28. review3_stars : nombre d'étoiles
+29. review3_author_name : nom de l'auteur (ex: "Mia")
+30. review3_author_age : âge de l'auteur (ex: "24")
+31. review3_text : texte du témoignage
+32. review3_product_image : URL de l'image du produit
+33. review3_product_name : nom du produit
+34. review3_product_price : prix actuel
+35. review3_product_old_price : ancien prix
+36. review3_purchase_date : date d'achat
+
+## Couleurs principales
+37. accent_color : couleur principale (ex: "#D81B60" - rose/pink)
+38. badge_background : fond des badges (ex: "#FFE1F0" - rose clair)
+39. background_color : fond du module (ex: "#FAFAFA" - gris très clair)
+
+TOTAL : 39 variables (customisation complète de 3 reviews)

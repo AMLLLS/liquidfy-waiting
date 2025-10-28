@@ -1,0 +1,299 @@
+<!-- CODE PROPRE FINAL : Before/After Slider (taille réaliste adaptée, nouvelles couleurs/textes, avec JS) -->
+<div class="before-after-module">
+  <div class="before-after-container">
+    <!-- Badge -->
+    <div class="badge-wrapper">
+      <span class="transformation-badge">
+        ⭐ <strong>Real Results</strong> You Can See
+      </span>
+    </div>
+    
+    <!-- Slider Container -->
+    <div class="comparison-slider" id="comparisonSlider" style="--position: 50%;">
+      <!-- After Image (background) -->
+      <img class="after-image" 
+           src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800" 
+           alt="After transformation">
+      
+      <!-- Before Image (clipped) -->
+      <img class="before-image" 
+           src="https://images.unsplash.com/photo-1526045612212-70caf35c14df?w=800" 
+           alt="Before transformation">
+      
+      <!-- Labels -->
+      <span class="label label-before">Before</span>
+      <span class="label label-after">After</span>
+      
+      <!-- Slider Input -->
+      <input type="range" 
+             min="0" 
+             max="100" 
+             value="50" 
+             class="slider-input" 
+             id="sliderInput"
+             aria-label="Before and after comparison slider">
+      
+      <!-- Divider Line -->
+      <div class="divider-line"></div>
+      
+      <!-- Handle -->
+      <div class="slider-handle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="17 8 21 12 17 16"></polyline>
+          <polyline points="7 8 3 12 7 16"></polyline>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+        </svg>
+      </div>
+    </div>
+  </div>
+  
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    .before-after-module {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 50px 20px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    
+    .before-after-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+    }
+    
+    .badge-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .transformation-badge {
+      display: inline-block;
+      padding: 10px 24px;
+      border-radius: 9999px;
+      font-size: 15px;
+      font-weight: 500;
+      color: #000;
+      background: linear-gradient(135deg, #FFB6C1 0%, #FFE4E1 100%);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      white-space: nowrap;
+      text-align: center;
+    }
+    
+    .comparison-slider {
+      position: relative;
+      width: 100%;
+      max-width: 750px;
+      height: 480px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      background: #F5F5F5;
+      user-select: none;
+    }
+    
+    .after-image,
+    .before-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+    }
+    
+    .after-image {
+      z-index: 1;
+    }
+    
+    .before-image {
+      z-index: 5;
+      clip-path: inset(0 calc(100% - var(--position)) 0 0);
+    }
+    
+    .label {
+      position: absolute;
+      bottom: 16px;
+      background: #FFFFFF;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      z-index: 30;
+    }
+    
+    .label-before {
+      left: 16px;
+    }
+    
+    .label-after {
+      right: 16px;
+    }
+    
+    .slider-input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: ew-resize;
+      z-index: 20;
+    }
+    
+    .divider-line {
+      position: absolute;
+      top: 0;
+      left: var(--position);
+      transform: translateX(-50%);
+      width: 3px;
+      height: 100%;
+      background: #FFFFFF;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+      pointer-events: none;
+      z-index: 10;
+    }
+    
+    .slider-handle {
+      position: absolute;
+      top: 50%;
+      left: var(--position);
+      transform: translate(-50%, -50%);
+      width: 48px;
+      height: 48px;
+      background: #FFFFFF;
+      border: 3px solid #000;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+      pointer-events: none;
+      z-index: 20;
+      transition: transform 0.2s ease;
+      color: #000;
+    }
+    
+    .slider-input:active + .divider-line + .slider-handle,
+    .slider-input:hover + .divider-line + .slider-handle {
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+    
+    @media (max-width: 768px) {
+      .before-after-module {
+        padding: 40px 16px;
+      }
+      
+      .before-after-container {
+        gap: 24px;
+      }
+      
+      .transformation-badge {
+        font-size: 14px;
+        padding: 8px 20px;
+      }
+      
+      .comparison-slider {
+        max-width: 100%;
+        height: 380px;
+        border-radius: 12px;
+      }
+      
+      .label {
+        font-size: 13px;
+        padding: 6px 12px;
+        bottom: 12px;
+      }
+      
+      .label-before {
+        left: 12px;
+      }
+      
+      .label-after {
+        right: 12px;
+      }
+      
+      .slider-handle {
+        width: 42px;
+        height: 42px;
+      }
+      
+      .slider-handle svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .before-after-module {
+        padding: 32px 12px;
+      }
+      
+      .before-after-container {
+        gap: 20px;
+      }
+      
+      .transformation-badge {
+        font-size: 13px;
+        padding: 7px 18px;
+      }
+      
+      .comparison-slider {
+        height: 320px;
+        border-radius: 10px;
+      }
+      
+      .label {
+        font-size: 12px;
+        padding: 5px 10px;
+        bottom: 10px;
+      }
+      
+      .label-before {
+        left: 10px;
+      }
+      
+      .label-after {
+        right: 10px;
+      }
+      
+      .slider-handle {
+        width: 38px;
+        height: 38px;
+        border-width: 2px;
+      }
+      
+      .slider-handle svg {
+        width: 16px;
+        height: 16px;
+      }
+      
+      .divider-line {
+        width: 2px;
+      }
+    }
+  </style>
+  
+  <script>
+    (function() {
+      const slider = document.getElementById('sliderInput');
+      const container = document.getElementById('comparisonSlider');
+      
+      if (slider && container) {
+        slider.addEventListener('input', function() {
+          const value = this.value;
+          container.style.setProperty('--position', value + '%');
+        });
+      }
+    })();
+  </script>
+</div>

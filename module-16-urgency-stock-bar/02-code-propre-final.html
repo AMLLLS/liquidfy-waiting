@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urgency Stock Bar - Clean Code</title>
+</head>
+<body>
+
+<!-- MODULE: Urgency Stock Bar -->
+<div class="urgency-stock-module">
+    <div class="stock-container">
+        <div class="stock-header">
+            <div class="stock-icon">⚠️</div>
+            <div class="stock-message">
+                <span class="stock-text">Only <strong id="stock-remaining">3 items</strong> left in stock!</span>
+                <span class="stock-subtext">Hurry up before it's gone</span>
+            </div>
+        </div>
+        
+        <div class="stock-progress">
+            <div class="stock-progress-bar" id="stock-progress-bar">
+                <div class="stock-progress-fill" id="stock-progress-fill" style="width: 12%;"></div>
+            </div>
+            <div class="stock-progress-label">
+                <span class="stock-sold" id="stock-sold">22 sold</span>
+                <span class="stock-total" id="stock-total">25 total</span>
+            </div>
+        </div>
+
+        <div class="stock-watchers">
+            <span class="watchers-icon">👀</span>
+            <span class="watchers-text"><strong id="watchers-count">47</strong> people are viewing this right now</span>
+        </div>
+    </div>
+</div>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.urgency-stock-module {
+    width: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.stock-container {
+    background: linear-gradient(135deg, #FEF2F2 0%, #FFFFFF 100%);
+    border: 2px solid #FCA5A5;
+    border-radius: 12px;
+    padding: 16px 20px;
+}
+
+.stock-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.stock-icon {
+    font-size: 24px;
+    line-height: 1;
+    animation: iconShake 2s ease-in-out infinite;
+}
+
+@keyframes iconShake {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: rotate(-5deg);
+    }
+    20%, 40%, 60%, 80% {
+        transform: rotate(5deg);
+    }
+}
+
+.stock-message {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.stock-text {
+    font-size: 15px;
+    color: #DC2626;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.stock-text strong {
+    font-weight: 700;
+}
+
+.stock-subtext {
+    font-size: 12px;
+    color: #EF4444;
+    font-weight: 400;
+}
+
+.stock-progress {
+    margin-bottom: 14px;
+}
+
+.stock-progress-bar {
+    width: 100%;
+    height: 10px;
+    background: #FEE2E2;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 6px;
+}
+
+.stock-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #DC2626 0%, #EF4444 100%);
+    border-radius: 5px;
+    position: relative;
+    transition: width 0.5s ease;
+    animation: progressPulse 2s ease-in-out infinite;
+}
+
+@keyframes progressPulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.85;
+    }
+}
+
+.stock-progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    animation: progressShine 1.5s ease-in-out infinite;
+}
+
+@keyframes progressShine {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.stock-progress-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stock-sold {
+    font-size: 12px;
+    color: #DC2626;
+    font-weight: 600;
+}
+
+.stock-total {
+    font-size: 11px;
+    color: #9CA3AF;
+    font-weight: 500;
+}
+
+.stock-watchers {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #FFFFFF;
+    border: 1px solid #FCA5A5;
+    border-radius: 8px;
+    padding: 8px 12px;
+}
+
+.watchers-icon {
+    font-size: 16px;
+}
+
+.watchers-text {
+    font-size: 13px;
+    color: #6B7280;
+    font-weight: 500;
+}
+
+.watchers-text strong {
+    color: #DC2626;
+    font-weight: 700;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .stock-container {
+        padding: 14px 16px;
+    }
+
+    .stock-icon {
+        font-size: 20px;
+    }
+
+    .stock-text {
+        font-size: 14px;
+    }
+
+    .stock-subtext {
+        font-size: 11px;
+    }
+
+    .stock-watchers {
+        padding: 6px 10px;
+    }
+
+    .watchers-text {
+        font-size: 12px;
+    }
+}
+</style>
+
+<script>
+function initStockUrgency() {
+    const config = {
+        remainingStock: 3,
+        totalStock: 25,
+        watchers: 47,
+        stockRemainingId: 'stock-remaining',
+        stockSoldId: 'stock-sold',
+        stockTotalId: 'stock-total',
+        watchersCountId: 'watchers-count',
+        progressFillId: 'stock-progress-fill'
+    };
+
+    const stockRemainingEl = document.getElementById(config.stockRemainingId);
+    const stockSoldEl = document.getElementById(config.stockSoldId);
+    const stockTotalEl = document.getElementById(config.stockTotalId);
+    const watchersCountEl = document.getElementById(config.watchersCountId);
+    const progressFillEl = document.getElementById(config.progressFillId);
+
+    if (stockRemainingEl) {
+        stockRemainingEl.textContent = config.remainingStock + (config.remainingStock === 1 ? ' item' : ' items');
+    }
+
+    if (stockSoldEl) {
+        const soldCount = config.totalStock - config.remainingStock;
+        stockSoldEl.textContent = soldCount + ' sold';
+    }
+
+    if (stockTotalEl) {
+        stockTotalEl.textContent = config.totalStock + ' total';
+    }
+
+    if (watchersCountEl) {
+        watchersCountEl.textContent = config.watchers;
+    }
+
+    if (progressFillEl) {
+        const stockPercentage = (config.remainingStock / config.totalStock) * 100;
+        progressFillEl.style.width = stockPercentage + '%';
+    }
+
+    // Simulate random watchers count updates (optional)
+    setInterval(() => {
+        if (watchersCountEl) {
+            const randomChange = Math.floor(Math.random() * 7) - 3; // -3 to +3
+            const newCount = Math.max(30, Math.min(80, config.watchers + randomChange));
+            watchersCountEl.textContent = newCount;
+        }
+    }, 5000);
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', initStockUrgency);
+</script>
+
+</body>
+</html>

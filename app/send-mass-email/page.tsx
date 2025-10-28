@@ -117,10 +117,10 @@ test@example.com`);
               placeholder="amael.lelaisant@gmail.com&#10;patrice.lelaisant@gmail.com&#10;..."
               className="w-full h-32 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 bg-white"
             />
-            <div className="mt-2 flex justify-between items-center">
+            <div className="mt-2 flex justify-between items-center text-gray-900">
               <button
                 onClick={loadSampleEmails}
-                className="text-sm text-blue-600 hover:text-blue-800"
+                className="text-sm text-blue-600 hover:text-blue-800 text-gray-900"
               >
                 Load sample emails
               </button>

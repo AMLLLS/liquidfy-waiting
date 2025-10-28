@@ -1,0 +1,88 @@
+<!-- CODE BRUT ORIGINAL : Shipping Badge -->
+<div class="flex items-center justify-center bg-white rounded-full px-5 py-2 shadow-sm gap-3.5 text-sm max-w-[95vw] overflow-hidden">
+  <div class="flex items-center gap-1.5 whitespace-nowrap">
+    <div class="w-2.5 h-2.5 bg-green-500 rounded-full flex-shrink-0 animate-pulse"></div>
+    <div>Ships by <span class="font-semibold">Today</span></div>
+  </div>
+  <div class="flex items-center gap-1.5 whitespace-nowrap">
+    <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="Flag" class="w-[18px] h-[18px] rounded-full object-cover flex-shrink-0">
+    <div class="font-semibold">FREE Shipping</div>
+  </div>
+</div>
+
+<!--
+ANALYSE DU CODE BRUT :
+======================
+
+STRUCTURE :
+-----------
+- Container principal : flex horizontal, fond blanc, bordure arrondie complète (pill), shadow légère
+- 2 sections côte à côte avec gap
+- Section 1 : Pastille verte animée (pulse) + texte "Ships by Today"
+- Section 2 : Drapeau USA + texte "FREE Shipping"
+
+TAILWIND À CONVERTIR :
+----------------------
+- flex items-center justify-center → display: flex; align-items: center; justify-content: center;
+- bg-white → background: #FFFFFF;
+- rounded-full → border-radius: 9999px;
+- px-5 py-2 → padding: 8px 20px;
+- shadow-sm → box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+- gap-3.5 → gap: 14px; (3.5 × 4px = 14px)
+- text-sm → font-size: 14px;
+- max-w-[95vw] → max-width: 95vw;
+- overflow-hidden → overflow: hidden;
+- gap-1.5 → gap: 6px; (1.5 × 4px = 6px)
+- whitespace-nowrap → white-space: nowrap;
+- w-2.5 h-2.5 → width: 10px; height: 10px; (2.5 × 4px = 10px)
+- bg-green-500 → background: #22c55e;
+- flex-shrink-0 → flex-shrink: 0;
+- animate-pulse → animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+- w-[18px] h-[18px] → width: 18px; height: 18px;
+- object-cover → object-fit: cover;
+- font-semibold → font-weight: 600;
+
+TAILLES À ADAPTER :
+-------------------
+⚠️ Ce badge semble déjà à une taille réaliste (pas d'iframe miniaturisé)
+- px-5 py-2 (20px 8px) → OK, taille standard pour un badge
+- text-sm (14px) → OK, lisible
+- w-2.5 h-2.5 (10px) → Peut être agrandi à 12px pour plus de visibilité
+- w-[18px] h-[18px] → Peut rester ou passer à 20px
+- gap-3.5 (14px) → Peut être augmenté à 20px pour plus d'espace
+
+SCALING PROPOSÉ :
+-----------------
+- Pastille verte : 10px → 12px
+- Drapeau : 18px → 20px
+- Gap entre sections : 14px → 20px
+- Font-size : 14px → 15px (légèrement plus lisible)
+
+COULEURS À CHANGER :
+--------------------
+- bg-green-500 (#22c55e) → Remplacer par une autre couleur (ex: bleu #3B82F6, orange #F97316)
+- Drapeau USA → Remplacer par un autre pays ou icône générique
+
+TEXTES À MODIFIER :
+-------------------
+- "Ships by Today" → "Ready to Ship" ou autre variante
+- "FREE Shipping" → "Fast Delivery" ou autre
+
+ANIMATION PULSE :
+-----------------
+À définir en CSS :
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+VARIABLES À EXTRAIRE :
+----------------------
+Estimation : ~15 variables
+- Texte section 1 (avant/après gras)
+- Texte section 2
+- Couleur pastille
+- URL drapeau + alt text
+- Couleurs (fond, texte, shadow)
+- Dimensions (pastille, drapeau, padding, gap)
+-->

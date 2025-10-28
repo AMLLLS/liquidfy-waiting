@@ -1,0 +1,196 @@
+{
+  "title": "Rating & Reviews",
+  "description": "Dynamic star rating display with score, review count and customer badge.",
+  "longDescription": "A compact and elegant rating module that displays star ratings with precision up to 0.1 (e.g., 4.7). Features dynamic JavaScript-generated stars with gradient support for partial ratings, customizable colors, and a customer badge. Perfect for displaying product ratings, testimonials, or review scores. Fully responsive with smooth scaling across all devices.",
+  "thumbnail": "/modules/cover/LIQUIDFY-Rating-cover.png",
+  "images": [
+    "/modules/cover/LIQUIDFY-Rating-new-cover.png"
+  ],
+  "category": "Social Proof",
+  "tags": [
+    "Rating",
+    "Reviews",
+    "Stars",
+    "Social Proof",
+    "Testimonials",
+    "Trust"
+  ],
+  "featured": false,
+  "status": "published",
+  "slug": "rating-reviews",
+  "createdAt": { "$date": "2025-10-27T18:00:00.000Z" },
+  "updatedAt": { "$date": "2025-10-27T18:00:00.000Z" },
+  "originalTitle": "Rating & Reviews",
+  "downloads": 0,
+  "lastVariableUpdate": { "$date": "2025-10-27T18:00:00.000Z" },
+  "variableCount": 23,
+  "lastVariableGeneration": { "$date": "2025-10-27T18:00:00.000Z" },
+  "isModernTemplate": true,
+  "popular": true,
+  "variables": [
+    {
+      "name": "rating_score_label",
+      "label": "Score Label",
+      "type": "text",
+      "defaultValue": "Rated 4.7",
+      "description": "Text displayed for the score (e.g., 'Rated 4.7', 'Score 4.7', '4.7/5')"
+    },
+    {
+      "name": "rating_score_number",
+      "label": "Rating Score",
+      "type": "number",
+      "defaultValue": "4.7",
+      "description": "Numeric value of the score (from 0 to 5)"
+    },
+    {
+      "name": "rating_count",
+      "label": "Review Count",
+      "type": "number",
+      "defaultValue": "137",
+      "description": "Total number of reviews"
+    },
+    {
+      "name": "badge_text",
+      "label": "Badge Text",
+      "type": "text",
+      "defaultValue": "Happy Customers",
+      "description": "Text displayed in the badge (e.g., 'Happy Customers', 'Verified Reviews', 'Trusted')"
+    },
+    {
+      "name": "filled_stars_count",
+      "label": "Filled Stars Count",
+      "type": "number",
+      "defaultValue": "4",
+      "description": "Number of active/filled stars (from 0 to 5)"
+    },
+    {
+      "name": "total_stars_count",
+      "label": "Total Stars Count",
+      "type": "number",
+      "defaultValue": "5",
+      "description": "Total number of stars displayed"
+    },
+    {
+      "name": "star_active_color",
+      "label": "Active Star Color",
+      "type": "color",
+      "defaultValue": "#F43F5E",
+      "description": "Color of filled/active stars"
+    },
+    {
+      "name": "star_inactive_color",
+      "label": "Inactive Star Color",
+      "type": "color",
+      "defaultValue": "#E5E7EB",
+      "description": "Color of empty/inactive stars"
+    },
+    {
+      "name": "score_text_color",
+      "label": "Score Text Color",
+      "type": "color",
+      "defaultValue": "#111827",
+      "description": "Color of the score text (bold)"
+    },
+    {
+      "name": "count_text_color",
+      "label": "Count Text Color",
+      "type": "color",
+      "defaultValue": "#6B7280",
+      "description": "Color of the review count text"
+    },
+    {
+      "name": "badge_bg_color",
+      "label": "Badge Background Color",
+      "type": "color",
+      "defaultValue": "#FFE4E6",
+      "description": "Background color of the badge"
+    },
+    {
+      "name": "badge_text_color",
+      "label": "Badge Text Color",
+      "type": "color",
+      "defaultValue": "#DB2777",
+      "description": "Text color of the badge"
+    },
+    {
+      "name": "star_size_desktop",
+      "label": "Star Size Desktop",
+      "type": "dimension",
+      "defaultValue": "16px",
+      "description": "Size of stars on desktop"
+    },
+    {
+      "name": "rating_text_size_desktop",
+      "label": "Text Size Desktop",
+      "type": "dimension",
+      "defaultValue": "14px",
+      "description": "Size of rating text on desktop"
+    },
+    {
+      "name": "badge_text_size_desktop",
+      "label": "Badge Text Size Desktop",
+      "type": "dimension",
+      "defaultValue": "12px",
+      "description": "Size of badge text on desktop"
+    },
+    {
+      "name": "container_gap_desktop",
+      "label": "Container Gap Desktop",
+      "type": "dimension",
+      "defaultValue": "8px",
+      "description": "Spacing between container elements"
+    },
+    {
+      "name": "stars_gap_desktop",
+      "label": "Stars Gap Desktop",
+      "type": "dimension",
+      "defaultValue": "2px",
+      "description": "Spacing between stars"
+    },
+    {
+      "name": "star_size_tablet",
+      "label": "Star Size Tablet",
+      "type": "dimension",
+      "defaultValue": "14px",
+      "description": "Size of stars on tablet"
+    },
+    {
+      "name": "rating_text_size_tablet",
+      "label": "Text Size Tablet",
+      "type": "dimension",
+      "defaultValue": "13px",
+      "description": "Size of rating text on tablet"
+    },
+    {
+      "name": "badge_text_size_tablet",
+      "label": "Badge Text Size Tablet",
+      "type": "dimension",
+      "defaultValue": "11px",
+      "description": "Size of badge text on tablet"
+    },
+    {
+      "name": "star_size_mobile",
+      "label": "Star Size Mobile",
+      "type": "dimension",
+      "defaultValue": "12px",
+      "description": "Size of stars on mobile"
+    },
+    {
+      "name": "rating_text_size_mobile",
+      "label": "Text Size Mobile",
+      "type": "dimension",
+      "defaultValue": "12px",
+      "description": "Size of rating text on mobile"
+    },
+    {
+      "name": "badge_text_size_mobile",
+      "label": "Badge Text Size Mobile",
+      "type": "dimension",
+      "defaultValue": "10px",
+      "description": "Size of badge text on mobile"
+    }
+  ],
+  "code": "<div class=\"rating-module\"><div class=\"rating-container\"><div class=\"rating-stars\" id=\"ratingStars\"></div><div class=\"rating-text\"><strong class=\"rating-score\">Rated <span id=\"ratingScore\">4.7</span></strong><span class=\"rating-count\">(<span id=\"ratingCount\">137</span>)</span></div><div class=\"rating-badge\" id=\"ratingBadge\">Happy Customers</div></div></div><style>*{box-sizing:border-box;margin:0;padding:0}.rating-module{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}.rating-container{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.rating-stars{display:flex;gap:2px;align-items:center}.star{width:16px;height:16px;fill:#F43F5E;flex-shrink:0}.star-inactive{fill:#E5E7EB}.rating-text{display:flex;align-items:baseline;gap:4px;font-size:14px;line-height:1.4}.rating-score{font-weight:700;color:#111827}.rating-count{color:#6B7280;font-weight:400}.rating-badge{background:#FFE4E6;color:#DB2777;padding:2px 6px;border-radius:4px;font-size:12px;font-weight:500;line-height:1.4}.star-partial{position:relative}@media (max-width:768px){.rating-container{gap:6px}.star{width:14px;height:14px}.rating-text{font-size:13px}.rating-badge{font-size:11px;padding:2px 5px}}@media (max-width:480px){.rating-container{gap:5px}.star{width:12px;height:12px}.rating-text{font-size:12px}.rating-badge{font-size:10px;padding:1.5px 4px}}</style><script>function generateStars(rating,totalStars,activeColor,inactiveColor){const starsContainer=document.getElementById('ratingStars');starsContainer.innerHTML='';const starPath='M12 2l2.9 6.6L22 9.2l-5 4.9 1.2 7L12 17.8 5.8 21l1.2-7-5-4.9 7.1-0.6z';const fullStars=Math.floor(rating);const partialStar=rating%1;const emptyStars=totalStars-Math.ceil(rating);const gradientId=`starGradient${Date.now()}`;for(let i=0;i<fullStars;i++){const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('class','star');svg.setAttribute('viewBox','0 0 24 24');const path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('d',starPath);path.setAttribute('fill',activeColor);svg.appendChild(path);starsContainer.appendChild(svg)}if(partialStar>0){const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('class','star star-partial');svg.setAttribute('viewBox','0 0 24 24');const defs=document.createElementNS('http://www.w3.org/2000/svg','defs');const gradient=document.createElementNS('http://www.w3.org/2000/svg','linearGradient');gradient.setAttribute('id',gradientId);gradient.setAttribute('x1','0%');gradient.setAttribute('y1','0%');gradient.setAttribute('x2','100%');gradient.setAttribute('y2','0%');const stop1=document.createElementNS('http://www.w3.org/2000/svg','stop');stop1.setAttribute('offset',`${partialStar*100}%`);stop1.setAttribute('stop-color',activeColor);const stop2=document.createElementNS('http://www.w3.org/2000/svg','stop');stop2.setAttribute('offset',`${partialStar*100}%`);stop2.setAttribute('stop-color',inactiveColor);gradient.appendChild(stop1);gradient.appendChild(stop2);defs.appendChild(gradient);svg.appendChild(defs);const path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('d',starPath);path.setAttribute('fill',`url(#${gradientId})`);svg.appendChild(path);starsContainer.appendChild(svg)}for(let i=0;i<emptyStars;i++){const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('class','star star-inactive');svg.setAttribute('viewBox','0 0 24 24');const path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('d',starPath);path.setAttribute('fill',inactiveColor);svg.appendChild(path);starsContainer.appendChild(svg)}}(function(){const config={rating:4.7,reviewCount:137,badgeText:'Happy Customers',totalStars:5,activeColor:'#F43F5E',inactiveColor:'#E5E7EB'};document.getElementById('ratingScore').textContent=config.rating.toFixed(1);document.getElementById('ratingCount').textContent=config.reviewCount;document.getElementById('ratingBadge').textContent=config.badgeText;generateStars(config.rating,config.totalStars,config.activeColor,config.inactiveColor)})();</script>",
+  "content": "<div class=\"rating-module\"><div class=\"rating-container\"><div class=\"rating-stars\" id=\"ratingStars\"></div><div class=\"rating-text\"><strong class=\"rating-score\">Rated <span id=\"ratingScore\">4.7</span></strong><span class=\"rating-count\">(<span id=\"ratingCount\">137</span>)</span></div><div class=\"rating-badge\" id=\"ratingBadge\">Happy Customers</div></div></div><style>*{box-sizing:border-box;margin:0;padding:0}.rating-module{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}.rating-container{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.rating-stars{display:flex;gap:2px;align-items:center}.star{width:16px;height:16px;fill:#F43F5E;flex-shrink:0}.star-inactive{fill:#E5E7EB}.rating-text{display:flex;align-items:baseline;gap:4px;font-size:14px;line-height:1.4}.rating-score{font-weight:700;color:#111827}.rating-count{color:#6B7280;font-weight:400}.rating-badge{background:#FFE4E6;color:#DB2777;padding:2px 6px;border-radius:4px;font-size:12px;font-weight:500;line-height:1.4}.star-partial{position:relative}@media (max-width:768px){.rating-container{gap:6px}.star{width:14px;height:14px}.rating-text{font-size:13px}.rating-badge{font-size:11px;padding:2px 5px}}@media (max-width:480px){.rating-container{gap:5px}.star{width:12px;height:12px}.rating-text{font-size:12px}.rating-badge{font-size:10px;padding:1.5px 4px}}</style><script>function generateStars(rating,totalStars,activeColor,inactiveColor){const starsContainer=document.getElementById('ratingStars');starsContainer.innerHTML='';const starPath='M12 2l2.9 6.6L22 9.2l-5 4.9 1.2 7L12 17.8 5.8 21l1.2-7-5-4.9 7.1-0.6z';const fullStars=Math.floor(rating);const partialStar=rating%1;const emptyStars=totalStars-Math.ceil(rating);const gradientId=`starGradient${Date.now()}`;for(let i=0;i<fullStars;i++){const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('class','star');svg.setAttribute('viewBox','0 0 24 24');const path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('d',starPath);path.setAttribute('fill',activeColor);svg.appendChild(path);starsContainer.appendChild(svg)}if(partialStar>0){const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('class','star star-partial');svg.setAttribute('viewBox','0 0 24 24');const defs=document.createElementNS('http://www.w3.org/2000/svg','defs');const gradient=document.createElementNS('http://www.w3.org/2000/svg','linearGradient');gradient.setAttribute('id',gradientId);gradient.setAttribute('x1','0%');gradient.setAttribute('y1','0%');gradient.setAttribute('x2','100%');gradient.setAttribute('y2','0%');const stop1=document.createElementNS('http://www.w3.org/2000/svg','stop');stop1.setAttribute('offset',`${partialStar*100}%`);stop1.setAttribute('stop-color',activeColor);const stop2=document.createElementNS('http://www.w3.org/2000/svg','stop');stop2.setAttribute('offset',`${partialStar*100}%`);stop2.setAttribute('stop-color',inactiveColor);gradient.appendChild(stop1);gradient.appendChild(stop2);defs.appendChild(gradient);svg.appendChild(defs);const path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('d',starPath);path.setAttribute('fill',`url(#${gradientId})`);svg.appendChild(path);starsContainer.appendChild(svg)}for(let i=0;i<emptyStars;i++){const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('class','star star-inactive');svg.setAttribute('viewBox','0 0 24 24');const path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('d',starPath);path.setAttribute('fill',inactiveColor);svg.appendChild(path);starsContainer.appendChild(svg)}}(function(){const config={rating:4.7,reviewCount:137,badgeText:'Happy Customers',totalStars:5,activeColor:'#F43F5E',inactiveColor:'#E5E7EB'};document.getElementById('ratingScore').textContent=config.rating.toFixed(1);document.getElementById('ratingCount').textContent=config.reviewCount;document.getElementById('ratingBadge').textContent=config.badgeText;generateStars(config.rating,config.totalStars,config.activeColor,config.inactiveColor)})();</script>",
+  "templateCode": "<div class=\"rating-module\"><div class=\"rating-container\"><div class=\"rating-stars\" id=\"ratingStars\"></div><div class=\"rating-text\"><strong class=\"rating-score\">Rated <span id=\"ratingScore\">${rating_score_number}</span></strong><span class=\"rating-count\">(<span id=\"ratingCount\">${rating_count}</span>)</span></div><div class=\"rating-badge\" id=\"ratingBadge\">${badge_text}</div></div></div><style>*{box-sizing:border-box;margin:0;padding:0}.rating-module{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}.rating-container{display:flex;align-items:center;gap:${container_gap_desktop};flex-wrap:wrap}.rating-stars{display:flex;gap:${stars_gap_desktop};align-items:center}.star{width:${star_size_desktop};height:${star_size_desktop};fill:${star_active_color};flex-shrink:0}.star-inactive{fill:${star_inactive_color}}.rating-text{display:flex;align-items:baseline;gap:4px;font-size:${rating_text_size_desktop};line-height:1.4}.rating-score{font-weight:700;color:${score_text_color}}.rating-count{color:${count_text_color};font-weight:400}.rating-badge{background:${badge_bg_color};color:${badge_text_color};padding:2px 6px;border-radius:4px;font-size:${badge_text_size_desktop};font-weight:500;line-height:1.4}.star-partial{position:relative}@media (max-width:768px){.rating-container{gap:6px}.star{width:${star_size_tablet};height:${star_size_tablet}}.rating-text{font-size:${rating_text_size_tablet}}.rating-badge{font-size:${badge_text_size_tablet};padding:2px 5px}}@media (max-width:480px){.rating-container{gap:5px}.star{width:${star_size_mobile};height:${star_size_mobile}}.rating-text{font-size:${rating_text_size_mobile}}.rating-badge{font-size:${badge_text_size_mobile};padding:1.5px 4px}}</style><script>function generateStars(rating,totalStars,activeColor,inactiveColor){const starsContainer=document.getElementById('ratingStars');starsContainer.innerHTML='';const starPath='M12 2l2.9 6.6L22 9.2l-5 4.9 1.2 7L12 17.8 5.8 21l1.2-7-5-4.9 7.1-0.6z';const fullStars=Math.floor(rating);const partialStar=rating%1;const emptyStars=totalStars-Math.ceil(rating);const gradientId=`starGradient${Date.now()}`;for(let i=0;i<fullStars;i++){const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('class','star');svg.setAttribute('viewBox','0 0 24 24');const path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('d',starPath);path.setAttribute('fill',activeColor);svg.appendChild(path);starsContainer.appendChild(svg)}if(partialStar>0){const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('class','star star-partial');svg.setAttribute('viewBox','0 0 24 24');const defs=document.createElementNS('http://www.w3.org/2000/svg','defs');const gradient=document.createElementNS('http://www.w3.org/2000/svg','linearGradient');gradient.setAttribute('id',gradientId);gradient.setAttribute('x1','0%');gradient.setAttribute('y1','0%');gradient.setAttribute('x2','100%');gradient.setAttribute('y2','0%');const stop1=document.createElementNS('http://www.w3.org/2000/svg','stop');stop1.setAttribute('offset',`${partialStar*100}%`);stop1.setAttribute('stop-color',activeColor);const stop2=document.createElementNS('http://www.w3.org/2000/svg','stop');stop2.setAttribute('offset',`${partialStar*100}%`);stop2.setAttribute('stop-color',inactiveColor);gradient.appendChild(stop1);gradient.appendChild(stop2);defs.appendChild(gradient);svg.appendChild(defs);const path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('d',starPath);path.setAttribute('fill',`url(#${gradientId})`);svg.appendChild(path);starsContainer.appendChild(svg)}for(let i=0;i<emptyStars;i++){const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('class','star star-inactive');svg.setAttribute('viewBox','0 0 24 24');const path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('d',starPath);path.setAttribute('fill',inactiveColor);svg.appendChild(path);starsContainer.appendChild(svg)}}(function(){const rating=${rating_score_number};const totalStars=${total_stars_count};const activeColor='${star_active_color}';const inactiveColor='${star_inactive_color}';generateStars(rating,totalStars,activeColor,inactiveColor)})();</script>"
+}

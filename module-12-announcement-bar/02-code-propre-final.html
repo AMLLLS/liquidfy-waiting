@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 12 - Announcement Bar Countdown - Code Propre Final</title>
+</head>
+<body>
+
+<!-- MODULE 12: ANNOUNCEMENT BAR WITH COUNTDOWN -->
+<div class="announcement-bar-module">
+    <div class="announcement-bar">
+        <div class="announcement-content">
+            <!-- Texte d'annonce -->
+            <div class="announcement-text">Welcome Offer Ends Soon</div>
+            
+            <!-- Compte à rebours -->
+            <div class="countdown-wrapper">
+                <div class="countdown-block">
+                    <span class="countdown-number" id="countdown-hours">09</span>
+                    <small class="countdown-label">HOURS</small>
+                </div>
+                <div class="countdown-block">
+                    <span class="countdown-number" id="countdown-minutes">59</span>
+                    <small class="countdown-label">MINUTES</small>
+                </div>
+                <div class="countdown-block">
+                    <span class="countdown-number" id="countdown-seconds">33</span>
+                    <small class="countdown-label">SECONDS</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Module principal */
+.announcement-bar-module {
+    width: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Barre d'annonce */
+.announcement-bar {
+    width: 100%;
+    background: #FFE5E5;
+    color: #8E1919;
+    padding: 6px 12px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+/* Contenu centré */
+.announcement-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    max-width: 100%;
+    margin: 0 auto;
+    flex-wrap: nowrap;
+}
+
+/* Texte d'annonce */
+.announcement-text {
+    font-size: 12px;
+    font-weight: 700;
+    color: #8E1919;
+}
+
+/* Wrapper du countdown */
+.countdown-wrapper {
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+/* Bloc de temps (heures, minutes, secondes) */
+.countdown-block {
+    background: #FFE5E5;
+    color: #8E1919;
+    border: 1px solid #8E1919;
+    padding: 2px 4px;
+    border-radius: 3px;
+    text-align: center;
+    min-width: 28px;
+}
+
+/* Chiffre du countdown */
+.countdown-number {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+/* Label (HOURS, MINUTES, etc.) */
+.countdown-label {
+    display: block;
+    font-size: 7px;
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+/* RESPONSIVE */
+
+/* Mobile */
+@media (max-width: 768px) {
+    .announcement-bar {
+        padding: 4px 8px;
+    }
+
+    .announcement-text {
+        font-size: 10px;
+    }
+
+    .countdown-wrapper {
+        gap: 3px;
+    }
+
+    .countdown-number {
+        font-size: 9px;
+    }
+
+    .countdown-label {
+        font-size: 6px;
+    }
+}
+</style>
+
+<script>
+/**
+ * Initialise et démarre le compte à rebours
+ */
+function initCountdown() {
+    // Configuration par défaut (variables modifiables)
+    const config = {
+        // Date de fin du countdown (format: 'YYYY-MM-DD HH:MM:SS' ou timestamp)
+        endDate: new Date(Date.now() + 10 * 60 * 60 * 1000), // 10 heures à partir de maintenant
+        
+        // IDs des éléments HTML
+        hoursElementId: 'countdown-hours',
+        minutesElementId: 'countdown-minutes',
+        secondsElementId: 'countdown-seconds',
+        
+        // Options
+        hideWhenExpired: false, // Masquer la barre quand le countdown atteint 0
+        barElementClass: 'announcement-bar' // Classe de la barre pour la masquer
+    };
+    
+    // Récupérer les éléments du DOM
+    const hoursElement = document.getElementById(config.hoursElementId);
+    const minutesElement = document.getElementById(config.minutesElementId);
+    const secondsElement = document.getElementById(config.secondsElementId);
+    const barElement = document.querySelector(`.${config.barElementClass}`);
+    
+    if (!hoursElement || !minutesElement || !secondsElement) {
+        console.error('Countdown elements not found');
+        return;
+    }
+    
+    /**
+     * Met à jour le compte à rebours
+     */
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const endTime = new Date(config.endDate).getTime();
+        const distance = endTime - now;
+        
+        // Si le compte à rebours est terminé
+        if (distance < 0) {
+            hoursElement.textContent = '00';
+            minutesElement.textContent = '00';
+            secondsElement.textContent = '00';
+            
+            // Masquer la barre si l'option est activée
+            if (config.hideWhenExpired && barElement) {
+                barElement.style.display = 'none';
+            }
+            
+            // Arrêter l'intervalle
+            clearInterval(countdownInterval);
+            return;
+        }
+        
+        // Calculer heures, minutes, secondes
+        const hours = Math.floor(distance / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        // Mettre à jour l'affichage avec padding (09 au lieu de 9)
+        hoursElement.textContent = String(hours).padStart(2, '0');
+        minutesElement.textContent = String(minutes).padStart(2, '0');
+        secondsElement.textContent = String(seconds).padStart(2, '0');
+    }
+    
+    // Mettre à jour immédiatement
+    updateCountdown();
+    
+    // Mettre à jour chaque seconde
+    const countdownInterval = setInterval(updateCountdown, 1000);
+}
+
+// Démarrer le countdown au chargement de la page
+document.addEventListener('DOMContentLoaded', initCountdown);
+</script>
+
+</body>
+</html>

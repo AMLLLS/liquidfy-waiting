@@ -1,0 +1,192 @@
+<!-- TEMPLATE CODE : Statistics Section (avec variables ${}) -->
+<div class="stats-module">
+  <div class="stats-container">
+    <div class="stats-header">
+      <h2 class="stats-title">
+        ${title_main} <span class="stats-title-accent">${title_accent}</span>
+      </h2>
+      <p class="stats-subtitle">
+        ${subtitle}
+      </p>
+    </div>
+    
+    <div class="stats-list">
+      <div class="stat-item">
+        <p class="stat-number">${stat1_number}</p>
+        <p class="stat-label">${stat1_label}</p>
+      </div>
+      
+      <div class="stat-item">
+        <p class="stat-number">${stat2_number}</p>
+        <p class="stat-label">${stat2_label}</p>
+      </div>
+      
+      <div class="stat-item">
+        <p class="stat-number">${stat3_number}</p>
+        <p class="stat-label">${stat3_label}</p>
+      </div>
+    </div>
+  </div>
+  
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    .stats-module {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: ${padding_vertical} ${padding_horizontal};
+      background: linear-gradient(135deg, ${gradient_start} 0%, ${gradient_end} 100%);
+      border-radius: ${border_radius};
+      color: ${text_color};
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    
+    .stats-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      text-align: center;
+    }
+    
+    .stats-header {
+      max-width: 600px;
+    }
+    
+    .stats-title {
+      font-size: 42px;
+      font-weight: 700;
+      margin: 0;
+      line-height: 1.2;
+      color: ${text_color};
+    }
+    
+    .stats-title-accent {
+      font-style: italic;
+      color: ${accent_color};
+    }
+    
+    .stats-subtitle {
+      margin-top: 12px;
+      font-size: 16px;
+      opacity: 0.85;
+      line-height: 1.4;
+      color: ${text_color};
+    }
+    
+    .stats-list {
+      width: 100%;
+      max-width: 550px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      border-top: 1px solid ${border_color};
+      padding: 16px 0;
+    }
+    
+    .stat-number {
+      font-size: 38px;
+      font-weight: 700;
+      color: ${accent_color};
+      margin: 0;
+      min-width: 100px;
+      text-align: left;
+    }
+    
+    .stat-label {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.3;
+      text-align: left;
+      flex: 1;
+      color: ${text_color};
+      opacity: 0.9;
+    }
+    
+    @media (max-width: 768px) {
+      .stats-module {
+        padding: 48px 24px;
+        border-radius: 12px;
+      }
+      
+      .stats-container {
+        gap: 28px;
+      }
+      
+      .stats-title {
+        font-size: 34px;
+      }
+      
+      .stats-subtitle {
+        font-size: 15px;
+      }
+      
+      .stats-list {
+        max-width: 480px;
+      }
+      
+      .stat-item {
+        padding: 14px 0;
+        gap: 14px;
+      }
+      
+      .stat-number {
+        font-size: 32px;
+        min-width: 85px;
+      }
+      
+      .stat-label {
+        font-size: 14px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .stats-module {
+        padding: 36px 20px;
+        border-radius: 10px;
+      }
+      
+      .stats-container {
+        gap: 24px;
+      }
+      
+      .stats-title {
+        font-size: 28px;
+      }
+      
+      .stats-subtitle {
+        font-size: 14px;
+        margin-top: 10px;
+      }
+      
+      .stats-list {
+        max-width: 100%;
+      }
+      
+      .stat-item {
+        padding: 12px 0;
+        gap: 12px;
+      }
+      
+      .stat-number {
+        font-size: 26px;
+        min-width: 70px;
+      }
+      
+      .stat-label {
+        font-size: 13px;
+      }
+    }
+  </style>
+</div>

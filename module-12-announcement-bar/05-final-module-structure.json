@@ -1,0 +1,225 @@
+{
+  "title": "Announcement Bar with Countdown",
+  "description": "Promotional announcement bar with dynamic countdown timer for limited offers.",
+  "longDescription": "A sleek and attention-grabbing announcement bar featuring a real-time countdown timer. Perfect for promoting flash sales, limited-time offers, product launches, or event deadlines. The countdown automatically updates every second and can optionally hide the bar when the timer expires. Fully customizable colors, text, and end date. Responsive design ensures perfect display on all devices.",
+  "thumbnail": "/modules/cover/LIQUIDFY-Announcement-Bar-cover.png",
+  "images": [
+    "/modules/cover/LIQUIDFY-Announcement-Bar-cover.png"
+  ],
+  "category": "Announcements",
+  "tags": [
+    "Announcement",
+    "Countdown",
+    "Timer",
+    "Promo",
+    "Flash Sale",
+    "Limited Offer",
+    "Marketing"
+  ],
+  "featured": true,
+  "status": "published",
+  "slug": "announcement-bar-countdown",
+  "createdAt": { "$date": "2025-10-28T18:00:00.000Z" },
+  "updatedAt": { "$date": "2025-10-28T18:00:00.000Z" },
+  "originalTitle": "Announcement Bar with Countdown",
+  "downloads": 0,
+  "lastVariableUpdate": { "$date": "2025-10-28T18:00:00.000Z" },
+  "variableCount": 26,
+  "lastVariableGeneration": { "$date": "2025-10-28T18:00:00.000Z" },
+  "isModernTemplate": true,
+  "popular": true,
+  "variables": [
+    {
+      "name": "announcement_text",
+      "label": "Announcement Text",
+      "type": "text",
+      "defaultValue": "Welcome Offer Ends Soon",
+      "description": "Message displayed in the announcement bar"
+    },
+    {
+      "name": "countdown_end_date",
+      "label": "End Date",
+      "type": "text",
+      "defaultValue": "2025-12-31 23:59:59",
+      "description": "Countdown end date and time (format: YYYY-MM-DD HH:MM:SS)"
+    },
+    {
+      "name": "label_hours",
+      "label": "Hours Label",
+      "type": "text",
+      "defaultValue": "HOURS",
+      "description": "Text displayed under hours"
+    },
+    {
+      "name": "label_minutes",
+      "label": "Minutes Label",
+      "type": "text",
+      "defaultValue": "MINUTES",
+      "description": "Text displayed under minutes"
+    },
+    {
+      "name": "label_seconds",
+      "label": "Seconds Label",
+      "type": "text",
+      "defaultValue": "SECONDS",
+      "description": "Text displayed under seconds"
+    },
+    {
+      "name": "bar_bg_color",
+      "label": "Bar Background Color",
+      "type": "color",
+      "defaultValue": "#FFE5E5",
+      "description": "Background color of the announcement bar"
+    },
+    {
+      "name": "bar_text_color",
+      "label": "Bar Text Color",
+      "type": "color",
+      "defaultValue": "#8E1919",
+      "description": "Main text color"
+    },
+    {
+      "name": "block_bg_color",
+      "label": "Block Background Color",
+      "type": "color",
+      "defaultValue": "#FFE5E5",
+      "description": "Background color of countdown blocks"
+    },
+    {
+      "name": "block_text_color",
+      "label": "Block Text Color",
+      "type": "color",
+      "defaultValue": "#8E1919",
+      "description": "Text color of countdown blocks"
+    },
+    {
+      "name": "block_border_color",
+      "label": "Block Border Color",
+      "type": "color",
+      "defaultValue": "#8E1919",
+      "description": "Border color of countdown blocks"
+    },
+    {
+      "name": "block_border_width",
+      "label": "Border Width",
+      "type": "dimension",
+      "defaultValue": "1px",
+      "description": "Border width of countdown blocks"
+    },
+    {
+      "name": "bar_padding_desktop",
+      "label": "Bar Padding Desktop",
+      "type": "dimension",
+      "defaultValue": "6px 12px",
+      "description": "Inner spacing of the bar on desktop"
+    },
+    {
+      "name": "bar_border_radius",
+      "label": "Bar Border Radius",
+      "type": "dimension",
+      "defaultValue": "8px",
+      "description": "Corner radius of the bar"
+    },
+    {
+      "name": "announcement_text_size",
+      "label": "Announcement Text Size",
+      "type": "dimension",
+      "defaultValue": "12px",
+      "description": "Size of announcement text on desktop"
+    },
+    {
+      "name": "content_gap",
+      "label": "Content Gap",
+      "type": "dimension",
+      "defaultValue": "8px",
+      "description": "Spacing between text and countdown"
+    },
+    {
+      "name": "countdown_gap",
+      "label": "Countdown Gap",
+      "type": "dimension",
+      "defaultValue": "4px",
+      "description": "Spacing between countdown blocks"
+    },
+    {
+      "name": "block_padding",
+      "label": "Block Padding",
+      "type": "dimension",
+      "defaultValue": "2px 4px",
+      "description": "Inner spacing of countdown blocks"
+    },
+    {
+      "name": "block_min_width",
+      "label": "Block Min Width",
+      "type": "dimension",
+      "defaultValue": "28px",
+      "description": "Minimum width of countdown blocks"
+    },
+    {
+      "name": "block_border_radius",
+      "label": "Block Border Radius",
+      "type": "dimension",
+      "defaultValue": "3px",
+      "description": "Corner radius of countdown blocks"
+    },
+    {
+      "name": "number_font_size",
+      "label": "Number Font Size",
+      "type": "dimension",
+      "defaultValue": "10px",
+      "description": "Font size of countdown numbers"
+    },
+    {
+      "name": "label_font_size",
+      "label": "Label Font Size",
+      "type": "dimension",
+      "defaultValue": "7px",
+      "description": "Font size of labels (HOURS, MINUTES, etc.)"
+    },
+    {
+      "name": "bar_padding_mobile",
+      "label": "Bar Padding Mobile",
+      "type": "dimension",
+      "defaultValue": "4px 8px",
+      "description": "Inner spacing of the bar on mobile"
+    },
+    {
+      "name": "announcement_text_size_mobile",
+      "label": "Announcement Text Size Mobile",
+      "type": "dimension",
+      "defaultValue": "10px",
+      "description": "Size of announcement text on mobile"
+    },
+    {
+      "name": "countdown_gap_mobile",
+      "label": "Countdown Gap Mobile",
+      "type": "dimension",
+      "defaultValue": "3px",
+      "description": "Spacing between blocks on mobile"
+    },
+    {
+      "name": "number_font_size_mobile",
+      "label": "Number Font Size Mobile",
+      "type": "dimension",
+      "defaultValue": "9px",
+      "description": "Font size of countdown numbers on mobile"
+    },
+    {
+      "name": "label_font_size_mobile",
+      "label": "Label Font Size Mobile",
+      "type": "dimension",
+      "defaultValue": "6px",
+      "description": "Font size of labels on mobile"
+    },
+    {
+      "name": "hide_when_expired",
+      "label": "Hide When Expired",
+      "type": "boolean",
+      "defaultValue": "false",
+      "description": "Automatically hide the bar when countdown reaches 0"
+    }
+  ],
+  "code": "<div class=\"announcement-bar-module\"><div class=\"announcement-bar\"><div class=\"announcement-content\"><div class=\"announcement-text\">Welcome Offer Ends Soon</div><div class=\"countdown-wrapper\"><div class=\"countdown-block\"><span class=\"countdown-number\" id=\"countdown-hours\">09</span><small class=\"countdown-label\">HOURS</small></div><div class=\"countdown-block\"><span class=\"countdown-number\" id=\"countdown-minutes\">59</span><small class=\"countdown-label\">MINUTES</small></div><div class=\"countdown-block\"><span class=\"countdown-number\" id=\"countdown-seconds\">33</span><small class=\"countdown-label\">SECONDS</small></div></div></div></div></div><style>*{box-sizing:border-box;margin:0;padding:0}.announcement-bar-module{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}.announcement-bar{width:100%;background:#FFE5E5;color:#8E1919;padding:6px 12px;text-align:center;border-radius:8px}.announcement-content{display:flex;justify-content:center;align-items:center;gap:8px;max-width:100%;margin:0 auto;flex-wrap:nowrap}.announcement-text{font-size:12px;font-weight:700;color:#8E1919}.countdown-wrapper{display:flex;gap:4px;justify-content:center;flex-wrap:nowrap}.countdown-block{background:#FFE5E5;color:#8E1919;border:1px solid #8E1919;padding:2px 4px;border-radius:3px;text-align:center;min-width:28px}.countdown-number{display:block;font-size:10px;font-weight:700;line-height:1.1}.countdown-label{display:block;font-size:7px;font-weight:400;line-height:1.1}@media (max-width:768px){.announcement-bar{padding:4px 8px}.announcement-text{font-size:10px}.countdown-wrapper{gap:3px}.countdown-number{font-size:9px}.countdown-label{font-size:6px}}</style><script>function initCountdown(){const config={endDate:new Date(Date.now()+10*60*60*1000),hoursElementId:'countdown-hours',minutesElementId:'countdown-minutes',secondsElementId:'countdown-seconds',hideWhenExpired:false,barElementClass:'announcement-bar'};const hoursElement=document.getElementById(config.hoursElementId);const minutesElement=document.getElementById(config.minutesElementId);const secondsElement=document.getElementById(config.secondsElementId);const barElement=document.querySelector(`.${config.barElementClass}`);if(!hoursElement||!minutesElement||!secondsElement){console.error('Countdown elements not found');return}function updateCountdown(){const now=new Date().getTime();const endTime=new Date(config.endDate).getTime();const distance=endTime-now;if(distance<0){hoursElement.textContent='00';minutesElement.textContent='00';secondsElement.textContent='00';if(config.hideWhenExpired&&barElement){barElement.style.display='none'}clearInterval(countdownInterval);return}const hours=Math.floor(distance/(1000*60*60));const minutes=Math.floor((distance%(1000*60*60))/(1000*60));const seconds=Math.floor((distance%(1000*60))/1000);hoursElement.textContent=String(hours).padStart(2,'0');minutesElement.textContent=String(minutes).padStart(2,'0');secondsElement.textContent=String(seconds).padStart(2,'0')}updateCountdown();const countdownInterval=setInterval(updateCountdown,1000)}document.addEventListener('DOMContentLoaded',initCountdown);</script>",
+  "content": "<div class=\"announcement-bar-module\"><div class=\"announcement-bar\"><div class=\"announcement-content\"><div class=\"announcement-text\">Welcome Offer Ends Soon</div><div class=\"countdown-wrapper\"><div class=\"countdown-block\"><span class=\"countdown-number\" id=\"countdown-hours\">09</span><small class=\"countdown-label\">HOURS</small></div><div class=\"countdown-block\"><span class=\"countdown-number\" id=\"countdown-minutes\">59</span><small class=\"countdown-label\">MINUTES</small></div><div class=\"countdown-block\"><span class=\"countdown-number\" id=\"countdown-seconds\">33</span><small class=\"countdown-label\">SECONDS</small></div></div></div></div></div><style>*{box-sizing:border-box;margin:0;padding:0}.announcement-bar-module{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}.announcement-bar{width:100%;background:#FFE5E5;color:#8E1919;padding:6px 12px;text-align:center;border-radius:8px}.announcement-content{display:flex;justify-content:center;align-items:center;gap:8px;max-width:100%;margin:0 auto;flex-wrap:nowrap}.announcement-text{font-size:12px;font-weight:700;color:#8E1919}.countdown-wrapper{display:flex;gap:4px;justify-content:center;flex-wrap:nowrap}.countdown-block{background:#FFE5E5;color:#8E1919;border:1px solid #8E1919;padding:2px 4px;border-radius:3px;text-align:center;min-width:28px}.countdown-number{display:block;font-size:10px;font-weight:700;line-height:1.1}.countdown-label{display:block;font-size:7px;font-weight:400;line-height:1.1}@media (max-width:768px){.announcement-bar{padding:4px 8px}.announcement-text{font-size:10px}.countdown-wrapper{gap:3px}.countdown-number{font-size:9px}.countdown-label{font-size:6px}}</style><script>function initCountdown(){const config={endDate:new Date(Date.now()+10*60*60*1000),hoursElementId:'countdown-hours',minutesElementId:'countdown-minutes',secondsElementId:'countdown-seconds',hideWhenExpired:false,barElementClass:'announcement-bar'};const hoursElement=document.getElementById(config.hoursElementId);const minutesElement=document.getElementById(config.minutesElementId);const secondsElement=document.getElementById(config.secondsElementId);const barElement=document.querySelector(`.${config.barElementClass}`);if(!hoursElement||!minutesElement||!secondsElement){console.error('Countdown elements not found');return}function updateCountdown(){const now=new Date().getTime();const endTime=new Date(config.endDate).getTime();const distance=endTime-now;if(distance<0){hoursElement.textContent='00';minutesElement.textContent='00';secondsElement.textContent='00';if(config.hideWhenExpired&&barElement){barElement.style.display='none'}clearInterval(countdownInterval);return}const hours=Math.floor(distance/(1000*60*60));const minutes=Math.floor((distance%(1000*60*60))/(1000*60));const seconds=Math.floor((distance%(1000*60))/1000);hoursElement.textContent=String(hours).padStart(2,'0');minutesElement.textContent=String(minutes).padStart(2,'0');secondsElement.textContent=String(seconds).padStart(2,'0')}updateCountdown();const countdownInterval=setInterval(updateCountdown,1000)}document.addEventListener('DOMContentLoaded',initCountdown);</script>",
+  "templateCode": "<div class=\"announcement-bar-module\"><div class=\"announcement-bar\"><div class=\"announcement-content\"><div class=\"announcement-text\">${announcement_text}</div><div class=\"countdown-wrapper\"><div class=\"countdown-block\"><span class=\"countdown-number\" id=\"countdown-hours\">09</span><small class=\"countdown-label\">${label_hours}</small></div><div class=\"countdown-block\"><span class=\"countdown-number\" id=\"countdown-minutes\">59</span><small class=\"countdown-label\">${label_minutes}</small></div><div class=\"countdown-block\"><span class=\"countdown-number\" id=\"countdown-seconds\">33</span><small class=\"countdown-label\">${label_seconds}</small></div></div></div></div></div><style>*{box-sizing:border-box;margin:0;padding:0}.announcement-bar-module{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}.announcement-bar{width:100%;background:${bar_bg_color};color:${bar_text_color};padding:${bar_padding_desktop};text-align:center;border-radius:${bar_border_radius}}.announcement-content{display:flex;justify-content:center;align-items:center;gap:${content_gap};max-width:100%;margin:0 auto;flex-wrap:nowrap}.announcement-text{font-size:${announcement_text_size};font-weight:700;color:${bar_text_color}}.countdown-wrapper{display:flex;gap:${countdown_gap};justify-content:center;flex-wrap:nowrap}.countdown-block{background:${block_bg_color};color:${block_text_color};border:${block_border_width} solid ${block_border_color};padding:${block_padding};border-radius:${block_border_radius};text-align:center;min-width:${block_min_width}}.countdown-number{display:block;font-size:${number_font_size};font-weight:700;line-height:1.1}.countdown-label{display:block;font-size:${label_font_size};font-weight:400;line-height:1.1}@media (max-width:768px){.announcement-bar{padding:${bar_padding_mobile}}.announcement-text{font-size:${announcement_text_size_mobile}}.countdown-wrapper{gap:${countdown_gap_mobile}}.countdown-number{font-size:${number_font_size_mobile}}.countdown-label{font-size:${label_font_size_mobile}}}</style><script>function initCountdown(){const config={endDate:new Date('${countdown_end_date}'),hoursElementId:'countdown-hours',minutesElementId:'countdown-minutes',secondsElementId:'countdown-seconds',hideWhenExpired:${hide_when_expired},barElementClass:'announcement-bar'};const hoursElement=document.getElementById(config.hoursElementId);const minutesElement=document.getElementById(config.minutesElementId);const secondsElement=document.getElementById(config.secondsElementId);const barElement=document.querySelector(`.${config.barElementClass}`);if(!hoursElement||!minutesElement||!secondsElement){console.error('Countdown elements not found');return}function updateCountdown(){const now=new Date().getTime();const endTime=new Date(config.endDate).getTime();const distance=endTime-now;if(distance<0){hoursElement.textContent='00';minutesElement.textContent='00';secondsElement.textContent='00';if(config.hideWhenExpired&&barElement){barElement.style.display='none'}clearInterval(countdownInterval);return}const hours=Math.floor(distance/(1000*60*60));const minutes=Math.floor((distance%(1000*60*60))/(1000*60));const seconds=Math.floor((distance%(1000*60))/1000);hoursElement.textContent=String(hours).padStart(2,'0');minutesElement.textContent=String(minutes).padStart(2,'0');secondsElement.textContent=String(seconds).padStart(2,'0')}updateCountdown();const countdownInterval=setInterval(updateCountdown,1000)}document.addEventListener('DOMContentLoaded',initCountdown);</script>"
+}

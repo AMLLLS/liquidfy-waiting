@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 11 - Rating/Avis - Code Brut</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 p-8">
+    
+    <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-sm mb-8">
+        <h1 class="text-2xl font-bold mb-4">Module 11 - Rating/Avis (Code Brut Original)</h1>
+        <p class="text-gray-600 mb-6">Code fourni par l'utilisateur - Module d'affichage de note avec étoiles</p>
+    </div>
+
+    <!-- CODE BRUT ORIGINAL -->
+    <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-sm">
+        <h2 class="text-lg font-semibold mb-6 text-gray-800">Rendu du code brut:</h2>
+        
+        <div class="flex items-center gap-2">
+            <div class="flex gap-0.5">
+                <svg width="16" height="16" fill="#f43f5e" viewBox="0 0 24 24">
+                    <path d="M12 2l2.9 6.6L22 9.2l-5 4.9 1.2 7L12 17.8 5.8 21l1.2-7-5-4.9 7.1-0.6z"></path>
+                </svg>
+                <svg width="16" height="16" fill="#f43f5e" viewBox="0 0 24 24">
+                    <path d="M12 2l2.9 6.6L22 9.2l-5 4.9 1.2 7L12 17.8 5.8 21l1.2-7-5-4.9 7.1-0.6z"></path>
+                </svg>
+                <svg width="16" height="16" fill="#f43f5e" viewBox="0 0 24 24">
+                    <path d="M12 2l2.9 6.6L22 9.2l-5 4.9 1.2 7L12 17.8 5.8 21l1.2-7-5-4.9 7.1-0.6z"></path>
+                </svg>
+                <svg width="16" height="16" fill="#f43f5e" viewBox="0 0 24 24">
+                    <path d="M12 2l2.9 6.6L22 9.2l-5 4.9 1.2 7L12 17.8 5.8 21l1.2-7-5-4.9 7.1-0.6z"></path>
+                </svg>
+                <svg width="16" height="16" fill="#e5e7eb" viewBox="0 0 24 24">
+                    <path d="M12 2l2.9 6.6L22 9.2l-5 4.9 1.2 7L12 17.8 5.8 21l1.2-7-5-4.9 7.1-0.6z"></path>
+                </svg>
+            </div>
+            <div class="text-sm">
+                <strong>Rated 4.7</strong>
+                <span class="text-gray-500">(137)</span>
+            </div>
+            <div class="text-pink-600 px-1.5 py-0.5 rounded text-xs" style="background: rgb(255, 228, 230);">
+                Happy Customers
+            </div>
+        </div>
+    </div>
+
+    <!-- ANALYSE DU CODE -->
+    <div class="max-w-4xl mx-auto bg-gray-100 p-8 rounded-lg mt-8">
+        <h2 class="text-lg font-semibold mb-4 text-gray-800">📋 Analyse du Module</h2>
+        
+        <div class="space-y-4 text-sm">
+            <div>
+                <h3 class="font-semibold text-gray-700 mb-2">Type de module:</h3>
+                <p class="text-gray-600">Module d'affichage de notation avec étoiles (Rating Display)</p>
+            </div>
+
+            <div>
+                <h3 class="font-semibold text-gray-700 mb-2">Éléments principaux:</h3>
+                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                    <li><strong>5 étoiles SVG:</strong> 4 étoiles remplies en rose (#f43f5e), 1 étoile vide en gris (#e5e7eb)</li>
+                    <li><strong>Score numérique:</strong> "Rated 4.7" en gras</li>
+                    <li><strong>Nombre d'avis:</strong> "(137)" en gris</li>
+                    <li><strong>Badge:</strong> "Happy Customers" avec fond rose clair</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="font-semibold text-gray-700 mb-2">Structure:</h3>
+                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                    <li>Container flex horizontal avec gap-2</li>
+                    <li>Groupe d'étoiles avec gap-0.5 (très serré)</li>
+                    <li>Texte note + nombre d'avis</li>
+                    <li>Badge avec style inline pour le background rose</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="font-semibold text-gray-700 mb-2">Couleurs utilisées:</h3>
+                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                    <li><strong>Étoiles actives:</strong> #f43f5e (rose/rouge vif)</li>
+                    <li><strong>Étoile inactive:</strong> #e5e7eb (gris clair)</li>
+                    <li><strong>Texte gris:</strong> text-gray-500</li>
+                    <li><strong>Badge texte:</strong> text-pink-600</li>
+                    <li><strong>Badge fond:</strong> rgb(255, 228, 230) (rose très clair)</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="font-semibold text-gray-700 mb-2">Variables à créer:</h3>
+                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                    <li>Rating score (4.7)</li>
+                    <li>Nombre total d'avis (137)</li>
+                    <li>Texte du badge (Happy Customers)</li>
+                    <li>Nombre d'étoiles pleines (4)</li>
+                    <li>Couleurs des étoiles actives/inactives</li>
+                    <li>Couleurs du badge</li>
+                    <li>Tailles responsive des étoiles</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="font-semibold text-gray-700 mb-2">Points d'attention:</h3>
+                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                    <li>Les étoiles doivent supporter un système de notation variable (1-5)</li>
+                    <li>Possibilité d'avoir des demi-étoiles pour .5 (ex: 4.5)</li>
+                    <li>Module très compact, idéal près du pricing</li>
+                    <li>Responsive: réduire taille des étoiles sur mobile</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- CODE SOURCE -->
+    <div class="max-w-4xl mx-auto bg-gray-900 text-gray-100 p-6 rounded-lg mt-8 overflow-x-auto">
+        <h2 class="text-lg font-semibold mb-4">Code HTML brut fourni:</h2>
+        <pre class="text-xs"><code>&lt;div class="flex items-center gap-2"&gt;
+    &lt;div class="flex gap-0.5"&gt;
+        &lt;svg width="16" height="16" fill="#f43f5e" viewBox="0 0 24 24"&gt;
+            &lt;path d="M12 2l2.9 6.6L22 9.2l-5 4.9 1.2 7L12 17.8 5.8 21l1.2-7-5-4.9 7.1-0.6z"&gt;&lt;/path&gt;
+        &lt;/svg&gt;
+        &lt;svg width="16" height="16" fill="#f43f5e" viewBox="0 0 24 24"&gt;
+            &lt;path d="M12 2l2.9 6.6L22 9.2l-5 4.9 1.2 7L12 17.8 5.8 21l1.2-7-5-4.9 7.1-0.6z"&gt;&lt;/path&gt;
+        &lt;/svg&gt;
+        &lt;svg width="16" height="16" fill="#f43f5e" viewBox="0 0 24 24"&gt;
+            &lt;path d="M12 2l2.9 6.6L22 9.2l-5 4.9 1.2 7L12 17.8 5.8 21l1.2-7-5-4.9 7.1-0.6z"&gt;&lt;/path&gt;
+        &lt;/svg&gt;
+        &lt;svg width="16" height="16" fill="#f43f5e" viewBox="0 0 24 24"&gt;
+            &lt;path d="M12 2l2.9 6.6L22 9.2l-5 4.9 1.2 7L12 17.8 5.8 21l1.2-7-5-4.9 7.1-0.6z"&gt;&lt;/path&gt;
+        &lt;/svg&gt;
+        &lt;svg width="16" height="16" fill="#e5e7eb" viewBox="0 0 24 24"&gt;
+            &lt;path d="M12 2l2.9 6.6L22 9.2l-5 4.9 1.2 7L12 17.8 5.8 21l1.2-7-5-4.9 7.1-0.6z"&gt;&lt;/path&gt;
+        &lt;/svg&gt;
+    &lt;/div&gt;
+    &lt;div class="text-sm"&gt;
+        &lt;strong&gt;Rated 4.7&lt;/strong&gt;
+        &lt;span class="text-gray-500"&gt;(137)&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="text-pink-600 px-1.5 py-0.5 rounded text-xs" style="background: rgb(255, 228, 230);"&gt;
+        Happy Customers
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+</body>
+</html>

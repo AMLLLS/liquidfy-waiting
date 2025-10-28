@@ -1,0 +1,144 @@
+<!-- TEMPLATE CODE : Shipping Badge (avec variables) -->
+<div class="shipping-badge-module">
+  <div class="shipping-badge">
+    <!-- Section 1: Status indicator -->
+    <div class="badge-section">
+      <div class="status-dot"></div>
+      <div class="badge-text">
+        ${status_text_before}<span class="text-bold">${status_text_bold}</span>
+      </div>
+    </div>
+    
+    <!-- Section 2: Delivery info -->
+    <div class="badge-section">
+      <img src="${flag_url}" 
+           alt="${flag_alt}" 
+           class="flag-icon">
+      <div class="text-bold">${delivery_text}</div>
+    </div>
+  </div>
+  
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    .shipping-badge-module {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    
+    .shipping-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: ${badge_bg_color};
+      border-radius: 9999px;
+      padding: ${badge_padding};
+      box-shadow: ${badge_shadow};
+      gap: ${sections_gap};
+      font-size: ${badge_font_size};
+      max-width: ${badge_max_width};
+      overflow: hidden;
+      color: ${badge_text_color};
+    }
+    
+    .badge-section {
+      display: flex;
+      align-items: center;
+      gap: ${section_gap};
+      white-space: nowrap;
+    }
+    
+    .status-dot {
+      width: ${status_dot_size};
+      height: ${status_dot_size};
+      background: ${status_dot_color};
+      border-radius: 50%;
+      flex-shrink: 0;
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+    }
+    
+    .badge-text {
+      font-size: ${badge_font_size};
+      color: ${badge_text_color};
+    }
+    
+    .text-bold {
+      font-weight: 600;
+    }
+    
+    .flag-icon {
+      width: ${flag_size};
+      height: ${flag_size};
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    
+    @media (max-width: 768px) {
+      .shipping-badge {
+        font-size: ${badge_font_size_tablet};
+        padding: ${badge_padding_tablet};
+        gap: 16px;
+      }
+      
+      .badge-section {
+        gap: 7px;
+      }
+      
+      .status-dot {
+        width: 11px;
+        height: 11px;
+      }
+      
+      .flag-icon {
+        width: 18px;
+        height: 18px;
+      }
+      
+      .badge-text {
+        font-size: ${badge_font_size_tablet};
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .shipping-badge {
+        font-size: ${badge_font_size_mobile};
+        padding: ${badge_padding_mobile};
+        gap: 12px;
+      }
+      
+      .badge-section {
+        gap: 6px;
+      }
+      
+      .status-dot {
+        width: 10px;
+        height: 10px;
+      }
+      
+      .flag-icon {
+        width: 16px;
+        height: 16px;
+      }
+      
+      .badge-text {
+        font-size: ${badge_font_size_mobile};
+      }
+    }
+  </style>
+</div>

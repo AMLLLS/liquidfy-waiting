@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Price Badges - Clean Code</title>
+</head>
+<body>
+
+<!-- MODULE: Dynamic Price Badges -->
+<div class="dynamic-price-module">
+    <div class="product-price-badges">
+        <div class="product-top-line">
+            <span class="product-discount" id="discount-badge"></span>
+            <span class="product-old" id="compare-price"></span>
+            <span class="product-new" id="current-price"></span>
+        </div>
+        <div class="product-cart-badge" id="cart-badge"></div>
+    </div>
+</div>
+
+<!-- Inject product data via Liquid as JavaScript variable (AFTER HTML) -->
+<script>
+window.liquidProductData = {
+    currentPrice: {{ product.selected_or_first_available_variant.price | divided_by: 100.0 }},
+    comparePrice: {% if product.selected_or_first_available_variant.compare_at_price %}{{ product.selected_or_first_available_variant.compare_at_price | divided_by: 100.0 }}{% else %}null{% endif %},
+    variants: [
+        {% for variant in product.variants %}
+        {
+            id: {{ variant.id }},
+            price: {{ variant.price | divided_by: 100.0 }},
+            comparePrice: {% if variant.compare_at_price %}{{ variant.compare_at_price | divided_by: 100.0 }}{% else %}null{% endif %}
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+    ]
+};
+
+// Initialize immediately after data is available
+if (typeof initDynamicPriceBadges === 'function') {
+    initDynamicPriceBadges();
+}
+</script>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.dynamic-price-module {
+    width: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.product-price-badges {
+    max-width: 320px;
+    width: 100%;
+}
+
+/* Top line (discount, old price, new price) */
+.product-top-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: nowrap;
+}
+
+.product-discount {
+    background-color: #c73225;
+    color: #fff;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
+.product-old {
+    color: #a0a0a0;
+    text-decoration: line-through;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.product-new {
+    color: #000;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+/* Cart discount badge */
+.product-cart-badge {
+    background-color: #c73225;
+    color: #fff;
+    font-weight: 600;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    margin-top: 8px;
+    text-align: left;
+    line-height: 1;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+/* Hidden state for cart badge */
+.product-cart-badge.hidden {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .product-top-line {
+        gap: 5px;
+    }
+
+    .product-discount {
+        font-size: 11px;
+        padding: 3px 6px;
+    }
+
+    .product-old {
+        font-size: 12px;
+    }
+
+    .product-new {
+        font-size: 15px;
+    }
+
+    .product-cart-badge {
+        font-size: 12px;
+        padding: 5px 8px;
+        border-radius: 5px;
+    }
+}
+</style>
+
+<script>
+function initDynamicPriceBadges() {
+    const config = {
+        // Cart discount settings
+        cartDiscountPercent: 10,
+        cartDiscountMessage: 'Extra',
+        cartDiscountSuffix: 'Off in Cart',
+        showCartBadge: true,
+        
+        // Display settings
+        currencySymbol: '$',
+        
+        // Element IDs
+        discountBadgeId: 'discount-badge',
+        comparePriceId: 'compare-price',
+        currentPriceId: 'current-price',
+        cartBadgeId: 'cart-badge'
+    };
+
+    const discountBadge = document.getElementById(config.discountBadgeId);
+    const comparePriceEl = document.getElementById(config.comparePriceId);
+    const currentPriceEl = document.getElementById(config.currentPriceId);
+    const cartBadgeEl = document.getElementById(config.cartBadgeId);
+
+    if (!discountBadge || !comparePriceEl || !currentPriceEl || !cartBadgeEl) {
+        console.error('Price badge elements not found');
+        return;
+    }
+
+    // Function to format price
+    function formatPrice(price, currency = config.currencySymbol) {
+        return `${currency}${price.toFixed(2)}`;
+    }
+
+    // Calculate discount percentage
+    function calculateDiscountPercent(comparePrice, currentPrice) {
+        if (!comparePrice || comparePrice <= 0 || currentPrice >= comparePrice) {
+            return 0;
+        }
+        const discount = ((comparePrice - currentPrice) / comparePrice) * 100;
+        return Math.round(discount);
+    }
+
+    // Calculate final cart price
+    function calculateCartPrice(currentPrice, cartDiscountPercent) {
+        const finalPrice = currentPrice * (1 - cartDiscountPercent / 100);
+        return finalPrice;
+    }
+
+    // Fetch product data from Liquid-injected variable or fallback methods
+    function fetchProductDataFromPage() {
+        let currentPrice = null;
+        let compareAtPrice = null;
+
+        // Method 1: Get from Liquid-injected global variable (MOST RELIABLE)
+        if (typeof window.liquidProductData !== 'undefined' && window.liquidProductData) {
+            if (window.liquidProductData.currentPrice) {
+                currentPrice = window.liquidProductData.currentPrice;
+            }
+            if (window.liquidProductData.comparePrice) {
+                compareAtPrice = window.liquidProductData.comparePrice;
+            }
+        }
+
+        // Fallback Method 2: Try Shopify Analytics (if Liquid not executed)
+        if (!currentPrice && typeof window.ShopifyAnalytics !== 'undefined' && window.ShopifyAnalytics.meta && window.ShopifyAnalytics.meta.product) {
+            const product = window.ShopifyAnalytics.meta.product;
+            
+            if (product.variants && product.variants[0]) {
+                const variant = product.variants[0];
+                
+                if (variant.price) {
+                    currentPrice = variant.price / 100;
+                }
+                if (variant.compare_at_price && variant.compare_at_price > 0) {
+                    compareAtPrice = variant.compare_at_price / 100;
+                }
+            }
+        }
+
+        // Return data if we found at least the current price
+        if (currentPrice && currentPrice > 0) {
+            return {
+                currentPrice: currentPrice,
+                compareAtPrice: compareAtPrice
+            };
+        }
+
+        return null;
+    }
+
+    // Fetch real product data from page
+    const productData = fetchProductDataFromPage();
+    
+    // Use fetched data or fallback to demo prices for preview (Shopify editor)
+    let currentPrice, compareAtPrice;
+    
+    if (productData && productData.currentPrice) {
+        // Real product data found - PRODUCTION
+        currentPrice = productData.currentPrice;
+        compareAtPrice = productData.compareAtPrice || null;
+    } else {
+        // No product data - Use demo prices for PREVIEW ONLY (Shopify editor)
+        currentPrice = 108.49;
+        compareAtPrice = 154.99;
+    }
+
+    // Calculate and update discount badge
+    const discountPercent = calculateDiscountPercent(compareAtPrice, currentPrice);
+    
+    // DEBUG LOG
+    console.log('🔍 PRICE DEBUG:', {
+        currentPrice: currentPrice,
+        compareAtPrice: compareAtPrice,
+        discountPercent: discountPercent,
+        condition1_compareAtPriceExists: !!compareAtPrice,
+        condition2_compareGreaterThanCurrent: compareAtPrice > currentPrice,
+        condition3_discountPositive: discountPercent > 0,
+        willDisplay: compareAtPrice && compareAtPrice > currentPrice && discountPercent > 0,
+        discountBadgeElement: discountBadge,
+        comparePriceElement: comparePriceEl
+    });
+    
+    // Update discount badge and compare price (only if compare price exists and is higher than current)
+    if (compareAtPrice && compareAtPrice > currentPrice && discountPercent > 0) {
+        // FORCE display with inline styles
+        discountBadge.textContent = `-${discountPercent}%`;
+        discountBadge.style.display = 'inline-block';
+        discountBadge.style.visibility = 'visible';
+        
+        comparePriceEl.textContent = formatPrice(compareAtPrice, config.currencySymbol);
+        comparePriceEl.style.display = 'inline-block';
+        comparePriceEl.style.visibility = 'visible';
+        
+        console.log('✅ AFFICHAGE FORCÉ:', {
+            discount: discountBadge.textContent,
+            comparePrice: comparePriceEl.textContent,
+            discountDisplay: discountBadge.style.display,
+            comparePriceDisplay: comparePriceEl.style.display
+        });
+    } else {
+        discountBadge.style.display = 'none';
+        comparePriceEl.style.display = 'none';
+        
+        console.log('❌ CACHÉ car:', {
+            hasComparePrice: !!compareAtPrice,
+            isGreater: compareAtPrice > currentPrice,
+            hasDiscount: discountPercent > 0
+        });
+    }
+
+    // Update current price
+    currentPriceEl.textContent = formatPrice(currentPrice, config.currencySymbol);
+
+    // Update cart badge
+    if (config.showCartBadge && config.cartDiscountPercent > 0) {
+        const cartFinalPrice = calculateCartPrice(currentPrice, config.cartDiscountPercent);
+        const cartBadgeText = `${config.cartDiscountMessage} ${config.cartDiscountPercent}% ${config.cartDiscountSuffix} ${formatPrice(cartFinalPrice, config.currencySymbol)}`;
+        cartBadgeEl.textContent = cartBadgeText;
+    } else {
+        cartBadgeEl.classList.add('hidden');
+    }
+}
+
+// Initialize on page load OR when called directly from Liquid script
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDynamicPriceBadges);
+} else {
+    // DOM already loaded, init immediately
+    initDynamicPriceBadges();
+}
+
+// Function to update prices from variant object
+function updatePricesFromVariant(variant) {
+    // Update Liquid data if available
+    if (window.liquidProductData && window.liquidProductData.variants) {
+        const liquidVariant = window.liquidProductData.variants.find(v => v.id === variant.id);
+        if (liquidVariant) {
+            // Use Liquid data (has compare_at_price!)
+            variant = liquidVariant;
+        }
+    }
+    
+    // Extract prices
+    let currentPrice = null;
+    let compareAtPrice = null;
+    
+    if (variant.price) {
+        currentPrice = typeof variant.price === 'number' ? variant.price : variant.price / 100;
+    }
+    if (variant.comparePrice) {
+        compareAtPrice = variant.comparePrice;
+    } else if (variant.compare_at_price && variant.compare_at_price > 0) {
+        compareAtPrice = variant.compare_at_price / 100;
+    }
+    
+    // Update global Liquid data
+    if (window.liquidProductData) {
+        window.liquidProductData.currentPrice = currentPrice;
+        window.liquidProductData.comparePrice = compareAtPrice;
+    }
+    
+    // Reinitialize to update display
+    initDynamicPriceBadges();
+}
+
+// Listen for multiple variant change events (different Shopify themes use different events)
+
+// Event 1: variant:change (custom event)
+document.addEventListener('variant:change', function(event) {
+    if (event.detail && event.detail.variant) {
+        updatePricesFromVariant(event.detail.variant);
+    }
+});
+
+// Event 2: variantChange (some themes)
+document.addEventListener('variantChange', function(event) {
+    if (event.detail && event.detail.variant) {
+        updatePricesFromVariant(event.detail.variant);
+    }
+});
+
+// Event 3: Listen to product form changes (most reliable for all themes)
+document.body.addEventListener('change', function(event) {
+    // Check if it's a variant selector (radio, select, or input with name containing 'id')
+    if (event.target.matches('select[name="id"], input[name="id"], input[type="radio"][name*="option"]')) {
+        // Wait a bit for Shopify to update its internal state
+        setTimeout(function() {
+            // Try to get variant from multiple sources
+            let selectedVariant = null;
+            
+            // Source 1: Check if theme exposes selected variant
+            if (window.product && window.product.selected_or_first_available_variant) {
+                selectedVariant = window.product.selected_or_first_available_variant;
+            }
+            
+            // Source 2: Try to get variant ID from form
+            if (!selectedVariant) {
+                const variantIdInput = document.querySelector('select[name="id"], input[name="id"]');
+                if (variantIdInput) {
+                    const variantId = parseInt(variantIdInput.value);
+                    
+                    // Try to find variant in ShopifyAnalytics
+                    if (window.ShopifyAnalytics && window.ShopifyAnalytics.meta && window.ShopifyAnalytics.meta.product) {
+                        const product = window.ShopifyAnalytics.meta.product;
+                        if (product.variants) {
+                            selectedVariant = product.variants.find(v => v.id === variantId);
+                        }
+                    }
+                }
+            }
+            
+            // Update if we found a variant
+            if (selectedVariant) {
+                updatePricesFromVariant(selectedVariant);
+            }
+        }, 100);
+    }
+});
+</script>
+
+</body>
+</html>

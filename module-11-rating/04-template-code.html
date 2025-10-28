@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 11 - Rating - Template Code</title>
+</head>
+<body>
+
+<!-- MODULE 11: RATING/AVIS - TEMPLATE AVEC VARIABLES -->
+<div class="rating-module">
+    <div class="rating-container">
+        <!-- Étoiles (générées dynamiquement par JavaScript) -->
+        <div class="rating-stars" id="ratingStars"></div>
+
+        <!-- Score et nombre d'avis -->
+        <div class="rating-text">
+            <strong class="rating-score">Rated <span id="ratingScore">${rating_score_number}</span></strong>
+            <span class="rating-count">(<span id="ratingCount">${rating_count}</span>)</span>
+        </div>
+
+        <!-- Badge -->
+        <div class="rating-badge" id="ratingBadge">${badge_text}</div>
+    </div>
+</div>
+
+<style>
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Module principal */
+.rating-module {
+    width: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Container */
+.rating-container {
+    display: flex;
+    align-items: center;
+    gap: ${container_gap_desktop};
+    flex-wrap: wrap;
+}
+
+/* Groupe d'étoiles */
+.rating-stars {
+    display: flex;
+    gap: ${stars_gap_desktop};
+    align-items: center;
+}
+
+/* Étoile SVG */
+.star {
+    width: ${star_size_desktop};
+    height: ${star_size_desktop};
+    fill: ${star_active_color};
+    flex-shrink: 0;
+}
+
+.star-inactive {
+    fill: ${star_inactive_color};
+}
+
+/* Texte de notation */
+.rating-text {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    font-size: ${rating_text_size_desktop};
+    line-height: 1.4;
+}
+
+.rating-score {
+    font-weight: 700;
+    color: ${score_text_color};
+}
+
+.rating-count {
+    color: ${count_text_color};
+    font-weight: 400;
+}
+
+/* Badge */
+.rating-badge {
+    background: ${badge_bg_color};
+    color: ${badge_text_color};
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: ${badge_text_size_desktop};
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+/* RESPONSIVE */
+
+/* Tablette */
+@media (max-width: 768px) {
+    .rating-container {
+        gap: 6px;
+    }
+
+    .star {
+        width: ${star_size_tablet};
+        height: ${star_size_tablet};
+    }
+
+    .rating-text {
+        font-size: ${rating_text_size_tablet};
+    }
+
+    .rating-badge {
+        font-size: ${badge_text_size_tablet};
+        padding: 2px 5px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .rating-container {
+        gap: 5px;
+    }
+
+    .star {
+        width: ${star_size_mobile};
+        height: ${star_size_mobile};
+    }
+
+    .rating-text {
+        font-size: ${rating_text_size_mobile};
+    }
+
+    .rating-badge {
+        font-size: ${badge_text_size_mobile};
+        padding: 1.5px 4px;
+    }
+}
+</style>
+
+<script>
+function generateStars(rating,totalStars,activeColor,inactiveColor){const starsContainer=document.getElementById('ratingStars');starsContainer.innerHTML='';const starPath='M12 2l2.9 6.6L22 9.2l-5 4.9 1.2 7L12 17.8 5.8 21l1.2-7-5-4.9 7.1-0.6z';const fullStars=Math.floor(rating);const partialStar=rating%1;const emptyStars=totalStars-Math.ceil(rating);const gradientId=`starGradient${Date.now()}`;for(let i=0;i<fullStars;i++){const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('class','star');svg.setAttribute('viewBox','0 0 24 24');const path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('d',starPath);path.setAttribute('fill',activeColor);svg.appendChild(path);starsContainer.appendChild(svg)}if(partialStar>0){const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('class','star star-partial');svg.setAttribute('viewBox','0 0 24 24');const defs=document.createElementNS('http://www.w3.org/2000/svg','defs');const gradient=document.createElementNS('http://www.w3.org/2000/svg','linearGradient');gradient.setAttribute('id',gradientId);gradient.setAttribute('x1','0%');gradient.setAttribute('y1','0%');gradient.setAttribute('x2','100%');gradient.setAttribute('y2','0%');const stop1=document.createElementNS('http://www.w3.org/2000/svg','stop');stop1.setAttribute('offset',`${partialStar*100}%`);stop1.setAttribute('stop-color',activeColor);const stop2=document.createElementNS('http://www.w3.org/2000/svg','stop');stop2.setAttribute('offset',`${partialStar*100}%`);stop2.setAttribute('stop-color',inactiveColor);gradient.appendChild(stop1);gradient.appendChild(stop2);defs.appendChild(gradient);svg.appendChild(defs);const path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('d',starPath);path.setAttribute('fill',`url(#${gradientId})`);svg.appendChild(path);starsContainer.appendChild(svg)}for(let i=0;i<emptyStars;i++){const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('class','star star-inactive');svg.setAttribute('viewBox','0 0 24 24');const path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('d',starPath);path.setAttribute('fill',inactiveColor);svg.appendChild(path);starsContainer.appendChild(svg)}}
+(function(){const rating=${rating_score_number};const totalStars=${total_stars_count};const activeColor='${star_active_color}';const inactiveColor='${star_inactive_color}';generateStars(rating,totalStars,activeColor,inactiveColor)})();
+</script>
+
+</body>
+</html>

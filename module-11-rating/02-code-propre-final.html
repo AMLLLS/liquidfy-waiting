@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 11 - Rating - Code Propre Final</title>
+</head>
+<body>
+
+<!-- MODULE 11: RATING/AVIS -->
+<div class="rating-module">
+    <div class="rating-container">
+        <!-- Étoiles (générées dynamiquement par JavaScript) -->
+        <div class="rating-stars" id="ratingStars"></div>
+
+        <!-- Score et nombre d'avis -->
+        <div class="rating-text">
+            <strong class="rating-score">Rated <span id="ratingScore">4.7</span></strong>
+            <span class="rating-count">(<span id="ratingCount">137</span>)</span>
+        </div>
+
+        <!-- Badge -->
+        <div class="rating-badge" id="ratingBadge">Happy Customers</div>
+    </div>
+</div>
+
+<style>
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Module principal */
+.rating-module {
+    width: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Container */
+.rating-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* Groupe d'étoiles */
+.rating-stars {
+    display: flex;
+    gap: 2px;
+    align-items: center;
+}
+
+/* Étoile SVG */
+.star {
+    width: 16px;
+    height: 16px;
+    fill: #F43F5E;
+    flex-shrink: 0;
+}
+
+.star-inactive {
+    fill: #E5E7EB;
+}
+
+/* Texte de notation */
+.rating-text {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.rating-score {
+    font-weight: 700;
+    color: #111827;
+}
+
+.rating-count {
+    color: #6B7280;
+    font-weight: 400;
+}
+
+/* Badge */
+.rating-badge {
+    background: #FFE4E6;
+    color: #DB2777;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+/* Étoile partielle avec gradient */
+.star-partial {
+    position: relative;
+}
+</style>
+
+<script>
+/**
+ * Génère les étoiles de notation avec support des décimales (0.1 près)
+ * @param {number} rating - Score de 0 à 5 (ex: 4.7, 3.2, 5.0)
+ * @param {number} totalStars - Nombre total d'étoiles (généralement 5)
+ * @param {string} activeColor - Couleur des étoiles pleines
+ * @param {string} inactiveColor - Couleur des étoiles vides
+ */
+function generateStars(rating, totalStars = 5, activeColor = '#F43F5E', inactiveColor = '#E5E7EB') {
+    const starsContainer = document.getElementById('ratingStars');
+    starsContainer.innerHTML = ''; // Vider le container
+    
+    // Chemin SVG de l'étoile
+    const starPath = 'M12 2l2.9 6.6L22 9.2l-5 4.9 1.2 7L12 17.8 5.8 21l1.2-7-5-4.9 7.1-0.6z';
+    
+    // Calculer combien d'étoiles pleines, partielles et vides
+    const fullStars = Math.floor(rating); // Partie entière (ex: 4.7 → 4)
+    const partialStar = rating % 1; // Partie décimale (ex: 4.7 → 0.7)
+    const emptyStars = totalStars - Math.ceil(rating); // Étoiles vides
+    
+    // Créer un ID unique pour le gradient (pour éviter les conflits si plusieurs modules)
+    const gradientId = `starGradient${Date.now()}`;
+    
+    // 1. Générer les étoiles PLEINES
+    for (let i = 0; i < fullStars; i++) {
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('class', 'star');
+        svg.setAttribute('viewBox', '0 0 24 24');
+        
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d', starPath);
+        path.setAttribute('fill', activeColor);
+        
+        svg.appendChild(path);
+        starsContainer.appendChild(svg);
+    }
+    
+    // 2. Générer l'étoile PARTIELLE (si décimale existe)
+    if (partialStar > 0) {
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('class', 'star star-partial');
+        svg.setAttribute('viewBox', '0 0 24 24');
+        
+        // Créer un defs pour le gradient linéaire
+        const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+        const gradient = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient');
+        gradient.setAttribute('id', gradientId);
+        gradient.setAttribute('x1', '0%');
+        gradient.setAttribute('y1', '0%');
+        gradient.setAttribute('x2', '100%');
+        gradient.setAttribute('y2', '0%');
+        
+        // Stop 1: couleur active jusqu'au pourcentage de remplissage
+        const stop1 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+        stop1.setAttribute('offset', `${partialStar * 100}%`);
+        stop1.setAttribute('stop-color', activeColor);
+        
+        // Stop 2: couleur inactive pour le reste
+        const stop2 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+        stop2.setAttribute('offset', `${partialStar * 100}%`);
+        stop2.setAttribute('stop-color', inactiveColor);
+        
+        gradient.appendChild(stop1);
+        gradient.appendChild(stop2);
+        defs.appendChild(gradient);
+        svg.appendChild(defs);
+        
+        // Path avec le gradient
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d', starPath);
+        path.setAttribute('fill', `url(#${gradientId})`);
+        
+        svg.appendChild(path);
+        starsContainer.appendChild(svg);
+    }
+    
+    // 3. Générer les étoiles VIDES
+    for (let i = 0; i < emptyStars; i++) {
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('class', 'star star-inactive');
+        svg.setAttribute('viewBox', '0 0 24 24');
+        
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d', starPath);
+        path.setAttribute('fill', inactiveColor);
+        
+        svg.appendChild(path);
+        starsContainer.appendChild(svg);
+    }
+}
+
+/**
+ * Initialise le module de rating avec les valeurs par défaut
+ */
+function initRatingModule() {
+    // Configuration par défaut (variables modifiables)
+    const config = {
+        rating: 4.7,           // Score de 0 à 5
+        reviewCount: 137,       // Nombre d'avis
+        badgeText: 'Happy Customers',
+        totalStars: 5,
+        activeColor: '#F43F5E',
+        inactiveColor: '#E5E7EB'
+    };
+    
+    // Mettre à jour le score affiché
+    document.getElementById('ratingScore').textContent = config.rating.toFixed(1);
+    
+    // Mettre à jour le nombre d'avis
+    document.getElementById('ratingCount').textContent = config.reviewCount;
+    
+    // Mettre à jour le badge
+    document.getElementById('ratingBadge').textContent = config.badgeText;
+    
+    // Générer les étoiles
+    generateStars(config.rating, config.totalStars, config.activeColor, config.inactiveColor);
+}
+
+// Initialiser au chargement de la page
+document.addEventListener('DOMContentLoaded', initRatingModule);
+</script>
+
+</body>
+</html>

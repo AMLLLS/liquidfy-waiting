@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Popup Modal - Clean Code</title>
+</head>
+<body>
+
+<!-- MODULE: Countdown Popup Modal -->
+<div class="popup-modal-module">
+    <div class="modal-overlay" id="modal-overlay"></div>
+    
+    <div class="modal-container" id="modal-container">
+        <button class="modal-close" id="modal-close" title="Close">×</button>
+        
+        <div class="modal-content">
+            <div class="modal-badge">LIMITED TIME OFFER</div>
+            
+            <h2 class="modal-title">Black Friday Exclusive</h2>
+            <p class="modal-subtitle">Don't miss out on our biggest sale of the year!</p>
+            
+            <div class="modal-offer">
+                <div class="offer-percentage">50% OFF</div>
+                <div class="offer-label">Everything</div>
+            </div>
+            
+            <div class="modal-countdown">
+                <div class="countdown-label">Sale ends in:</div>
+                <div class="countdown-timer">
+                    <div class="countdown-unit">
+                        <span class="countdown-value" id="modal-days">02</span>
+                        <span class="countdown-text">Days</span>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-unit">
+                        <span class="countdown-value" id="modal-hours">14</span>
+                        <span class="countdown-text">Hours</span>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-unit">
+                        <span class="countdown-value" id="modal-minutes">32</span>
+                        <span class="countdown-text">Mins</span>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-unit">
+                        <span class="countdown-value" id="modal-seconds">45</span>
+                        <span class="countdown-text">Secs</span>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="modal-cta" id="modal-cta">Shop Now →</button>
+            
+            <div class="modal-footer">
+                <label class="modal-checkbox">
+                    <input type="checkbox" id="dont-show-again">
+                    <span>Don't show this again</span>
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.popup-modal-module {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    background: #FFFFFF;
+    border-radius: 16px;
+    max-width: 480px;
+    width: 90%;
+    z-index: 10001;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modal-container.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: rgba(0, 0, 0, 0.05);
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6B7280;
+    transition: all 0.2s ease;
+    line-height: 1;
+    padding: 0;
+}
+
+.modal-close:hover {
+    background: rgba(0, 0, 0, 0.1);
+    transform: rotate(90deg);
+}
+
+.modal-content {
+    padding: 48px 32px 32px;
+    text-align: center;
+}
+
+.modal-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #DC2626 0%, #EF4444 100%);
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.modal-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.modal-subtitle {
+    font-size: 15px;
+    color: #6B7280;
+    margin-bottom: 32px;
+    line-height: 1.5;
+}
+
+.modal-offer {
+    background: linear-gradient(135deg, #FEF2F2 0%, #FFFFFF 100%);
+    border: 2px solid #FCA5A5;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 32px;
+}
+
+.offer-percentage {
+    font-size: 48px;
+    font-weight: 900;
+    color: #DC2626;
+    line-height: 1;
+    margin-bottom: 8px;
+    text-shadow: 0 2px 4px rgba(220, 38, 38, 0.1);
+}
+
+.offer-label {
+    font-size: 18px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.modal-countdown {
+    margin-bottom: 32px;
+}
+
+.countdown-label {
+    font-size: 13px;
+    color: #6B7280;
+    font-weight: 600;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.countdown-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #F9FAFB;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    padding: 12px 16px;
+    min-width: 70px;
+}
+
+.countdown-value {
+    font-size: 28px;
+    font-weight: 800;
+    color: #DC2626;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+}
+
+.countdown-text {
+    font-size: 11px;
+    color: #9CA3AF;
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.countdown-separator {
+    font-size: 24px;
+    font-weight: 700;
+    color: #D1D5DB;
+    margin: 0 -4px;
+}
+
+.modal-cta {
+    width: 100%;
+    background: linear-gradient(135deg, #DC2626 0%, #EF4444 100%);
+    color: #FFFFFF;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+    margin-bottom: 20px;
+}
+
+.modal-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+}
+
+.modal-cta:active {
+    transform: translateY(0);
+}
+
+.modal-footer {
+    border-top: 1px solid #E5E7EB;
+    padding-top: 16px;
+}
+
+.modal-checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #6B7280;
+    cursor: pointer;
+}
+
+.modal-checkbox input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .modal-container {
+        width: 95%;
+    }
+
+    .modal-content {
+        padding: 40px 24px 24px;
+    }
+
+    .modal-title {
+        font-size: 26px;
+    }
+
+    .modal-subtitle {
+        font-size: 14px;
+        margin-bottom: 24px;
+    }
+
+    .modal-offer {
+        padding: 20px;
+        margin-bottom: 24px;
+    }
+
+    .offer-percentage {
+        font-size: 40px;
+    }
+
+    .offer-label {
+        font-size: 16px;
+    }
+
+    .countdown-unit {
+        padding: 8px 10px;
+        min-width: 55px;
+    }
+
+    .countdown-value {
+        font-size: 22px;
+    }
+
+    .countdown-text {
+        font-size: 9px;
+    }
+
+    .countdown-separator {
+        font-size: 20px;
+    }
+
+    .modal-cta {
+        padding: 14px 28px;
+        font-size: 15px;
+    }
+}
+</style>
+
+<script>
+function initPopupModal() {
+    const config = {
+        endDate: new Date('2025-11-29 23:59:59'),
+        showDelay: 2000, // Show after 2 seconds
+        cookieName: 'bf_modal_hidden',
+        daysElementId: 'modal-days',
+        hoursElementId: 'modal-hours',
+        minutesElementId: 'modal-minutes',
+        secondsElementId: 'modal-seconds'
+    };
+
+    const overlay = document.getElementById('modal-overlay');
+    const modal = document.getElementById('modal-container');
+    const closeBtn = document.getElementById('modal-close');
+    const ctaBtn = document.getElementById('modal-cta');
+    const dontShowCheckbox = document.getElementById('dont-show-again');
+
+    const daysEl = document.getElementById(config.daysElementId);
+    const hoursEl = document.getElementById(config.hoursElementId);
+    const minutesEl = document.getElementById(config.minutesElementId);
+    const secondsEl = document.getElementById(config.secondsElementId);
+
+    if (!overlay || !modal || !closeBtn || !daysEl || !hoursEl || !minutesEl || !secondsEl) {
+        console.error('Modal elements not found');
+        return;
+    }
+
+    // Check if user has hidden the modal
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+        return null;
+    }
+
+    function setCookie(name, value, days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        const expires = `expires=${date.toUTCString()}`;
+        document.cookie = `${name}=${value};${expires};path=/`;
+    }
+
+    // Show modal after delay
+    if (!getCookie(config.cookieName)) {
+        setTimeout(() => {
+            overlay.classList.add('active');
+            modal.classList.add('active');
+        }, config.showDelay);
+    }
+
+    // Close modal function
+    function closeModal() {
+        overlay.classList.remove('active');
+        modal.classList.remove('active');
+        
+        if (dontShowCheckbox && dontShowCheckbox.checked) {
+            setCookie(config.cookieName, 'true', 7); // Hide for 7 days
+        }
+    }
+
+    // Event listeners
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', closeModal);
+    
+    if (ctaBtn) {
+        ctaBtn.addEventListener('click', () => {
+            closeModal();
+            // Add your CTA action here (e.g., redirect to shop)
+            // window.location.href = '/shop';
+        });
+    }
+
+    // Countdown timer
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const endTime = new Date(config.endDate).getTime();
+        const distance = endTime - now;
+
+        if (distance < 0) {
+            daysEl.textContent = '00';
+            hoursEl.textContent = '00';
+            minutesEl.textContent = '00';
+            secondsEl.textContent = '00';
+            clearInterval(countdownInterval);
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        daysEl.textContent = String(days).padStart(2, '0');
+        hoursEl.textContent = String(hours).padStart(2, '0');
+        minutesEl.textContent = String(minutes).padStart(2, '0');
+        secondsEl.textContent = String(seconds).padStart(2, '0');
+    }
+
+    updateCountdown();
+    const countdownInterval = setInterval(updateCountdown, 1000);
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', initPopupModal);
+</script>
+
+</body>
+</html>

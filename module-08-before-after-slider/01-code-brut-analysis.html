@@ -1,0 +1,94 @@
+<!-- CODE BRUT ORIGINAL : Before/After Slider (extrait de l'inspecteur) -->
+
+<!-- 
+ANALYSE DU CODE BRUT :
+======================
+
+PROBLÈME DE TAILLE :
+- Code extrait d'un contexte réduit (Tailwind w-80 = 320px)
+- h-48 = 192px trop petit pour un before/after
+- padding p-4 = 16px trop petit
+- gap-6 = 24px trop petit
+- Badges : px-5 py-2 = trop petits
+- Doit être agrandi : w-full avec max-width ~700-800px, height ~400-500px
+
+STRUCTURE :
+- Container principal (flex column, centered)
+- Badge "See real transformations"
+- Container before/after avec slider
+- Input range (slider invisible)
+- Divider line (vertical white line)
+- Handle rond avec icône SVG double flèche
+- Labels "Before" et "After"
+
+FONCTIONNEMENT JS :
+- Input range contrôle --position CSS variable
+- --position détermine width de l'image "before"
+- --position positionne la ligne diviseur et le handle
+- Événement oninput met à jour style.setProperty('--position', value + '%')
+
+COULEURS ACTUELLES :
+- Badge gradient: rgb(153,225,158) → rgb(255,253,194) (vert → jaune)
+- Background: gray-100
+- White: #FFFFFF
+- Black: #000000
+
+MODIFICATIONS À FAIRE :
+1. Agrandir toutes les dimensions (320px → 700px, 192px → 450px)
+2. Supprimer Tailwind classes → vanilla CSS
+3. Changer les couleurs du badge
+4. Changer les URLs des images (nouvelles images)
+5. Ajouter JavaScript inline pour le slider
+6. Ajouter responsive (mobile/tablet)
+7. Nettoyer le code HTML
+
+IMAGES À REMPLACER :
+- Before: https://localdentalclinics.com.au/blogs/1671520930.png
+- After: https://beaulieudental.co.uk/wp-content/uploads/2020/11/teeth-whitening-after-1.jpg
+→ Utiliser des placeholder génériques
+-->
+
+<div class="w-full h-full flex flex-col items-center justify-center p-4 gap-6">
+  <div class="w-full flex justify-center">
+    <span class="px-5 py-2 rounded-full text-sm font-medium text-black shadow-sm max-w-xs text-center" 
+          style="background: linear-gradient(rgb(153, 225, 158), rgb(255, 253, 194)); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+      ★ <strong>See real</strong> transformations!
+    </span>
+  </div>
+  
+  <div class="relative w-80 h-48 rounded-xl overflow-hidden shadow-lg bg-gray-100" style="--position: 50%;">
+    <img class="absolute inset-0 w-full h-full object-cover" 
+         src="https://beaulieudental.co.uk/wp-content/uploads/2020/11/teeth-whitening-after-1.jpg" 
+         alt="After">
+    
+    <img class="absolute inset-0 h-full object-cover" 
+         src="https://localdentalclinics.com.au/blogs/1671520930.png" 
+         alt="Before" 
+         style="width: var(--position);">
+    
+    <span class="absolute bottom-3 left-3 bg-white px-3 py-2 rounded text-sm font-bold text-black shadow-md z-30">Before</span>
+    
+    <span class="absolute bottom-3 right-3 bg-white px-3 py-2 rounded text-sm font-bold text-black shadow-md z-30">After</span>
+    
+    <input type="range" 
+           min="0" 
+           max="100" 
+           class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20" 
+           aria-label="Comparison slider" 
+           value="50">
+    
+    <div class="absolute top-0 h-full w-0.5 bg-white shadow-lg pointer-events-none z-10" 
+         style="left: var(--position); transform: translateX(-50%); box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px;"></div>
+    
+    <div class="absolute top-1/2 w-10 h-10 bg-white border-2 border-black rounded-full flex items-center justify-center shadow-lg pointer-events-none z-20 transition-transform hover:scale-110" 
+         style="left: var(--position); transform: translate(-50%, -50%);">
+      <div class="flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="17 8 21 12 17 16"></polyline>
+          <polyline points="7 8 3 12 7 16"></polyline>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>

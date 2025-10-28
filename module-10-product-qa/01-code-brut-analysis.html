@@ -1,0 +1,268 @@
+<!-- CODE BRUT ORIGINAL : Product Q&A Section -->
+<div class="w-full bg-white">
+  <div class="product-qa-wrapper">
+    <div class="product-qa-header">
+      <h2 class="product-qa-title">Product Questions &amp; Answers</h2>
+      <a href="#" class="product-qa-view-all">View All (6)</a>
+    </div>
+    <div class="product-qa-tabs">
+      <button class="product-qa-tab active" data-category="all">All</button>
+      <button class="product-qa-tab" data-category="usage">Usage &amp; Dosage</button>
+      <button class="product-qa-tab" data-category="ingredients">Ingredients</button>
+      <button class="product-qa-tab" data-category="results">Results</button>
+      <button class="product-qa-tab" data-category="shipping">Shipping &amp; Returns</button>
+      <button class="product-qa-tab" data-category="safety">Safety</button>
+    </div>
+    <div class="product-qa-slider">
+      <div class="product-qa-card" data-category="usage">
+        <p class="product-qa-question">How should I take NutraBoost Daily Complex?</p>
+        <div class="product-qa-answer">
+          <div class="product-qa-brand-info">
+            <img src="https://cdn.shopify.com/s/files/1/0701/2279/9151/files/IMG_0443.png" class="product-qa-brand-logo" alt="NutraBoost">
+            <span class="product-qa-brand-name">NutraBoost</span>
+          </div>
+          <p>Take two capsules daily after breakfast with a full glass of water for optimal absorption.</p>
+        </div>
+      </div>
+      <div class="product-qa-card" data-category="usage">
+        <p class="product-qa-question">Can I take it on an empty stomach?</p>
+        <div class="product-qa-answer">
+          <div class="product-qa-brand-info">
+            <img src="https://cdn.shopify.com/s/files/1/0701/2279/9151/files/IMG_0443.png" class="product-qa-brand-logo" alt="NutraBoost">
+            <span class="product-qa-brand-name">NutraBoost</span>
+          </div>
+          <p>It's best taken with food to avoid stomach discomfort and ensure proper vitamin absorption.</p>
+        </div>
+      </div>
+      <div class="product-qa-card" data-category="ingredients">
+        <p class="product-qa-question">What are the main ingredients?</p>
+        <div class="product-qa-answer">
+          <div class="product-qa-brand-info">
+            <img src="https://cdn.shopify.com/s/files/1/0701/2279/9151/files/IMG_0443.png" class="product-qa-brand-logo" alt="NutraBoost">
+            <span class="product-qa-brand-name">NutraBoost</span>
+          </div>
+          <p>Each capsule contains Vitamin C, D3, Zinc, Ashwagandha, and Magnesium for balanced energy and focus.</p>
+        </div>
+      </div>
+      <div class="product-qa-card" data-category="results">
+        <p class="product-qa-question">When will I start noticing results?</p>
+        <div class="product-qa-answer">
+          <div class="product-qa-brand-info">
+            <img src="https://cdn.shopify.com/s/files/1/0701/2279/9151/files/IMG_0443.png" class="product-qa-brand-logo" alt="NutraBoost">
+            <span class="product-qa-brand-name">NutraBoost</span>
+          </div>
+          <p>Most users report feeling more energetic and focused within 7–10 days of consistent use.</p>
+        </div>
+      </div>
+      <div class="product-qa-card" data-category="safety">
+        <p class="product-qa-question">Is it safe for daily use?</p>
+        <div class="product-qa-answer">
+          <div class="product-qa-brand-info">
+            <img src="https://cdn.shopify.com/s/files/1/0701/2279/9151/files/IMG_0443.png" class="product-qa-brand-logo" alt="NutraBoost">
+            <span class="product-qa-brand-name">NutraBoost</span>
+          </div>
+          <p>Yes, all ingredients are clinically tested and approved for daily use under recommended doses.</p>
+        </div>
+      </div>
+      <div class="product-qa-card" data-category="shipping">
+        <p class="product-qa-question">How long does delivery take?</p>
+        <div class="product-qa-answer">
+          <div class="product-qa-brand-info">
+            <img src="https://cdn.shopify.com/s/files/1/0701/2279/9151/files/IMG_0443.png" class="product-qa-brand-logo" alt="NutraBoost">
+            <span class="product-qa-brand-name">NutraBoost</span>
+          </div>
+          <p>Orders are shipped within 24 hours and typically arrive in 3–5 business days within Turkey.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <style>
+    .product-qa-wrapper {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      max-width: 100%;
+      margin: 10px auto;
+      padding: 0 8px;
+    }
+
+    .product-qa-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .product-qa-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin: 0;
+      line-height: 1;
+    }
+
+    .product-qa-view-all {
+      font-size: 11px;
+      color: #666;
+      text-decoration: none;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    .product-qa-tabs {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 8px;
+    }
+
+    .product-qa-tab {
+      flex: 0 0 auto;
+      padding: 4px 10px;
+      font-size: 11px;
+      border: 1px solid #eee;
+      border-radius: 20px;
+      background: #f8f8f8;
+      cursor: pointer;
+      white-space: nowrap;
+      color: #333;
+    }
+
+    .product-qa-tab.active {
+      background: #e0e0e0;
+      color: #000;
+      border-color: #d0d0d0;
+    }
+
+    .product-qa-slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 8px;
+      padding-bottom: 8px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .product-qa-slider::-webkit-scrollbar {
+      display: none;
+    }
+
+    .product-qa-card {
+      flex: 0 0 70%;
+      scroll-snap-align: start;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      min-width: 180px;
+      border: 1px solid #e5e5e5;
+    }
+
+    .product-qa-question {
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .product-qa-answer {
+      font-size: 11px;
+      line-height: 1.4;
+      color: #333;
+      background: #fafafa;
+      padding: 8px;
+      border-radius: 6px;
+    }
+
+    .product-qa-brand-info {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 4px;
+    }
+
+    .product-qa-brand-logo {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .product-qa-brand-name {
+      font-size: 10px;
+      font-weight: 600;
+      color: #111;
+    }
+  </style>
+</div>
+
+<!--
+ANALYSE DU CODE BRUT :
+======================
+
+STRUCTURE :
+-----------
+- Header : Titre "Product Questions & Answers" + lien "View All (6)"
+- Tabs : 6 boutons de filtrage (All, Usage, Ingredients, Results, Shipping, Safety)
+- Slider : 6 cartes Q&A en scroll horizontal
+- Chaque carte : Question + Réponse avec logo brand + nom brand + texte
+
+TAILLES ACTUELLES (très petites !) :
+-------------------------------------
+⚠️ CODE MINIATURISÉ - Tout est trop petit !
+- Title : 14px → Doit passer à ~24px
+- View All : 11px → Doit passer à ~14px
+- Tab : 11px → Doit passer à ~14px
+- Question : 12px → Doit passer à ~16px
+- Answer : 11px → Doit passer à ~14px
+- Brand name : 10px → Doit passer à ~12px
+- Logo : 16px → Doit passer à ~24px
+- Card padding : 10px → Doit passer à ~20px
+- Gap : 8px → Doit passer à ~16px
+
+SCALING PROPOSÉ :
+-----------------
+- Title : 14px → 24px (×1.7)
+- View All : 11px → 14px (×1.3)
+- Tab font : 11px → 14px (×1.3)
+- Tab padding : 4px 10px → 8px 16px (×2)
+- Question : 12px → 16px (×1.3)
+- Answer : 11px → 14px (×1.3)
+- Brand logo : 16px → 24px (×1.5)
+- Brand name : 10px → 12px (×1.2)
+- Card padding : 10px → 20px (×2)
+- Card min-width : 180px → 320px (×1.8)
+- Card flex-basis : 70% → 85% (pour desktop)
+- Gaps : 6-8px → 12-16px (×2)
+
+COULEURS À CHANGER :
+--------------------
+- Active tab bg : #e0e0e0 → Couleur accent (ex: #3B82F6)
+- Active tab text : #000 → #FFFFFF
+- Answer bg : #fafafa → Autre couleur légère (#F0F9FF, #FEF3C7)
+
+TEXTES À MODIFIER :
+-------------------
+- Titre : "Product Questions & Answers" → "Customer Questions"
+- Brand : "NutraBoost" → "VitaLife" ou autre
+- Catégories : Usage, Ingredients, Results, Shipping, Safety
+- Questions : 6 questions spécifiques au produit
+- Réponses : 6 réponses correspondantes
+- Logo URL : Remplacer par autre image
+
+JAVASCRIPT NÉCESSAIRE :
+-----------------------
+⚠️ Onglets filtrants → JavaScript requis !
+- Click sur tab → Filtre les cards par data-category
+- Active tab → Ajouter/retirer classe .active
+- Cards visibility → display: none/flex selon catégorie
+
+VARIABLES À EXTRAIRE :
+----------------------
+Estimation : ~45-50 variables
+- Header : titre, view all text + count
+- Tabs : 6 labels de catégories
+- Cards : 6 × (question + answer + category) = 18
+- Brand : logo URL + nom brand (×6 ou global)
+- Couleurs : 8-10 variables
+- Layout : 6-8 variables
+-->
