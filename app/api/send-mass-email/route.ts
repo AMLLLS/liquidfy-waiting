@@ -67,7 +67,7 @@ export async function POST(request: NextRequest) {
           const response = await resend.emails.send({
             from: 'Liquidfy Team <hello@liquidfy.app>',
             to: [email],
-            subject: 'Black Friday - Final Days to Save 80%',
+            subject: 'Black Week - Final Days to Save 80%',
             html: emailHtml,
             text: 'Get your store ready for Christmas! Only a few days left to get lifetime access to Liquidfy at $49 instead of $249. This is your last chance. Claim this offer: https://liquidfy.app/'
           });
