@@ -69,7 +69,7 @@ export async function POST(request: NextRequest) {
             to: [email],
             subject: 'Black Friday - Final Days to Save 80%',
             html: emailHtml,
-            text: 'Black Friday ends soon! Only a few days left to get lifetime access to Liquidfy at $49 instead of $249 (save $200). This is your last chance. Claim this offer: https://liquidfy.app/'
+            text: 'Get your store ready for Christmas! Only a few days left to get lifetime access to Liquidfy at $49 instead of $249. This is your last chance. Claim this offer: https://liquidfy.app/'
           });
 
           if (response?.data?.id) {
