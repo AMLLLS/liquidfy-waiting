@@ -1,0 +1,112 @@
+{
+  "title": "Product Features List",
+  "description": "Animated product features list with checkmark icons and smooth hover effects",
+  "longDescription": "A modern, animated product features list component with SVG checkmark icons. Features smooth hover animations including background color transitions, text color changes, and icon rotation effects. Fully responsive with customizable colors, sizes, and feature texts. Perfect for highlighting product benefits and key features.",
+  "thumbnail": "/modules/cover/LIQUIDFY-Product-Features-List-cover.png",
+  "images": [
+    "/modules/cover/LIQUIDFY-Product-Features-List-cover.png"
+  ],
+  "category": "Product Info",
+  "tags": [
+    "Features",
+    "Checklist",
+    "Product",
+    "Benefits",
+    "Icons",
+    "Animated",
+    "Responsive"
+  ],
+  "featured": false,
+  "status": "published",
+  "slug": "product-features-list",
+  "createdAt": { "$date": "2025-11-15T00:00:00.000Z" },
+  "updatedAt": { "$date": "2025-11-15T00:00:00.000Z" },
+  "originalTitle": "Product Features List",
+  "downloads": 0,
+  "lastVariableUpdate": { "$date": "2025-11-15T00:00:00.000Z" },
+  "variableCount": 11,
+  "lastVariableGeneration": { "$date": "2025-11-15T00:00:00.000Z" },
+  "isModernTemplate": true,
+  "popular": false,
+  "variables": [
+    {
+      "name": "text_color",
+      "label": "Text Color",
+      "type": "color",
+      "defaultValue": "#333",
+      "description": "Default text color for features"
+    },
+    {
+      "name": "hover_bg_color",
+      "label": "Hover Background Color",
+      "type": "color",
+      "defaultValue": "#f7f7f7",
+      "description": "Background color when hovering over a feature"
+    },
+    {
+      "name": "highlight_color",
+      "label": "Hover Text Color",
+      "type": "color",
+      "defaultValue": "#000",
+      "description": "Text color when hovering over a feature"
+    },
+    {
+      "name": "icon_color",
+      "label": "Icon Color",
+      "type": "color",
+      "defaultValue": "#121212",
+      "description": "Color of the checkmark icons"
+    },
+    {
+      "name": "icon_size",
+      "label": "Icon Size (px)",
+      "type": "number",
+      "defaultValue": "28",
+      "description": "Size of the checkmark icons in pixels"
+    },
+    {
+      "name": "text_font_size",
+      "label": "Text Font Size (px)",
+      "type": "number",
+      "defaultValue": "14",
+      "description": "Font size of feature text in pixels"
+    },
+    {
+      "name": "feature_1_text",
+      "label": "Feature 1 Text",
+      "type": "text",
+      "defaultValue": "Keine Schnitte oder Kratzer mehr",
+      "description": "First feature description"
+    },
+    {
+      "name": "feature_2_text",
+      "label": "Feature 2 Text",
+      "type": "text",
+      "defaultValue": "Keine eingewachsenen Haare oder Rasierpickel mehr",
+      "description": "Second feature description"
+    },
+    {
+      "name": "feature_3_text",
+      "label": "Feature 3 Text",
+      "type": "text",
+      "defaultValue": "Deutsches Design und einfach zu bedienen",
+      "description": "Third feature description"
+    },
+    {
+      "name": "feature_4_text",
+      "label": "Feature 4 Text",
+      "type": "text",
+      "defaultValue": "Sicher für Trocken- und Nassrasur",
+      "description": "Fourth feature description"
+    },
+    {
+      "name": "feature_5_text",
+      "label": "Feature 5 Text",
+      "type": "text",
+      "defaultValue": "Verschiedene Größen von Federn erhältlich",
+      "description": "Fifth feature description"
+    }
+  ],
+  "code": "",
+  "templateCode": ""
+}

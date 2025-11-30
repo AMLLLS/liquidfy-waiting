@@ -1,0 +1,91 @@
+{
+  "title": "Rating Stars with Reviews",
+  "description": "5-star rating display with customizable reviews count and link",
+  "longDescription": "A clean and professional star rating module perfect for displaying product reviews and ratings. Features five customizable star icons with dynamic text for rating score and review count. Includes a clickable link to reviews section. Fully responsive design with customizable colors, sizes, and text. Perfect for building trust and showcasing social proof on product pages.",
+  "thumbnail": "/modules/cover/LIQUIDFY-Rating-Stars-cover.png",
+  "images": [
+    "/modules/cover/LIQUIDFY-Rating-Stars-cover.png"
+  ],
+  "category": "Social Proof",
+  "tags": [
+    "Rating",
+    "Stars",
+    "Reviews",
+    "Social Proof",
+    "Trust",
+    "Product Rating"
+  ],
+  "featured": false,
+  "status": "published",
+  "slug": "rating-stars-reviews",
+  "createdAt": { "$date": "2025-11-15T00:00:00.000Z" },
+  "updatedAt": { "$date": "2025-11-15T00:00:00.000Z" },
+  "originalTitle": "Rating Stars with Reviews",
+  "downloads": 0,
+  "lastVariableUpdate": { "$date": "2025-11-15T00:00:00.000Z" },
+  "variableCount": 8,
+  "lastVariableGeneration": { "$date": "2025-11-15T00:00:00.000Z" },
+  "isModernTemplate": true,
+  "popular": false,
+  "variables": [
+    {
+      "name": "text_color",
+      "label": "Text Color",
+      "type": "color",
+      "defaultValue": "#000000",
+      "description": "Color of the rating text"
+    },
+    {
+      "name": "star_color",
+      "label": "Star Color",
+      "type": "color",
+      "defaultValue": "#FAA540",
+      "description": "Color of the star icons"
+    },
+    {
+      "name": "star_size",
+      "label": "Star Size",
+      "type": "number",
+      "defaultValue": "16",
+      "description": "Size of star icons in pixels"
+    },
+    {
+      "name": "font_size_bold",
+      "label": "Bold Text Size",
+      "type": "number",
+      "defaultValue": "13",
+      "description": "Font size for bold rating text in pixels"
+    },
+    {
+      "name": "font_size_text",
+      "label": "Regular Text Size",
+      "type": "number",
+      "defaultValue": "11",
+      "description": "Font size for regular text in pixels"
+    },
+    {
+      "name": "rating_text",
+      "label": "Rating Text",
+      "type": "text",
+      "defaultValue": "Hervorragend 4.9｜",
+      "description": "Rating score text displayed before reviews link"
+    },
+    {
+      "name": "reviews_link_text",
+      "label": "Reviews Link Text",
+      "type": "text",
+      "defaultValue": "+1509 Meinungen",
+      "description": "Text for the reviews count link"
+    },
+    {
+      "name": "reviews_link_url",
+      "label": "Reviews Link URL",
+      "type": "text",
+      "defaultValue": "#shopify-section-template--17471199608913__1741459078cc1979da",
+      "description": "URL or anchor link to reviews section"
+    }
+  ],
+  "code": "",
+  "content": "",
+  "templateCode": ""
+}

@@ -82,6 +82,7 @@
       margin: 0 0 12px 0;
       color: #1E5A8E;
       letter-spacing: -0.5px;
+      line-height: 1.2;
     }
     
     .howto-subtitle {
@@ -137,7 +138,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      z-index: 10;
+      z-index: 2;
       box-shadow: 0 4px 12px rgba(59,130,199,0.4);
     }
     
@@ -145,10 +146,11 @@
       font-size: 22px;
       color: #fff;
       font-weight: bold;
+      line-height: 1;
     }
     
     .howto-image-wrapper {
-      height: 180px;
+      height: 180px !important;
       background: linear-gradient(180deg, #BDD9F2 0%, #A3C9E8 100%);
       position: relative;
       display: flex;
@@ -217,14 +219,6 @@
         padding: 40px 16px;
       }
       
-      .howto-title {
-        font-size: 26px;
-      }
-      
-      .howto-subtitle {
-        font-size: 16px;
-      }
-      
       .howto-steps {
         gap: 20px;
       }
@@ -233,25 +227,6 @@
         flex: 1 1 calc(50% - 10px);
         min-width: 200px;
         max-width: 240px;
-      }
-      
-      .howto-image-wrapper {
-        height: 150px;
-      }
-      
-      .howto-step-title {
-        font-size: 16px;
-      }
-      
-      .howto-badge {
-        width: 42px;
-        height: 42px;
-        top: 14px;
-        left: 14px;
-      }
-      
-      .howto-badge-number {
-        font-size: 20px;
       }
     }
     
@@ -265,23 +240,17 @@
         margin-bottom: 24px;
       }
       
-      .howto-title {
-        font-size: 22px;
-      }
-      
-      .howto-subtitle {
-        font-size: 14px;
-      }
-      
       .howto-steps-container {
         width: 100%;
         overflow-x: auto;
         overflow-y: visible;
         -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
       }
       
       .howto-steps-container::-webkit-scrollbar {
-        display: none;
+        display: none; /* Chrome, Safari, Opera */
       }
       
       .howto-steps {
@@ -306,32 +275,15 @@
         margin-right: 16px;
       }
       
-      .howto-image-wrapper {
-        height: 140px;
-      }
-      
-      .howto-step-title {
-        font-size: 15px;
-      }
-      
       .howto-card-content {
         padding: 16px;
-      }
-      
-      .howto-badge {
-        width: 36px;
-        height: 36px;
-        top: 12px;
-        left: 12px;
-      }
-      
-      .howto-badge-number {
-        font-size: 18px;
       }
       
       .howto-separator {
         padding: 0 16px;
       }
     }
+    
+    /* AUCUNE font-size responsive - les tailles restent fixes sur tous les écrans */
   </style>
 </div>

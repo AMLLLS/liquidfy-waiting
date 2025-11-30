@@ -1,4 +1,4 @@
-<!-- TEMPLATE CODE : How to Use avec variables dynamiques -->
+<!-- TEMPLATE CODE : How to Use -->
 <div class="howto-module">
   <div class="howto-header">
     <h2 class="howto-title">${main_title}</h2>
@@ -66,7 +66,7 @@
     
     .howto-module {
       width: 100%;
-      max-width: 1200px;
+      max-width: ${module_max_width}px;
       margin: 0 auto;
       text-align: center;
       padding: 48px 20px;
@@ -77,16 +77,17 @@
     }
     
     .howto-title {
-      font-size: 32px;
+      font-size: ${title_font_size}px;
       font-weight: bold;
       margin: 0 0 12px 0;
-      color: ${primary_color};
+      color: ${title_color};
       letter-spacing: -0.5px;
+      line-height: 1.2;
     }
     
     .howto-subtitle {
-      font-size: 18px;
-      color: #4A4A4A;
+      font-size: ${subtitle_font_size}px;
+      color: ${subtitle_color};
       line-height: 1.5;
       margin: 0;
     }
@@ -110,9 +111,9 @@
       flex: 1 1 calc(33.333% - 16px);
       min-width: 240px;
       max-width: 280px;
-      background: #fff;
-      border-radius: 16px;
-      border: 2px dashed ${border_color};
+      background: ${card_bg_color};
+      border-radius: ${card_border_radius}px;
+      border: ${card_border_width}px dashed ${card_border_color};
       overflow: hidden;
       position: relative;
       box-shadow: 0 4px 16px rgba(30,90,142,0.12);
@@ -128,12 +129,12 @@
     
     .howto-badge {
       position: absolute;
-      top: 16px;
-      left: 16px;
-      width: 48px;
-      height: 48px;
+      top: ${badge_top_position}px;
+      left: ${badge_left_position}px;
+      width: ${badge_size}px;
+      height: ${badge_size}px;
       border-radius: 50%;
-      background: ${badge_color};
+      background: ${badge_bg_color};
       display: flex;
       align-items: center;
       justify-content: center;
@@ -142,14 +143,15 @@
     }
     
     .howto-badge-number {
-      font-size: 22px;
-      color: #fff;
+      font-size: ${badge_number_font_size}px;
+      color: ${badge_number_color};
       font-weight: bold;
+      line-height: 1;
     }
     
     .howto-image-wrapper {
-      height: 180px;
-      background: linear-gradient(180deg, ${gradient_start} 0%, ${gradient_end} 100%);
+      height: ${image_height}px !important;
+      background: linear-gradient(180deg, #BDD9F2 0%, #A3C9E8 100%);
       position: relative;
       display: flex;
       align-items: center;
@@ -165,16 +167,16 @@
     
     .howto-card-content {
       padding: 20px;
-      background: #fff;
+      background: ${card_content_bg};
       flex-grow: 1;
       display: flex;
       flex-direction: column;
     }
     
     .howto-step-title {
-      font-size: 18px;
+      font-size: ${step_title_font_size}px;
       font-weight: 600;
-      color: #334155;
+      color: ${step_title_color};
       margin: 0 0 12px 0;
       line-height: 1.4;
       text-align: center;
@@ -184,8 +186,8 @@
     }
     
     .howto-description {
-      font-size: 14px;
-      color: #6B7280;
+      font-size: ${description_font_size}px;
+      color: ${description_color};
       line-height: 1.6;
       text-align: center;
       margin: 0;
@@ -200,29 +202,21 @@
     }
     
     .howto-sep-line {
-      width: 16px;
-      height: 4px;
+      width: ${separator_line_width}px;
+      height: ${separator_line_height}px;
       border-radius: 9999px;
-      background: #94C3FF;
+      background: ${separator_color};
     }
     
     .howto-sep-dot {
-      font-size: 18px;
-      color: #94C3FF;
+      font-size: ${separator_dot_size}px;
+      color: ${separator_color};
       line-height: 1;
     }
     
     @media (max-width: 768px) {
       .howto-module {
         padding: 40px 16px;
-      }
-      
-      .howto-title {
-        font-size: 26px;
-      }
-      
-      .howto-subtitle {
-        font-size: 16px;
       }
       
       .howto-steps {
@@ -233,25 +227,6 @@
         flex: 1 1 calc(50% - 10px);
         min-width: 200px;
         max-width: 240px;
-      }
-      
-      .howto-image-wrapper {
-        height: 150px;
-      }
-      
-      .howto-step-title {
-        font-size: 16px;
-      }
-      
-      .howto-badge {
-        width: 42px;
-        height: 42px;
-        top: 14px;
-        left: 14px;
-      }
-      
-      .howto-badge-number {
-        font-size: 20px;
       }
     }
     
@@ -265,19 +240,13 @@
         margin-bottom: 24px;
       }
       
-      .howto-title {
-        font-size: 22px;
-      }
-      
-      .howto-subtitle {
-        font-size: 14px;
-      }
-      
       .howto-steps-container {
         width: 100%;
         overflow-x: auto;
         overflow-y: visible;
         -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
       }
       
       .howto-steps-container::-webkit-scrollbar {
@@ -306,33 +275,15 @@
         margin-right: 16px;
       }
       
-      .howto-image-wrapper {
-        height: 140px;
-      }
-      
-      .howto-step-title {
-        font-size: 15px;
-      }
-      
       .howto-card-content {
         padding: 16px;
-      }
-      
-      .howto-badge {
-        width: 36px;
-        height: 36px;
-        top: 12px;
-        left: 12px;
-      }
-      
-      .howto-badge-number {
-        font-size: 18px;
       }
       
       .howto-separator {
         padding: 0 16px;
       }
     }
+    
+    /* AUCUNE font-size responsive - les tailles restent fixes sur tous les écrans */
   </style>
 </div>
-

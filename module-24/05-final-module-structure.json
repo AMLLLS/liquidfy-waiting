@@ -1,0 +1,105 @@
+{
+  "title": "Stock Indicator with Delivery Time",
+  "description": "Animated low stock indicator with blinking dot and delivery time",
+  "longDescription": "A dynamic stock indicator badge with an animated blinking dot to create urgency. Perfect for displaying low stock alerts and delivery time information. Features a smooth pulsing animation on the indicator dot to grab attention. Fully customizable colors, sizes, and text. Responsive design with customizable border, padding, and font sizes. Ideal for creating urgency and improving conversion rates on product pages.",
+  "thumbnail": "/modules/cover/LIQUIDFY-Stock-Indicator-cover.png",
+  "images": [
+    "/modules/cover/LIQUIDFY-Stock-Indicator-cover.png"
+  ],
+  "category": "Shipping",
+  "tags": [
+    "Stock",
+    "Inventory",
+    "Urgency",
+    "Delivery",
+    "Shipping",
+    "Scarcity",
+    "Animated"
+  ],
+  "featured": false,
+  "status": "published",
+  "slug": "stock-indicator-delivery",
+  "createdAt": { "$date": "2025-11-15T00:00:00.000Z" },
+  "updatedAt": { "$date": "2025-11-15T00:00:00.000Z" },
+  "originalTitle": "Stock Indicator with Delivery Time",
+  "downloads": 0,
+  "lastVariableUpdate": { "$date": "2025-11-15T00:00:00.000Z" },
+  "variableCount": 10,
+  "lastVariableGeneration": { "$date": "2025-11-15T00:00:00.000Z" },
+  "isModernTemplate": true,
+  "popular": false,
+  "variables": [
+    {
+      "name": "background_color",
+      "label": "Background Color",
+      "type": "color",
+      "defaultValue": "#F4F4F4",
+      "description": "Background color of the indicator badge"
+    },
+    {
+      "name": "border_color",
+      "label": "Border Color",
+      "type": "color",
+      "defaultValue": "#eaeaea",
+      "description": "Border color of the indicator badge"
+    },
+    {
+      "name": "dot_color",
+      "label": "Dot Color",
+      "type": "color",
+      "defaultValue": "#ff8e32",
+      "description": "Color of the animated blinking dot"
+    },
+    {
+      "name": "border_radius",
+      "label": "Border Radius",
+      "type": "number",
+      "defaultValue": "25",
+      "description": "Border radius in pixels for rounded corners"
+    },
+    {
+      "name": "padding_vertical",
+      "label": "Vertical Padding",
+      "type": "number",
+      "defaultValue": "5",
+      "description": "Top and bottom padding in pixels"
+    },
+    {
+      "name": "padding_horizontal",
+      "label": "Horizontal Padding",
+      "type": "number",
+      "defaultValue": "15",
+      "description": "Left and right padding in pixels"
+    },
+    {
+      "name": "font_size",
+      "label": "Font Size",
+      "type": "number",
+      "defaultValue": "11",
+      "description": "Font size of the text in pixels"
+    },
+    {
+      "name": "dot_size",
+      "label": "Dot Size",
+      "type": "number",
+      "defaultValue": "1.1",
+      "description": "Size of the blinking dot in rem units"
+    },
+    {
+      "name": "stock_text",
+      "label": "Stock Text",
+      "type": "text",
+      "defaultValue": "Niedriger Lagerbestand. Versandfertig in : ",
+      "description": "Low stock message text"
+    },
+    {
+      "name": "delivery_time",
+      "label": "Delivery Time",
+      "type": "text",
+      "defaultValue": "24h/48h",
+      "description": "Estimated delivery time (displayed in bold)"
+    }
+  ],
+  "code": "",
+  "templateCode": ""
+}

@@ -90,9 +90,9 @@ test@example.com`);
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
       <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8">
         <div className="text-center mb-8">
-          <h1 className="text-2xl font-bold text-gray-900 mb-2">📧 Dashboard Update Announcement</h1>
+          <h1 className="text-2xl font-bold text-gray-900 mb-2">🔥 Black Friday - Final Days</h1>
           <p className="text-gray-600">
-            Send the new dashboard update email to selected subscribers
+            Send the Black Friday email (80% off) to subscribers
           </p>
         </div>
 
@@ -100,7 +100,7 @@ test@example.com`);
           <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
             <h3 className="font-medium text-yellow-900 mb-2">⚠️ Warning</h3>
             <ul className="text-sm text-yellow-800 space-y-1">
-              <li>• This will send the dashboard update email to ALL listed addresses</li>
+              <li>• This will send the Black Friday email to ALL listed addresses</li>
               <li>• Irreversible action</li>
               <li>• Double-check the template and recipient list before sending</li>
               <li>• Make sure your list is correct</li>
@@ -133,9 +133,9 @@ test@example.com`);
           <button
             onClick={handleSendMassEmail}
             disabled={isLoading || emailList.trim().length === 0}
-            className="w-full bg-green-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-green-700 focus:ring-2 focus:ring-green-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full bg-gradient-to-r from-gray-900 to-gray-800 text-white py-3 px-4 rounded-lg font-medium hover:from-gray-800 hover:to-gray-700 focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {isLoading ? 'Envoi en cours...' : '📤 Envoyer l\'annonce dashboard update'}
+            {isLoading ? 'Sending...' : '🔥 Send Black Friday Email'}
           </button>
         </div>
 
@@ -143,11 +143,11 @@ test@example.com`);
         {showConfirmation && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
             <div className="bg-white rounded-lg p-6 max-w-sm w-full">
-              <h3 className="text-lg font-semibold text-green-900 mb-4">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">
                 ⚠️ Final Confirmation
               </h3>
               <p className="text-gray-600 mb-6">
-                Are you ABSOLUTELY sure you want to send the <b>dashboard update email</b> to <strong>{emailList.split('\n').filter(email => email.trim().length > 0).length} subscribers</strong>?
+                Are you ABSOLUTELY sure you want to send the <b>Black Friday email</b> to <strong>{emailList.split('\n').filter(email => email.trim().length > 0).length} subscribers</strong>?
               </p>
               <p className="text-sm text-gray-500 mb-6">
                 This action cannot be undone.
@@ -155,7 +155,7 @@ test@example.com`);
               <div className="flex space-x-3">
                 <button
                   onClick={confirmSend}
-                  className="flex-1 bg-green-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-green-700"
+                  className="flex-1 bg-gray-900 text-white py-2 px-4 rounded-lg font-medium hover:bg-gray-800"
                 >
                   Yes, send
                 </button>

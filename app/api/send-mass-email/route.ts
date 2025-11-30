@@ -9,7 +9,7 @@ export async function POST(request: NextRequest) {
     // Read the email template
     const fs = require('fs');
     const path = require('path');
-    const templatePath = path.join(process.cwd(), 'email-template.html');
+    const templatePath = path.join(process.cwd(), 'email-templates', 'black-friday-final-days-v2.html');
     
     if (!fs.existsSync(templatePath)) {
       return NextResponse.json(
@@ -67,9 +67,9 @@ export async function POST(request: NextRequest) {
           const response = await resend.emails.send({
             from: 'Liquidfy Team <hello@liquidfy.app>',
             to: [email],
-            subject: 'Your Dashboard Just Got Better - Liquidfy Update',
+            subject: 'Black Friday - Final Days to Save 80%',
             html: emailHtml,
-            text: 'Hi there! We have redesigned your Liquidfy workspace to help you work faster and more efficiently. Discover the new dashboard with cleaner design, faster performance, smart navigation, and dark mode. Explore the new dashboard: https://liquidfy.app/dashboard'
+            text: 'Black Friday ends soon! Only a few days left to get lifetime access to Liquidfy at $49 instead of $249 (save $200). This is your last chance. Claim this offer: https://liquidfy.app/'
           });
 
           if (response?.data?.id) {
@@ -126,7 +126,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({
       success: true,
-      message: `Early Bird reminder emails sent: ${successCount} successful, ${errorCount} errors`,
+      message: `Black Friday emails sent: ${successCount} successful, ${errorCount} errors`,
       results,
       errors,
       totalSent: successCount,

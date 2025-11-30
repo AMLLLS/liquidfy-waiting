@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Price Badges - Clean Code</title>
-</head>
-<body>
-
 <!-- MODULE: Dynamic Price Badges -->
 <div class="dynamic-price-module">
     <div class="product-price-badges">
@@ -67,7 +58,7 @@ if (typeof initDynamicPriceBadges === 'function') {
 }
 
 .product-discount {
-    background-color: #c73225;
+    background-color: ${badge_color};
     color: #fff;
     font-weight: 600;
     padding: 4px 8px;
@@ -91,7 +82,7 @@ if (typeof initDynamicPriceBadges === 'function') {
 
 /* Cart discount badge */
 .product-cart-badge {
-    background-color: #c73225;
+    background-color: ${badge_color};
     color: #fff;
     font-weight: 600;
     padding: 6px 10px;
@@ -140,17 +131,17 @@ if (typeof initDynamicPriceBadges === 'function') {
 function initDynamicPriceBadges() {
     const config = {
         // Cart discount settings
-        cartDiscountPercent: 10,
-        cartDiscountMessage: 'Extra',
-        cartDiscountSuffix: 'Off in Cart',
-        showCartBadge: true,
+        cartDiscountPercent: ${cart_discount_percent},
+        cartDiscountMessage: '${cart_discount_message}',
+        cartDiscountSuffix: '${cart_discount_suffix}',
+        showCartBadge: ${show_cart_badge},
         
         // Display settings
-        currencySymbol: '$',
+        currencySymbol: '${currency_symbol}',
         
         // Fallback prices (when NOT on Shopify product page)
-        fallbackCurrentPrice: 24.00,
-        fallbackComparePrice: 45.00,
+        fallbackCurrentPrice: ${fallback_current_price},
+        fallbackComparePrice: ${fallback_compare_price},
         
         // Element IDs
         discountBadgeId: 'discount-badge',
@@ -171,7 +162,7 @@ function initDynamicPriceBadges() {
 
     // Function to format price
     function formatPrice(price, currency = config.currencySymbol) {
-        return `${currency}${price.toFixed(2)}`;
+        return currency + price.toFixed(2);
     }
 
     // Calculate discount percentage
@@ -244,8 +235,8 @@ function initDynamicPriceBadges() {
     } else {
         // FALLBACK: Use demo prices when NO VALID price found
         // This ensures the module is always visible for preview/demo
-        currentPrice = config.fallbackCurrentPrice || 24.00;
-        compareAtPrice = config.fallbackComparePrice || 45.00;
+        currentPrice = config.fallbackCurrentPrice || ${fallback_current_price};
+        compareAtPrice = config.fallbackComparePrice || ${fallback_compare_price};
     }
 
     // Calculate and update discount badge
@@ -254,7 +245,7 @@ function initDynamicPriceBadges() {
     // Update discount badge and compare price (only if compare price exists and is higher than current)
     if (compareAtPrice && compareAtPrice > currentPrice && discountPercent > 0) {
         // FORCE display with inline styles + !important
-        discountBadge.textContent = `-${discountPercent}%`;
+        discountBadge.textContent = '-' + discountPercent + '%';
         discountBadge.style.setProperty('display', 'inline-block', 'important');
         discountBadge.style.setProperty('visibility', 'visible', 'important');
         
@@ -272,7 +263,7 @@ function initDynamicPriceBadges() {
     // Update cart badge
     if (config.showCartBadge && config.cartDiscountPercent > 0) {
         const cartFinalPrice = calculateCartPrice(currentPrice, config.cartDiscountPercent);
-        const cartBadgeText = `${config.cartDiscountMessage} ${config.cartDiscountPercent}% ${config.cartDiscountSuffix} ${formatPrice(cartFinalPrice, config.currencySymbol)}`;
+        const cartBadgeText = config.cartDiscountMessage + ' ' + config.cartDiscountPercent + '% ' + config.cartDiscountSuffix + ' ' + formatPrice(cartFinalPrice, config.currencySymbol);
         cartBadgeEl.textContent = cartBadgeText;
     } else {
         cartBadgeEl.classList.add('hidden');
@@ -339,7 +330,7 @@ setTimeout(function() {
 function updatePricesFromVariant(variant) {
     // Update Liquid data if available
     if (window.liquidProductData && window.liquidProductData.variants) {
-        const liquidVariant = window.liquidProductData.variants.find(v => v.id === variant.id);
+        const liquidVariant = window.liquidProductData.variants.find(function(v) { return v.id === variant.id; });
         if (liquidVariant) {
             // Use Liquid data (has compare_at_price!)
             variant = liquidVariant;
@@ -409,7 +400,7 @@ document.body.addEventListener('change', function(event) {
                     if (window.ShopifyAnalytics && window.ShopifyAnalytics.meta && window.ShopifyAnalytics.meta.product) {
                         const product = window.ShopifyAnalytics.meta.product;
                         if (product.variants) {
-                            selectedVariant = product.variants.find(v => v.id === variantId);
+                            selectedVariant = product.variants.find(function(v) { return v.id === variantId; });
                         }
                     }
                 }
@@ -423,6 +414,3 @@ document.body.addEventListener('change', function(event) {
     }
 });
 </script>
-
-</body>
-</html>

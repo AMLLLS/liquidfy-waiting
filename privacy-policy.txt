@@ -1,0 +1,293 @@
+PRIVACY POLICY
+
+Last Updated: November 10, 2025
+
+This Privacy Policy describes how Liquidfy ("we," "us," or "our") collects, uses, and shares your personal information when you use our service, available at https://liquidfy.app (the "Service").
+
+By using the Service, you agree to the collection and use of information in accordance with this Privacy Policy.
+
+1. INFORMATION WE COLLECT
+
+1.1 Information You Provide to Us
+
+When you register for and use our Service, we may collect the following information:
+
+- Account Information: Email address, name, and password
+- Shopify Store Information: Store domain, store name, and store access tokens (required for integration)
+- Payment Information: Billing details, subscription plan, and payment history (processed securely through Stripe)
+- User-Generated Content: Custom modules, sections, code snippets, and configurations you create within the Service
+- Communication Data: Messages you send to us through contact channels, feedback forms, or email
+
+1.2 Information We Collect Automatically
+
+When you access or use our Service, we automatically collect:
+
+- Usage Information: Pages visited, features used, time spent on the Service, and interaction data
+- Device Information: Browser type, operating system, IP address, device identifiers, and referring URLs
+- Cookies and Similar Technologies: We use cookies, web beacons, and similar tracking technologies to enhance your experience and analyze usage patterns
+- Log Data: Server logs including access times, error reports, and performance metrics
+
+1.3 Information from Third Parties
+
+- Shopify Integration: When you connect your Shopify store, we receive store data, product information, theme details, and metafield data as necessary to provide our Service
+- Payment Processor: Stripe provides us with transaction confirmations and subscription status updates
+- Analytics Providers: We use third-party analytics services to understand how users interact with our Service
+
+2. HOW WE USE YOUR INFORMATION
+
+We use the collected information for the following purposes:
+
+2.1 To Provide and Maintain the Service
+- Create and manage your account
+- Process your subscription and payments
+- Sync modules and sections with your Shopify store
+- Store and manage your custom code and configurations
+- Provide customer contact and respond to your inquiries
+
+2.2 To Improve and Optimize the Service
+- Analyze usage patterns and user behavior
+- Develop new features and functionality
+- Identify and fix technical issues
+- Conduct research and testing to improve user experience
+
+2.3 To Communicate with You
+- Send transactional emails (account confirmations, password resets, billing notifications)
+- Provide updates about new features, modules, and service improvements
+- Send promotional communications (you can opt-out at any time)
+- Respond to your questions and contact requests
+
+2.4 To Ensure Security and Prevent Fraud
+- Monitor for suspicious activity and unauthorized access
+- Protect against fraud, abuse, and security threats
+- Enforce our Terms of Service and prevent violations
+- Comply with legal obligations and resolve disputes
+
+2.5 For Legal and Compliance Purposes
+- Comply with applicable laws, regulations, and legal processes
+- Protect our rights, privacy, safety, or property
+- Respond to law enforcement requests and court orders
+
+3. HOW WE SHARE YOUR INFORMATION
+
+We do not sell your personal information to third parties. We may share your information in the following circumstances:
+
+3.1 Service Providers
+We share information with trusted third-party service providers who assist us in operating our Service:
+- Shopify: For store integration and theme extension deployment
+- Stripe: For payment processing and subscription management
+- Vercel: For hosting and infrastructure services
+- MongoDB Atlas: For secure database storage
+- Supabase: For authentication and database services (Shopify app)
+- Analytics Providers: For usage analytics and performance monitoring
+
+These providers are contractually obligated to protect your information and use it only for the purposes we specify.
+
+3.2 Business Transfers
+If we are involved in a merger, acquisition, asset sale, or bankruptcy, your information may be transferred as part of that transaction. We will notify you before your information becomes subject to a different privacy policy.
+
+3.3 Legal Requirements
+We may disclose your information if required to do so by law or in response to:
+- Valid legal processes (subpoenas, court orders, warrants)
+- Requests from government authorities or law enforcement
+- Situations involving potential threats to safety or security
+- Protection of our legal rights and enforcement of our policies
+
+3.4 With Your Consent
+We may share your information with third parties when you explicitly consent to such sharing.
+
+4. DATA STORAGE AND SECURITY
+
+4.1 Data Storage
+- Your account data is stored on secure MongoDB Atlas servers
+- Shopify app data is stored on Supabase (PostgreSQL)
+- All data is encrypted at rest and in transit using industry-standard protocols
+- Backups are performed regularly to prevent data loss
+
+4.2 Security Measures
+We implement appropriate technical and organizational measures to protect your information:
+- Secure HTTPS connections for all data transmission
+- Encryption of sensitive data (passwords, access tokens)
+- Regular security audits and vulnerability assessments
+- Access controls and authentication mechanisms
+- Monitoring for unauthorized access and suspicious activity
+
+4.3 Data Retention
+We retain your information for as long as necessary to provide the Service and fulfill the purposes outlined in this Privacy Policy:
+- Account data: Retained until you delete your account
+- Usage logs: Retained for up to 12 months for analytics and troubleshooting
+- Payment records: Retained as required by law and accounting standards (typically 7 years)
+- Deleted account data: Permanently deleted within 30 days of account deletion, except where retention is required by law
+
+5. YOUR RIGHTS AND CHOICES
+
+5.1 Access and Update Your Information
+You can access and update your account information at any time through your account settings.
+
+5.2 Delete Your Account
+You can request deletion of your account by contacting us at contact@liquidfy.app. Upon deletion:
+- Your account and associated data will be permanently removed within 30 days
+- Active subscriptions will be canceled
+- Modules and sections synced to your Shopify store will remain but will no longer be updated
+
+5.3 Opt-Out of Marketing Communications
+You can unsubscribe from promotional emails by:
+- Clicking the "unsubscribe" link in any marketing email
+- Adjusting your email preferences in your account settings
+- Contacting us directly at contact@liquidfy.app
+
+Note: You cannot opt-out of transactional emails related to your account and service usage.
+
+5.4 Cookie Preferences
+You can control cookies through your browser settings:
+- Most browsers allow you to refuse cookies or delete existing cookies
+- Disabling cookies may affect some features of the Service
+- You can opt-out of third-party analytics cookies through your browser or privacy tools
+
+5.5 Data Portability
+You can request a copy of your data in a portable format by contacting us at contact@liquidfy.app. We will provide your data within 30 days of your request.
+
+5.6 Rights Under GDPR (European Users)
+If you are located in the European Economic Area (EEA), you have additional rights:
+- Right to access your personal data
+- Right to rectification of inaccurate data
+- Right to erasure ("right to be forgotten")
+- Right to restrict processing
+- Right to data portability
+- Right to object to processing
+- Right to withdraw consent at any time
+- Right to lodge a complaint with a supervisory authority
+
+5.7 Rights Under CCPA (California Users)
+If you are a California resident, you have the right to:
+- Know what personal information is collected, used, shared, or sold
+- Delete your personal information (subject to certain exceptions)
+- Opt-out of the sale of your personal information (we do not sell personal information)
+- Non-discrimination for exercising your privacy rights
+
+To exercise these rights, contact us at contact@liquidfy.app.
+
+6. INTERNATIONAL DATA TRANSFERS
+
+Our Service is operated from the United States. If you are located outside the United States, your information will be transferred to, stored, and processed in the United States.
+
+By using the Service, you consent to the transfer of your information to the United States and other countries where our service providers operate.
+
+We ensure appropriate safeguards are in place for international transfers, including:
+- Standard Contractual Clauses approved by the European Commission
+- Adequacy decisions by relevant data protection authorities
+- Other legally recognized transfer mechanisms
+
+7. CHILDREN'S PRIVACY
+
+Our Service is not intended for children under the age of 13 (or the applicable age of consent in your jurisdiction). We do not knowingly collect personal information from children.
+
+If you believe we have collected information from a child, please contact us immediately at contact@liquidfy.app, and we will take steps to delete such information.
+
+8. THIRD-PARTY LINKS AND INTEGRATIONS
+
+8.1 Third-Party Links
+Our Service may contain links to third-party websites, services, or resources. We are not responsible for the privacy practices of these third parties. We encourage you to review their privacy policies before providing any information.
+
+8.2 Shopify Integration
+When you connect your Shopify store, you grant us access to certain store data as specified during the authorization process. This access is governed by both this Privacy Policy and Shopify's Terms of Service and Privacy Policy.
+
+We only access the minimum data necessary to provide our Service, including:
+- Store information (name, domain, email)
+- Theme files and metafields
+- Product data (when using product data injection features)
+
+You can revoke our access to your Shopify store at any time through your Shopify admin panel.
+
+8.3 Analytics and Tracking
+We use third-party analytics services (such as Google Analytics, Vercel Analytics) to understand how users interact with our Service. These services may use cookies and similar technologies to collect usage data.
+
+You can opt-out of analytics tracking through browser extensions, privacy tools, or your browser's Do Not Track settings.
+
+9. UPDATES TO THIS PRIVACY POLICY
+
+We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or other factors.
+
+When we make changes:
+- We will update the "Last Updated" date at the top of this policy
+- We will notify you of material changes via email or through a prominent notice on our Service
+- Your continued use of the Service after changes constitutes acceptance of the updated policy
+
+We encourage you to review this Privacy Policy periodically to stay informed about how we protect your information.
+
+10. CONTACT US
+
+If you have any questions, concerns, or requests regarding this Privacy Policy or our privacy practices, please contact us:
+
+Email: contact@liquidfy.app
+Website: https://liquidfy.app
+Response Time: We aim to respond to all inquiries within 48 hours
+
+For GDPR-related requests, please include "GDPR Request" in your email subject line.
+For CCPA-related requests, please include "CCPA Request" in your email subject line.
+
+11. SPECIFIC PROVISIONS FOR SHOPIFY APP USERS
+
+11.1 Data Access and Usage
+When you install our Shopify app, we access and use the following data:
+- Store metafields (read and write access for module/section storage)
+- Theme files (read access to understand integration points)
+- Store information (basic details for account linking)
+- Product data (optional, only when product data injection is enabled)
+
+11.2 Data Synchronization
+We automatically sync your modules and sections with your Shopify store:
+- Synchronization occurs in real-time when you add, update, or remove content
+- Synced data is stored in your Shopify store's metafields
+- You maintain full control over this data through your Shopify admin
+
+11.3 Theme Extensions
+Our theme app extensions (blocks) render your modules and sections on your storefront:
+- Blocks access metafield data to display your custom code
+- Product data injection (when enabled) is processed client-side in the browser
+- No customer data from your store visitors is collected or transmitted to our servers
+
+11.4 Uninstalling the App
+If you uninstall our Shopify app:
+- Access to your store data will be immediately revoked
+- Your Liquidfy account remains active (unless you separately delete it)
+- Metafields created by our app will remain in your Shopify store
+- You can manually remove these metafields through Shopify admin if desired
+
+12. DATA PROCESSING AGREEMENT (DPA)
+
+For enterprise customers or users subject to GDPR, we can provide a Data Processing Agreement (DPA) upon request. The DPA outlines:
+- Our role as a data processor
+- Your role as a data controller
+- Security measures and safeguards
+- Sub-processor details
+- Data breach notification procedures
+
+To request a DPA, contact us at contact@liquidfy.app with "DPA Request" in the subject line.
+
+13. SECURITY INCIDENT RESPONSE
+
+In the event of a data breach or security incident:
+- We will investigate and assess the scope of the incident within 24 hours
+- Affected users will be notified within 72 hours (as required by GDPR)
+- We will provide details about the incident, affected data, and remediation steps
+- We will work with relevant authorities and take corrective measures
+
+If you suspect a security issue, please report it immediately to security@liquidfy.app.
+
+14. AUTOMATED DECISION-MAKING
+
+We do not use automated decision-making or profiling that produces legal effects or similarly significant effects on you.
+
+Any automated processing (such as usage analytics or performance monitoring) is solely for improving the Service and does not impact your rights or access to features.
+
+15. YOUR CONSENT
+
+By using our Service, you acknowledge that you have read and understood this Privacy Policy and consent to the collection, use, and sharing of your information as described herein.
+
+If you do not agree with this Privacy Policy, please do not use our Service.
+
+---
+
+This Privacy Policy is effective as of November 10, 2025, and applies to all users of the Liquidfy service.
+
+© 2025 Liquidfy. All rights reserved.

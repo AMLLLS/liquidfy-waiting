@@ -1,0 +1,210 @@
+{
+  "title": "Premium Accessory Package",
+  "description": "Elegant gift-with-purchase module showcasing bundled accessories with pricing",
+  "longDescription": "A professional premium accessory package display module designed to showcase bundled products or gift-with-purchase offers. Features a clean card design with product images, names, and crossed-out prices to highlight the value. Perfect for upselling premium bundles, showing included accessories, or promoting special package deals. Fully customizable colors, borders, and responsive design ensures perfect display on all devices.",
+  "thumbnail": "/modules/cover/LIQUIDFY-Premium-Accessory-Package-cover.png",
+  "images": [
+    "/modules/cover/LIQUIDFY-Premium-Accessory-Package-cover.png"
+  ],
+  "category": "Offers",
+  "tags": [
+    "Bundle",
+    "Package",
+    "Accessories",
+    "Gift",
+    "Upsell",
+    "Product List",
+    "Value"
+  ],
+  "featured": false,
+  "status": "published",
+  "slug": "premium-accessory-package",
+  "createdAt": { "$date": "2025-11-15T00:00:00.000Z" },
+  "updatedAt": { "$date": "2025-11-15T00:00:00.000Z" },
+  "originalTitle": "Premium Accessory Package",
+  "downloads": 0,
+  "lastVariableUpdate": { "$date": "2025-11-15T00:00:00.000Z" },
+  "variableCount": 24,
+  "lastVariableGeneration": { "$date": "2025-11-15T00:00:00.000Z" },
+  "isModernTemplate": true,
+  "popular": false,
+  "variables": [
+    {
+      "name": "border_color",
+      "label": "Border Color",
+      "type": "color",
+      "defaultValue": "#FF4613",
+      "description": "Main border color of the package container"
+    },
+    {
+      "name": "background_color",
+      "label": "Background Color",
+      "type": "color",
+      "defaultValue": "#FEF4F2",
+      "description": "Background color of the package container"
+    },
+    {
+      "name": "text_color",
+      "label": "Text Color",
+      "type": "color",
+      "defaultValue": "#1A1A1A",
+      "description": "Main text color for title and item names"
+    },
+    {
+      "name": "old_price_color",
+      "label": "Old Price Color",
+      "type": "color",
+      "defaultValue": "#1A1A1A",
+      "description": "Color of the crossed-out old price"
+    },
+    {
+      "name": "free_text_color",
+      "label": "Free Text Color",
+      "type": "color",
+      "defaultValue": "#4DB959",
+      "description": "Color of the 'INKLUSIVE' or free text"
+    },
+    {
+      "name": "item_price_color",
+      "label": "Item Price Color",
+      "type": "color",
+      "defaultValue": "#666",
+      "description": "Color of individual item prices"
+    },
+    {
+      "name": "border_width",
+      "label": "Border Width",
+      "type": "dimension",
+      "defaultValue": "1.5px",
+      "description": "Width of the main border"
+    },
+    {
+      "name": "border_radius",
+      "label": "Border Radius",
+      "type": "dimension",
+      "defaultValue": "8px",
+      "description": "Border radius of the main container"
+    },
+    {
+      "name": "item_border_radius",
+      "label": "Item Border Radius",
+      "type": "dimension",
+      "defaultValue": "8px",
+      "description": "Border radius of individual item cards"
+    },
+    {
+      "name": "padding",
+      "label": "Container Padding",
+      "type": "dimension",
+      "defaultValue": "24px",
+      "description": "Inner padding of the main container"
+    },
+    {
+      "name": "title",
+      "label": "Package Title",
+      "type": "text",
+      "defaultValue": "Premium-Zubehörpaket",
+      "description": "Main title of the package"
+    },
+    {
+      "name": "old_price",
+      "label": "Old Price",
+      "type": "text",
+      "defaultValue": "60€",
+      "description": "Original price (crossed out)"
+    },
+    {
+      "name": "free_text",
+      "label": "Free Text",
+      "type": "text",
+      "defaultValue": "INKLUSIVE",
+      "description": "Text indicating the package is included/free"
+    },
+    {
+      "name": "item_1_image",
+      "label": "Item 1 Image URL",
+      "type": "text",
+      "defaultValue": "//www.myfreebird.com/cdn/shop/files/new-image-clip.png",
+      "description": "Image URL for first item"
+    },
+    {
+      "name": "item_1_name",
+      "label": "Item 1 Name",
+      "type": "text",
+      "defaultValue": "Präzisions-Clipper & Schutzvorrichtungen",
+      "description": "Name of the first item"
+    },
+    {
+      "name": "item_1_price",
+      "label": "Item 1 Price",
+      "type": "text",
+      "defaultValue": "20€",
+      "description": "Price of the first item"
+    },
+    {
+      "name": "item_2_image",
+      "label": "Item 2 Image URL",
+      "type": "text",
+      "defaultValue": "//www.myfreebird.com/cdn/shop/files/Nose_Trim_1_273f24e7-c87f-42f1-9351-7a0b9e7f6799.png",
+      "description": "Image URL for second item"
+    },
+    {
+      "name": "item_2_name",
+      "label": "Item 2 Name",
+      "type": "text",
+      "defaultValue": "Nasen- und<br> Ohrhaartrimmer",
+      "description": "Name of the second item"
+    },
+    {
+      "name": "item_2_price",
+      "label": "Item 2 Price",
+      "type": "text",
+      "defaultValue": "20€",
+      "description": "Price of the second item"
+    },
+    {
+      "name": "item_3_image",
+      "label": "Item 3 Image URL",
+      "type": "text",
+      "defaultValue": "//www.myfreebird.com/cdn/shop/files/Adaptor_Base_Exfoliation_Brush.png",
+      "description": "Image URL for third item"
+    },
+    {
+      "name": "item_3_name",
+      "label": "Item 3 Name",
+      "type": "text",
+      "defaultValue": "Peeling & Kopfhautbürste",
+      "description": "Name of the third item"
+    },
+    {
+      "name": "item_3_price",
+      "label": "Item 3 Price",
+      "type": "text",
+      "defaultValue": "12€",
+      "description": "Price of the third item"
+    },
+    {
+      "name": "item_4_image",
+      "label": "Item 4 Image URL",
+      "type": "text",
+      "defaultValue": "//www.myfreebird.com/cdn/shop/files/FlexSeries_Classic_Cleaning_Brush.png",
+      "description": "Image URL for fourth item"
+    },
+    {
+      "name": "item_4_name",
+      "label": "Item 4 Name",
+      "type": "text",
+      "defaultValue": "Mikro-Reinigungsbürste",
+      "description": "Name of the fourth item"
+    },
+    {
+      "name": "item_4_price",
+      "label": "Item 4 Price",
+      "type": "text",
+      "defaultValue": "8€",
+      "description": "Price of the fourth item"
+    }
+  ],
+  "code": "",
+  "templateCode": ""
+}

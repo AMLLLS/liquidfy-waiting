@@ -1,0 +1,69 @@
+<style>
+.gw{border:1.5px solid #FF4613;border-radius:8px;padding:24px;background:#FEF4F2;font-family:system-ui,-apple-system,sans-serif}
+.gw-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.gw-title{font-size:15px;font-weight:600;color:#1A1A1A;margin:0}
+.gw-price{display:flex;align-items:center;gap:8px}
+.gw-old{color:#1A1A1A;text-decoration:line-through;font-size:24px;font-weight:500}
+.gw-free{color:#4DB959;font-size:24px;font-weight:600;}
+.gw-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:5px}
+.gw-item{display:flex;align-items:center;gap:16px;background:#fff;border-radius:8px;padding:12px;padding-bottom: 10px;padding-top: 10px}
+.gw-img{width:48px;height:48px;flex-shrink:0}
+.gw-img img{width:100%;height:100%;object-fit:contain}
+.gw-content{display:flex;justify-content:space-between;align-items:center;flex:1}
+.gw-name{margin:0;font-size:16px;font-weight:500;color:#1A1A1A}
+.gw-cost{color:#666;font-size:16px;text-decoration: line-through;}
+@media(max-width:768px){
+    .gw{padding:16px}
+    .gw-head{margin-bottom:16px}
+    .gw-title,.gw-old,.gw-free{font-size:15px}
+    .gw-name,.gw-cost{font-size:14px}
+}
+</style>
+
+<div class="gw">
+    <div class="gw-head">
+        <h2 class="gw-title">Premium-Zubehörpaket</h2>
+        <div class="gw-price">
+            <span class="gw-old">60€</span>
+            <span class="gw-free">INKLUSIVE</span>
+        </div>
+    </div>
+    <ul class="gw-list">
+        <li class="gw-item">
+            <div class="gw-img">
+                <img src="//www.myfreebird.com/cdn/shop/files/new-image-clip.png" alt="Precision Clipper" loading="lazy">
+            </div>
+            <div class="gw-content">
+                <p class="gw-name">Präzisions-Clipper & Schutzvorrichtungen</p>
+                <span class="gw-cost">20€</span>
+            </div>
+        </li>
+        <li class="gw-item">
+            <div class="gw-img">
+                <img src="//www.myfreebird.com/cdn/shop/files/Nose_Trim_1_273f24e7-c87f-42f1-9351-7a0b9e7f6799.png" alt="Nose Trimmer" loading="lazy">
+            </div>
+            <div class="gw-content">
+                <p class="gw-name">Nasen- und<br> Ohrhaartrimmer</p>
+                <span class="gw-cost">20€</span>
+            </div>
+        </li>
+        <li class="gw-item">
+            <div class="gw-img">
+                <img src="//www.myfreebird.com/cdn/shop/files/Adaptor_Base_Exfoliation_Brush.png" alt="Exfoliation Brush" loading="lazy">
+            </div>
+            <div class="gw-content">
+                <p class="gw-name">Peeling & Kopfhautbürste</p>
+                <span class="gw-cost">12€</span>
+            </div>
+        </li>
+        <li class="gw-item">
+            <div class="gw-img">
+                <img src="//www.myfreebird.com/cdn/shop/files/FlexSeries_Classic_Cleaning_Brush.png" alt="Cleaning Brush" loading="lazy">
+            </div>
+            <div class="gw-content">
+                <p class="gw-name">Mikro-Reinigungsbürste</p>
+                <span class="gw-cost">8€</span>
+            </div>
+        </li>
+    </ul>
+</div>
